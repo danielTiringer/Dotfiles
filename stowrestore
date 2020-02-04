@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo 'Restoring all the regular config files.'
+sleep 4
+
+stow bash
+stow compton
+stow herbstluftwm
+stow polybar
+stow mutt
+stow vifm
+stow xresources
+stow zsh
+
+echo 'Restoration completed.'
