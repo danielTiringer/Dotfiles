@@ -202,7 +202,7 @@ hc detect_monitors
 
 # find the panel
 #~/.config/herbstluftwm/panel.sh
-# ~/.config/polybar/launch.sh
+~/.config/polybar/launch.sh
 
 # room for polybar on both monitors
 # hlwm padding is in the order of top, right, bottom, left, with the first number being the screen number
