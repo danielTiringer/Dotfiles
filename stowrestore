@@ -10,6 +10,7 @@ stow -v -R -t mutt
 stow -v -R -t nitrogen
 stow -v -R -t polybar
 stow -v -R -t ranger
+stow -v -R -t ssh
 stow -v -R -t vifm
 stow -v -R -t xresources
 stow -v -R -t zsh

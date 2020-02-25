@@ -66,8 +66,7 @@ sleep 5
 
 # Generate SSH key for Github
 mkdir ~/.ssh
-ssh-keygen -t rsa -b 4096 -C "tiringerdaniel@gmail.com" -f ~/.ssh/id_rsb_$(hostname) -q -N ""
-ssh-add ~/.ssh/id_rsa_$(hostname)
+ssh-keygen -t rsa -b 4096 -C "tiringerdaniel@gmail.com" -f ~/.ssh/id_rsa_$(hostname) -q -N ""
 sleep 5
 
 # Install Vim
