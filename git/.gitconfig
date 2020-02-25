@@ -1,0 +1,7 @@
+[user]
+	email = tiringerdaniel@gmail.com
+	name = Daniel Tiringer
+[core]
+	autocrlf = false
+	safecrlf = false
+

@@ -102,18 +102,17 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Alias added for the bare git repo that holds all the dotfiles.
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+# Aliases
+
 alias chrome='google-chrome'
+alias brave='brave-browser'
 alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
 alias afk='xtrlock'
-alias brave='brave-browser'
+alias mountdrives='sudo mount /dev/sdb1 /media/2TBDrive && sudo mount /dev/sdc1 /media/4TBDrive'
+
+# Monitoring tools
 alias elk-up='docker-compose -f ~/.config/docker-elk/docker-compose.yml up -d'
 alias elk-down='docker-compose -f ~/.config/docker-elk/docker-compose.yml down'
 alias nagios-create='docker run -d --name nagios4 \
@@ -130,3 +129,10 @@ export PATH=~/.local/bin:$PATH
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
+
+# Add Go to the PATH
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/Documents/Go-sandbox
+
+# added by travis gem
+[ -f /home/daniel/.travis/travis.sh ] && source /home/daniel/.travis/travis.sh

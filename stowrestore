@@ -3,13 +3,15 @@
 echo 'Restoring all the regular config files.'
 sleep 4
 
-stow bash
-stow compton
-stow herbstluftwm
-stow polybar
-stow mutt
-stow vifm
-stow xresources
-stow zsh
+stow -v -R -t bash
+stow -v -R -t compton
+stow -v -R -t herbstluftwm
+stow -v -R -t mutt
+stow -v -R -t nitrogen
+stow -v -R -t polybar
+stow -v -R -t ranger
+stow -v -R -t vifm
+stow -v -R -t xresources
+stow -v -R -t zsh
 
 echo 'Restoration completed.'
