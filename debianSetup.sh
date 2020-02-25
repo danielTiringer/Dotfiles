@@ -23,7 +23,7 @@ done
 # Create the basic file system
 cd ~
 mkdir Downloads Pictures Documents .config
-sudo mkdir /media/2TBDrive /media/4TBDrive MemCard
+sudo mkdir /media/2TBDrive /media/4TBDrive /media/MemCard
 cd ~
 
 # Update the system
@@ -284,16 +284,8 @@ sleep 5
 sudo gem install travis -v 1.8.10 --no-rdoc --no-ri
 sleep 5
 
-# Install VirtualBox
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian buster contrib"
-sudo apt update -qq
-sudo apt install -yy virtualbox-6.0
-sleep 5
-
 # Install Polybar
-sudo apt install -yy cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb libxcb-ewmh2
+sudo apt install -yy cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb libxcb-ewmh2 libjsoncpp-dev
 cd ~/Downloads
 git clone https://github.com/jaagr/polybar.git
 cd polybar
@@ -307,7 +299,7 @@ rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources
 rm -r ~/.config/compton ~/.config/polybar ~/.config/herbstluftwm ~/.config/mutt ~/.config/nitrogen ~/.config/ranger
 cd ~/Dotfiles
 ./stowrestore
-# sudo cp -r polybar/fonts/* polybar/fonts/termsyn /usr/share/fonts
+sudo cp -r ~/.config/polybar/fonts/* /usr/share/fonts
 sudo fc-cache -vf /usr/share/fonts
 vim +PluginInstall +qall
 # vim +GoInstallBinaries +qall

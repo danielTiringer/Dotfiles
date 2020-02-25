@@ -1,8 +1,5 @@
 URxvt.scrollBar:      false
-/* URxvt.font:           xft:mono:medium:size=10,xft:Menlo for Powerline:size=10 */
-URxvt.font: xft:Menlo for Powerline:size=10, \
-            xft:DejaVu Sans Mono for Powerline:size=10, \
-						xft:FontAwesome:size=6
+URxvt.font:           xft:mono:medium:size=10,xft:Menlo for Powerline:size=10,xft:DejaVu Sans Mono for Powerline:size=10,xft:FontAwesome:size=6
 
 Urxvt.letterspace:    -1
 URxvt.url-launcher:   /usr/bin/brave-browser
