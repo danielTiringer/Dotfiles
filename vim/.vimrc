@@ -47,6 +47,9 @@
 	" Plugin for Vue.JS
 		Plugin 'posva/vim-vue'
 
+	"	Plugin for React
+		Plugin 'maxmellon/vim-jsx-pretty'
+
 	" Plugin for Ruby and Rails
 	"	Plugin 'vim-ruby/vim-ruby'
 		Plugin 'tpope/vim-rails'
