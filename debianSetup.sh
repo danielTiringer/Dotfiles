@@ -146,11 +146,25 @@ wget https://www.wallpapermaiden.com/wallpaper/1432/download/1920x1080/linux-cli
 wget http://getwallpapers.com/wallpaper/full/0/5/b/633941.jpg -O ~/Pictures/sundown.jpg
 sleep 5
 
-# Install Google Chrome
+# Install Google Chrome and extensions
 cd ~/Downloads
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo gdebi -n google-chrome-stable_current_amd64.deb
 rm -f google-chrome-stable_current_amd64.deb
+
+install_chrome_extension () {
+  preferences_dir_path="/opt/google/chrome/extensions"
+  pref_file_path="$preferences_dir_path/$1.json"
+  upd_url="https://clients2.google.com/service/update2/crx"
+  sudo mkdir -p "$preferences_dir_path"
+	sudo printf '{\n "external_update_url": "%s"\n}\n' "$upd_url" > "$pref_file_path"
+  echo Added \""$pref_file_path"\" ["$2"]
+}
+install_chrome_extension "fmkadmapgofadopljbjfkapdkoienihi" "react dev tools"
+install_chrome_extension "lmhkpmbekcpmknklioeibfkpmmfibljd" "redux dev tools"
+install_chrome_extension "nhdogjmejiglipccpnnnanhbledajbpd" "vue dev tools"
+install_chrome_extension "aicmkgpgakddgnaphhhpliifpcfhicfo" "postman interceptor"
+
 cd ~
 sleep 5
 
