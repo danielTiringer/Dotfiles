@@ -160,10 +160,9 @@ install_chrome_extension () {
 	sudo printf '{\n "external_update_url": "%s"\n}\n' "$upd_url" > "$pref_file_path"
   echo Added \""$pref_file_path"\" ["$2"]
 }
-install_chrome_extension "fmkadmapgofadopljbjfkapdkoienihi" "react dev tools"
-install_chrome_extension "lmhkpmbekcpmknklioeibfkpmmfibljd" "redux dev tools"
-install_chrome_extension "nhdogjmejiglipccpnnnanhbledajbpd" "vue dev tools"
-install_chrome_extension "aicmkgpgakddgnaphhhpliifpcfhicfo" "postman interceptor"
+sudo install_chrome_extension "fmkadmapgofadopljbjfkapdkoienihi" "react dev tools"
+sudo install_chrome_extension "lmhkpmbekcpmknklioeibfkpmmfibljd" "redux dev tools"
+sudo install_chrome_extension "nhdogjmejiglipccpnnnanhbledajbpd" "vue dev tools"
 
 cd ~
 sleep 5
