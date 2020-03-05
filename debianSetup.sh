@@ -255,6 +255,9 @@ sleep 5
 mkdir ~/Documents/PHP-sandbox
 sudo apt update -qq
 sudo apt install -yy php libapache2-mod-php
+sudo sed -i 's%DocumentRoot /var/www/html%DocumentRoot /home/daniel/Documents/PHP-sandbox%g' /etc/apache2/sites-available/000-default.conf
+sudo sed -i 's%<Directory /var/www/html/>%<Directory /home/daniel/Documents/PHP-sandbox/>%g' /etc/apache2/apache2.conf
+sudo sed -i 's%<Directory /var/www/>%<Directory /home/daniel/Documents/PHP-sandbox/>%g' /etc/apache2/apache2.conf
 sudo systemctl restart apache2
 sleep 5
 
