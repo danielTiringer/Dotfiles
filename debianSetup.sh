@@ -55,6 +55,7 @@ git clone https://github.com/powerline/fonts.git --depth=1
 rm -rf fonts
 
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 cd ~
 sleep 5
 
@@ -179,8 +180,11 @@ sudo apt update -qq
 sudo apt install -yy brave-browser
 sleep 5
 
-# Install Docker
+# Install Docker and Docker-Compose
 sudo sh -c "$(curl -fsSL https://get.docker.com)"
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sleep 5
