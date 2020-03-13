@@ -96,6 +96,8 @@
 
 "	CTRL-n opens NerdTree
 	nmap <C-n> :NERDTreeToggle<CR>
+" NerdTree shows hidden
+	let NERDTreeShowHidden=1
 
 " 	Enable poweline fonts
 	let g:airline_powerline_fonts = 1
