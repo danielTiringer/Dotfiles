@@ -37,11 +37,11 @@ sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip ntfs-3g sto
 sleep 5
 
 # Install command line tools
-sudo apt install -yy zsh ranger neofetch rxvt-unicode mutt figlet
+sudo apt install -yy zsh ranger neofetch rxvt-unicode mutt figlet bc
 sleep 5
 
 # Install window manager
-sudo apt install -yy herbstluftwm nitrogen compton
+sudo apt install -yy herbstluftwm nitrogen compton fonts-font-awesome
 sleep 5
 
 # Install utilities

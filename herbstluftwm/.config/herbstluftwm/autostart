@@ -201,15 +201,15 @@ hc unlock
 hc detect_monitors
 
 # find the panel
-#~/.config/herbstluftwm/panel.sh
+# ~/.config/herbstluftwm/main.sh
 ~/.config/polybar/launch.sh
 
 # room for polybar on both monitors
 # hlwm padding is in the order of top, right, bottom, left, with the first number being the screen number
 hc pad 0 25
-hc pad 1 25
+# hc pad 1 25
 
-panel=~/.config/polybar/launch.sh
+panel=~/.config/herbstluftwm/main.sh
 [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
 for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
 	# start it on each monitor

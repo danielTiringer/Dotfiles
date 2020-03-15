@@ -8,6 +8,7 @@
 alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
 alias afk='xtrlock'
+alias hc='herbstclient'
 alias mountdrives='sudo mount /dev/sdb1 /media/2TBDrive && sudo mount /dev/sdc1 /media/4TBDrive'
 
 # Software aliases
