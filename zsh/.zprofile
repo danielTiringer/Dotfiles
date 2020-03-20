@@ -40,3 +40,5 @@ export GOPATH=$HOME/Documents/Go-sandbox
 
 # added by travis gem
 [ -f /home/daniel/.travis/travis.sh ] && source /home/daniel/.travis/travis.sh
+
+export TERM=xterm-256color
