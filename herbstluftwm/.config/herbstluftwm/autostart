@@ -207,7 +207,7 @@ hc detect_monitors
 # room for polybar on both monitors
 # hlwm padding is in the order of top, right, bottom, left, with the first number being the screen number
 hc pad 0 25
-# hc pad 1 25
+hc pad 1 20
 
 panel=~/.config/herbstluftwm/main.sh
 [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
