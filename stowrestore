@@ -17,3 +17,7 @@ stow -v -R xresources
 stow -v -R zsh
 
 echo 'Restoration completed.'
+
+sed -i "s%	IdentityFile.*%	IdentityFile ~/.ssh/id_rsa_$(hostname)%g" ~/.ssh/config
+
+echo 'SSH identity updated.'
