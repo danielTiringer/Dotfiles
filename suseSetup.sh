@@ -1,14 +1,9 @@
 #!/bin/bash
 
 # Daniel Tiringer's install script for Debian based distributions, with a focus on software development.
-#	     _      _     _
-#	  __| | ___| |__ (_) __ _ _ __
-#	 / _` |/ _ \ '_ \| |/ _` | '_ \
-#	| (_| |  __/ |_) | | (_| | | | |
-#	 \__,_|\___|_.__/|_|\__,_|_| |_|
 
 # Install prompt
-echo 'The executed script will install applications on a Debian based system.'
+echo 'The executed script will install applications on an openSUSE based system.'
 while true
 do
 	read -r -p 'Are you sure you want to proceed? [Y/n] ' input
@@ -28,24 +23,23 @@ cd ~
 
 # Update the system
 
-sudo apt update -yy
-sudo apt upgrade -yy --fix-missing
+sudo zypper update -y
 sleep 5
 
 # Install basic tools for file management
-sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip ntfs-3g stow xclip
+sudo zypper install -y curl wget unzip stow
 sleep 5
 
 # Install command line tools
-sudo apt install -yy zsh ranger neofetch rxvt-unicode mutt figlet bc
+sudo zypper install -y zsh ranger neofetch rxvt-unicode mutt figlet
 sleep 5
 
 # Install window manager
-sudo apt install -yy herbstluftwm nitrogen compton fonts-font-awesome
+sudo zypper install -y herbstluftwm nitrogen compton fonts-font-awesome
 sleep 5
 
 # Install utilities
-sudo apt install -yy network-manager alsa-utils xbacklight xorg xtrlock lm-sensors gimp
+sudo zypper install -y network-manager alsa-utils xbacklight xorg xtrlock lm-sensors gimp
 sleep 5
 
 # Install Oh-My-Zsh
@@ -62,7 +56,7 @@ sleep 5
 # Set up Git
 git config --global user.email "tiringerdaniel@gmail.com"
 git config --global user.name "danielTiringer"
-sudo apt install -yy tig
+sudo zypper install -y tig
 # sleep 5
 
 # Generate SSH key for Github
@@ -71,7 +65,7 @@ ssh-keygen -t rsa -b 4096 -C "tiringerdaniel@gmail.com" -f ~/.ssh/id_rsa_$(hostn
 sleep 5
 
 # Install Vim
-sudo apt install -yy vim vim-gtk vifm
+sudo zypper install -y vim vim-gtk vifm
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 sleep 5
 
@@ -111,20 +105,6 @@ export default {
 cd ~
 
 sleep 5
-
-# Install emacs
-sudo apt install emacs
-git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
-PATH="$HOME/.emacs.d/bin:$PATH"
-mkdir ~/.doom.d  # or ~/.config/doom
-cp ~/.emacs.d/init.example.el ~/.doom.d/init.el
-cp ~/.emacs.d/core/templates/config.example.el ~/.doom.d/config.el
-cp ~/.emacs.d/core/templates/packages.example.el ~/.doom.d/packages.el
-mkdir -p ~/.emacs.d/.local/straight/repos
-git clone -b develop https://github.com/raxod502/straight.el ~/.emacs.d/.local/straight/repos/straight.el
-doom sync
-doom env
-emacs --batch -f all-the-icons-install-fonts
 
 # Enabling bitmap fonts
 sudo echo '<?xml version="1.0"?>
@@ -183,43 +163,34 @@ cd ~
 sleep 5
 
 # Install Firefox
-sudo apt install -yy firefox-esr
+sudo zypper install -y firefox
 sleep 5
 
 # Install Brave
-sudo apt install -yy apt-transport-https
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-trusty.list
-sudo apt update -qq
-sudo apt install -yy brave-browser
-sleep 5
-
-# Install Slack
-cd ~/Downloads
-wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb
-sudo apt install ./slack-desktop-*.deb
-rm slack-desktop-*.deb
-cd ~
+sudo zypper install -y zypper-transport-https
+curl -s https://brave-browser-zypper-release.s3.brave.com/brave-core.asc | sudo zypper-key --keyring /etc/zypper/trusted.gpg.d/brave-browser-release.gpg add -
+echo "deb [arch=amd64] https://brave-browser-zypper-release.s3.brave.com/ trusty main" | sudo tee /etc/zypper/sources.list.d/brave-browser-release-trusty.list
+sudo zypper update -qq
+sudo zypper install -y brave-browser
 sleep 5
 
 # Install Docker and Docker-Compose
-sudo sh -c "$(curl -fsSL https://get.docker.com)"
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo zypper install docker docker-compose
+sudo systemctl enable docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
+sudo systemctl restart docker
 sleep 5
 
 # Install AWS CLI
-cd ~/Downloads
-curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
-unzip awscli-bundle.zip
-sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
-rm awscli-bundle.zip
-rm -r awscli-bundle
-cd ~
-sleep 5
+# cd ~/Downloads
+# curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+# unzip awscli-bundle.zip
+# sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+# rm awscli-bundle.zip
+# rm -r awscli-bundle
+# cd ~
+# sleep 5
 
 # Install Pulumi
 # cd Downloads
@@ -228,16 +199,16 @@ sleep 5
 # sleep 5
 
 # Install Terraform
-cd ~/Downloads
-TER_VER="$(curl -s "https://checkpoint-api.hashicorp.com/v1/check/terraform" | jq -r -M '.current_version')"
-wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
-unzip terraform_${TER_VER}_linux_amd64.zip
-sudo mv terraform /usr/local/bin/
-which terraform
-terraform -v
-rm terraform*
-cd ~
-sleep 5
+# cd ~/Downloads
+# TER_VER="$(curl -s "https://checkpoint-api.hashicorp.com/v1/check/terraform" | jq -r -M '.current_version')"
+# wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
+# unzip terraform_${TER_VER}_linux_amd64.zip
+# sudo mv terraform /usr/local/bin/
+# which terraform
+# terraform -v
+# rm terraform*
+# cd ~
+# sleep 5
 
 # Install ELK stack Docker image
 # cd ~/.config
@@ -256,7 +227,7 @@ sleep 5
 # Install NPM
 mkdir ~/Documents/Vue-sandbox
 cd ~
-sudo apt install -yy npm
+sudo zypper install -y npm
 sudo npm i -g n
 sudo n latest
 sudo npm i -g vue-cli
@@ -274,13 +245,17 @@ sleep 5
 
 # Install Ruby
 mkdir ~/Documents/Ruby-sandbox
-sudo apt install -yy ruby-full rails
+sudo zypper install -y ruby-full rails
 sleep 5
 
 # Install PHP
 mkdir ~/Documents/PHP-sandbox
-sudo apt update -qq
-sudo apt install -yy php libapache2-mod-php
+sudo zypper update -qq
+sudo zypper install -y php libapache2-mod-php
+sudo sed -i 's%DocumentRoot /var/www/html%DocumentRoot /home/daniel/Documents/PHP-sandbox%g' /etc/apache2/sites-available/000-default.conf
+sudo sed -i 's%<Directory /var/www/html/>%<Directory /home/daniel/Documents/PHP-sandbox/>%g' /etc/apache2/apache2.conf
+sudo sed -i 's%<Directory /var/www/>%<Directory /home/daniel/Documents/PHP-sandbox/>%g' /etc/apache2/apache2.conf
+sudo systemctl restart apache2
 sleep 5
 
 # Install Go
@@ -300,7 +275,7 @@ sleep 5
 
 # Install Composer
 cd ~/Downloads
-sudo apt install -yy php-cli php-zip wget unzip
+sudo zypper install -y php-cli php-zip wget unzip
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
 php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
@@ -323,14 +298,10 @@ sudo gem install travis -v 1.8.10 --no-rdoc --no-ri
 sleep 5
 
 # Install Polybar
-sudo apt install -yy cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb libxcb-ewmh2 libjsoncpp-dev
-cd ~/Downloads
-git clone https://github.com/jaagr/polybar.git
-cd polybar
-./build.sh
-cd ..
-sudo rm -Rf polybar
-cd ~
+sudo zypper addrepo https://download.opensuse.org/repositories/X11:Utilities/openSUSE_Tumbleweed/X11:Utilities.repo
+sudo zypper refresh
+sudo zypper install polybar
+sleep 5
 
 # Setup the dotfiles and configs
 rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources
@@ -343,17 +314,6 @@ vim +PluginInstall +qall
 # vim +GoInstallBinaries +qall
 cd ~
 sleep 5
-
-# Configure X server
-sudo dpkg-reconfigure keyboard-configuration
-
-# Update the system from Buster to Bullseye
-
-# sudo sed -i 's/debian-security buster/debian-security bullseye-security/g' /etc/apt/sources.list
-# sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
-
-# echo 'Updated the system from buster to bullseye.'
-# sleep 5
 
 # Install complete
 echo "Software installation complete. Please type in your password, then reboot the computer."
