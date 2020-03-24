@@ -180,6 +180,14 @@ sudo apt update -qq
 sudo apt install -yy brave-browser
 sleep 5
 
+# Install Slack
+cd ~/Downloads
+wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb
+sudo apt install ./slack-desktop-*.deb
+rm slack-desktop-*.deb
+cd ~
+sleep 5
+
 # Install Docker and Docker-Compose
 sudo sh -c "$(curl -fsSL https://get.docker.com)"
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -259,10 +267,6 @@ sleep 5
 mkdir ~/Documents/PHP-sandbox
 sudo apt update -qq
 sudo apt install -yy php libapache2-mod-php
-sudo sed -i 's%DocumentRoot /var/www/html%DocumentRoot /home/daniel/Documents/PHP-sandbox%g' /etc/apache2/sites-available/000-default.conf
-sudo sed -i 's%<Directory /var/www/html/>%<Directory /home/daniel/Documents/PHP-sandbox/>%g' /etc/apache2/apache2.conf
-sudo sed -i 's%<Directory /var/www/>%<Directory /home/daniel/Documents/PHP-sandbox/>%g' /etc/apache2/apache2.conf
-sudo systemctl restart apache2
 sleep 5
 
 # Install Go

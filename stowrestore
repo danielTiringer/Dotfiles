@@ -4,6 +4,7 @@ echo 'Restoring all the regular config files.'
 sleep 4
 
 stow -v -R bash
+stow -v -R bin
 stow -v -R compton
 stow -v -R herbstluftwm
 stow -v -R mutt

@@ -9,6 +9,7 @@ alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
 alias afk='xtrlock'
 alias hc='herbstclient'
+alias ssh='ssh -A'
 alias mountdrives='sudo mount /dev/sdb1 /media/2TBDrive && sudo mount /dev/sdc1 /media/4TBDrive'
 
 # Software aliases
@@ -28,6 +29,9 @@ alias nagios-create='docker run -d --name nagios4 \
 alias nagios-up='docker start nagios4'
 alias nagios-down='docker stop nagios4'
 
+# upload files from the Projects folder to docker-devel1, into the docker-hasznaltauto folder
+alias upload="sh ~/.bin/syncDockerDevel1.sh"
+
 # PATH
 export PATH=~/.local/bin:$PATH
 
@@ -42,3 +46,4 @@ export GOPATH=$HOME/Documents/Go-sandbox
 [ -f /home/daniel/.travis/travis.sh ] && source /home/daniel/.travis/travis.sh
 
 export TERM=xterm-256color
+
