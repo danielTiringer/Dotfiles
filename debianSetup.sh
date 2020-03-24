@@ -33,7 +33,7 @@ sudo apt upgrade -yy --fix-missing
 sleep 5
 
 # Install basic tools for file management
-sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip ntfs-3g stow
+sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip ntfs-3g stow xclip
 sleep 5
 
 # Install command line tools
@@ -60,9 +60,9 @@ cd ~
 sleep 5
 
 # Set up Git
-# git config --global user.email "tiringerdaniel@gmail.com"
-# git config --global user.name "danielTiringer"
-# sudo apt install -yy tig
+git config --global user.email "tiringerdaniel@gmail.com"
+git config --global user.name "danielTiringer"
+sudo apt install -yy tig
 # sleep 5
 
 # Generate SSH key for Github
@@ -111,6 +111,20 @@ export default {
 cd ~
 
 sleep 5
+
+# Install emacs
+sudo apt install emacs
+git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
+PATH="$HOME/.emacs.d/bin:$PATH"
+mkdir ~/.doom.d  # or ~/.config/doom
+cp ~/.emacs.d/init.example.el ~/.doom.d/init.el
+cp ~/.emacs.d/core/templates/config.example.el ~/.doom.d/config.el
+cp ~/.emacs.d/core/templates/packages.example.el ~/.doom.d/packages.el
+mkdir -p ~/.emacs.d/.local/straight/repos
+git clone -b develop https://github.com/raxod502/straight.el ~/.emacs.d/.local/straight/repos/straight.el
+doom sync
+doom env
+emacs --batch -f all-the-icons-install-fonts
 
 # Enabling bitmap fonts
 sudo echo '<?xml version="1.0"?>

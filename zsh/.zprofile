@@ -10,6 +10,8 @@ alias reboot='systemctl reboot'
 alias afk='xtrlock'
 alias hc='herbstclient'
 alias mountdrives='sudo mount /dev/sdb1 /media/2TBDrive && sudo mount /dev/sdc1 /media/4TBDrive'
+alias doom="~/.emacs.d/bin/doom"
+alias emacs="urxvt -e emacs -nw"
 
 # Software aliases
 alias chrome='google-chrome'
