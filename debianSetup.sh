@@ -33,7 +33,7 @@ sudo apt upgrade -yy --fix-missing
 sleep 5
 
 # Install basic tools for file management
-sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip ntfs-3g stow xclip
+sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip ntfs-3g stow xclip libclipboard-perl
 sleep 5
 
 # Install command line tools
