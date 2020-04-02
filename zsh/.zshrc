@@ -82,6 +82,8 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
+ZSH_DOTENV_PROMPT=false
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
