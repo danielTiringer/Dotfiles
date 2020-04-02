@@ -176,3 +176,5 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+(add-hook 'vue-mode-hook #'lsp!)
