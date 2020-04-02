@@ -162,29 +162,29 @@ wget http://getwallpapers.com/wallpaper/full/0/5/b/633941.jpg -O ~/Pictures/sund
 sleep 5
 
 # Install Google Chrome and extensions
-cd ~/Downloads
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo gdebi -n google-chrome-stable_current_amd64.deb
-rm -f google-chrome-stable_current_amd64.deb
+# cd ~/Downloads
+# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# sudo gdebi -n google-chrome-stable_current_amd64.deb
+# rm -f google-chrome-stable_current_amd64.deb
 
-install_chrome_extension () {
-  preferences_dir_path="/opt/google/chrome/extensions"
-  pref_file_path="$preferences_dir_path/$1.json"
-  upd_url="https://clients2.google.com/service/update2/crx"
-  sudo mkdir -p "$preferences_dir_path"
-	sudo printf '{\n "external_update_url": "%s"\n}\n' "$upd_url" > "$pref_file_path"
-  echo Added \""$pref_file_path"\" ["$2"]
-}
-install_chrome_extension "fmkadmapgofadopljbjfkapdkoienihi" "react dev tools"
-install_chrome_extension "lmhkpmbekcpmknklioeibfkpmmfibljd" "redux dev tools"
-install_chrome_extension "nhdogjmejiglipccpnnnanhbledajbpd" "vue dev tools"
+# install_chrome_extension () {
+#   preferences_dir_path="/opt/google/chrome/extensions"
+#   pref_file_path="$preferences_dir_path/$1.json"
+#   upd_url="https://clients2.google.com/service/update2/crx"
+#   sudo mkdir -p "$preferences_dir_path"
+# 	sudo printf '{\n "external_update_url": "%s"\n}\n' "$upd_url" > "$pref_file_path"
+#   echo Added \""$pref_file_path"\" ["$2"]
+# }
+# install_chrome_extension "fmkadmapgofadopljbjfkapdkoienihi" "react dev tools"
+# install_chrome_extension "lmhkpmbekcpmknklioeibfkpmmfibljd" "redux dev tools"
+# install_chrome_extension "nhdogjmejiglipccpnnnanhbledajbpd" "vue dev tools"
 
-cd ~
-sleep 5
+# cd ~
+# sleep 5
 
 # Install Firefox
-sudo apt install -yy firefox-esr
-sleep 5
+# sudo apt install -yy firefox-esr
+# sleep 5
 
 # Install Brave
 sudo apt install -yy apt-transport-https
@@ -195,12 +195,12 @@ sudo apt install -yy brave-browser
 sleep 5
 
 # Install Slack
-cd ~/Downloads
-wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb
-sudo apt install ./slack-desktop-*.deb
-rm slack-desktop-*.deb
-cd ~
-sleep 5
+# cd ~/Downloads
+# wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb
+# sudo apt install ./slack-desktop-*.deb
+# rm slack-desktop-*.deb
+# cd ~
+# sleep 5
 
 # Install Docker and Docker-Compose
 sudo sh -c "$(curl -fsSL https://get.docker.com)"
@@ -212,14 +212,14 @@ sudo usermod -aG docker $USER
 sleep 5
 
 # Install AWS CLI
-cd ~/Downloads
-curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
-unzip awscli-bundle.zip
-sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
-rm awscli-bundle.zip
-rm -r awscli-bundle
-cd ~
-sleep 5
+# cd ~/Downloads
+# curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+# unzip awscli-bundle.zip
+# sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+# rm awscli-bundle.zip
+# rm -r awscli-bundle
+# cd ~
+# sleep 5
 
 # Install Pulumi
 # cd Downloads
@@ -228,16 +228,16 @@ sleep 5
 # sleep 5
 
 # Install Terraform
-cd ~/Downloads
-TER_VER="$(curl -s "https://checkpoint-api.hashicorp.com/v1/check/terraform" | jq -r -M '.current_version')"
-wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
-unzip terraform_${TER_VER}_linux_amd64.zip
-sudo mv terraform /usr/local/bin/
-which terraform
-terraform -v
-rm terraform*
-cd ~
-sleep 5
+# cd ~/Downloads
+# TER_VER="$(curl -s "https://checkpoint-api.hashicorp.com/v1/check/terraform" | jq -r -M '.current_version')"
+# wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
+# unzip terraform_${TER_VER}_linux_amd64.zip
+# sudo mv terraform /usr/local/bin/
+# which terraform
+# terraform -v
+# rm terraform*
+# cd ~
+# sleep 5
 
 # Install ELK stack Docker image
 # cd ~/.config
@@ -255,11 +255,11 @@ sleep 5
 
 # Install NPM
 mkdir ~/Documents/Vue-sandbox
-cd ~
-sudo apt install -yy npm
-sudo npm i -g n
-sudo n latest
-sudo npm i -g vue-cli
+# cd ~
+# sudo apt install -yy npm
+# sudo npm i -g n
+# sudo n latest
+# sudo npm i -g vue-cli vue-language-server
 # Uncomment if you want typescript
 # sudo npm i -g typescript ts-node @types/node
 # Uncomment if you want the tester package
@@ -274,40 +274,40 @@ sleep 5
 
 # Install Ruby
 mkdir ~/Documents/Ruby-sandbox
-sudo apt install -yy ruby-full rails
-sleep 5
+# sudo apt install -yy ruby-full rails
+# sleep 5
 
 # Install PHP
 mkdir ~/Documents/PHP-sandbox
-sudo apt update -qq
-sudo apt install -yy php libapache2-mod-php
-sleep 5
+# sudo apt update -qq
+# sudo apt install -yy php libapache2-mod-php
+# sleep 5
 
 # Install Go
 mkdir ~/Documents/Go-sandbox
-mkdir ~/Documents/Go-sandbox/bin ~/Documents/Go-sandbox/src
-mkdir ~/Documents/Go-sandbox/github.com
-mkdir ~/Documents/Go-sandbox/github.com/danielTiringer
+# mkdir ~/Documents/Go-sandbox/bin ~/Documents/Go-sandbox/src
+# mkdir ~/Documents/Go-sandbox/github.com
+# mkdir ~/Documents/Go-sandbox/github.com/danielTiringer
 
-cd ~/Downloads
-GO_VER="$(curl -sL "https://golang.org/dl/" | sed -n '/toggleVisible/p' | head -n 1 | cut -d '"' -f 4)"
-GO_FILE=${GO_VER}.linux-amd64.tar.gz
-wget https://storage.googleapis.com/golang/${GO_FILE}
-sudo tar -C /usr/local -xvzf ${GO_FILE}
-rm ${GO_FILE}
-cd ~
-sleep 5
+# cd ~/Downloads
+# GO_VER="$(curl -sL "https://golang.org/dl/" | sed -n '/toggleVisible/p' | head -n 1 | cut -d '"' -f 4)"
+# GO_FILE=${GO_VER}.linux-amd64.tar.gz
+# wget https://storage.googleapis.com/golang/${GO_FILE}
+# sudo tar -C /usr/local -xvzf ${GO_FILE}
+# rm ${GO_FILE}
+# cd ~
+# sleep 5
 
 # Install Composer
-cd ~/Downloads
-sudo apt install -yy php-cli php-zip wget unzip
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
-php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-rm composer-setup.php
-cd ~
-sleep 5
+# cd ~/Downloads
+# sudo apt install -yy php-cli php-zip wget unzip
+# php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+# HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
+# php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+# sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+# rm composer-setup.php
+# cd ~
+# sleep 5
 
 # Install Postman
 cd ~/Downloads
@@ -319,7 +319,7 @@ cd ~
 sleep 5
 
 # Install Travis CLI
-sudo gem install travis -v 1.8.10 --no-rdoc --no-ri
+# sudo gem install travis -v 1.8.10 --no-rdoc --no-ri
 sleep 5
 
 # Install Polybar
