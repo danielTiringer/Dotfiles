@@ -10,7 +10,7 @@
 
 # TUI:
 ar
-q1
+q0
 v2
 ov
 m-1
@@ -58,8 +58,8 @@ d/home/daniel
 	Downloads
 13
 d/home/daniel/Downloads
-	I Hear Your Voice EP 09.srt
-1
+	Healer.E12.x265.720p-LIMO.mkv
+19
 d
 
 # Right window history (oldest to newest):
@@ -198,6 +198,33 @@ D/media/4TBDrive/Korean Series
 D/media/4TBDrive/Korean Series/I Hear Your Voice 2013
 	I Hear Your Voice EP 01.srt
 1
+D/media/4TBDrive
+	Korean Series
+11
+D/media/4TBDrive/Korean Series
+	I Hear Your Voice 2013
+11
+D/media/4TBDrive/Korean Series/I Hear Your Voice 2013
+	..
+0
+D/media/4TBDrive/Korean Series
+	I'll Find You on a Beautiful Day 2020
+12
+D/media/4TBDrive/Korean Series/I'll Find You on a Beautiful Day 2020
+	ill-find-you-on-a-beautiful-day-episode-7.mp4
+7
+D/media/4TBDrive/Korean Series
+	I'll Find You on a Beautiful Day 2020
+12
+D/media/4TBDrive/Korean Series/I'll Find You on a Beautiful Day 2020
+	..
+0
+D/media/4TBDrive/Korean Series
+	Healer 2016
+10
+D/media/4TBDrive/Korean Series/Healer 2016
+	Healer EP 07.srt
+7
 D
 
 # Command line history (oldest to newest):
@@ -206,6 +233,7 @@ D
 # Search history (oldest to newest):
 
 # Prompt history (oldest to newest):
+pj
 
 # Local filter history (oldest to newest):
 
@@ -224,6 +252,8 @@ t/media/2TBDrive/.vifm-Trash-1000/000_Fedora-Server-dvd-x86_64-30-1.2.iso
 	/media/2TBDrive/Installers/Linux/Fedora-Server-dvd-x86_64-30-1.2.iso
 t/media/2TBDrive/.vifm-Trash-1000/000_Fedora-Workstation-Live-x86_64-30-1.2.iso
 	/media/2TBDrive/Installers/Linux/Fedora-Workstation-Live-x86_64-30-1.2.iso
+t/home/daniel/.local/share/vifm/Trash/000_Fedora-Everything-netinst-x86_64-31-1.9.iso
+	/home/daniel/Downloads/Fedora-Everything-netinst-x86_64-31-1.9.iso
 
 # State:
 f

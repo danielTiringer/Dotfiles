@@ -332,6 +332,16 @@ cd ..
 sudo rm -Rf polybar
 cd ~
 
+# Install Virt-Manager
+sudo apt-get install -y qemu qemu-kvm qemu-system qemu-utils
+sudo apt-get install -y virtinst libvirt-clients libvirt-daemon-system
+sudo systemctl start libvirtd
+sudo virsh net-start default
+sudo virsh net-autostart default
+sudo apt-get install -y virt-manager
+sudo usermod -G libvirt -a $USER
+sudo /etc/init.d/networking restart
+
 # Setup the dotfiles and configs
 rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources
 rm -r ~/.config/compton ~/.config/polybar ~/.config/herbstluftwm ~/.config/mutt ~/.config/nitrogen ~/.config/ranger
