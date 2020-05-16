@@ -24,10 +24,6 @@ alias upload="sh ~/.bin/syncDockerDevel1.sh"
 # PATH
 export PATH=~/.local/bin:$PATH
 
-# Go PATH
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/Documents/Go-sandbox
-
 # added by travis gem
 # [ -f /home/daniel/.travis/travis.sh ] && source /home/daniel/.travis/travis.sh
 

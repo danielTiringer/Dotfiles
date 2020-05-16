@@ -78,6 +78,7 @@ ZSH_THEME="agnoster"
 plugins=(
 	dotenv
 	docker
+	docker-compose
 	git
 	zsh-syntax-highlighting
 )
