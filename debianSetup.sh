@@ -48,6 +48,9 @@ sleep 5
 sudo apt install -yy network-manager alsa-utils xbacklight xorg xtrlock lm-sensors gimp
 sleep 5
 
+# Install multimedia
+sudo apt install -yy vlc wesnoth
+
 # Install Oh-My-Zsh
 cd ~/Downloads
 git clone https://github.com/powerline/fonts.git --depth=1
@@ -63,12 +66,12 @@ sleep 5
 git config --global user.email "tiringerdaniel@gmail.com"
 git config --global user.name "danielTiringer"
 sudo apt install -yy tig
-# sleep 5
+sleep 5
 
 # Generate SSH key for Github
 mkdir ~/.ssh
 # ssh-keygen -t rsa -b 4096 -C "tiringerdaniel@gmail.com" -f ~/.ssh/id_rsa_$(hostname) -q -N ""
-sleep 5
+# sleep 5
 
 # Install Vim
 sudo apt install -yy vim vim-gtk vifm
@@ -113,16 +116,11 @@ cd ~
 sleep 5
 
 # Install emacs
-sudo apt install emacs
+sudo apt install -yy emacs
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 PATH="$HOME/.emacs.d/bin:$PATH"
-mkdir ~/.doom.d  # or ~/.config/doom
-cp ~/.emacs.d/init.example.el ~/.doom.d/init.el
-cp ~/.emacs.d/core/templates/config.example.el ~/.doom.d/config.el
-cp ~/.emacs.d/core/templates/packages.example.el ~/.doom.d/packages.el
 mkdir -p ~/.emacs.d/.local/straight/repos
 git clone -b develop https://github.com/raxod502/straight.el ~/.emacs.d/.local/straight/repos/straight.el
-doom sync
 doom env
 emacs --batch -f all-the-icons-install-fonts
 
@@ -162,25 +160,25 @@ wget http://getwallpapers.com/wallpaper/full/0/5/b/633941.jpg -O ~/Pictures/sund
 sleep 5
 
 # Install Google Chrome and extensions
-# cd ~/Downloads
-# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-# sudo gdebi -n google-chrome-stable_current_amd64.deb
-# rm -f google-chrome-stable_current_amd64.deb
+cd ~/Downloads
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo gdebi -n google-chrome-stable_current_amd64.deb
+rm -f google-chrome-stable_current_amd64.deb
 
-# install_chrome_extension () {
-#   preferences_dir_path="/opt/google/chrome/extensions"
-#   pref_file_path="$preferences_dir_path/$1.json"
-#   upd_url="https://clients2.google.com/service/update2/crx"
-#   sudo mkdir -p "$preferences_dir_path"
-# 	sudo printf '{\n "external_update_url": "%s"\n}\n' "$upd_url" > "$pref_file_path"
-#   echo Added \""$pref_file_path"\" ["$2"]
-# }
-# install_chrome_extension "fmkadmapgofadopljbjfkapdkoienihi" "react dev tools"
-# install_chrome_extension "lmhkpmbekcpmknklioeibfkpmmfibljd" "redux dev tools"
-# install_chrome_extension "nhdogjmejiglipccpnnnanhbledajbpd" "vue dev tools"
+install_chrome_extension () {
+  preferences_dir_path="/opt/google/chrome/extensions"
+  pref_file_path="$preferences_dir_path/$1.json"
+  upd_url="https://clients2.google.com/service/update2/crx"
+  sudo mkdir -p "$preferences_dir_path"
+	sudo printf '{\n "external_update_url": "%s"\n}\n' "$upd_url" > "$pref_file_path"
+  echo Added \""$pref_file_path"\" ["$2"]
+}
+install_chrome_extension "fmkadmapgofadopljbjfkapdkoienihi" "react dev tools"
+install_chrome_extension "lmhkpmbekcpmknklioeibfkpmmfibljd" "redux dev tools"
+install_chrome_extension "nhdogjmejiglipccpnnnanhbledajbpd" "vue dev tools"
 
-# cd ~
-# sleep 5
+cd ~
+sleep 5
 
 # Install Firefox
 # sudo apt install -yy firefox-esr
@@ -194,14 +192,6 @@ sudo apt update -qq
 sudo apt install -yy brave-browser
 sleep 5
 
-# Install Slack
-# cd ~/Downloads
-# wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb
-# sudo apt install ./slack-desktop-*.deb
-# rm slack-desktop-*.deb
-# cd ~
-# sleep 5
-
 # Install Docker and Docker-Compose
 sudo sh -c "$(curl -fsSL https://get.docker.com)"
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -210,48 +200,6 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sleep 5
-
-# Install AWS CLI
-# cd ~/Downloads
-# curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
-# unzip awscli-bundle.zip
-# sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
-# rm awscli-bundle.zip
-# rm -r awscli-bundle
-# cd ~
-# sleep 5
-
-# Install Pulumi
-# cd Downloads
-# curl -fsSL https://get.pulumi.com | sh
-# cd ~
-# sleep 5
-
-# Install Terraform
-# cd ~/Downloads
-# TER_VER="$(curl -s "https://checkpoint-api.hashicorp.com/v1/check/terraform" | jq -r -M '.current_version')"
-# wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
-# unzip terraform_${TER_VER}_linux_amd64.zip
-# sudo mv terraform /usr/local/bin/
-# which terraform
-# terraform -v
-# rm terraform*
-# cd ~
-# sleep 5
-
-# Install ELK stack Docker image
-# cd ~/.config
-# git clone https://github.com/deviantony/docker-elk.git
-# cd ~
-
-# Install Nagios Docker image
-# docker pull jasonrivers/nagios:latest
-# mkdir ~/.config/nagios
-# cd nagios
-# mkdir custom-plugins etc nagiosgraph var
-# mkdir nagiosgraph/etc nagiosgraph/var
-# cd ~
-# sleep 5
 
 # Install NPM
 mkdir ~/Documents/Vue-sandbox
@@ -320,7 +268,7 @@ sleep 5
 
 # Install Travis CLI
 # sudo gem install travis -v 1.8.10 --no-rdoc --no-ri
-sleep 5
+# sleep 5
 
 # Install Polybar
 sudo apt install -yy cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb libxcb-ewmh2 libjsoncpp-dev
@@ -349,8 +297,8 @@ cd ~/Dotfiles
 ./stowrestore
 sudo cp -r ~/.config/polybar/fonts/* /usr/share/fonts
 sudo fc-cache -vf /usr/share/fonts
+doom sync
 vim +PluginInstall +qall
-# vim +GoInstallBinaries +qall
 cd ~
 sleep 5
 
