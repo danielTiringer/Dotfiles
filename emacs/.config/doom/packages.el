@@ -51,3 +51,4 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 
 (package! vue-mode)
+(package! powerline)
