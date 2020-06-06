@@ -312,6 +312,7 @@ sudo dpkg-reconfigure keyboard-configuration
 
 # sudo sed -i 's/debian-security buster/debian-security bullseye-security/g' /etc/apt/sources.list
 # sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
+# sudo echo 'deb http://deb.debian.org/debian buster-backports main' | sudo tee -a /etc/apt/sources.list
 
 # echo 'Updated the system from buster to bullseye.'
 # sleep 5
