@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Daniel Tiringer's install script for Debian based distributions, with a focus on software development.
+# Daniel Tiringer's install script for Debian based distributions.
 #	     _      _     _
 #	  __| | ___| |__ (_) __ _ _ __
 #	 / _` |/ _ \ '_ \| |/ _` | '_ \
@@ -23,11 +23,10 @@ done
 # Create the basic file system
 cd ~
 mkdir Downloads Pictures Documents .config
-sudo mkdir /media/2TBDrive /media/4TBDrive /media/MemCard
+sudo mkdir /media/{2TBDrive,4TBDrive,MemCard,USB}
 cd ~
 
 # Update the system
-
 sudo apt update -yy
 sudo apt upgrade -yy --fix-missing
 sleep 5
@@ -51,8 +50,11 @@ sleep 5
 # Install Asian fonts
 sudo apt install -yy fonts-alee fonts-noto-cjk
 
-# Install multimedia
+# Install multimedia and wesnoth
 sudo apt install -yy vlc wesnoth
+
+# Create folder structure for Transmission
+mkdir -p ~/Downloads/transmission/{config,downloads,torrents}
 
 # Install Oh-My-Zsh
 cd ~/Downloads
@@ -79,43 +81,6 @@ mkdir ~/.ssh
 # Install Vim
 sudo apt install -yy vim vim-gtk vifm
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-sleep 5
-
-# Set up Vim templates
-mkdir ~/.vim/templates
-cd ~/.vim/templates
-touch skeleton.html skeleton.sh skeleton.vue
-
-sudo echo '<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-</body>
-</html>' >> ~/.vim/templates/skeleton.html
-
-sudo echo '#!/bin/bash' >> ~/.vim/templates/skeleton.sh
-
-sudo echo '<template>
-
-</template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style scoped>
-
-</style>' >> ~/.vim/templates/skeleton.vue
-
-cd ~
-
 sleep 5
 
 # Install emacs
@@ -204,61 +169,8 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 sleep 5
 
-# Install NPM
-mkdir ~/Documents/Vue-sandbox
-# cd ~
-# sudo apt install -yy npm
-# sudo npm i -g n
-# sudo n latest
-# sudo npm i -g vue-cli vue-language-server
-# Uncomment if you want typescript
-# sudo npm i -g typescript ts-node @types/node
-# Uncomment if you want the tester package
-# sudo npm i -g supertest tap-spec tape mocha chai
-# Uncomment if you want node mysql
-# sudo npm i -g mysql dotenv
-# Uncomment if you want express
-# sudo npm i -g express ejs
-# Uncomment if you want nodemon
-# sudo npm i -g nodemon
-sleep 5
-
-# Install Ruby
-mkdir ~/Documents/Ruby-sandbox
-# sudo apt install -yy ruby-full rails
-# sleep 5
-
-# Install PHP
-mkdir ~/Documents/PHP-sandbox
-# sudo apt update -qq
-# sudo apt install -yy php libapache2-mod-php
-# sleep 5
-
-# Install Go
-mkdir ~/Documents/Go-sandbox
-# mkdir ~/Documents/Go-sandbox/bin ~/Documents/Go-sandbox/src
-# mkdir ~/Documents/Go-sandbox/github.com
-# mkdir ~/Documents/Go-sandbox/github.com/danielTiringer
-
-# cd ~/Downloads
-# GO_VER="$(curl -sL "https://golang.org/dl/" | sed -n '/toggleVisible/p' | head -n 1 | cut -d '"' -f 4)"
-# GO_FILE=${GO_VER}.linux-amd64.tar.gz
-# wget https://storage.googleapis.com/golang/${GO_FILE}
-# sudo tar -C /usr/local -xvzf ${GO_FILE}
-# rm ${GO_FILE}
-# cd ~
-# sleep 5
-
-# Install Composer
-# cd ~/Downloads
-# sudo apt install -yy php-cli php-zip wget unzip
-# php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-# HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
-# php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-# sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-# rm composer-setup.php
-# cd ~
-# sleep 5
+# Make project directories
+mkdir -p ~/Projects/{JS-sandbox,Ruby-sandbox,PHP-sandbox,Go-sandbox}
 
 # Install Postman
 cd ~/Downloads
@@ -309,13 +221,12 @@ sleep 5
 sudo dpkg-reconfigure keyboard-configuration
 
 # Update the system from Buster to Bullseye
+sudo sed -i 's/debian-security buster/debian-security bullseye-security/g' /etc/apt/sources.list
+sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
+sudo echo 'deb http://deb.debian.org/debian buster-backports main' | sudo tee -a /etc/apt/sources.list
 
-# sudo sed -i 's/debian-security buster/debian-security bullseye-security/g' /etc/apt/sources.list
-# sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
-# sudo echo 'deb http://deb.debian.org/debian buster-backports main' | sudo tee -a /etc/apt/sources.list
-
-# echo 'Updated the system from buster to bullseye.'
-# sleep 5
+echo 'Updated the system from buster to bullseye.'
+sleep 5
 
 # Install complete
 echo "Software installation complete. Please type in your password, then reboot the computer."

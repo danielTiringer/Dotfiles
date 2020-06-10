@@ -13,6 +13,7 @@ stow -v -R nitrogen
 stow -v -R polybar
 stow -v -R ranger
 stow -v -R ssh
+stow -v -R transmission
 stow -v -R vifm
 stow -v -R vim
 stow -v -R xresources
