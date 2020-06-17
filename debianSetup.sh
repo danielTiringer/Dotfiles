@@ -54,7 +54,7 @@ sudo apt install -yy fonts-alee fonts-noto-cjk
 sudo apt install -yy vlc wesnoth
 
 # Create folder structure for Transmission
-mkdir -p ~/Downloads/transmission/{config,downloads,torrents}
+mkdir -p ~/Downloads/transmission
 
 # Install Oh-My-Zsh
 cd ~/Downloads
