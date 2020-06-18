@@ -76,9 +76,9 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	dotenv
 	docker
 	docker-compose
+	dotenv
 	git
 	zsh-syntax-highlighting
 )
@@ -111,3 +111,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Vim mode
 bindkey -v
+
+# Make upgrades happen automatically instead of confirmation prompt
+DISABLE_UPDATE_PROMPT=true
