@@ -5,6 +5,8 @@
 # Global Order: zshenv, zprofile, zshrc, zlogin
 #
 # Generic aliases
+#
+alias cp='cp -iv'
 alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
 alias afk='xtrlock'
