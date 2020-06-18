@@ -44,7 +44,11 @@ sudo apt install -yy herbstluftwm nitrogen compton fonts-font-awesome
 sleep 5
 
 # Install utilities
-sudo apt install -yy network-manager alsa-utils xbacklight xorg xtrlock lm-sensors gimp
+sudo apt install -yy network-manager alsa-utils xbacklight xorg xtrlock lm-sensors
+sleep 5
+
+# Install image manipulation programs
+sudo apt install -yy imagemagick #gimp
 sleep 5
 
 # Install Asian fonts
