@@ -23,7 +23,7 @@ done
 # Create the basic file system
 cd ~
 mkdir Downloads Pictures Documents .config
-sudo mkdir /media/{2TBDrive,4TBDrive,MemCard,USB}
+sudo mkdir -p /media/{2TBDrive,4TBDrive,MemCard,USB}
 cd ~
 
 # Update the system
@@ -54,8 +54,8 @@ sleep 5
 # Install Asian fonts
 sudo apt install -yy fonts-alee fonts-noto-cjk
 
-# Install multimedia and wesnoth
-sudo apt install -yy vlc wesnoth
+# Install multimedia
+sudo apt install -yy vlc
 
 # Create folder structure for Transmission
 mkdir -p ~/Downloads/transmission
@@ -66,8 +66,8 @@ git clone https://github.com/powerline/fonts.git --depth=1
 ./fonts/install.sh
 rm -rf fonts
 
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.config/oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.config/oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 cd ~
 sleep 5
 
@@ -79,8 +79,8 @@ sleep 5
 
 # Generate SSH key for Github
 mkdir ~/.ssh
-# ssh-keygen -t rsa -b 4096 -C "tiringerdaniel@gmail.com" -f ~/.ssh/id_rsa_$(hostname) -q -N ""
-# sleep 5
+ssh-keygen -t rsa -b 4096 -C "tiringerdaniel@gmail.com" -f ~/.ssh/id_rsa_$(hostname) -q -N ""
+sleep 5
 
 # Install Vim
 sudo apt install -yy vim vim-gtk vifm
@@ -132,29 +132,29 @@ wget http://getwallpapers.com/wallpaper/full/0/5/b/633941.jpg -O ~/Pictures/sund
 sleep 5
 
 # Install Google Chrome and extensions
-cd ~/Downloads
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo gdebi -n google-chrome-stable_current_amd64.deb
-rm -f google-chrome-stable_current_amd64.deb
+# cd ~/Downloads
+# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# sudo gdebi -n google-chrome-stable_current_amd64.deb
+# rm -f google-chrome-stable_current_amd64.deb
 
-install_chrome_extension () {
-  preferences_dir_path="/opt/google/chrome/extensions"
-  pref_file_path="$preferences_dir_path/$1.json"
-  upd_url="https://clients2.google.com/service/update2/crx"
-  sudo mkdir -p "$preferences_dir_path"
-	sudo printf '{\n "external_update_url": "%s"\n}\n' "$upd_url" > "$pref_file_path"
-  echo Added \""$pref_file_path"\" ["$2"]
-}
-install_chrome_extension "fmkadmapgofadopljbjfkapdkoienihi" "react dev tools"
-install_chrome_extension "lmhkpmbekcpmknklioeibfkpmmfibljd" "redux dev tools"
-install_chrome_extension "nhdogjmejiglipccpnnnanhbledajbpd" "vue dev tools"
+# install_chrome_extension () {
+#   preferences_dir_path="/opt/google/chrome/extensions"
+#   pref_file_path="$preferences_dir_path/$1.json"
+#   upd_url="https://clients2.google.com/service/update2/crx"
+#   sudo mkdir -p "$preferences_dir_path"
+# 	sudo printf '{\n "external_update_url": "%s"\n}\n' "$upd_url" > "$pref_file_path"
+#   echo Added \""$pref_file_path"\" ["$2"]
+# }
+# install_chrome_extension "fmkadmapgofadopljbjfkapdkoienihi" "react dev tools"
+# install_chrome_extension "lmhkpmbekcpmknklioeibfkpmmfibljd" "redux dev tools"
+# install_chrome_extension "nhdogjmejiglipccpnnnanhbledajbpd" "vue dev tools"
 
 cd ~
 sleep 5
 
 # Install Firefox
-# sudo apt install -yy firefox-esr
-# sleep 5
+sudo apt install -yy firefox-esr
+sleep 5
 
 # Install Brave
 sudo apt install -yy apt-transport-https
