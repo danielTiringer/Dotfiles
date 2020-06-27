@@ -154,6 +154,10 @@ sleep 5
 
 # Install Firefox
 sudo apt install -yy firefox-esr
+firefox_default="`find ~/.mozilla/firefox -type d -iname '*.default'`"
+firefox_esr_default="`find ~/.mozilla/firefox -type d -iname '*.default-esr'`"
+wget -P $firefox_default https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js
+cp $firefox_default/user.js $firefox_esr_default/
 sleep 5
 
 # Install Brave
@@ -165,10 +169,11 @@ sudo apt install -yy brave-browser
 sleep 5
 
 # Install Docker and Docker-Compose
+COMPOSE_VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
+COMPOSE_LOCATION=/usr/local/bin/docker-compose
 sudo sh -c "$(curl -fsSL https://get.docker.com)"
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo curl -L --fail https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/run.sh -o $COMPOSE_LOCATION
+sudo chmod +x $COMPOSE_LOCATION
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sleep 5
