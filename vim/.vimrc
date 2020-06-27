@@ -175,8 +175,6 @@
   inoremap [<CR> [<CR>]<ESC>O
 
 "	Vue JS
-	au BufNewFile *.vue 0r ~/.vim/templates/skeleton.vue
-
 	au BufNewFile,BufRead *.vue setlocal filetype=vue
 	let g:vue_disable_pre_processors=1
 	autocmd FileType vue syntax sync fromstart
@@ -188,15 +186,12 @@
 "	Ruby
 	autocmd FileType eruby syntax sync fromstart
   autocmd FileType eruby setlocal smartindent
-	au BufNewFile *.erb 0r ~/.vim/templates/skeleton.html
 	autocmd FileType eruby inoremap ,def def<Enter><Enter>end<Esc>2k$a<Space>
 	autocmd FileType eruby inoremap ,if if<Enter><Enter>end<Esc>2k$a<Space>
 	autocmd FileType eruby inoremap ,% <%<Space>%><Enter><Enter><%<Space>end<Space>%><Esc>2k$F%hi<Space>
 	autocmd FileType eruby inoremap ,%= <%=<Space>%><Enter><Enter><%<Space>end<Space>%><Esc>2k$F%hi<Space>
 
 "	HTML
-	au BufNewFile *.html 0r ~/.vim/templates/skeleton.html
-
   autocmd FileType html,vue,eruby,php inoremap ,1 <h1></h1><Esc>%i
   autocmd FileType html,vue,eruby,php inoremap ,2 <h2></h2><Esc>%i
   autocmd FileType html,vue,eruby,php inoremap ,3 <h3></h3><Esc>%i
