@@ -158,9 +158,6 @@
 " Programming language specific settings
 " =================================================================
 
-" Bash
-	au BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
-
 "	Go
 	au BufRead,BufNewFile *.go set filetype=go
 
