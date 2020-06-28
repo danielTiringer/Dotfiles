@@ -214,6 +214,9 @@ sudo apt-get install -y virt-manager
 sudo usermod -G libvirt -a $USER
 sudo /etc/init.d/networking restart
 
+# Install Dosbox
+sudo apt install -y dosbox
+
 # Setup the dotfiles and configs
 rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources
 rm -r ~/.config/compton ~/.config/polybar ~/.config/herbstluftwm ~/.config/mutt ~/.config/nitrogen ~/.config/ranger

@@ -6,6 +6,7 @@ sleep 4
 stow -v -R bash
 stow -v -R bin
 stow -v -R compton
+stow -v -R dosbox
 stow -v -R emacs
 stow -v -R herbstluftwm
 stow -v -R mutt
