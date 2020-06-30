@@ -159,7 +159,7 @@
 	command! Q q
 
 " Emmet
-	let g:user_emmet_leader_key:','
+	let g:user_emmet_leader_key=','
 
 " Programming language specific settings
 " =================================================================
