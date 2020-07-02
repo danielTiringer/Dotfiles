@@ -36,7 +36,7 @@ sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip ntfs-3g sto
 sleep 5
 
 # Install command line tools
-sudo apt install -yy zsh ranger neofetch rxvt-unicode mutt figlet bc
+sudo apt install -yy zsh ranger neofetch rxvt-unicode mutt figlet bc newsboat
 sleep 5
 
 # Install window manager

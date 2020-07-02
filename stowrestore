@@ -10,6 +10,7 @@ stow -v -R dosbox
 stow -v -R emacs
 stow -v -R herbstluftwm
 stow -v -R mutt
+stow -v -R newsboat
 stow -v -R nitrogen
 stow -v -R qbittorrent
 stow -v -R polybar
