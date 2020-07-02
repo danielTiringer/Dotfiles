@@ -44,6 +44,9 @@
 	" Solarized plugin to change the default colors
 		Plugin 'altercation/vim-colors-solarized'
 
+	" Emmet for easier HTML and CSS
+	  Plugin 'mattn/emmet-vim'
+
 	" Plugin for Vue.JS
 		Plugin 'posva/vim-vue'
 
@@ -155,6 +158,9 @@
 	command! W w
 	command! Q q
 
+" Emmet
+	let g:user_emmet_leader_key=','
+
 " Programming language specific settings
 " =================================================================
 
@@ -163,7 +169,6 @@
 
 "	Typescript
 	au BufRead,BufNewFile *.ts setfiletype typescript
-	au BufNewFile *.ts 0r ~/.vim/templates/skeleton.ts
 
 " Javascript
   set autoindent
@@ -179,10 +184,6 @@
 	let g:vue_disable_pre_processors=1
 	autocmd FileType vue syntax sync fromstart
 
-  autocmd FileType vue inoremap ,te <template><Enter><Enter></template><Esc>ki
-  autocmd FileType vue inoremap ,sc <scipt><Enter>export default {<Enter><Enter>}<Enter></script><Esc>2ki
-  autocmd FileType vue inoremap ,st <style scoped><Enter><Enter></style><Esc>ki
-
 "	Ruby
 	autocmd FileType eruby syntax sync fromstart
   autocmd FileType eruby setlocal smartindent
@@ -190,37 +191,6 @@
 	autocmd FileType eruby inoremap ,if if<Enter><Enter>end<Esc>2k$a<Space>
 	autocmd FileType eruby inoremap ,% <%<Space>%><Enter><Enter><%<Space>end<Space>%><Esc>2k$F%hi<Space>
 	autocmd FileType eruby inoremap ,%= <%=<Space>%><Enter><Enter><%<Space>end<Space>%><Esc>2k$F%hi<Space>
-
-"	HTML
-  autocmd FileType html,vue,eruby,php inoremap ,1 <h1></h1><Esc>%i
-  autocmd FileType html,vue,eruby,php inoremap ,2 <h2></h2><Esc>%i
-  autocmd FileType html,vue,eruby,php inoremap ,3 <h3></h3><Esc>%i
-  autocmd FileType html,vue,eruby,php inoremap ,4 <h4></h4><Esc>%i
-  autocmd FileType html,vue,eruby,php inoremap ,5 <h5></h5><Esc>%i
-  autocmd FileType html,vue,eruby,php inoremap ,6 <h6></h6><Esc>%i
-  autocmd FileType html,vue,eruby,php inoremap ,a <a<Space>href=""></a><Esc>%i
-  autocmd FileType html,vue,eruby,php inoremap ,as <aside><Enter></aside><Esc>O
-  autocmd FileType html,vue,eruby,php inoremap ,b <b></b><Esc>%i
-  autocmd FileType html,vue,eruby,php inoremap ,d <div><Enter></div><Esc>O
-  autocmd FileType html,vue,eruby,php inoremap ,f <form><Enter></form><Esc>O
-  autocmd FileType html,vue,eruby,php inoremap ,i <i<Space>class=""></i><Esc>F"i
-  autocmd FileType html,vue,eruby,php inoremap ,im <img src="" alt=""><Esc>%f"a
-  autocmd FileType html,vue,eruby,php inoremap ,in <input type="" id="" name="" value="" required>
-  autocmd FileType html,vue,eruby,php inoremap ,li <Esc>o<li></li><Esc>%i
-  autocmd FileType html,vue,eruby,php inoremap ,m <main><Enter></main><Esc>O
-  autocmd FileType html,vue,eruby,php inoremap ,n <nav></nav><Esc>%i
-  autocmd FileType html,vue,eruby,php inoremap ,op <Esc>o<option value=""></option><Esc>F<i
-  autocmd FileType html,vue,eruby,php inoremap ,p <p></p><Esc>%i
-  autocmd FileType html,vue,eruby,php inoremap ,s <session></session><Esc>%i
-  autocmd FileType html,vue,eruby,php inoremap ,se <select><Enter><option value=""></option><Enter></select><Enter><Enter><Esc>3k%a
-  autocmd FileType html,vue,eruby,php inoremap ,ul <ul><Enter><li></li><Enter></ul><Enter><Enter><Esc>03k%a
-  autocmd FileType html,vue,eruby,php inoremap ,ol <ol><Enter><li></li><Enter></ol><Enter><Enter><Esc>03k%a
-  autocmd FileType html,vue,eruby,php inoremap ,tab <table><Enter></table><Esc>O
-  autocmd FileType html,vue,eruby,php inoremap ,td <td></td><Esc>Fdcit
-  autocmd FileType html,vue,eruby,php inoremap ,tr <tr></tr><Enter><Esc>kf<i
-  autocmd FileType html,vue,eruby,php inoremap ,th <th></th><Esc>Fhcit
-  autocmd FileType html,vue,eruby,php inoremap ,dt <dt></dt><Enter><dd></dd><Enter><esc>2kcit
-  autocmd FileType html,vue,eruby,php inoremap ,dl <dl><Enter><Enter></dl><enter><enter><esc>3kcc
 
 " Color scheme
 " ============
