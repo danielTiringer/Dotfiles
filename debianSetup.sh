@@ -69,6 +69,8 @@ rm -rf fonts
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.config/oh-my-zsh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.config/oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 cd ~
+
+sudo usermod --shell $(which zsh) $USER
 sleep 5
 
 # Set up Git
@@ -241,7 +243,4 @@ echo 'Updated the system from buster to bullseye.'
 sleep 5
 
 # Install complete
-echo "Software installation complete. Please type in your password, then reboot the computer."
-
-# Change shell
-chsh -s $(which zsh)
+echo "Software installation complete. Please reboot the computer."
