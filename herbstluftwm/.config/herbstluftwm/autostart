@@ -25,6 +25,11 @@ hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn urxvt # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-Mod1-b spawn urxvt -e brave
+hc keybind $Mod-Mod1-f spawn urxvt -e firefox
+hc keybind $Mod-Mod1-n spawn urxvt -e newsboat
+hc keybind $Mod-Mod1-m spawn urxvt -e mutt
+hc keybind $Mod-Mod1-s spawn urxvt -e slack
 
 # Volume
 hc keybind XF86AudioRaiseVolume spawn amixer -M set Master '5%+'
