@@ -2,4 +2,5 @@
 bg-saved.cfg
 vifminfo
 cache.db
-mom/
+bin/.bin/.local/
+bin/.bin/.config/
