@@ -1,24 +1,26 @@
 #!/bin/bash
 
 # Daniel Tiringer's install script for Debian based distributions.
-#	     _      _     _
-#	  __| | ___| |__ (_) __ _ _ __
-#	 / _` |/ _ \ '_ \| |/ _` | '_ \
-#	| (_| |  __/ |_) | | (_| | | | |
-#	 \__,_|\___|_.__/|_|\__,_|_| |_|
+#      _      _     _
+#   __| | ___| |__ (_) __ _ _ __
+#  / _` |/ _ \ '_ \| |/ _` | '_ \
+# | (_| |  __/ |_) | | (_| | | | |
+#  \__,_|\___|_.__/|_|\__,_|_| |_|
 
 # Install prompt
 echo 'The executed script will install applications on a Debian based system.'
 while true
 do
-	read -r -p 'Are you sure you want to proceed? [Y/n] ' input
-	case $input in
-		[Yy][Ee][Ss]|[Yy]) echo 'Please enter your password:'; sleep 1; break;;
-		[Nn][Oo]|[Nn]) echo 'User aborted.'; exit 1;;
-		* ) echo 'Please answer yes or no.';;
-	esac
+    read -r -p 'Are you sure you want to proceed? [Y/n] ' input
+    case $input in
+        [Yy][Ee][Ss]|[Yy]) echo 'Please enter your password:'; sleep 1; break;;
+        [Nn][Oo]|[Nn]) echo 'User aborted.'; exit 1;;
+        * ) echo 'Please answer yes or no.';;
+    esac
 done
 
+# Import helper
+source helper.sh
 
 # Create the basic file system
 cd ~
@@ -152,6 +154,13 @@ firefox_default="`find ~/.mozilla/firefox -type d -iname '*.default'`"
 firefox_esr_default="`find ~/.mozilla/firefox -type d -iname '*.default-esr'`"
 wget -P $firefox_default https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js
 cp $firefox_default/user.js $firefox_esr_default/
+install_firefox_addon '3592823' 'browser-extension@anonaddy' # Anonaddy email creator
+install_firefox_addon '3600118' 'uBlock0@raymondhill.ne' # uBlock Origin
+install_firefox_addon '3454607' '{5caff8cc-3d2e-4110-a88a-003cc85b3858}' # VueJS Devtools
+install_firefox_addon '3606608' '@react-devtools' # React Devtools
+install_firefox_addon '3518684' '{d7742d87-e61d-4b78-b8a1-b469842139fa}' # Vimium
+install_firefox_addon '3606067' '@testpilot-containers' # Multi Account Containers
+install_firefox_addon '3604699' 'jid1-ZAdIEUB7XOzOJw@jetpack' # DuckDuckGo
 sleep 5
 
 # Install Brave
