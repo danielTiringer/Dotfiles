@@ -57,7 +57,7 @@ sleep 5
 sudo apt install -yy fonts-alee fonts-noto-cjk
 
 # Install multimedia
-sudo apt install -yy vlc
+sudo apt install -yy mpv
 
 # Create folder structure for Transmission
 mkdir -p ~/Downloads/transmission
