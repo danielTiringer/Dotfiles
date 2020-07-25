@@ -88,6 +88,11 @@ ZSH_DOTENV_PROMPT=false
 
 source $ZSH/oh-my-zsh.sh
 
+# Move History to the cache directory
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE="/home/$USER/.cache/zsh/history"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
