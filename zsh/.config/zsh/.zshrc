@@ -117,3 +117,22 @@ HISTFILE="/home/$USER/.cache/zsh/history"
 
 # Vim mode
 bindkey -v
+
+# Generic aliases
+alias cp='cp -iv'
+alias poweroff='systemctl poweroff'
+alias reboot='systemctl reboot'
+alias afk='xtrlock'
+alias hc='herbstclient'
+alias mountdrives='sudo mount /dev/sdb1 /media/2TBDrive && sudo mount /dev/sdc1 /media/4TBDrive'
+alias doom='~/.emacs.d/bin/doom'
+alias transmission='docker-compose -f ~/Downloads/transmission/transmission-compose.yml'
+alias qbittorrent='docker-compose -f ~/.bin/qbittorrent-compose.yml'
+# alias emacs="urxvt -e emacs -nw"
+
+# Software aliases
+alias chrome='google-chrome'
+alias brave='brave-browser'
+
+# upload files from the Projects folder to docker-devel1, into the docker-hasznaltauto folder
+alias upload="sh ~/.bin/syncDockerDevel1.sh"
