@@ -16,6 +16,8 @@ export NEWSBOATDIR="$HOME/.config/newsboat"
 export XAUTHORITY="$HOME/.cache/xauthority"
 export ZDOTDIR="$HOME/.config/zsh"
 
+source $HOME/.config/zsh/aliasfunctions.sh
+
 # Docker env
 COMPOSE_DOCKER_CLI_BUILD=1
 DOCKER_BUILDKIT=1
