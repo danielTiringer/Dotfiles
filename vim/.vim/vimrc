@@ -161,6 +161,9 @@
 " Emmet
 	let g:user_emmet_leader_key=','
 
+" Specific folder for viminfo
+  set viminfo+=n~/.cache/viminfo
+
 " Programming language specific settings
 " =================================================================
 
