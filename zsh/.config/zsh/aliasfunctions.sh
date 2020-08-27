@@ -1,3 +1,5 @@
+#!/bin/sh
+
 extract ()
 {
   if [ -f $1 ] ; then
@@ -20,5 +22,12 @@ extract ()
     esac
   else
     echo "'$1' is not a valid file"
+  fi
+}
+
+system_update () {
+  DISTRO=$(lsb_release -ar 2>/dev/null | grep ID | cut -s -f2)
+  if [ $DISTRO = 'Debian' ] ; then
+    sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
   fi
 }
