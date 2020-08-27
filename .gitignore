@@ -4,3 +4,4 @@ vifminfo
 cache.db
 bin/.bin/.local/
 bin/.bin/.config/
+history.*
