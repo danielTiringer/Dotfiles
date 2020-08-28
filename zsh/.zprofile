@@ -5,9 +5,9 @@
 # Global Order: zshenv, zprofile, zshrc, zlogin
 
 # Docker env
-COMPOSE_DOCKER_CLI_BUILD=1
-DOCKER_BUILDKIT=1
-ARTIFACTORY_COMPOSER_AUTH='{"http-basic":{"artifactory.mpi-internal.com": {"username": "srv.scmh.zsozsobot@adevinta.com", "password": "AKCp5dKYyMd2aHSLpQhPXKHoxT2NwQkZZ7bPtrV6WhRNv3DDxVVxAyELyTKj5q6s9iEPqdVoE"}}}'
+export COMPOSE_DOCKER_CLI_BUILD=1
+export DOCKER_BUILDKIT=1
+export ARTIFACTORY_COMPOSER_AUTH='{"http-basic":{"artifactory.mpi-internal.com": {"username": "srv.scmh.zsozsobot@adevinta.com", "password": "AKCp5dKYyMd2aHSLpQhPXKHoxT2NwQkZZ7bPtrV6WhRNv3DDxVVxAyELyTKj5q6s9iEPqdVoE"}}}'
 
 # Default programs
 export EDITOR="vim"
@@ -25,9 +25,11 @@ source $HOME/.config/zsh/aliasfunctions.sh
 
 # Generic aliases
 alias cp='cp -iv'
+alias grep='grep --color=auto'
+alias df='df -h'
 alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
-alias afk='xtrlock'
+alias afk='xtrlock -b'
 alias hc='herbstclient'
 alias mountdrives='sudo mount /dev/sdb1 /media/2TBDrive && sudo mount /dev/sdc1 /media/4TBDrive'
 alias doom='~/.emacs.d/bin/doom'
