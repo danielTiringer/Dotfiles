@@ -11,6 +11,10 @@
 # Global Order: zshenv, zprofile, zshrc, zlogin
 
 # Docker env
-COMPOSE_DOCKER_CLI_BUILD=1
-DOCKER_BUILDKIT=1
-ARTIFACTORY_COMPOSER_AUTH='{"http-basic":{"artifactory.mpi-internal.com": {"username": "srv.scmh.zsozsobot@adevinta.com", "password": "AKCp5dKYyMd2aHSLpQhPXKHoxT2NwQkZZ7bPtrV6WhRNv3DDxVVxAyELyTKj5q6s9iEPqdVoE"}}}'
+export COMPOSER_AUTH='{"http-basic":{"artifactory.mpi-internal.com": {"username": "srv.scmh.zsozsobot@adevinta.com", "password": "AKCp5dKYyMd2aHSLpQhPXKHoxT2NwQkZZ7bPtrV6WhRNv3DDxVVxAyELyTKj5q6s9iEPqdVoE"}}}'
+export COMPOSE_DOCKER_CLI_BUILD=1
+export DOCKER_BUILDKIT=1
+export ARTIFACTORY_COMPOSER_AUTH='{"http-basic":{"artifactory.mpi-internal.com": {"username": "srv.scmh.zsozsobot@adevinta.com", "password": "AKCp5dKYyMd2aHSLpQhPXKHoxT2NwQkZZ7bPtrV6WhRNv3DDxVVxAyELyTKj5q6s9iEPqdVoE"}}}'
+ARTIFACTORY_USERNAME=daniel.tiringer@adevinta.com
+ARTIFACTORY_PASSWORD=AKCp5ekcJLptBEZuDoKsVHU4VMipTUvaccSYpYQoRWQwkBQ9sF6ZyaQuV8pQaaU1avqkzvDCx
+ARTIFACTORY_DOCKER_URL=containers.mpi-internal.com
