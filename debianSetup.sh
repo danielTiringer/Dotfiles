@@ -154,13 +154,13 @@ firefox_default="`find ~/.mozilla/firefox -type d -iname '*.default'`"
 firefox_esr_default="`find ~/.mozilla/firefox -type d -iname '*.default-esr'`"
 wget -P $firefox_default https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js
 cp $firefox_default/user.js $firefox_esr_default/
-install_firefox_addon '3592823' 'browser-extension@anonaddy' # Anonaddy email creator
-install_firefox_addon '3600118' 'uBlock0@raymondhill.ne' # uBlock Origin
-install_firefox_addon '3454607' '{5caff8cc-3d2e-4110-a88a-003cc85b3858}' # VueJS Devtools
-install_firefox_addon '3606608' '@react-devtools' # React Devtools
-install_firefox_addon '3518684' '{d7742d87-e61d-4b78-b8a1-b469842139fa}' # Vimium
-install_firefox_addon '3606067' '@testpilot-containers' # Multi Account Containers
-install_firefox_addon '3604699' 'jid1-ZAdIEUB7XOzOJw@jetpack' # DuckDuckGo
+# install_firefox_addon '3592823' 'browser-extension@anonaddy' # Anonaddy email creator
+# install_firefox_addon '3600118' 'uBlock0@raymondhill.ne' # uBlock Origin
+# install_firefox_addon '3454607' '{5caff8cc-3d2e-4110-a88a-003cc85b3858}' # VueJS Devtools
+# install_firefox_addon '3606608' '@react-devtools' # React Devtools
+# install_firefox_addon '3518684' '{d7742d87-e61d-4b78-b8a1-b469842139fa}' # Vimium
+# install_firefox_addon '3606067' '@testpilot-containers' # Multi Account Containers
+# install_firefox_addon '3604699' 'jid1-ZAdIEUB7XOzOJw@jetpack' # DuckDuckGo
 sleep 5
 
 # Install Brave
@@ -236,12 +236,11 @@ sleep 5
 sudo dpkg-reconfigure keyboard-configuration
 
 # Update the system from Buster to Bullseye
-sudo sed -i 's/debian-security buster/debian-security bullseye-security/g' /etc/apt/sources.list
-sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
-sudo echo 'deb http://deb.debian.org/debian buster-backports main' | sudo tee -a /etc/apt/sources.list
-
-echo 'Updated the system from buster to bullseye.'
-sleep 5
+# sudo sed -i 's/debian-security buster/debian-security bullseye-security/g' /etc/apt/sources.list
+# sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
+# sudo echo 'deb http://deb.debian.org/debian buster-backports main' | sudo tee -a /etc/apt/sources.list
+# echo 'Updated the system from buster to bullseye.'
+# sleep 5
 
 # Install complete
 echo "Software installation complete. Please reboot the computer."
