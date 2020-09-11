@@ -136,10 +136,10 @@ wget http://getwallpapers.com/wallpaper/full/0/5/b/633941.jpg -O ~/Pictures/sund
 sleep 5
 
 # Install Google Chrome and extensions
-# cd ~/Downloads
-# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-# sudo gdebi -n google-chrome-stable_current_amd64.deb
-# rm -f google-chrome-stable_current_amd64.deb
+cd ~/Downloads
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo gdebi -n google-chrome-stable_current_amd64.deb
+rm -f google-chrome-stable_current_amd64.deb
 
 # install_chrome_extension "fmkadmapgofadopljbjfkapdkoienihi" "react dev tools"
 # install_chrome_extension "lmhkpmbekcpmknklioeibfkpmmfibljd" "redux dev tools"
