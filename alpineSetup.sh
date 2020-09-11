@@ -94,7 +94,7 @@ wget http://getwallpapers.com/wallpaper/full/0/5/b/633941.jpg -O ~/Pictures/sund
 sleep 5
 
 # Make project directories
-mkdir -p ~/Projects/{JS-sandbox,Ruby-sandbox,PHP-sandbox,Go-sandbox}
+mkdir ~/Projects
 
 # Install Postman
 # cd ~/Downloads
@@ -106,7 +106,7 @@ mkdir -p ~/Projects/{JS-sandbox,Ruby-sandbox,PHP-sandbox,Go-sandbox}
 # sleep 5
 
 # Setup the dotfiles and configs
-rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources
+rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
 rm -r ~/.config/compton ~/.config/polybar ~/.config/herbstluftwm ~/.config/mutt ~/.config/nitrogen ~/.config/ranger
 cd ~/Dotfiles
 ./stowrestore

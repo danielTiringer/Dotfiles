@@ -221,7 +221,7 @@ sudo /etc/init.d/networking restart
 sudo apt install -y dosbox
 
 # Setup the dotfiles and configs
-rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources
+rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
 rm -r ~/.config/compton ~/.config/polybar ~/.config/herbstluftwm ~/.config/mutt ~/.config/nitrogen ~/.config/ranger
 cd ~/Dotfiles
 ./stowrestore
