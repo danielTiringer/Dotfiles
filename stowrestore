@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo 'Restoring all the regular config files.'
-sleep 4
+sleep 1
 
 stow -v -R bash
 stow -v -R bin
@@ -16,15 +16,15 @@ stow -v -R nitrogen
 stow -v -R qbittorrent
 stow -v -R polybar
 stow -v -R ranger
-stow -v -R ssh
 stow -v -R transmission
 stow -v -R vifm
 stow -v -R vim
 stow -v -R xresources
 stow -v -R zsh
 
-echo 'Restoration completed.'
-
+rm ~/.ssh/config
+cp ssh/.ssh/config ~/.ssh/
 sed -i "s%	IdentityFile.*%	IdentityFile ~/.ssh/id_rsa_$(hostname)%g" ~/.ssh/config
-
 echo 'SSH identity updated.'
+
+echo 'Restoration completed.'
