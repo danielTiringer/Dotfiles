@@ -38,8 +38,14 @@ sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip ntfs-3g sto
 sleep 5
 
 # Install command line tools
-sudo apt install -yy zsh ranger neofetch rxvt-unicode mutt figlet bc newsboat
+sudo apt install -yy zsh ranger neofetch rxvt-unicode neomutt figlet bc newsboat
 sleep 5
+
+# Set up bluetoothctl
+sudo apt install -yy pulseaudio-module-bluetooth bluetooth bluez bluez-tools rfkill
+sudo usermod -aG lp $USER
+pulseaudio -k
+pulseaudio --start
 
 # Install window manager
 sudo apt install -yy herbstluftwm nitrogen compton fonts-font-awesome
@@ -72,6 +78,8 @@ git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.config/oh-my-zsh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.config/oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 cd ~
 
+mkdir -p ~/.cache/zsh
+
 sudo usermod --shell $(which zsh) $USER
 sleep 5
 
@@ -88,7 +96,6 @@ sleep 5
 
 # Install Vim
 sudo apt install -yy vim vim-gtk vifm
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 sleep 5
 
 # Install emacs
@@ -227,6 +234,7 @@ cd ~/Dotfiles
 ./stowrestore
 sudo cp -r ~/.config/polybar/fonts/* /usr/share/fonts
 sudo fc-cache -vf /usr/share/fonts
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 doom sync
 vim +PluginInstall +qall
 cd ~
