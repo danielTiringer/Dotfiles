@@ -37,6 +37,9 @@
 	" ALE, linting multiple coding languages
 		Plugin 'dense-analysis/ale'
 
+	" Vim Git wrapper
+		Plugin 'tpope/vim-fugitive'
+
 	" Vim Airline
 	  Plugin 'vim-airline/vim-airline'
 		Plugin 'vim-airline/vim-airline-themes'
@@ -136,8 +139,8 @@
 	vnoremap <C-c> "+y
 	map <C-v> "+P
 
-"	Setting tab to 2 spaces worth, indent to 2 spaces, tab to the next indent
-	set tabstop=2 shiftwidth=2 smarttab
+"	Setting tab to 4 spaces worth, indent to 4 spaces, tab to the next indent
+	set tabstop=4 shiftwidth=4 smarttab
 
 " Deleting traling whitespace from documents
 	autocmd BufWritePre * %s/\s\+$//e
