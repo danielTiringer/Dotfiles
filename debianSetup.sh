@@ -94,6 +94,14 @@ mkdir ~/.ssh
 ssh-keygen -t rsa -b 4096 -C "tiringerdaniel@gmail.com" -f ~/.ssh/id_rsa_$(hostname) -q -N ""
 sleep 5
 
+# Set up firewall
+sudo apt install -yy ufw
+sudo systemctl enable ufw.service --now
+sudo ufw enable
+sudo ufw allow Transmission
+sudo ufw limit SSH
+sudo ufw limit OpenSSH
+
 # Install Vim
 sudo apt install -yy vim vim-gtk vifm
 sleep 5
