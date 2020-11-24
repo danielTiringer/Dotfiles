@@ -30,4 +30,13 @@ system_update () {
   if [ $DISTRO = 'Debian' ] ; then
     sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
   fi
+  if [ -d "$HOME/.config/doom" ]; then
+    $HOME/.emacs.d/bin/doom sync
+  fi
+  if [ -d "$HOME/.config/oh-my-zsh" ]; then
+    omz update
+  fi
+  if [ -d "$HOME/.vim" ]; then
+    vim +PluginUpdate +qall
+  fi
 }
