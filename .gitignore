@@ -6,3 +6,4 @@ bin/.bin/.local/
 bin/.bin/.config/
 history.*
 .zcompdump*
+vim/.vim/bundle/
