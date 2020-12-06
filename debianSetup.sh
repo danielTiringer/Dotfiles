@@ -47,8 +47,20 @@ sudo usermod -aG lp $USER
 pulseaudio -k
 pulseaudio --start
 
-# Install window manager
-sudo apt install -yy herbstluftwm nitrogen compton fonts-font-awesome
+# Install window manager basics
+sudo apt install -yy nitrogen compton fonts-font-awesome
+sleep 5
+
+# Install herbstluftwm
+sudo apt install -yy herbstluftwm
+sleep 5
+
+# Install qtile
+sudo apt install -yy python3-pip
+pip3 install xcffib
+pip3 install --no-cache-dir cairocffi
+sudo apt install -yy libpangocairo-1.0-0
+pip3 install qtile
 sleep 5
 
 # Install utilities
