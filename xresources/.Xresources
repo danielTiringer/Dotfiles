@@ -2,7 +2,7 @@ URxvt.scrollBar:      false
 URxvt.font:           xft:mono:medium:size=10,xft:Menlo for Powerline:size=10,xft:DejaVu Sans Mono for Powerline:size=10,xft:FontAwesome:size=6
 
 Urxvt.letterspace:    -1
-URxvt.url-launcher:   /usr/bin/brave-browser
+URxvt.url-launcher:   /usr/bin/firefox
 URxvt*loginShell:     true
 URxvt*fading:         30
 URxvt.internalBorder: 0
