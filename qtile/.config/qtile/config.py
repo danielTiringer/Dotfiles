@@ -467,7 +467,8 @@ def init_screens():
             top=bar.Bar(
                 widgets=init_widgets_list(),
                 opacity=1.0,
-                size=20
+                size=20,
+                margin=[18, 0, 0, 0]
             )
         )
     ]

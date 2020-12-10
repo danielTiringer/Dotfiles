@@ -24,7 +24,7 @@ source helper.sh
 
 # Create the basic file system
 cd ~
-mkdir Downloads Pictures Documents .config
+mkdir Downloads Pictures Documents Projects .config
 sudo mkdir -p /media/{2TBDrive,4TBDrive,4TBEnglishMedia,MemCard,USB}
 cd ~
 
@@ -214,9 +214,6 @@ sudo chmod +x $COMPOSE_LOCATION
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sleep 5
-
-# Make project directories
-mkdir -p ~/Projects/{JS-sandbox,Ruby-sandbox,PHP-sandbox,Go-sandbox}
 
 # Install Postman
 cd ~/Downloads
