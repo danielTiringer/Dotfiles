@@ -160,69 +160,37 @@ keys = [
              desc='Dmenu scrot script'
              ),
          ### My applications launched with SUPER + ALT + KEY
-         Key([mod, "mod1"], "b",
-             lazy.spawn("tabbed -r 2 surf -pe x '.surf/html/homepage.html'"),
-             desc='lynx browser'
-             ),
-         Key([mod, "mod1"], "l",
-             lazy.spawn(myTerm+" -e lynx gopher://distro.tube"),
-             desc='lynx browser'
-             ),
          Key([mod, "mod1"], "n",
              lazy.spawn(myTerm+" -e newsboat"),
              desc='newsboat'
-             ),
-         Key([mod, "mod1"], "r",
-             lazy.spawn(myTerm+" -e rtv"),
-             desc='reddit terminal viewer'
              ),
          Key([mod, "mod1"], "e",
              lazy.spawn(myTerm+" -e neomutt"),
              desc='neomutt'
              ),
          Key([mod, "mod1"], "m",
-             lazy.spawn(myTerm+" -e sh ./scripts/toot.sh"),
-             desc='toot mastodon cli'
-             ),
-         Key([mod, "mod1"], "t",
-             lazy.spawn(myTerm+" -e sh ./scripts/tig-script.sh"),
-             desc='tig'
-             ),
-         Key([mod, "mod1"], "f",
-             lazy.spawn(myTerm+" -e sh ./.config/vifm/scripts/vifmrun"),
+             lazy.spawn(myTerm+" -e vifm"),
              desc='vifm'
              ),
-         Key([mod, "mod1"], "j",
-             lazy.spawn(myTerm+" -e joplin"),
-             desc='joplin'
+         Key([mod, "mod1"], "f",
+             lazy.spawn(myTerm+" -e firefox"),
+             desc='firefox'
              ),
-         Key([mod, "mod1"], "c",
-             lazy.spawn(myTerm+" -e cmus"),
-             desc='cmus'
-             ),
-         Key([mod, "mod1"], "i",
-             lazy.spawn(myTerm+" -e irssi"),
-             desc='irssi'
-             ),
-         Key([mod, "mod1"], "y",
-             lazy.spawn(myTerm+" -e youtube-viewer"),
-             desc='youtube-viewer'
-             ),
-         Key([mod, "mod1"], "a",
-             lazy.spawn(myTerm+" -e ncpamixer"),
-             desc='ncpamixer'
+         Key([mod, "mod1"], "p",
+             lazy.spawn(myTerm+" -e pulsemixer"),
+             desc='pulsemixer'
              ),
 ]
 
-group_names = [("WWW", {'layout': 'monadtall'}),
-               ("DEV", {'layout': 'monadtall'}),
-               ("SYS", {'layout': 'monadtall'}),
-               ("DOC", {'layout': 'monadtall'}),
-               ("VBOX", {'layout': 'monadtall'}),
-               ("CHAT", {'layout': 'monadtall'}),
-               ("MUS", {'layout': 'monadtall'}),
-               ("VID", {'layout': 'monadtall'}),
-               ("GFX", {'layout': 'floating'})]
+group_names = [("DEV", {'layout': 'tile'}),
+               ("DOCKER", {'layout': 'tile'}),
+               ("SYS", {'layout': 'tile'}),
+               ("DOC", {'layout': 'tile'}),
+               ("WWW", {'layout': 'tile'}),
+               ("TEST", {'layout': 'tile'}),
+               ("VIDEO", {'layout': 'tile'}),
+               ("VMAN", {'layout': 'tile'}),
+               ("MUSIC", {'layout': 'tile'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
@@ -230,40 +198,41 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
-layout_theme = {"border_width": 2,
-                "margin": 6,
-                "border_focus": "e1acff",
-                "border_normal": "1D2330"
-                }
+layout_theme = {
+    "border_width": 2,
+    "margin": 6,
+    "border_focus": "e1acff",
+    "border_normal": "1D2330"
+}
 
 layouts = [
     #layout.MonadWide(**layout_theme),
     #layout.Bsp(**layout_theme),
-    #layout.Stack(stacks=2, **layout_theme),
     #layout.Columns(**layout_theme),
     #layout.RatioTile(**layout_theme),
     #layout.VerticalTile(**layout_theme),
     #layout.Matrix(**layout_theme),
     #layout.Zoomy(**layout_theme),
-    layout.MonadTall(**layout_theme),
-    layout.Max(**layout_theme),
+    #layout.MonadTall(**layout_theme),
+    #layout.Max(**layout_theme),
+    layout.Matrix(**layout_theme),
     layout.Tile(shift_windows=True, **layout_theme),
-    layout.Stack(num_stacks=2),
-    layout.TreeTab(
-         font = "Ubuntu",
-         fontsize = 10,
-         sections = ["FIRST", "SECOND"],
-         section_fontsize = 11,
-         bg_color = "141414",
-         active_bg = "90C435",
-         active_fg = "000000",
-         inactive_bg = "384323",
-         inactive_fg = "a0a0a0",
-         padding_y = 5,
-         section_top = 10,
-         panel_width = 320
-         ),
-    layout.Floating(**layout_theme)
+    layout.Stack(num_stacks=1, **layout_theme),
+    #layout.TreeTab(
+    #      font = "Ubuntu",
+    #      fontsize = 10,
+    #      sections = ["FIRST", "SECOND"],
+    #      section_fontsize = 11,
+    #      bg_color = "141414",
+    #      active_bg = "90C435",
+    #      active_fg = "000000",
+    #      inactive_bg = "384323",
+    #      inactive_fg = "a0a0a0",
+    #      padding_y = 5,
+    #      section_top = 10,
+    #      panel_width = 320
+    #      ),
+    # layout.Floating(**layout_theme)
 ]
 
 colors = [["#292d3e", "#292d3e"], # panel background
@@ -336,23 +305,27 @@ def init_widgets_list():
                        padding = 0
                        ),
               widget.TextBox(
-                       text = '',
+                       text='',
                        background = colors[0],
                        foreground = colors[4],
                        padding = 0,
                        fontsize = 37
                        ),
               widget.TextBox(
-                       text = " ₿",
-                       padding = 0,
+                       text = " ⟳",
+                       padding = 2,
                        foreground = colors[2],
                        background = colors[4],
-                       fontsize = 12
+                       fontsize = 14
                        ),
-              widget.BitcoinTicker(
+              widget.CheckUpdates(
+                       distro = 'Debian',
+                       custom_command = 'apt list -qq --upgradable',
+                       update_interval = 60,
+                       no_update_string = 'No updates',
+                       display_format = 'Updates: {updates}',
                        foreground = colors[2],
-                       background = colors[4],
-                       padding = 5
+                       background = colors[4]
                        ),
               widget.TextBox(
                        text = '',
@@ -381,23 +354,8 @@ def init_widgets_list():
                        padding = 0,
                        fontsize = 37
                        ),
-              widget.TextBox(
-                       text = " ⟳",
-                       padding = 2,
-                       foreground = colors[2],
-                       background = colors[4],
-                       fontsize = 14
-                       ),
-              widget.Pacman(
-                       update_interval = 1800,
-                       foreground = colors[2],
-                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
-                       background = colors[4]
-                       ),
-              widget.TextBox(
-                       text = "Updates",
-                       padding = 5,
-                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
+              widget.CPU(
+                       format = 'CPU {freq_current}GHz {load_percent}%',
                        foreground = colors[2],
                        background = colors[4]
                        ),
@@ -418,9 +376,8 @@ def init_widgets_list():
               widget.Memory(
                        foreground = colors[2],
                        background = colors[5],
-                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e htop')},
-                       padding = 5
-                       ),
+                       format = '{MemUsed}M/{MemTotal}M',
+              ),
               widget.TextBox(
                        text='',
                        background = colors[5],
@@ -428,9 +385,9 @@ def init_widgets_list():
                        padding = 0,
                        fontsize = 37
                        ),
-              widget.Net(
-                       interface = "enp6s0",
-                       format = '{down} ↓↑ {up}',
+              widget.Battery(
+                       battery = "BAT0",
+                       format = '{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W',
                        foreground = colors[2],
                        background = colors[4],
                        padding = 5
@@ -497,24 +454,29 @@ def init_widgets_list():
               ]
     return widgets_list
 
-def init_widgets_screen1():
-    widgets_screen1 = init_widgets_list()
-    return widgets_screen1                       # Slicing removes unwanted widgets on Monitors 1,3
-
-def init_widgets_screen2():
-    widgets_screen2 = init_widgets_list()
-    return widgets_screen2                       # Monitor 2 will display all widgets in widgets_list
-
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=20)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20))]
+    return [
+        Screen(
+            top=bar.Bar(
+                widgets=init_widgets_list(),
+                opacity=1.0,
+                size=20
+            )
+        ),
+        Screen(
+            top=bar.Bar(
+                widgets=init_widgets_list(),
+                opacity=1.0,
+                size=20
+            )
+        )
+    ]
 
 if __name__ in ["config", "__main__"]:
     screens = init_screens()
     widgets_list = init_widgets_list()
-    widgets_screen1 = init_widgets_screen1()
-    widgets_screen2 = init_widgets_screen2()
+    widgets_screen1 = init_widgets_list()
+    widgets_screen2 = init_widgets_list()
 
 def window_to_prev_group(qtile):
     if qtile.currentWindow is not None:

@@ -25,7 +25,7 @@ source helper.sh
 # Create the basic file system
 cd ~
 mkdir Downloads Pictures Documents .config
-sudo mkdir -p /media/{2TBDrive,4TBDrive,MemCard,USB}
+sudo mkdir -p /media/{2TBDrive,4TBDrive,4TBEnglishMedia,MemCard,USB}
 cd ~
 
 # Update the system
@@ -38,7 +38,7 @@ sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip ntfs-3g sto
 sleep 5
 
 # Install command line tools
-sudo apt install -yy zsh ranger neofetch rxvt-unicode neomutt figlet bc newsboat
+sudo apt install -yy zsh ranger neofetch rxvt-unicode neomutt figlet bc newsboat apt-show-versions
 sleep 5
 
 # Set up bluetoothctl
@@ -57,14 +57,21 @@ sleep 5
 
 # Install qtile
 sudo apt install -yy python3-pip
-pip3 install xcffib
+pip3 install xcffib psutil
 pip3 install --no-cache-dir cairocffi
 sudo apt install -yy libpangocairo-1.0-0
 pip3 install qtile
+
+sudo echo '[Desktop Entry]
+Name=Qtile
+Comment=Qtile Session
+Exec=qtile start
+Type=Application
+Keywords=wm;tiling' >> /usr/share/xsessions/qtile.desktop
 sleep 5
 
 # Install utilities
-sudo apt install -yy network-manager alsa-utils xbacklight xorg xtrlock lm-sensors
+sudo apt install -yy network-manager alsa-utils xbacklight xorg xtrlock lm-sensors pulsemixer
 sleep 5
 
 # Install image manipulation programs

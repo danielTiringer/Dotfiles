@@ -7,3 +7,4 @@ bin/.bin/.config/
 history.*
 .zcompdump*
 vim/.vim/bundle/
+__pycache__/
