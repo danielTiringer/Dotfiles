@@ -67,14 +67,22 @@ Name=Qtile
 Comment=Qtile Session
 Exec=qtile start
 Type=Application
-Keywords=wm;tiling' >> /usr/share/xsessions/qtile.desktop
+Keywords=wm;tiling' >> ~/Downloads/qtile.desktop
+sudo mv ~/Downloads/qtile.desktop /usr/share/xsessions
 sleep 5
 
 # Install utilities
 sudo apt install -yy network-manager alsa-utils xbacklight xorg xtrlock lm-sensors pulsemixer
 sleep 5
 
-# Install image manipulation programs
+# Install cron-apt
+sudo apt install -yy cron-apt
+sudo echo 'OPTIONS="-o quiet"
+MAILON="NEVER"
+DEBUG="verbose"' >> /etc/cron-apt/config
+sleep 5
+
+# Install image manipulation program
 sudo apt install -yy imagemagick #gimp
 sleep 5
 

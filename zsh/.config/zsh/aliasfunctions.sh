@@ -33,10 +33,10 @@ system_update () {
   if [ -d "$HOME/.config/doom" ]; then
     $HOME/.emacs.d/bin/doom sync
   fi
-  if [ -d "$HOME/.config/oh-my-zsh" ]; then
-    omz update
-  fi
   if [ -d "$HOME/.vim" ]; then
     vim +PluginUpdate +qall
+  fi
+  if [ -d "$HOME/.config/oh-my-zsh" ]; then
+    omz update
   fi
 }
