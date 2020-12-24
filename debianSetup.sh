@@ -25,7 +25,7 @@ source helper.sh
 # Create the basic file system
 cd ~
 mkdir Downloads Pictures Documents Projects .config
-sudo mkdir -p /media/{2TBDrive,4TBDrive,4TBEnglishMedia,MemCard,USB}
+sudo mkdir -p /media/{2TBDrive,4TBDrive,4TBEnglishMedia,SDCard,USB}
 cd ~
 
 # Update the system
@@ -35,6 +35,8 @@ sleep 5
 
 # Install basic tools for file management
 sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip ntfs-3g stow xclip libclipboard-perl
+# Install exfat utilities for managing exfat architecture (SD cards)
+sudo apt install -yy exfat-fuse exfat-utils
 sleep 5
 
 # Install command line tools

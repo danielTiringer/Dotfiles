@@ -21,6 +21,7 @@ stow -v -R ssh
 stow -v -R transmission
 stow -v -R vifm
 stow -v -R vim
+stow -v -R xinitrc
 stow -v -R xresources
 stow -v -R zsh
 
