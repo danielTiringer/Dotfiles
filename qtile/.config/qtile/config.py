@@ -311,49 +311,49 @@ def init_widgets_list():
                        padding = 0,
                        fontsize = 37
                        ),
-              widget.TextBox(
-                       text = " ⟳",
-                       padding = 2,
-                       foreground = colors[2],
-                       background = colors[4],
-                       fontsize = 14
-                       ),
-              widget.CheckUpdates(
-                       distro = 'Debian',
-                       custom_command = 'apt list -qq --upgradable',
-                       update_interval = 60,
-                       no_update_string = 'No updates',
-                       display_format = 'Updates: {updates}',
-                       foreground = colors[2],
-                       background = colors[4]
-                       ),
-              widget.TextBox(
-                       text = '',
-                       background = colors[4],
-                       foreground = colors[5],
-                       padding = 0,
-                       fontsize = 37
-                       ),
-              widget.TextBox(
-                       text = " 🌡",
-                       padding = 2,
-                       foreground = colors[2],
-                       background = colors[5],
-                       fontsize = 11
-                       ),
-              widget.ThermalSensor(
-                       foreground = colors[2],
-                       background = colors[5],
-                       threshold = 90,
-                       padding = 5
-                       ),
-              widget.TextBox(
-                       text='',
-                       background = colors[5],
-                       foreground = colors[4],
-                       padding = 0,
-                       fontsize = 37
-                       ),
+              # widget.TextBox(
+              #          text = " ⟳",
+              #          padding = 2,
+              #          foreground = colors[2],
+              #          background = colors[4],
+              #          fontsize = 14
+              #          ),
+              # widget.CheckUpdates(
+              #          distro = 'Debian',
+              #          custom_command = 'apt list -qq --upgradable',
+              #          update_interval = 60,
+              #          no_update_string = 'No updates',
+              #          display_format = 'Updates: {updates}',
+              #          foreground = colors[2],
+              #          background = colors[4]
+              #          ),
+              # widget.TextBox(
+              #          text = '',
+              #          background = colors[4],
+              #          foreground = colors[5],
+              #          padding = 0,
+              #          fontsize = 37
+              #          ),
+              # widget.TextBox(
+              #          text = " 🌡",
+              #          padding = 2,
+              #          foreground = colors[2],
+              #          background = colors[5],
+              #          fontsize = 11
+              #          ),
+              # widget.ThermalSensor(
+              #          foreground = colors[2],
+              #          background = colors[5],
+              #          threshold = 90,
+              #          padding = 5
+              #          ),
+              # widget.TextBox(
+              #          text='',
+              #          background = colors[5],
+              #          foreground = colors[4],
+              #          padding = 0,
+              #          fontsize = 37
+              #          ),
               widget.CPU(
                        format = 'CPU {freq_current}GHz {load_percent}%',
                        foreground = colors[2],
@@ -385,9 +385,15 @@ def init_widgets_list():
                        padding = 0,
                        fontsize = 37
                        ),
+              widget.BatteryIcon(
+                       battery = "BAT0",
+                       foreground = colors[2],
+                       background = colors[4],
+                       padding = 0
+                       ),
               widget.Battery(
                        battery = "BAT0",
-                       format = '{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W',
+                       format = '{percent:2.0%}',
                        foreground = colors[2],
                        background = colors[4],
                        padding = 5
