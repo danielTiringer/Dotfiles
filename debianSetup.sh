@@ -261,6 +261,17 @@ sudo /etc/init.d/networking restart
 # Install Dosbox
 sudo apt install -y dosbox
 
+# Install Anki
+cd ~/Downloads/
+wget https://github.com/ankitects/anki/releases/download/2.1.37/anki-2.1.37-linux.tar.bz2
+tar xjf Downloads/anki-2.1.37-linux.tar.bz2
+cd anki-2.1.37-linux
+sudo ./install.sh
+cd ..
+rm -rf anki-2.1.37-linux anki-2.1.37-linux.tar.bz2
+cd ~
+sleep 5
+
 # Setup the dotfiles and configs
 rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
 rm -r ~/.config/compton ~/.config/polybar ~/.config/herbstluftwm ~/.config/mutt ~/.config/nitrogen ~/.config/ranger
