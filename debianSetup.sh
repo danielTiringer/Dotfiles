@@ -261,6 +261,9 @@ sudo /etc/init.d/networking restart
 # Install Dosbox
 sudo apt install -y dosbox
 
+# Install Korean language pack
+sudo apt install -yy ibus-hangul fonts-unfonts-core
+
 # Install Anki
 cd ~/Downloads/
 wget https://github.com/ankitects/anki/releases/download/2.1.37/anki-2.1.37-linux.tar.bz2

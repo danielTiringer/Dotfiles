@@ -304,13 +304,13 @@ def init_widgets_list():
                        background = colors[0],
                        padding = 0
                        ),
-              widget.TextBox(
-                       text='',
-                       background = colors[0],
-                       foreground = colors[4],
-                       padding = 0,
-                       fontsize = 37
-                       ),
+              # widget.TextBox(
+              #          text='',
+              #          background = colors[0],
+              #          foreground = colors[4],
+              #          padding = 0,
+              #          fontsize = 37
+              #          ),
               # widget.TextBox(
               #          text = " ⟳",
               #          padding = 2,
@@ -354,6 +354,33 @@ def init_widgets_list():
               #          padding = 0,
               #          fontsize = 37
               #          ),
+              widget.TextBox(
+                       text = '',
+                       background = colors[0],
+                       foreground = colors[5],
+                       padding = 0,
+                       fontsize = 37
+                       ),
+              widget.KeyboardLayout(
+                       foreground = colors[2],
+                       background = colors[5],
+                       threshold = 90,
+                       padding = 5,
+                       configured_keyboards = ['us', 'hu', 'kr', 'es'],
+                       display_map = {
+                           'us': 'US',
+                           'hu': 'HU',
+                           'kr': 'KR',
+                           'es': 'ES'
+                       }
+                       ),
+              widget.TextBox(
+                       text='',
+                       background = colors[5],
+                       foreground = colors[4],
+                       padding = 0,
+                       fontsize = 37
+                       ),
               widget.CPU(
                        format = 'CPU {freq_current}GHz {load_percent}%',
                        foreground = colors[2],
