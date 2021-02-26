@@ -35,10 +35,8 @@ alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
 alias afk='xtrlock -b'
 alias hc='herbstclient'
-alias mountdrives='sudo mount /dev/sdb1 /media/2TBDrive && sudo mount /dev/sdc1 /media/4TBDrive'
 alias doom='~/.emacs.d/bin/doom'
 alias transmission='docker-compose -f ~/Downloads/transmission/transmission-compose.yml'
-alias qbittorrent='docker-compose -f ~/.bin/qbittorrent-compose.yml'
 # alias emacs="urxvt -e emacs -nw"
 
 # Software aliases

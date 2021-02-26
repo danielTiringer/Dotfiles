@@ -135,8 +135,20 @@ sudo ufw limit OpenSSH
 sudo apt install -yy vim vim-gtk vifm
 sleep 5
 
-# Install emacs
-sudo apt install -yy emacs
+# Install emacs module dependencies
+sudo apt install -yy shellcheck # for the sh lang
+sudo apt install -yy markdown # for the markdown lang
+sudo apt install -yy sbcl # for the common-lisp lang
+sudo apt install -yy maim # for the org-mode module
+pip3 install isort pipenv pytest nosetests # for the python lang
+sudo apt install php-cli php-zip # for the php lang
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+chmod +x /usr/local/bin/composer
+sudo apt install node-js-beautify # for the web lang
+
+# Install emacs itself
+sudo apt install -yy emacs ripgrep fd-find
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 PATH="$HOME/.emacs.d/bin:$PATH"
 mkdir -p ~/.emacs.d/.local/straight/repos
