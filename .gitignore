@@ -8,3 +8,6 @@ history.*
 .zcompdump*
 vim/.vim/bundle/
 __pycache__/
+vendor/
+composer.lock
+.htaccess

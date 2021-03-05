@@ -5,6 +5,7 @@ sleep 1
 
 stow -v -R bash
 stow -v -R bin
+stow -v -R composer
 stow -v -R compton
 stow -v -R dosbox
 stow -v -R emacs

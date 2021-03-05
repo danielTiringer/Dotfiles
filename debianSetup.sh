@@ -141,7 +141,7 @@ sudo apt install -yy markdown # for the markdown lang
 sudo apt install -yy sbcl # for the common-lisp lang
 sudo apt install -yy maim # for the org-mode module
 pip3 install isort pipenv pytest nosetests # for the python lang
-sudo apt install php-cli php-zip # for the php lang
+sudo apt install php-cli php-zip php-curl php-mbstring php-xml # for the php lang
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
