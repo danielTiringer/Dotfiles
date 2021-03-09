@@ -34,6 +34,7 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
+(setq lsp-clients-php-server-command (cons "php" (executable-find "php-language-server.php")))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
