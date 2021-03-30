@@ -263,7 +263,7 @@ def init_widgets_list():
                        background = colors[0]
                        ),
               widget.Image(
-                       filename = "~/.config/qtile/icons/python.png",
+                       filename = "~/.config/qtile/icons/debian.png",
                        mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('dmenu_run')}
                        ),
               widget.GroupBox(
@@ -319,7 +319,7 @@ def init_widgets_list():
               #          fontsize = 14
               #          ),
               # widget.CheckUpdates(
-              #          distro = 'Debian',
+              #          distro = 'Debian_checkupdates',
               #          custom_command = 'apt list -qq --upgradable',
               #          update_interval = 60,
               #          no_update_string = 'No updates',
