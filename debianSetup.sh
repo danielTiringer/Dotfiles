@@ -25,7 +25,7 @@ source helper.sh
 # Create the basic file system
 cd ~
 mkdir Downloads Pictures Documents Projects .config
-sudo mkdir -p /media/{2TBDrive,4TBDrive,4TBEnglishMedia,SDCard,USB}
+sudo mkdir -p /media/{2TBDrive,EnglishMedia,ForeginMedia,SDCard,USB}
 cd ~
 
 # Update the system
@@ -79,7 +79,7 @@ sleep 5
 
 # Install cron-apt
 sudo apt install -yy cron-apt
-sudo echo 'OPTIONS="-o quiet"
+sudo echo 'OPTIONS="-o quiet=2"
 MAILON="NEVER"
 DEBUG="verbose"' >> /etc/cron-apt/config
 sleep 5
