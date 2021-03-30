@@ -5,17 +5,17 @@ import csv
 import socket
 import subprocess
 from libqtile.config import KeyChord, Key, Screen, Group, Drag, Click
-from libqtile.command import lazy
+#from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
 from typing import List  # noqa: F401
 
-mod = "mod4" # Sets mod key to SUPER/WINDOWS
-myTerm = "urxvt" # My terminal of choice
-myConfig = "/home/daniel/.config/qtile/config.py" # The Qtile config file location
+mod = "mod4"  # Sets mod key to SUPER/WINDOWS
+myTerm = "urxvt"  # My terminal of choice
+myConfig = "/home/daniel/.config/qtile/config.py"  # The Qtile .conf location
 
 keys = [
-         ### The essentials
+         # The essentials
          Key([mod], "Return",
              lazy.spawn(myTerm),
              desc='Launches My Terminal'
@@ -44,7 +44,7 @@ keys = [
              lazy.spawn("emacsclient -c -a emacs"),
              desc='Doom Emacs'
              ),
-         ### Switch focus to specific monitor (out of three)
+         # Switch focus to specific monitor (out of three)
          Key([mod], "w",
              lazy.to_screen(0),
              desc='Keyboard focus to monitor 1'
@@ -75,7 +75,7 @@ keys = [
              lazy.layout.section_down(),
              desc='Move down a section in treetab'
              ),
-         ### Window controls
+         # Window controls
          Key([mod], "k",
              lazy.layout.down(),
              desc='Move focus down in current stack pane'
@@ -118,7 +118,7 @@ keys = [
              lazy.window.toggle_fullscreen(),
              desc='toggle fullscreen'
              ),
-         ### Stack controls
+         # Stack controls
          Key([mod, "shift"], "space",
              lazy.layout.rotate(),
              lazy.layout.flip(),
@@ -132,7 +132,7 @@ keys = [
              lazy.layout.toggle_split(),
              desc='Toggle between split and unsplit sides of stack'
              ),
-         ### Dmenu scripts launched with ALT + CTRL + KEY
+         # Dmenu scripts launched with ALT + CTRL + KEY
          Key(["mod1", "control"], "e",
              lazy.spawn("./.dmenu/dmenu-edit-configs.sh"),
              desc='Dmenu script for editing config files'
@@ -160,7 +160,7 @@ keys = [
              lazy.spawn("./.dmenu/dmenu-scrot.sh"),
              desc='Dmenu scrot script'
              ),
-         ### My applications launched with SUPER + ALT + KEY
+         # My applications launched with SUPER + ALT + KEY
          Key([mod, "mod1"], "n",
              lazy.spawn(myTerm+" -e newsboat"),
              desc='newsboat'
@@ -196,8 +196,10 @@ group_names = [("DEV", {'layout': 'tile'}),
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
 for i, (name, kwargs) in enumerate(group_names, 1):
-    keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
-    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
+    # Switch to another group
+    keys.append(Key([mod], str(i), lazy.group[name].toscreen()))
+    # Send current window to another group
+    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name)))
 
 layout_theme = {
     "border_width": 2,
@@ -207,19 +209,19 @@ layout_theme = {
 }
 
 layouts = [
-    #layout.MonadWide(**layout_theme),
-    #layout.Bsp(**layout_theme),
-    #layout.Columns(**layout_theme),
-    #layout.RatioTile(**layout_theme),
-    #layout.VerticalTile(**layout_theme),
-    #layout.Matrix(**layout_theme),
-    #layout.Zoomy(**layout_theme),
-    #layout.MonadTall(**layout_theme),
-    #layout.Max(**layout_theme),
+    #       layout.MonadWide(**layout_theme),
+    #       layout.Bsp(**layout_theme),
+    #       layout.Columns(**layout_theme),
+    #       layout.RatioTile(**layout_theme),
+    #       layout.VerticalTile(**layout_theme),
+    #       layout.Matrix(**layout_theme),
+    #       layout.Zoomy(**layout_theme),
+    #       layout.MonadTall(**layout_theme),
+    #       layout.Max(**layout_theme),
     layout.Matrix(**layout_theme),
     layout.Tile(shift_windows=True, **layout_theme),
     layout.Stack(num_stacks=1, **layout_theme),
-    #layout.TreeTab(
+    # layout.TreeTab(
     #      font = "Ubuntu",
     #      fontsize = 10,
     #      sections = ["FIRST", "SECOND"],
@@ -236,17 +238,17 @@ layouts = [
     # layout.Floating(**layout_theme)
 ]
 
-colors = [["#292d3e", "#292d3e"], # panel background
-          ["#434758", "#434758"], # background for current screen tab
-          ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
-          ["#8d62a9", "#8d62a9"], # border line color for other tab and odd widgets
-          ["#668bd7", "#668bd7"], # color for the even widgets
-          ["#e1acff", "#e1acff"]] # window name
+colors = [["#292d3e", "#292d3e"],  # panel background
+          ["#434758", "#434758"],  # background for current screen tab
+          ["#ffffff", "#ffffff"],  # font color for group names
+          ["#ff5555", "#ff5555"],  # border line color for current tab
+          ["#8d62a9", "#8d62a9"],  # border line color for other tab and odd widgets
+          ["#668bd7", "#668bd7"],  # color for the even widgets
+          ["#e1acff", "#e1acff"]]  # window name
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
-##### DEFAULT WIDGET SETTINGS #####
+# DEFAULT WIDGET SETTINGS #
 widget_defaults = dict(
     font="Ubuntu Mono",
     fontsize = 12,
@@ -564,20 +566,7 @@ bring_front_click = False
 cursor_warp = False
 
 floating_layout = layout.Floating(float_rules=[
-    {'wmclass': 'confirm'},
-    {'wmclass': 'dialog'},
-    {'wmclass': 'download'},
-    {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
-    {'wmclass': 'splash'},
-    {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'},  # gitk
-    {'wmclass': 'makebranch'},  # gitk
-    {'wmclass': 'maketag'},  # gitk
-    {'wname': 'branchdialog'},  # gitk
-    {'wname': 'pinentry'},  # GPG key password entry
-    {'wmclass': 'ssh-askpass'},  # ssh-askpass
+    #*layout.Floating.default_float_rules,
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
