@@ -7,11 +7,6 @@
 # Docker env
 export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_BUILDKIT=1
-export ARTIFACTORY_COMPOSER_AUTH='{"http-basic":{"artifactory.mpi-internal.com": {"username": "srv.scmh.zsozsobot@adevinta.com", "password": "AKCp5dKYyMd2aHSLpQhPXKHoxT2NwQkZZ7bPtrV6WhRNv3DDxVVxAyELyTKj5q6s9iEPqdVoE"}}}'
-export COMPOSER_AUTH='{"http-basic":{"artifactory.mpi-internal.com": {"username": "srv.scmh.zsozsobot@adevinta.com", "password": "AKCp5dKYyMd2aHSLpQhPXKHoxT2NwQkZZ7bPtrV6WhRNv3DDxVVxAyELyTKj5q6s9iEPqdVoE"}}}'
-export ARTIFACTORY_USER=daniel.tiringer@adevinta.com
-export ARTIFACTORY_PWD=AKCp5ekcJLptBEZuDoKsVHU4VMipTUvaccSYpYQoRWQwkBQ9sF6ZyaQuV8pQaaU1avqkzvDCx
-export ARTIFACTORY_DOCKER_URL=containers.mpi-internal.com
 
 # Default programs
 export EDITOR="vim"
