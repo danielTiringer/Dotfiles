@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import re
+import csv
 import socket
 import subprocess
 from libqtile.config import KeyChord, Key, Screen, Group, Drag, Click
@@ -254,6 +255,14 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+distribution = ""
+with open("/etc/os-release") as f:
+    reader = csv.reader(f, delimiter="=")
+    for row in reader:
+        if row[0] == "ID":
+            distribution = row[1]
+
+
 def init_widgets_list():
     widgets_list = [
               widget.Sep(
@@ -263,7 +272,7 @@ def init_widgets_list():
                        background = colors[0]
                        ),
               widget.Image(
-                       filename = "~/.config/qtile/icons/debian.png",
+                       filename = "~/.config/qtile/icons/" + distribution + ".png",
                        mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('dmenu_run')}
                        ),
               widget.GroupBox(
