@@ -40,14 +40,8 @@ sudo apt install -yy exfat-fuse exfat-utils
 sleep 5
 
 # Install command line tools
-sudo apt install -yy zsh ranger neofetch rxvt-unicode neomutt figlet bc newsboat apt-show-versions
+sudo apt install -yy zsh neofetch rxvt-unicode figlet bc apt-show-versions
 sleep 5
-
-# Set up bluetoothctl
-sudo apt install -yy pulseaudio-module-bluetooth bluetooth bluez bluez-tools rfkill
-sudo usermod -aG lp $USER
-pulseaudio -k
-pulseaudio --start
 
 # Install window manager basics
 sudo apt install -yy nitrogen compton fonts-font-awesome
