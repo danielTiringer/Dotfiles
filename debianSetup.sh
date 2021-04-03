@@ -53,10 +53,6 @@ pulseaudio --start
 sudo apt install -yy nitrogen compton fonts-font-awesome
 sleep 5
 
-# Install herbstluftwm
-sudo apt install -yy herbstluftwm
-sleep 5
-
 # Install qtile
 sudo apt install -yy python3-pip
 pip3 install xcffib psutil
@@ -246,19 +242,6 @@ rm postman-linux-x64.tar.gz
 cd ~
 sleep 5
 
-# Install Travis CLI
-# sudo gem install travis -v 1.8.10 --no-rdoc --no-ri
-# sleep 5
-
-# Install Polybar
-sudo apt install -yy cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb libxcb-ewmh2 libjsoncpp-dev
-cd ~/Downloads
-git clone https://github.com/jaagr/polybar.git
-cd polybar
-./build.sh
-cd ..
-sudo rm -Rf polybar
-cd ~
 
 # Install Virt-Manager
 sudo apt-get install -y qemu qemu-kvm qemu-system qemu-utils
