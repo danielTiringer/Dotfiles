@@ -18,7 +18,7 @@ stow -v -R qbittorrent
 stow -v -R qtile
 stow -v -R polybar
 stow -v -R ranger
-stow -v -R ssh
+cp ssh/.ssh/config ~/.ssh
 stow -v -R transmission
 stow -v -R vifm
 stow -v -R vim
