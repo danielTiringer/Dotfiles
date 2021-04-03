@@ -242,16 +242,23 @@ rm postman-linux-x64.tar.gz
 cd ~
 sleep 5
 
+# Install Virtualbox
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+sudo apt install -y software-properties-common
+sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
+sudo apt update && sudo apt install -y virtualbox-6.1
+sleep 5
 
 # Install Virt-Manager
-sudo apt-get install -y qemu qemu-kvm qemu-system qemu-utils
-sudo apt-get install -y virtinst libvirt-clients libvirt-daemon-system
-sudo systemctl start libvirtd
-sudo virsh net-start default
-sudo virsh net-autostart default
-sudo apt-get install -y virt-manager
-sudo usermod -G libvirt -a $USER
-sudo /etc/init.d/networking restart
+# sudo apt-get install -y qemu qemu-kvm qemu-system qemu-utils
+# sudo apt-get install -y virtinst libvirt-clients libvirt-daemon-system
+# sudo systemctl start libvirtd
+# sudo virsh net-start default
+# sudo virsh net-autostart default
+# sudo apt-get install -y virt-manager
+# sudo usermod -G libvirt -a $USER
+# sudo /etc/init.d/networking restart
 
 # Install Dosbox
 sudo apt install -y dosbox
