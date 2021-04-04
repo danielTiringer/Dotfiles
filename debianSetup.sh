@@ -60,7 +60,7 @@ Name=Qtile
 Comment=Qtile Session
 Exec=qtile start
 Type=Application
-Keywords=wm;tiling' | sudo tee /usr/share/xsessions
+Keywords=wm;tiling' | sudo tee /usr/share/xsessions/qtile.desktop
 sleep 5
 
 # Install utilities
@@ -237,6 +237,7 @@ sleep 5
 
 # Configure X server
 sudo dpkg-reconfigure keyboard-configuration
+sudo chmod u+s /usr/bin/xinit
 
 # Update the system from Buster to Bullseye
 # sudo sed -i 's/debian-security buster/debian-security bullseye-security/g' /etc/apt/sources.list
