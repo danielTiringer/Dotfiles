@@ -216,11 +216,9 @@ sleep 5
 
 # Setup the dotfiles and configs
 rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
-rm -r ~/.config/compton ~/.config/polybar ~/.config/herbstluftwm ~/.config/mutt ~/.config/nitrogen ~/.config/ranger
+rm -r ~/.config/compton ~/.config/nitrogen
 cd ~/Dotfiles
 ./stowrestore
-sudo cp -r ~/.config/polybar/fonts/* /usr/share/fonts
-sudo fc-cache -vf /usr/share/fonts
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 doom sync
 vim +PluginInstall +qall
