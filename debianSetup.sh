@@ -70,9 +70,9 @@ sleep 5
 
 # Install cron-apt
 sudo apt install -yy cron-apt
-sudo echo 'OPTIONS="-o quiet=2"
+echo 'OPTIONS="-o quiet=2"
 MAILON="NEVER"
-DEBUG="verbose"' >> /etc/cron-apt/config
+DEBUG="verbose"' | sudo tee -a /etc/cron-apt/config
 sleep 5
 
 # Install image manipulation program
@@ -226,14 +226,14 @@ vim +PluginInstall +qall
 cd ~
 sleep 5
 
-sudo echo '
+echo '
 # 2TB drive, labeled 2TB External
 UUID=F474B7AA74B76DCC	/media/2TBDrive	ntfs	defaults	0	0
 # 4TB English Media, labeled Elements
 UUID=E20EA0710EA04101	/media/EnglishMedia	ntfs	defaults	0	0
 # 4TB Foreign Media, labeled 4TB External
 UUID=C280DD8C80DD8777	/media/ForeignMedia	ntfs	defaults	0	0
-' >> /etc/fstab
+' | sudo tee -a /etc/fstab
 sleep 5
 
 # Configure X server
