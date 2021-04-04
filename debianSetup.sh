@@ -25,7 +25,7 @@ source helper.sh
 # Create the basic file system
 cd ~
 mkdir Downloads Pictures Documents Projects .config
-sudo mkdir -p /media/{2TBDrive,EnglishMedia,ForeginMedia,SDCard,USB}
+sudo mkdir -p /media/{2TBDrive,EnglishMedia,ForeignMedia,SDCard,USB}
 cd ~
 
 # Update the system
@@ -212,9 +212,9 @@ wget https://github.com/ankitects/anki/releases/download/2.1.37/anki-2.1.37-linu
 tar xjf Downloads/anki-2.1.37-linux.tar.bz2
 cd anki-2.1.37-linux
 sudo ./install.sh
-cd ..
-rm -rf anki-2.1.37-linux anki-2.1.37-linux.tar.bz2
 cd ~
+rm -rf ~/Downloads/anki-2.1.37-linux.tar.bz2
+rm -rf ~/Downloads/anki-2.1.37-linux
 sleep 5
 
 # Setup the dotfiles and configs
