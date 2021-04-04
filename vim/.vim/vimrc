@@ -177,13 +177,13 @@
 	au BufRead,BufNewFile *.ts setfiletype typescript
 
 " Javascript
-  set autoindent
-  filetype plugin indent on
-  autocmd FileType javascript setlocal smartindent
+	set autoindent
+	filetype plugin indent on
+	autocmd FileType javascript setlocal smartindent
 	au BufNewFile,BufRead *.ejs set filetype=html
-  inoremap {<CR> {<CR>}<ESC>O
-  inoremap (<CR> (<CR>)<ESC>O
-  inoremap [<CR> [<CR>]<ESC>O
+	inoremap {<CR> {<CR>}<ESC>O
+	inoremap (<CR> (<CR>)<ESC>O
+	inoremap [<CR> [<CR>]<ESC>O
 
 "	Vue JS
 	au BufNewFile,BufRead *.vue setlocal filetype=vue
@@ -192,7 +192,7 @@
 
 "	Ruby
 	autocmd FileType eruby syntax sync fromstart
-  autocmd FileType eruby setlocal smartindent
+	autocmd FileType eruby setlocal smartindent
 	autocmd FileType eruby inoremap ,def def<Enter><Enter>end<Esc>2k$a<Space>
 	autocmd FileType eruby inoremap ,if if<Enter><Enter>end<Esc>2k$a<Space>
 	autocmd FileType eruby inoremap ,% <%<Space>%><Enter><Enter><%<Space>end<Space>%><Esc>2k$F%hi<Space>
@@ -200,8 +200,12 @@
 
 " Color scheme
 " ============
-	colorscheme solarized
-	let g:solarized_termtrans=1
+	try
+		colorscheme solarized
+		let g:solarized_termtrans=1
+	catch /^Vim\%((\a\+)\)\=:E185/
+		colorscheme default
+	endtry
 "	This setting removes the dark background from most of the letters.
 	set bg=dark
 "	This setting makes the background transparent
