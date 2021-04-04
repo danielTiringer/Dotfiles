@@ -50,9 +50,9 @@ sleep 5
 # Install qtile
 sudo apt install -yy python3-pip
 sudo apt install -yy libxcb-render0-dev
+sudo apt install -yy libpangocairo-1.0-0
 pip3 install xcffib psutil dbus-next
 pip3 install --no-cache-dir cairocffi
-sudo apt install -yy libpangocairo-1.0-0
 pip3 install qtile
 
 sudo echo '[Desktop Entry]
@@ -60,8 +60,7 @@ Name=Qtile
 Comment=Qtile Session
 Exec=qtile start
 Type=Application
-Keywords=wm;tiling' >> ~/Downloads/qtile.desktop
-sudo mv ~/Downloads/qtile.desktop /usr/share/xsessions
+Keywords=wm;tiling' | sudo tee /usr/share/xsessions
 sleep 5
 
 # Install utilities
@@ -110,6 +109,7 @@ sudo ufw enable
 sudo ufw allow Transmission
 sudo ufw limit SSH
 sudo ufw limit OpenSSH
+sleep 5
 
 # Install Vim
 sudo apt install -yy vim vim-gtk vifm
@@ -135,6 +135,7 @@ mkdir -p ~/.emacs.d/.local/straight/repos
 git clone -b develop https://github.com/raxod502/straight.el ~/.emacs.d/.local/straight/repos/straight.el
 doom env
 emacs --batch -f all-the-icons-install-fonts
+sleep 5
 
 # Get wallpapers
 wget https://img.wallpapersafari.com/desktop/1920/1080/97/43/JA7EhV.jpg -O ~/Pictures/blueMountains.jpg
@@ -150,10 +151,7 @@ sleep 5
 
 # Install Firefox
 sudo apt install -yy firefox-esr
-firefox_default="`find ~/.mozilla/firefox -type d -iname '*.default'`"
-firefox_esr_default="`find ~/.mozilla/firefox -type d -iname '*.default-esr'`"
-wget -P $firefox_default https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js
-cp $firefox_default/user.js $firefox_esr_default/
+wget -P ~/Downloads https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js
 sleep 5
 
 # Install Brave
@@ -203,6 +201,7 @@ sleep 5
 
 # Install Dosbox
 sudo apt install -y dosbox
+sleep 5
 
 # Install Anki
 cd ~/Downloads/
