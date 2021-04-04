@@ -1,2 +1,2 @@
 xrdb -load ~/.Xresources
-exec qtile
+exec qtile start

@@ -53,7 +53,10 @@ sudo apt install -yy libxcb-render0-dev
 sudo apt install -yy libpangocairo-1.0-0
 pip3 install xcffib psutil dbus-next
 pip3 install --no-cache-dir cairocffi
-pip3 install qtile
+
+git clone git://github.com/qtile/qtile.git ~/Downloads/qtile
+pip3 install ~/Downloads/qtile/
+rm -rf ~/Downloads/qtile
 
 sudo echo '[Desktop Entry]
 Name=Qtile
