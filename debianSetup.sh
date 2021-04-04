@@ -49,7 +49,8 @@ sleep 5
 
 # Install qtile
 sudo apt install -yy python3-pip
-pip3 install xcffib psutil
+sudo apt install -yy libxcb-render0-dev
+pip3 install xcffib psutil dbus-next
 pip3 install --no-cache-dir cairocffi
 sudo apt install -yy libpangocairo-1.0-0
 pip3 install qtile
@@ -119,10 +120,10 @@ sudo apt install -yy shellcheck # for the sh lang
 sudo apt install -yy markdown # for the markdown lang
 sudo apt install -yy sbcl # for the common-lisp lang
 sudo apt install -yy maim # for the org-mode module
-pip3 install isort pipenv pytest nosetests # for the python lang
+pip3 install isort pipenv pytest nose 'python-language-server[all]' # for the python lang
 sudo apt install -yy php-cli php-zip php-curl php-mbstring php-xml # for the php lang
 curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
+sudo mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 sudo apt install -yy node-js-beautify # for the web lang
 
