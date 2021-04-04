@@ -102,17 +102,6 @@ mkdir -p ~/.cache/zsh
 sudo usermod --shell $(which zsh) $USER
 sleep 5
 
-# Set up Git
-git config --global user.email "tiringerdaniel@gmail.com"
-git config --global user.name "danielTiringer"
-sudo apt install -yy tig
-sleep 5
-
-# Generate SSH key for Github
-mkdir ~/.ssh
-ssh-keygen -t rsa -b 4096 -C "tiringerdaniel@gmail.com" -f ~/.ssh/id_rsa_$(hostname) -q -N ""
-sleep 5
-
 # Set up firewall
 sudo apt install -yy ufw
 sudo systemctl enable ufw.service --now
@@ -146,29 +135,6 @@ git clone -b develop https://github.com/raxod502/straight.el ~/.emacs.d/.local/s
 doom env
 emacs --batch -f all-the-icons-install-fonts
 
-# Enabling bitmap fonts
-sudo echo '<?xml version="1.0"?>
-<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-<fontconfig>
-  <its:rules xmlns:its="http://www.w3.org/2005/11/its" version="1.0">
-    <its:translateRule translate="yes" selector="/fontconfig/*[yes(self::description)]"/>
-  </its:rules>
-
-  <description>Accept bitmap fonts</description>
-<!-- Accept bitmap fonts -->
- <selectfont>
-  <acceptfont>
-   <pattern>
-     <patelt name="scalable"><bool>true</bool></patelt>
-   </pattern>
-  </acceptfont>
- </selectfont>
-</fontconfig>' >> 70-yes-bitmaps.conf
-sudo mv 70-yes-bitmaps.conf /etc/fonts/conf.avail
-sudo ln -sf /etc/fonts/conf.avail/70-yes-bitmaps.conf /etc/fonts/conf.d
-sudo mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.avail
-sleep 5
-
 # Get wallpapers
 wget https://img.wallpapersafari.com/desktop/1920/1080/97/43/JA7EhV.jpg -O ~/Pictures/blueMountains.jpg
 wget https://cdn.allwallpaper.in/wallpapers/1920x1080/9024/gorgeous-desert-mountain-oasis-1920x1080-wallpaper.jpg -O ~/Pictures/desertOasis.jpg
@@ -181,32 +147,12 @@ wget https://www.wallpapermaiden.com/wallpaper/1432/download/1920x1080/linux-cli
 wget http://getwallpapers.com/wallpaper/full/0/5/b/633941.jpg -O ~/Pictures/sundown.jpg
 sleep 5
 
-# Install Google Chrome and extensions
-cd ~/Downloads
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo gdebi -n google-chrome-stable_current_amd64.deb
-rm -f google-chrome-stable_current_amd64.deb
-
-# install_chrome_extension "fmkadmapgofadopljbjfkapdkoienihi" "react dev tools"
-# install_chrome_extension "lmhkpmbekcpmknklioeibfkpmmfibljd" "redux dev tools"
-# install_chrome_extension "nhdogjmejiglipccpnnnanhbledajbpd" "vue dev tools"
-
-cd ~
-sleep 5
-
 # Install Firefox
 sudo apt install -yy firefox-esr
 firefox_default="`find ~/.mozilla/firefox -type d -iname '*.default'`"
 firefox_esr_default="`find ~/.mozilla/firefox -type d -iname '*.default-esr'`"
 wget -P $firefox_default https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js
 cp $firefox_default/user.js $firefox_esr_default/
-# install_firefox_addon '3592823' 'browser-extension@anonaddy' # Anonaddy email creator
-# install_firefox_addon '3600118' 'uBlock0@raymondhill.ne' # uBlock Origin
-# install_firefox_addon '3454607' '{5caff8cc-3d2e-4110-a88a-003cc85b3858}' # VueJS Devtools
-# install_firefox_addon '3606608' '@react-devtools' # React Devtools
-# install_firefox_addon '3518684' '{d7742d87-e61d-4b78-b8a1-b469842139fa}' # Vimium
-# install_firefox_addon '3606067' '@testpilot-containers' # Multi Account Containers
-# install_firefox_addon '3604699' 'jid1-ZAdIEUB7XOzOJw@jetpack' # DuckDuckGo
 sleep 5
 
 # Install Brave
