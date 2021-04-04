@@ -414,7 +414,8 @@ def init_widgets_list():
               widget.Memory(
                        foreground = colors[2],
                        background = colors[5],
-                       format = '{MemUsed}M/{MemTotal}M',
+                       format = '{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
+                       update_interval = 3.0
               ),
               widget.TextBox(
                        text='',

@@ -101,7 +101,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 cd ~
 
 mkdir -p ~/.cache/zsh
-
 sudo usermod --shell $(which zsh) $USER
 sleep 5
 
@@ -129,9 +128,21 @@ curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 sudo apt install -yy node-js-beautify # for the web lang
+sudo apt install -yy ripgrep fd-find
 
-# Install emacs itself
-sudo apt install -yy emacs ripgrep fd-find
+# Install emacs itself - from source, as the Debian library is too old for doom
+EMACS_VERSION=emacs-27.2
+sudo apt install -y build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev libxpm-dev automake autoconf libgnutls28-dev
+wget -P ~/Downloads/ https://quantum-mirror.hu/mirrors/pub/gnu/emacs/${EMACS_VERSION}.tar.gz
+tar -xvzf ~/Downloads/${EMACS_VERSION}.tar.gz
+cd ~/Downloads/${EMACS_VERSION}
+./configure
+make
+sudo make install
+cd ~
+rm -rf ~/Downloads/${EMACS_VERSION}
+
+# Install doom
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 PATH="$HOME/.emacs.d/bin:$PATH"
 mkdir -p ~/.emacs.d/.local/straight/repos
