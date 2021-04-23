@@ -25,7 +25,7 @@ source helper.sh
 # Create the basic file system
 cd ~
 mkdir Downloads Pictures Documents Projects .config
-sudo mkdir -p /media/{2TBDrive,EnglishMedia,ForeignMedia,SDCard,USB}
+sudo mkdir -p /media/{2TBDrive,EnglishMedia,ForeignMedia,SDCard,USB,decrypted}
 cd ~
 
 # Update the system
@@ -37,6 +37,8 @@ sleep 5
 sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip unrar ntfs-3g stow xclip libclipboard-perl
 # Install exfat utilities for managing exfat architecture (SD cards)
 sudo apt install -yy exfat-fuse exfat-utils
+# Install cryptsetup for encrypted drive operations
+sudo apt install -yy cryptsetup
 sleep 5
 
 # Install command line tools
