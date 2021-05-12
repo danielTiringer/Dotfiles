@@ -45,9 +45,11 @@ system_update () {
   if [ "$OWN_COMPOSE_VERSION" = "$LATEST_COMPOSE_VERSION" ]; then
       echo "Docker-compose is up to date."
   else
+      SYSTEM_TYPE=$(uname -s)
+      SYSTEM_ARCH=$(uname -m)
       COMPOSE_LOCATION=/usr/local/bin/docker-compose
       sudo rm $COMPOSE_LOCATION
-      sudo curl -L --fail https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/run.sh -o $COMPOSE_LOCATION
+      sudo curl -L --fail https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-${SYSTEM_TYPE}-${SYSTEM_ARCH} -o $COMPOSE_LOCATION
       sudo chmod +x $COMPOSE_LOCATION
       sudo docker pull docker/compose:$LATEST_COMPOSE_VERSION
       echo "Docker-compose is upgraded, the new version is: $LATEST_COMPOSE_VERSION"

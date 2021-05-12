@@ -179,10 +179,12 @@ sudo apt install -yy brave-browser
 sleep 5
 
 # Install Docker and Docker-Compose
+SYSTEM_TYPE=$(uname -s)
+SYSTEM_ARCH=$(uname -m)
 COMPOSE_VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
 COMPOSE_LOCATION=/usr/local/bin/docker-compose
 sudo sh -c "$(curl -fsSL https://get.docker.com)"
-sudo curl -L --fail https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/run.sh -o $COMPOSE_LOCATION
+sudo curl -L --fail https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-${SYSTEM_TYPE}-${SYSTEM_ARCH} -o $COMPOSE_LOCATION
 sudo chmod +x $COMPOSE_LOCATION
 sudo groupadd docker
 sudo usermod -aG docker $USER
