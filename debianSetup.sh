@@ -136,6 +136,7 @@ sudo apt install -yy ripgrep fd-find
 EMACS_VERSION=emacs-27.2
 sudo apt install -y build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev libxpm-dev automake autoconf libgnutls28-dev
 wget -P ~/Downloads/ https://quantum-mirror.hu/mirrors/pub/gnu/emacs/${EMACS_VERSION}.tar.gz
+cd ~/Downloads
 tar -xvzf ~/Downloads/${EMACS_VERSION}.tar.gz
 cd ~/Downloads/${EMACS_VERSION}
 ./configure
