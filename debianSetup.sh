@@ -127,9 +127,7 @@ sudo apt install -yy maim # for the org-mode module
 sudo apt install -yy editorconfig # for editorconfig
 pip3 install isort pipenv pytest nose 'python-language-server[all]' # for the python lang
 sudo apt install -yy php-cli php-zip php-curl php-mbstring php-xml # for the php lang
-curl -sS https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
-chmod +x /usr/local/bin/composer
+curl --fail --silent --show-error --location https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer # also for php
 sudo apt install -yy node-js-beautify # for the web lang
 sudo apt install -yy ripgrep fd-find
 
