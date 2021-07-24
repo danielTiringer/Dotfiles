@@ -124,6 +124,7 @@ sudo apt install -yy shellcheck # for the sh lang
 sudo apt install -yy markdown # for the markdown lang
 sudo apt install -yy sbcl # for the common-lisp lang
 sudo apt install -yy maim # for the org-mode module
+sudo apt install -yy editorconfig # for editorconfig
 pip3 install isort pipenv pytest nose 'python-language-server[all]' # for the python lang
 sudo apt install -yy php-cli php-zip php-curl php-mbstring php-xml # for the php lang
 curl -sS https://getcomposer.org/installer | php
