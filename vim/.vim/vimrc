@@ -34,6 +34,9 @@
 	" Nerdtree, file manager for Vim
 	  Plugin 'scrooloose/nerdtree'
 
+	" Add icons to nerdtree
+	  Plugin 'ryanoasis/vim-devicons'
+
 	" ALE, linting multiple coding languages
 		Plugin 'dense-analysis/ale'
 
@@ -84,9 +87,9 @@
 " Basics and keybinds
 " ==================================================================
 
-"	Setting the numbers on the side relative
+	" Setting the numbers on the side relative
 	set number relativenumber
-" Splits open on the bottom and the right
+	" Splits open on the bottom and the right
 	set splitbelow splitright
 
 	syntax enable
@@ -94,25 +97,28 @@
 	set nocompatible
 	filetype plugin on
 
-"	Split navigation shortcuts
+	" Split navigation shortcuts
 	map <C-h> <C-w>h
 	map <C-j> <C-w>j
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
 
-"	CTRL-n opens NerdTree
+	" CTRL-n opens NerdTree
 	nmap <C-n> :NERDTreeToggle<CR>
-" NerdTree shows hidden
+	" NerdTree shows hidden
 	let NERDTreeShowHidden=1
 
-" 	Enable poweline fonts
+	" Needed for vim-devicons
+	set encoding=UTF-8
+
+	" Enable poweline fonts
 	let g:airline_powerline_fonts = 1
 
 	if !exists('g:airline_symbols')
  	  let g:airline_symbols = {}
 	endif
 
-" Unicode symbols
+	" Unicode symbols
 	let g:airline_left_sep = '»'
 	let g:airline_left_sep = '▶'
 	let g:airline_right_sep = '«'
