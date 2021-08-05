@@ -23,7 +23,10 @@ export ZDOTDIR="$HOME/.config/zsh"
 source $HOME/.config/zsh/aliasfunctions.sh
 
 # Generic aliases
-alias cp='cp -iv'
+alias cp='cp -v'
+alias mv='mv -v'
+alias rm='rm -v'
+alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias df='df -h'
 alias poweroff='systemctl poweroff'
