@@ -36,6 +36,13 @@
 
 (setq lsp-clients-php-server-command (cons "php" (executable-find "php-language-server.php")))
 
+;; Set the typescript-tsx indenting
+(setq-hook! 'typescript-tsx-mode-hook
+  web-mode-css-indent-offset    tab-width
+  web-mode-markup-indent-offset tab-width
+  web-mode-sql-indent-offset    tab-width
+  web-mode-code-indent-offset   tab-width)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
