@@ -191,7 +191,7 @@ group_names = [("DEV", {'layout': 'tile'}),
                ("TEST", {'layout': 'tile'}),
                ("VIDEO", {'layout': 'tile'}),
                ("VMAN", {'layout': 'tile'}),
-               ("MUSIC", {'layout': 'tile'})]
+               ("HOMELAB", {'layout': 'tile'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
