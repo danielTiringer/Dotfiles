@@ -204,7 +204,8 @@ sleep 5
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
 sudo apt install -y software-properties-common
-sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
+# sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
+sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian buster contrib"
 sudo apt update && sudo apt install -y virtualbox-6.1
 sleep 5
 
