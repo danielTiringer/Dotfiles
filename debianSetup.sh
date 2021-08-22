@@ -127,16 +127,17 @@ sudo apt install -yy maim # for the org-mode module
 sudo apt install -yy editorconfig # for editorconfig
 pip3 install isort pipenv pytest nose python-lsp-server # for the python lang
 sudo apt install -yy php-cli php-zip php-curl php-mbstring php-xml # for the php lang
-curl --fail --silent --show-error --location https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer # also for php
+curl --fail --silent --show-error --location https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer # also for php
 sudo apt install -yy node-js-beautify # for the web lang
 sudo apt install -yy ripgrep fd-find
 
 # Install emacs itself - from source, as the Debian library is too old for doom
 EMACS_VERSION=emacs-27.2
-sudo apt install -y build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev libxpm-dev automake autoconf libgnutls28-dev
+sudo apt install -y build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev libxpm-dev automake autoconf libgnutls28-dev libjansson4
 wget -P ~/Downloads/ https://quantum-mirror.hu/mirrors/pub/gnu/emacs/${EMACS_VERSION}.tar.gz
 cd ~/Downloads
 tar -xvzf ~/Downloads/${EMACS_VERSION}.tar.gz
+rm ~/Downloads/${EMACS_VERSION}.tar.gz
 cd ~/Downloads/${EMACS_VERSION}
 ./configure
 make
