@@ -43,6 +43,8 @@
   web-mode-sql-indent-offset    tab-width
   web-mode-code-indent-offset   tab-width)
 
+(add-hook 'vue-mode-hook #'lsp!)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

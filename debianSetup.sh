@@ -129,6 +129,7 @@ pip3 install isort pipenv pytest nose python-lsp-server # for the python lang
 sudo apt install -yy php-cli php-zip php-curl php-mbstring php-xml # for the php lang
 curl --fail --silent --show-error --location https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer # also for php
 sudo apt install -yy node-js-beautify # for the web lang
+sudo apt install -yy nodejs npm && sudo npm install --global vue-language-server # for vue
 sudo apt install -yy ripgrep fd-find
 
 # Install emacs itself - from source, as the Debian library is too old for doom
