@@ -246,11 +246,12 @@ vim +PluginInstall +qall
 cd ~
 sleep 5
 
+# https://www.youtube.com/watch?v=EzqgJhu-qN8
 echo '
 # 2TB drive, labeled 2TB External
-UUID=F474B7AA74B76DCC	/media/2TBDrive	ntfs	defaults	0	0
+192.168.10.40:/srv/2TBDrive	/media/2TBDrive	nfs	rwser,soft,_netdev	0	0
 # 4TB English Media, labeled Elements
-UUID=E20EA0710EA04101	/media/EnglishMedia	ntfs	defaults	0	0
+192.168.10.40:/srv/EnglishMedia	/media/EnglishMedia	nfs	rwser,soft,_netdev	0	0
 # 4TB Foreign Media, labeled 4TB External
 UUID=C280DD8C80DD8777	/media/ForeignMedia	ntfs	defaults	0	0
 ' | sudo tee -a /etc/fstab
