@@ -37,6 +37,8 @@ sleep 5
 sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip unrar p7zip-full p7zip-rar ntfs-3g stow xclip libclipboard-perl
 # Install exfat utilities for managing exfat architecture (SD cards)
 sudo apt install -yy exfat-fuse exfat-utils
+# Install nfs-common
+sudo apt install -yy nfs-common
 # Install cryptsetup for encrypted drive operations
 sudo apt install -yy cryptsetup
 sleep 5
@@ -249,9 +251,9 @@ sleep 5
 # https://www.youtube.com/watch?v=EzqgJhu-qN8
 echo '
 # 2TB drive, labeled 2TB External
-192.168.10.40:/srv/2TBDrive	/media/2TBDrive	nfs	rwser,soft,_netdev	0	0
+192.168.10.40:/srv/2TBDrive	/media/2TBDrive	nfs	rw,user,soft,_netdev	0	0
 # 4TB English Media, labeled Elements
-192.168.10.40:/srv/EnglishMedia	/media/EnglishMedia	nfs	rwser,soft,_netdev	0	0
+192.168.10.40:/srv/EnglishMedia	/media/EnglishMedia	nfs	rw,user,soft,_netdev	0	0
 # 4TB Foreign Media, labeled 4TB External
 UUID=C280DD8C80DD8777	/media/ForeignMedia	ntfs	defaults	0	0
 ' | sudo tee -a /etc/fstab
