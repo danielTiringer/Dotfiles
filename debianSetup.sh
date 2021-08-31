@@ -85,9 +85,6 @@ sleep 5
 sudo apt install -yy imagemagick #gimp
 sleep 5
 
-# Install Asian fonts
-sudo apt install -yy fonts-alee fonts-noto-cjk
-
 # Install multimedia
 sudo apt install -yy mpv
 
