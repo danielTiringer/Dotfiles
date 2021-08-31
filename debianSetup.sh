@@ -260,12 +260,5 @@ sleep 5
 sudo dpkg-reconfigure keyboard-configuration
 sudo chmod u+s /usr/bin/xinit
 
-# Update the system from Buster to Bullseye
-# sudo sed -i 's/debian-security buster/debian-security bullseye-security/g' /etc/apt/sources.list
-# sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
-# sudo echo 'deb http://deb.debian.org/debian buster-backports main' | sudo tee -a /etc/apt/sources.list
-# echo 'Updated the system from buster to bullseye.'
-# sleep 5
-
 # Install complete
 echo "Software installation complete. Please reboot the computer."
