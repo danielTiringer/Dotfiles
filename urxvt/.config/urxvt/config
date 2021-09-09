@@ -1,0 +1,27 @@
+URxvt.scrollBar:      false
+URxvt.font:           xft:mono:medium:size=10,xft:Menlo for Powerline:size=10,xft:DejaVu Sans Mono for Powerline:size=10,xft:FontAwesome:size=6
+
+Urxvt.letterspace:    -1
+URxvt.url-launcher:   /usr/bin/firefox
+URxvt*loginShell:     true
+URxvt*fading:         30
+URxvt.internalBorder: 0
+URxvt.externalBorder: 0
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+URxvt.depth: 32
+
+URxvt.transparent: true
+URxvt.shading:20
+
+URxvt.perl-lib: /home/daniel/.config/urxvt/
+URxvt.perl-ext-common: default,clipboard,selection-to-clipboard,resize-font
+URxvt.iso14755: False
+!! resize font
+!! URxvt.resize-font.smaller: C-j
+!! URxvt.resize-font.bigger: C-k
+URxvt.keysym.Control-j: resize-font:smaller
+URxvt.keysym.Control-k: resize-font:bigger
+URxvt.clipboard.copycmd:  xsel -ib
+URxvt.clipboard.pastecmd: xsel -ob

@@ -20,6 +20,7 @@ stow -v -R polybar
 stow -v -R ranger
 cp ssh/.ssh/config ~/.ssh
 stow -v -R transmission
+stow -v -R urxvt
 stow -v -R vifm
 stow -v -R vim
 stow -v -R xinitrc
