@@ -24,8 +24,8 @@ source $HOME/.config/zsh/aliasfunctions.sh
 
 # Generic aliases
 alias cp='cp -v'
-alias mv='mv -v'
-alias rm='rm -v'
+alias mv='mv -v --interactive'
+alias rm='rm -v --interactive=once'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias df='df -h'
