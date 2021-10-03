@@ -35,6 +35,7 @@ alias afk='xtrlock -b'
 alias hc='herbstclient'
 alias doom='~/.emacs.d/bin/doom'
 alias transmission='docker-compose -f ~/Downloads/transmission/transmission-compose.yml'
+alias weather='curl wttr.in'
 # alias emacs="urxvt -e emacs -nw"
 
 # Software aliases
