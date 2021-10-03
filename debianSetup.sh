@@ -154,7 +154,10 @@ PATH="$HOME/.emacs.d/bin:$PATH"
 mkdir -p ~/.emacs.d/.local/straight/repos
 git clone -b develop https://github.com/raxod502/straight.el ~/.emacs.d/.local/straight/repos/straight.el
 doom env
+# If the command below doesn't work, run Alt-X all-the-icons-install-fonts
 emacs --batch -f all-the-icons-install-fonts
+# According to henrik, the aboe runs emacs without doom, so it doesn't know what all-the-icons are. Hopefully this will work:
+emacs --eval '(all-the-icons-install-fonts t)'
 sleep 5
 
 # Get wallpapers
