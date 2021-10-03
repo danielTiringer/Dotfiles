@@ -39,6 +39,8 @@ sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip unrar p7zip
 sudo apt install -yy exfat-fuse exfat-utils
 # Install nfs-common
 sudo apt install -yy nfs-common
+# Install cifs-utils for mounting smb shares
+sudo apt install -yy cifs-utils
 # Install cryptsetup for encrypted drive operations
 sudo apt install -yy cryptsetup
 sleep 5
