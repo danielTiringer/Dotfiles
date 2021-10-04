@@ -1,7 +1,9 @@
 [user]
 	email = tiringerdaniel@tutanota.com
 	name = Daniel Tiringer
+	signingkey = 7EEFB2A9
+[commit]
+	gpgsign = true
 [core]
 	autocrlf = false
 	safecrlf = false
-
