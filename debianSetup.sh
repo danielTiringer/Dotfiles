@@ -250,12 +250,8 @@ sleep 5
 
 # https://www.youtube.com/watch?v=EzqgJhu-qN8
 echo '
-# 2TB drive, labeled 2TB External
-192.168.10.40:/srv/2TBDrive	/media/2TBDrive	nfs	rw,user,soft,_netdev	0	0
-# 4TB English Media, labeled Elements
-192.168.10.40:/srv/EnglishMedia	/media/EnglishMedia	nfs	rw,user,soft,_netdev	0	0
-# 4TB Foreign Media, labeled 4TB External
-UUID=C280DD8C80DD8777	/media/ForeignMedia	ntfs	defaults	0	0
+# Samba fileshare of synology nas
+//192.168.10.49/Media  /media/smb/  cifs  guest,iocharset=utf8,file_mode=0777,dir_mode=0777,credentials=/home/daniel/.config/samba/credentials
 ' | sudo tee -a /etc/fstab
 sleep 5
 
