@@ -25,7 +25,7 @@ source helper.sh
 # Create the basic file system
 cd ~
 mkdir Downloads Pictures Documents Projects .config
-sudo mkdir -p /media/{2TBDrive,EnglishMedia,ForeignMedia,SDCard,USB,decrypted}
+sudo mkdir -p /media/{smb,MemCard,USB,decrypted}
 cd ~
 
 # Update the system
