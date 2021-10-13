@@ -17,6 +17,7 @@ stow -v -R newsboat
 stow -v -R nitrogen
 stow -v -R qbittorrent
 stow -v -R qtile
+stow -v -R picom
 stow -v -R polybar
 stow -v -R ranger
 stow -v -R samba

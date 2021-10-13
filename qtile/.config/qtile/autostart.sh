@@ -1,4 +1,3 @@
 #! /bin/bash
-compton --config $HOME/.config/compton/compton.conf &
-compton &
+picom &
 nitrogen --restore &
