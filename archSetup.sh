@@ -11,11 +11,9 @@ cd ~
 mkdir Downloads Pictures Documents Projects .config
 sudo mkdir /media/{smb,MemCard,USB}
 cd ~
-sleep 5
 
 # Update the system
 sudo pacman --sync --refresh --sysupgrade
-sleep 5
 
 # Install network-based tools
 sudo pacman -S --noconfirm curl wget
@@ -23,11 +21,29 @@ sudo pacman -S --noconfirm curl wget
 # Install command-line tools
 sudo pacman -S --noconfirm neofetch stow
 
+# Install build tools
+sudo pacman -S --noconfirm base-devel
+
+# Install the yay aur-manager
+cd ~/Downloads
+git clone https://aur.archlinux.org/yay-git.git
+cd yay-git
+makepkg --syncdeps --install --noconfirm
+cd ~
+rm -rf ~/Downloads/yay-git
+
 # Install terminal
 sudo pacman -S --noconfirm rxvt-unicode
 
+# Install file manager
+sudo pacman -S --noconfirm vifm
+
+# Install shell
+sudo pacman -S --noconfirm zsh
+sudo yay -S --noconfirm oh-my-zsh-git
+
 # Install the xorg graphical environment
-sudo pacman -S --noconfirm xf86-video-fbdev xorg
+sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
 
 # Install window manager basics
 sudo pacman -S --noconfirm nitrogen picom
@@ -48,7 +64,6 @@ wget https://cdn.wallpapersafari.com/29/49/hN4mc2.jpg -O ~/Pictures/mountainRive
 wget https://www.tokkoro.com/picsup/2982099-dark-debian-lenovo-blue___mixed-wallpapers.jpg -O ~/Pictures/debianLenovo.jpg
 wget https://www.wallpapermaiden.com/wallpaper/1432/download/1920x1080/linux-cli-commands.jpg -O ~/Pictures/commandLine.jpg
 wget http://getwallpapers.com/wallpaper/full/0/5/b/633941.jpg -O ~/Pictures/sundown.jpg
-sleep 5
 
 # Install Postman
 # cd ~/Downloads
