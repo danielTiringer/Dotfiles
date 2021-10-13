@@ -18,11 +18,25 @@ sudo pacman --sync --refresh --sysupgrade
 sleep 5
 
 # Install network-based tools
-sudo pacman -S curl wget
+sudo pacman -S --noconfirm curl wget
 
 # Install command-line tools
-sudo pacman -S neofetch stow
+sudo pacman -S --noconfirm neofetch stow
 
+# Install terminal
+sudo pacman -S --noconfirm rxvt-unicode
+
+# Install the xorg graphical environment
+sudo pacman -S --noconfirm xf86-video-fbdev xorg
+
+# Install window manager basics
+sudo pacman -S --noconfirm nitrogen picom
+
+# Install window manager
+sudo pacman -S --noconfirm qtile
+
+# Install browser
+sudo pacman -S --noconfirm firefox
 
 # Get wallpapers
 wget https://img.wallpapersafari.com/desktop/1920/1080/97/43/JA7EhV.jpg -O ~/Pictures/blueMountains.jpg
