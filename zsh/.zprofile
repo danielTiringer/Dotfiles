@@ -43,8 +43,8 @@ alias chrome='google-chrome'
 alias brave='brave-browser'
 
 # GPG
-export GPG_TTY=$(tty)
-gpgconf --launch gpg-agent
+# export GPG_TTY=$(tty)
+# gpgconf --launch gpg-agent
 
 # upload files from the Projects folder to docker-devel1, into the docker-hasznaltauto folder
 alias upload="sh ~/.bin/syncDockerDevel1.sh"
