@@ -52,11 +52,11 @@ sudo usermod --shell $(which zsh) $USER
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
 
 # Install fonts
-sudo pacman -S --noconfirm powerline-fonts ttf-ubuntu-font-family ttf-dejavu ttf-font-awesome
+sudo pacman -S --noconfirm ttf-ubuntu-font-family ttf-dejavu ttf-font-awesome
+sudo yay -S --noconfirm powerline-fonts-git
 
 # Install vim plugin manager and plugins
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
 
 # Install window manager basics
 sudo pacman -S --noconfirm nitrogen picom
@@ -93,6 +93,15 @@ wget http://getwallpapers.com/wallpaper/full/0/5/b/633941.jpg -O ~/Pictures/sund
 # sudo ln -s /opt/Postman/Postman /usr/bin/postman
 # rm postman-linux-x64.tar.gz
 # cd ~
+
+# Copy dotfiles
+cd ~/Dotfiles
+./stowrestore
+cd ~
+
+# Run dotfile-related installs
+doom sync
+vim +PluginInstall +qall
 
 # Install complete
 echo "Software installation complete. Please type in your password, then reboot the computer."
