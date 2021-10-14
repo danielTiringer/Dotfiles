@@ -52,7 +52,7 @@ sudo usermod --shell $(which zsh) $USER
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
 
 # Install fonts
-sudo pacman -S --noconfirm powerline-fonts
+sudo pacman -S --noconfirm powerline-fonts ttf-ubuntu-font-family ttf-dejavu ttf-font-awesome
 
 # Install vim plugin manager and plugins
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -62,7 +62,7 @@ vim +PluginInstall +qall
 sudo pacman -S --noconfirm nitrogen picom
 
 # Install window manager
-sudo pacman -S --noconfirm qtile
+sudo pacman -S --noconfirm qtile python-psutil
 
 # Install emacs
 sudo pacman -S --noconfirm emacs ripgrep fd
