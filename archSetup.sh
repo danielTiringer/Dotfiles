@@ -22,7 +22,7 @@ sudo pacman -S --noconfirm openssh
 sudo pacman -S --noconfirm curl wget
 
 # Install command-line tools
-sudo pacman -S --noconfirm neofetch stow
+sudo pacman -S --noconfirm neofetch stow arandr
 
 # Install build tools
 sudo pacman -S --noconfirm base-devel
