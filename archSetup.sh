@@ -73,7 +73,7 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 sudo pacman -S --noconfirm firefox
 
 # Install multimedia
-sudo pacman -S --noconfirm mpv
+sudo pacman -S --noconfirm mpv alsa-utils
 
 # Get wallpapers
 wget https://img.wallpapersafari.com/desktop/1920/1080/97/43/JA7EhV.jpg -O ~/Pictures/blueMountains.jpg
