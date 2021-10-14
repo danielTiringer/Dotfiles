@@ -15,6 +15,9 @@ cd ~
 # Update the system
 sudo pacman --sync --refresh --sysupgrade
 
+# Install ssh
+sudo pacman -S --noconfirm openssh
+
 # Install network-based tools
 sudo pacman -S --noconfirm curl wget
 
@@ -38,12 +41,22 @@ sudo pacman -S --noconfirm rxvt-unicode
 # Install file manager
 sudo pacman -S --noconfirm vifm
 
-# Install shell
+# Install shell and set it as default for user
 sudo pacman -S --noconfirm zsh
 sudo yay -S --noconfirm oh-my-zsh-git
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.config/oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.config/oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+sudo usermod --shell $(which zsh) $USER
 
 # Install the xorg graphical environment
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
+
+# Install fonts
+sudo pacman -S --noconfirm powerline-fonts
+
+# Install vim plugin manager and plugins
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
 
 # Install window manager basics
 sudo pacman -S --noconfirm nitrogen picom
@@ -51,8 +64,16 @@ sudo pacman -S --noconfirm nitrogen picom
 # Install window manager
 sudo pacman -S --noconfirm qtile
 
+# Install emacs
+sudo pacman -S --noconfirm emacs ripgrep fd
+git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+
 # Install browser
 sudo pacman -S --noconfirm firefox
+
+# Install multimedia
+sudo pacman -S --noconfirm mpv
 
 # Get wallpapers
 wget https://img.wallpapersafari.com/desktop/1920/1080/97/43/JA7EhV.jpg -O ~/Pictures/blueMountains.jpg
@@ -72,7 +93,6 @@ wget http://getwallpapers.com/wallpaper/full/0/5/b/633941.jpg -O ~/Pictures/sund
 # sudo ln -s /opt/Postman/Postman /usr/bin/postman
 # rm postman-linux-x64.tar.gz
 # cd ~
-# sleep 5
 
 # Install complete
 echo "Software installation complete. Please type in your password, then reboot the computer."
