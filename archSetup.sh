@@ -22,7 +22,7 @@ sudo pacman -S --noconfirm openssh
 sudo pacman -S --noconfirm curl wget
 
 # Install command-line tools
-sudo pacman -S --noconfirm neofetch stow arandr
+sudo pacman -S --noconfirm neofetch stow arandr xtrlock
 
 # Install build tools
 sudo pacman -S --noconfirm base-devel
@@ -71,6 +71,7 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 
 # Install browser
 sudo pacman -S --noconfirm firefox
+wget -P ~/Downloads https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js
 
 # Install multimedia
 sudo pacman -S --noconfirm mpv alsa-utils
