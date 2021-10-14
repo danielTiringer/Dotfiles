@@ -62,7 +62,7 @@ vim +PluginInstall +qall
 sudo pacman -S --noconfirm nitrogen picom
 
 # Install window manager
-sudo pacman -S --noconfirm qtile
+sudo pacman -S --noconfirm qtile python-psutil
 
 # Install emacs
 sudo pacman -S --noconfirm emacs ripgrep fd
