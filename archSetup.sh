@@ -35,8 +35,8 @@ makepkg --syncdeps --install --noconfirm
 cd ~
 rm -rf ~/Downloads/yay-git
 
-# Install terminal
-sudo pacman -S --noconfirm rxvt-unicode
+# Install terminals
+sudo pacman -S --noconfirm rxvt-unicode alacritty
 
 # Install file manager
 sudo pacman -S --noconfirm vifm

@@ -11,8 +11,19 @@ from libqtile.lazy import lazy
 from typing import List  # noqa: F401
 
 mod = "mod4"  # Sets mod key to SUPER/WINDOWS
-myTerm = "urxvt"  # My terminal of choice
 myConfig = "/home/daniel/.config/qtile/config.py"  # The Qtile .conf location
+
+distribution = ""
+with open("/etc/os-release") as f:
+    reader = csv.reader(f, delimiter="=")
+    for row in reader:
+        if row[0] == "ID":
+            distribution = row[1]
+
+myTerm = "urxvt"
+
+if distribution == "Arch":
+    myTerm = "alacritty"
 
 keys = [
          # The essentials
@@ -256,14 +267,6 @@ widget_defaults = dict(
     background=colors[2]
 )
 extension_defaults = widget_defaults.copy()
-
-distribution = ""
-with open("/etc/os-release") as f:
-    reader = csv.reader(f, delimiter="=")
-    for row in reader:
-        if row[0] == "ID":
-            distribution = row[1]
-
 
 def init_widgets_list():
     widgets_list = [
