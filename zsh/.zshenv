@@ -22,7 +22,6 @@ export TERMINAL="urxvt"
 export BASHDOTDIR="$HOME/.config/bash"
 export DOSBOXDIR="$HOME/.config/dosbox"
 export GNUPGHOME="$HOME/.config/gnupg"
-export NEWSBOATDIR="$HOME/.config/newsboat"
 export XAUTHORITY="$HOME/.cache/xauthority"
 export ZDOTDIR="$HOME/.config/zsh"
 
