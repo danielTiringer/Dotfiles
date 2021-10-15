@@ -30,6 +30,9 @@ update () {
   if [ $DISTRO = 'Debian' ] ; then
     sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
   fi
+  if [ $DISTRO = 'Arch' ] ; then
+    sudo pacman -Syuu
+  fi
   if [ -d "$HOME/.config/doom" ]; then
     $HOME/.emacs.d/bin/doom sync
   fi
