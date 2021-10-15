@@ -43,7 +43,9 @@ update () {
     omz update
   fi
 
-  docker_compose_update
+  if [ -x "$(command -v docker-compose)" ]; then
+    docker_compose_update
+  fi
 }
 
 docker_compose_update() {
