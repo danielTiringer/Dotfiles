@@ -22,7 +22,7 @@ sudo pacman -S --noconfirm openssh
 sudo pacman -S --noconfirm curl wget
 
 # Install command-line tools
-sudo pacman -S --noconfirm neofetch stow arandr xtrlock
+sudo pacman -S --noconfirm neofetch stow arandr xtrlock jq
 
 # Install build tools
 sudo pacman -S --noconfirm base-devel
@@ -71,6 +71,17 @@ sudo pacman -S --noconfirm qtile python-psutil
 sudo pacman -S --noconfirm emacs ripgrep fd
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
+
+# Install docker
+sudo pacman -S --noconfirm docker
+SYSTEM_TYPE=$(uname -s)
+SYSTEM_ARCH=$(uname -m)
+COMPOSE_VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
+COMPOSE_LOCATION=/usr/local/bin/docker-compose
+sudo curl -L --fail https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-${SYSTEM_TYPE}-${SYSTEM_ARCH} -o $COMPOSE_LOCATION
+sudo chmod +x $COMPOSE_LOCATION
+sudo groupadd docker
+sudo usermod -aG docker $USER
 
 # Install browser
 sudo pacman -S --noconfirm firefox
