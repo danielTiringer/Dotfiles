@@ -58,6 +58,13 @@ sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
 sudo pacman -S --noconfirm ttf-ubuntu-font-family ttf-dejavu ttf-font-awesome
 sudo yay -S --noconfirm powerline-fonts-git
 
+# Set up firewall
+sudo pacman -S --noconfirm ufw
+sudo systemctl enable ufw.service --now
+sudo ufw enable
+sudo ufw allow Transmission
+sudo ufw limit SSH
+
 # Install vim plugin manager and plugins
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
