@@ -20,34 +20,31 @@ export NEWSBOATDIR="$HOME/.config/newsboat"
 export XAUTHORITY="$HOME/.cache/xauthority"
 export ZDOTDIR="$HOME/.config/zsh"
 
-source $HOME/.config/zsh/aliasfunctions.sh
+source $ZDOTDIR/aliasfunctions.sh
 
 # Generic aliases
+alias afk='xtrlock -b'
+alias df='df -h'
+alias doom='~/.emacs.d/bin/doom'
+alias hc='herbstclient'
+alias poweroff='systemctl poweroff'
+alias reboot='systemctl reboot'
+alias transmission='docker-compose -f ~/Downloads/transmission/transmission-compose.yml'
+alias weather='curl wttr.in'
+
+# Aliases modifying existing commands
 alias cp='cp -v'
 alias mv='mv -v --interactive'
 alias rm='rm -v --interactive=once'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias df='df -h'
-alias poweroff='systemctl poweroff'
-alias reboot='systemctl reboot'
-alias afk='xtrlock -b'
-alias hc='herbstclient'
-alias doom='~/.emacs.d/bin/doom'
-alias transmission='docker-compose -f ~/Downloads/transmission/transmission-compose.yml'
-alias weather='curl wttr.in'
-# alias emacs="urxvt -e emacs -nw"
 
 # Software aliases
-alias chrome='google-chrome'
 alias brave='brave-browser'
 
 # GPG
 # export GPG_TTY=$(tty)
 # gpgconf --launch gpg-agent
-
-# upload files from the Projects folder to docker-devel1, into the docker-hasznaltauto folder
-alias upload="sh ~/.bin/syncDockerDevel1.sh"
 
 # PATH
 export PATH=~/.local/bin:$PATH
