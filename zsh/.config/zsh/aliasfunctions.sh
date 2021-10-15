@@ -40,8 +40,14 @@ update () {
     omz update
   fi
 
+  docker_compose_update
+}
+
+docker_compose_update() {
   LATEST_COMPOSE_VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
-  OWN_COMPOSE_VERSION=$(docker-compose -v 2>/dev/null | awk '{print$3}' | tr -d ",")
+  echo "The latest compose version is: $LATEST_COMPOSE_VERSION"
+  OWN_COMPOSE_VERSION=$(docker-compose -v 2>/dev/null | awk '{print$4}')
+  echo "The current compose version is: $OWN_COMPOSE_VERSION"
   if [ "$OWN_COMPOSE_VERSION" = "$LATEST_COMPOSE_VERSION" ]; then
       echo "Docker-compose is up to date."
   else
