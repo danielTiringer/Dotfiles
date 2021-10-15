@@ -26,6 +26,16 @@ extract ()
 }
 
 update () {
+  distro_update
+
+  editor_update
+
+  shell_update
+
+  docker_compose_update
+}
+
+distro_update() {
   DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
   if [ $DISTRO = 'debian' ] ; then
     sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
@@ -33,36 +43,40 @@ update () {
   if [ $DISTRO = 'arch' ] ; then
     sudo pacman -Syuu
   fi
+}
+
+editor_update() {
   if [ -d "$HOME/.config/doom" ]; then
     $HOME/.emacs.d/bin/doom sync
   fi
   if [ -d "$HOME/.vim" ]; then
     vim +PluginUpdate +qall
   fi
+}
+
+shell_update() {
   if [ -d "$HOME/.config/oh-my-zsh" ]; then
     omz update
-  fi
-
-  if [ -x "$(command -v docker-compose)" ]; then
-    docker_compose_update
   fi
 }
 
 docker_compose_update() {
-  LATEST_COMPOSE_VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
-  echo "The latest compose version is: $LATEST_COMPOSE_VERSION"
-  OWN_COMPOSE_VERSION=$(docker-compose -v 2>/dev/null | awk '{print$4}')
-  echo "The current compose version is: $OWN_COMPOSE_VERSION"
-  if [ "$OWN_COMPOSE_VERSION" = "$LATEST_COMPOSE_VERSION" ]; then
-      echo "Docker-compose is up to date."
-  else
-      SYSTEM_TYPE=$(uname -s)
-      SYSTEM_ARCH=$(uname -m)
-      COMPOSE_LOCATION=/usr/local/bin/docker-compose
-      sudo rm $COMPOSE_LOCATION
-      sudo curl -L --fail https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-${SYSTEM_TYPE}-${SYSTEM_ARCH} -o $COMPOSE_LOCATION
-      sudo chmod +x $COMPOSE_LOCATION
-      sudo docker pull docker/compose:$LATEST_COMPOSE_VERSION
-      echo "Docker-compose is upgraded, the new version is: $LATEST_COMPOSE_VERSION"
+  if [ -x "$(command -v docker-compose)" ]; then
+    LATEST_COMPOSE_VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
+    echo "The latest compose version is: $LATEST_COMPOSE_VERSION"
+    OWN_COMPOSE_VERSION=$(docker-compose -v 2>/dev/null | awk '{print$4}')
+    echo "The current compose version is: $OWN_COMPOSE_VERSION"
+    if [ "$OWN_COMPOSE_VERSION" = "$LATEST_COMPOSE_VERSION" ]; then
+        echo "Docker-compose is up to date."
+    else
+        SYSTEM_TYPE=$(uname -s)
+        SYSTEM_ARCH=$(uname -m)
+        COMPOSE_LOCATION=/usr/local/bin/docker-compose
+        sudo rm $COMPOSE_LOCATION
+        sudo curl -L --fail https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-${SYSTEM_TYPE}-${SYSTEM_ARCH} -o $COMPOSE_LOCATION
+        sudo chmod +x $COMPOSE_LOCATION
+        sudo docker pull docker/compose:$LATEST_COMPOSE_VERSION
+        echo "Docker-compose is upgraded, the new version is: $LATEST_COMPOSE_VERSION"
+    fi
   fi
 }
