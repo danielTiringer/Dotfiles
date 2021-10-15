@@ -87,7 +87,7 @@ plugins=(
 ZSH_DOTENV_PROMPT=false
 
 source $ZSH/oh-my-zsh.sh
-source /home/$USER/.zprofile
+# source $ZDOTDIR/.zprofile
 
 # Move History to the cache directory
 HISTSIZE=10000
