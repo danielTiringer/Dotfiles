@@ -26,11 +26,11 @@ extract ()
 }
 
 update () {
-  DISTRO=$(lsb_release -ar 2>/dev/null | grep ID | cut -s -f2)
-  if [ $DISTRO = 'Debian' ] ; then
+  DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
+  if [ $DISTRO = 'debian' ] ; then
     sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
   fi
-  if [ $DISTRO = 'Arch' ] ; then
+  if [ $DISTRO = 'arch' ] ; then
     sudo pacman -Syuu
   fi
   if [ -d "$HOME/.config/doom" ]; then
