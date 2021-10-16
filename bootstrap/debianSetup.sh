@@ -34,7 +34,7 @@ sudo apt upgrade -yy --fix-missing
 sleep 5
 
 # Install basic tools for file management
-sudo apt install -yy curl wget gdebi thefuck openssh-server jq unzip unrar p7zip-full p7zip-rar ntfs-3g stow xclip libclipboard-perl
+sudo apt install -yy curl wget gdebi openssh-server jq unzip unrar p7zip-full p7zip-rar ntfs-3g stow xclip libclipboard-perl
 # Install exfat utilities for managing exfat architecture (SD cards)
 sudo apt install -yy exfat-fuse exfat-utils
 # Install nfs-common
@@ -50,7 +50,7 @@ sudo apt install -yy zsh neofetch rxvt-unicode figlet bc apt-show-versions
 sleep 5
 
 # Install window manager basics
-sudo apt install -yy nitrogen compton fonts-font-awesome
+sudo apt install -yy nitrogen picom fonts-font-awesome
 sleep 5
 
 # Install qtile
