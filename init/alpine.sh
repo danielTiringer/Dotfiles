@@ -1,13 +1,6 @@
 #!/bin/bash
 
-# Daniel Tiringer's install script for Alpine based distributions.
-
-#        _       _
-#   __ _| |_ __ (_)_ __   ___
-#  / _` | | '_ \| | '_ \ / _ \
-# | (_| | | |_) | | | | |  __/
-#  \__,_|_| .__/|_|_| |_|\___|
-#         |_|
+# Install script for Alpine based distributions.
 
 # Get the base (extended) image from here after updating the version number:
 # wget http://dl-cdn.alpinelinux.org/alpine/v3.12/releases/x86_64/alpine-extended-3.12.0-x86_64.iso
@@ -56,19 +49,8 @@ sleep 5
 # Create folder structure for Transmission
 mkdir -p ~/Downloads/transmission/{config,downloads,torrents}
 
-# Set up Git
-apk add git
-git config --global user.email "tiringerdaniel@gmail.com"
-git config --global user.name "danielTiringer"
-sleep 5
-
-# Generate SSH key for Github
-mkdir ~/.ssh
-ssh-keygen -t rsa -b 4096 -C "tiringerdaniel@gmail.com" -f ~/.ssh/id_rsa_$(hostname) -q -N ""
-sleep 5
-
-# Install ZSH
-apk add zsh and Oh-My-Zsh
+# Install ZSH and Oh-My-Zsh
+apk add zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Change default shell to latest added user
