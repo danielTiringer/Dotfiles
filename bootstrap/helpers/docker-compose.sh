@@ -1,4 +1,4 @@
-#!/bin/bash
+# Install the latest docker-compose
 
 SYSTEM_TYPE=$(uname -s)
 SYSTEM_ARCH=$(uname -m)
