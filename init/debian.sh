@@ -1,23 +1,8 @@
 #!/bin/bash
 
-# Daniel Tiringer's install script for Debian based distributions.
-#      _      _     _
-#   __| | ___| |__ (_) __ _ _ __
-#  / _` |/ _ \ '_ \| |/ _` | '_ \
-# | (_| |  __/ |_) | | (_| | | | |
-#  \__,_|\___|_.__/|_|\__,_|_| |_|
-
 # Install prompt
 echo 'The executed script will install applications on a Debian based system.'
-while true
-do
-    read -r -p 'Are you sure you want to proceed? [Y/n] ' input
-    case $input in
-        [Yy][Ee][Ss]|[Yy]) echo 'Please enter your password:'; sleep 1; break;;
-        [Nn][Oo]|[Nn]) echo 'User aborted.'; exit 1;;
-        * ) echo 'Please answer yes or no.';;
-    esac
-done
+source ./common/check.sh
 
 # Create the basic file system
 source ./common/folders.sh

@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Daniel's install script for Arch based distributions.
-
 # Start from a base Arch install with your user already created, sudo and git installed
 
+# Install prompt
 echo 'The executed script will install applications on an Arch based system.'
+source ./common/check.sh
 
 # Create the basic file system
 source ./common/folders.sh
