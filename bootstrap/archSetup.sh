@@ -66,7 +66,7 @@ sudo ufw allow Transmission
 sudo ufw limit SSH
 
 # Install vim plugin manager and plugins
-source ./helpers/vim.sh
+source ./common/vim.sh
 
 # Install window manager basics
 sudo pacman -S --noconfirm nitrogen picom
@@ -81,19 +81,19 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 
 # Install docker and docker-compose
 sudo pacman -S --noconfirm docker
-source ./helpers/docker-compose.sh
+source ./common/docker-compose.sh
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
 # Install browser
 sudo pacman -S --noconfirm firefox
-wget -P ~/Downloads https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js
+source ./common/firefox.sh
 
 # Install multimedia
 sudo pacman -S --noconfirm mpv alsa-utils
 
 # Get wallpapers
-source ./helpers/wallpaper.sh
+source ./common/wallpaper.sh
 
 # Install Postman
 # cd ~/Downloads

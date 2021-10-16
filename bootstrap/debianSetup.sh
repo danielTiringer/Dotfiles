@@ -19,9 +19,6 @@ do
     esac
 done
 
-# Import helper
-source helper.sh
-
 # Create the basic file system
 cd ~
 mkdir Downloads Pictures Documents Projects .config
@@ -161,11 +158,11 @@ emacs --eval '(all-the-icons-install-fonts t)'
 sleep 5
 
 # Get wallpapers
-source ./helpers/wallpaper.sh
+source ./common/wallpaper.sh
 
 # Install Firefox
 sudo apt install -yy firefox-esr
-wget -P ~/Downloads https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js
+source ./common/firefox.sh
 sleep 5
 
 # Install Brave
@@ -178,7 +175,7 @@ sleep 5
 
 # Install Docker and Docker-Compose
 sudo sh -c "$(curl -fsSL https://get.docker.com)"
-source ./helpers/docker-compose.sh
+source ./common/docker-compose.sh
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sleep 5
@@ -228,7 +225,7 @@ rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
 rm -r ~/.config/compton ~/.config/nitrogen
 cd ~/Dotfiles
 ./stowrestore
-source ./helpers/vim.sh
+source ./common/vim.sh
 doom sync
 vim +PluginInstall +qall
 cd ~
