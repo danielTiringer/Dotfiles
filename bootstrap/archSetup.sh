@@ -66,7 +66,7 @@ sudo ufw allow Transmission
 sudo ufw limit SSH
 
 # Install vim plugin manager and plugins
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+source ./helpers/vim.sh
 
 # Install window manager basics
 sudo pacman -S --noconfirm nitrogen picom

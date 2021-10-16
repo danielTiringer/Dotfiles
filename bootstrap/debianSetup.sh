@@ -228,7 +228,7 @@ rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
 rm -r ~/.config/compton ~/.config/nitrogen
 cd ~/Dotfiles
 ./stowrestore
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+source ./helpers/vim.sh
 doom sync
 vim +PluginInstall +qall
 cd ~
