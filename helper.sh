@@ -1,6 +1,7 @@
 #!/bin/bash
+
 check_distro() {
-	lsb_release -ar 2>/dev/null | grep ID | cut -s -f2
+  awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }'
 }
 
 install_chrome_extension () {
