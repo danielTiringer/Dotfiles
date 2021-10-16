@@ -25,8 +25,7 @@ sudo pacman -S --noconfirm neofetch stow arandr xtrlock jq
 sudo pacman -S --noconfirm base-devel
 
 # Install the yay aur-manager
-cd ~/Downloads
-git clone https://aur.archlinux.org/yay-git.git
+git clone https://aur.archlinux.org/yay-git.git ~/Downloads
 cd yay-git
 makepkg --syncdeps --install --noconfirm
 cd ~
@@ -99,9 +98,7 @@ source ./common/wallpaper.sh
 # cd ~
 
 # Copy dotfiles
-cd ~/Dotfiles
-./stowrestore
-cd ~
+../stowrestore
 
 # Run dotfile-related installs
 doom sync

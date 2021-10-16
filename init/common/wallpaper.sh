@@ -1,4 +1,5 @@
 # Download a set of wallpapers
+
 wget https://img.wallpapersafari.com/desktop/1920/1080/97/43/JA7EhV.jpg -O ~/Pictures/blueMountains.jpg
 wget https://cdn.allwallpaper.in/wallpapers/1920x1080/9024/gorgeous-desert-mountain-oasis-1920x1080-wallpaper.jpg -O ~/Pictures/desertOasis.jpg
 wget https://i.imgur.com/sNxf34y.jpg -O ~/Pictures/oceanCoast.jpg
