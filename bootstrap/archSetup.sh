@@ -7,10 +7,7 @@
 echo 'The executed script will install applications on an Arch based system.'
 
 # Create the basic file system
-cd ~
-mkdir Downloads Pictures Documents Projects .config
-sudo mkdir /media/{smb,MemCard,USB}
-cd ~
+source ./common/folders.sh
 
 # Update the system
 sudo pacman --sync --refresh --sysupgrade

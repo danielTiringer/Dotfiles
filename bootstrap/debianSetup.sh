@@ -20,10 +20,7 @@ do
 done
 
 # Create the basic file system
-cd ~
-mkdir Downloads Pictures Documents Projects .config
-sudo mkdir -p /media/{smb,MemCard,USB,decrypted}
-cd ~
+source ./common/folders.sh
 
 # Update the system
 sudo apt update -yy
