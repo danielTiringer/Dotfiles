@@ -1,7 +1,6 @@
 #!/bin/sh
 
-extract ()
-{
+extract () {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
@@ -35,7 +34,7 @@ update () {
   docker_compose_update
 }
 
-distro_update() {
+distro_update () {
   DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
   if [ $DISTRO = 'debian' ] ; then
     sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
@@ -45,8 +44,8 @@ distro_update() {
   fi
 }
 
-editor_update() {
-  if [ -d "$HOME/.config/doom" ]; then
+editor_update () {
+  if [ -d "$HOME/.config/doom" ] ; then
     $HOME/.emacs.d/bin/doom sync
   fi
   if [ -d "$HOME/.vim" ]; then
@@ -54,14 +53,14 @@ editor_update() {
   fi
 }
 
-shell_update() {
-  if [ -d "$HOME/.config/oh-my-zsh" ]; then
+shell_update () {
+  if [ -d "$HOME/.config/oh-my-zsh" ] ; then
     omz update
   fi
 }
 
-docker_compose_update() {
-  if [ -x "$(command -v docker-compose)" ]; then
+docker_compose_update () {
+  if [ -x "$(command -v docker-compose)" ] ; then
     LATEST_COMPOSE_VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
     echo "The latest compose version is: $LATEST_COMPOSE_VERSION"
     OWN_COMPOSE_VERSION=$(docker-compose -v 2>/dev/null | awk '{print$4}')
