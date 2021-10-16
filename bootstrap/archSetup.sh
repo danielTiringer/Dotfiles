@@ -47,9 +47,7 @@ mkdir -p ~/.cache/zsh
 sudo usermod --shell $(which zsh) $USER
 
 # Install oh-my-zsh
-sudo yay -S --noconfirm oh-my-zsh-git
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.config/oh-my-zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.config/oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+source ./common/oh-my-zsh.sh
 
 # Install the xorg graphical environment
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
