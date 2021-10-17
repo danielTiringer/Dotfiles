@@ -9,6 +9,7 @@
 # https://wiki.alpinelinux.org/wiki/Connecting_to_a_wireless_access_point
 
 echo 'The executed script will install applications on an Alpine based system.'
+source ./common/check.sh
 
 # Generate a user
 if [ $(id -u) -eq 0 ]; then
@@ -29,14 +30,10 @@ else
 	exit 2
 fi
 
-user = tail -1 /etc/passwd | cut -f1 -d':'
+user=$(tail -1 /etc/passwd | cut -f1 -d':')
 
 # Create the basic file system
-cd ~
-mkdir Downloads Pictures Documents .config
-sudo mkdir /media/{2TBDrive,4TBDrive,MemCard,USB}
-cd ~
-sleep 5
+source ./common/folders.sh
 
 # Enable extra repositories
 sed -i '2,6s/#//g' /etc/apk/repositories
@@ -44,10 +41,6 @@ sed -i '2,6s/#//g' /etc/apk/repositories
 # Update the system
 apk update
 apk upgrade
-sleep 5
-
-# Create folder structure for Transmission
-mkdir -p ~/Downloads/transmission/{config,downloads,torrents}
 
 # Install ZSH and Oh-My-Zsh
 apk add zsh
@@ -64,19 +57,7 @@ apk add herbstluftwm compton nitrogen rxvt-unicode
 apk add stow neofetch curl wget
 
 # Get wallpapers
-wget https://img.wallpapersafari.com/desktop/1920/1080/97/43/JA7EhV.jpg -O ~/Pictures/blueMountains.jpg
-wget https://cdn.allwallpaper.in/wallpapers/1920x1080/9024/gorgeous-desert-mountain-oasis-1920x1080-wallpaper.jpg -O ~/Pictures/desertOasis.jpg
-wget https://i.imgur.com/sNxf34y.jpg -O ~/Pictures/oceanCoast.jpg
-wget http://eskipaper.com/images/stunning-landscape-wallpaper-3.jpg -O ~/Pictures/icyRiver.jpg
-wget http://getwallpapers.com/wallpaper/full/d/1/2/990314-beautiful-nature-wallpaper-hd-2600x1728-ios.jpg -O ~/Pictures/autumnTrees.jpg
-wget https://cdn.wallpapersafari.com/29/49/hN4mc2.jpg -O ~/Pictures/mountainRiver.jpg
-wget https://www.tokkoro.com/picsup/2982099-dark-debian-lenovo-blue___mixed-wallpapers.jpg -O ~/Pictures/debianLenovo.jpg
-wget https://www.wallpapermaiden.com/wallpaper/1432/download/1920x1080/linux-cli-commands.jpg -O ~/Pictures/commandLine.jpg
-wget http://getwallpapers.com/wallpaper/full/0/5/b/633941.jpg -O ~/Pictures/sundown.jpg
-sleep 5
-
-# Make project directories
-mkdir ~/Projects
+source ./common/wallpaper.sh
 
 # Install Postman
 # cd ~/Downloads
@@ -88,8 +69,6 @@ mkdir ~/Projects
 # sleep 5
 
 # Setup the dotfiles and configs
-rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
-rm -r ~/.config/compton ~/.config/polybar ~/.config/herbstluftwm ~/.config/mutt ~/.config/nitrogen ~/.config/ranger
 cd ~/Dotfiles
 ./stowrestore
 sudo cp -r ~/.config/polybar/fonts/* /usr/share/fonts
@@ -97,7 +76,6 @@ sudo fc-cache -vf /usr/share/fonts
 doom sync
 vim +PluginInstall +qall
 cd ~
-sleep 5
 
 # Install complete
 echo "Software installation complete. Please type in your password, then reboot the computer."
