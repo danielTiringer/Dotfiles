@@ -10,7 +10,6 @@ source ./common/folders.sh
 # Update the system
 sudo apt update -yy
 sudo apt upgrade -yy --fix-missing
-sleep 5
 
 # Install basic tools for file management
 sudo apt install -yy curl wget gdebi openssh-server jq unzip unrar p7zip-full p7zip-rar ntfs-3g stow xclip libclipboard-perl
@@ -22,15 +21,12 @@ sudo apt install -yy nfs-common
 sudo apt install -yy cifs-utils
 # Install cryptsetup for encrypted drive operations
 sudo apt install -yy cryptsetup
-sleep 5
 
 # Install command line tools
 sudo apt install -yy zsh neofetch rxvt-unicode figlet bc apt-show-versions
-sleep 5
 
 # Install window manager basics
 sudo apt install -yy nitrogen picom fonts-font-awesome
-sleep 5
 
 # Install qtile
 sudo apt install -yy python3-pip
@@ -49,22 +45,18 @@ Comment=Qtile Session
 Exec=qtile start
 Type=Application
 Keywords=wm;tiling' | sudo tee /usr/share/xsessions/qtile.desktop
-sleep 5
 
 # Install utilities
 sudo apt install -yy network-manager alsa-utils xbacklight xorg xtrlock lm-sensors pulsemixer
-sleep 5
 
 # Install cron-apt
 sudo apt install -yy cron-apt
 echo 'OPTIONS="-o quiet=2"
 MAILON="NEVER"
 DEBUG="verbose"' | sudo tee -a /etc/cron-apt/config
-sleep 5
 
 # Install image manipulation program
 sudo apt install -yy imagemagick #gimp
-sleep 5
 
 # Install multimedia
 sudo apt install -yy mpv
@@ -83,7 +75,6 @@ cd ~
 
 mkdir -p ~/.cache/zsh
 sudo usermod --shell $(which zsh) $USER
-sleep 5
 
 # Set up firewall
 sudo apt install -yy ufw
@@ -92,11 +83,9 @@ sudo ufw enable
 sudo ufw allow Transmission
 sudo ufw limit SSH
 sudo ufw limit OpenSSH
-sleep 5
 
 # Install Vim
 sudo apt install -yy vim vim-gtk vifm
-sleep 5
 
 # Install emacs module dependencies
 sudo apt install -yy shellcheck # for the sh lang
@@ -136,7 +125,6 @@ doom env
 emacs --batch -f all-the-icons-install-fonts
 # According to henrik, the above runs emacs without doom, so it doesn't know what all-the-icons are. Hopefully this will work:
 emacs --eval '(all-the-icons-install-fonts t)'
-sleep 5
 
 # Get wallpapers
 source ./common/wallpaper.sh
@@ -144,7 +132,6 @@ source ./common/wallpaper.sh
 # Install Firefox
 sudo apt install -yy firefox-esr
 source ./common/firefox.sh
-sleep 5
 
 # Install Brave
 sudo apt install -yy apt-transport-https
@@ -152,14 +139,12 @@ curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt
 echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-trusty.list
 sudo apt update -qq
 sudo apt install -yy brave-browser
-sleep 5
 
 # Install Docker and Docker-Compose
 sudo sh -c "$(curl -fsSL https://get.docker.com)"
 source ./common/docker-compose.sh
 sudo groupadd docker
 sudo usermod -aG docker $USER
-sleep 5
 
 # Install Postman
 cd ~/Downloads
@@ -168,13 +153,11 @@ sudo tar -xvzf postman-linux-x64.tar.gz -C /opt
 sudo ln -s /opt/Postman/Postman /usr/bin/postman
 rm postman-linux-x64.tar.gz
 cd ~
-sleep 5
 
 # Install Virtualbox
 curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor -o /usr/share/keyrings/virtualbox-keyring.gpg
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/virtualbox-keyring.gpg] https://download.virtualbox.org/virtualbox/debian bullseye contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
 sudo apt update && sudo apt install -y virtualbox-6.1
-sleep 5
 
 # Install Virt-Manager
 # sudo apt-get install -y qemu qemu-kvm qemu-system qemu-utils
@@ -188,7 +171,6 @@ sleep 5
 
 # Install Dosbox
 sudo apt install -y dosbox
-sleep 5
 
 # Install Anki
 cd ~/Downloads/
@@ -199,7 +181,6 @@ sudo ./install.sh
 cd ~
 rm -rf ~/Downloads/anki-2.1.37-linux.tar.bz2
 rm -rf ~/Downloads/anki-2.1.37-linux
-sleep 5
 
 # Setup the dotfiles and configs
 rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
@@ -210,14 +191,12 @@ source ./common/vim.sh
 doom sync
 vim +PluginInstall +qall
 cd ~
-sleep 5
 
 # https://www.youtube.com/watch?v=EzqgJhu-qN8
 echo '
 # Samba fileshare of synology nas
 //192.168.10.49/Media  /media/smb/  cifs  guest,iocharset=utf8,file_mode=0777,dir_mode=0777,credentials=/home/daniel/.config/samba/credentials
 ' | sudo tee -a /etc/fstab
-sleep 5
 
 # Configure X server
 sudo dpkg-reconfigure keyboard-configuration
