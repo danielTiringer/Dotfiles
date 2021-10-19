@@ -172,16 +172,6 @@ sudo apt update && sudo apt install -y virtualbox-6.1
 # Install Dosbox
 sudo apt install -y dosbox
 
-# Install Anki
-cd ~/Downloads/
-wget https://github.com/ankitects/anki/releases/download/2.1.37/anki-2.1.37-linux.tar.bz2
-tar xjf Downloads/anki-2.1.37-linux.tar.bz2
-cd anki-2.1.37-linux
-sudo ./install.sh
-cd ~
-rm -rf ~/Downloads/anki-2.1.37-linux.tar.bz2
-rm -rf ~/Downloads/anki-2.1.37-linux
-
 # Setup the dotfiles and configs
 rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
 rm -r ~/.config/compton ~/.config/nitrogen
