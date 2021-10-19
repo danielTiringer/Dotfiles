@@ -73,6 +73,9 @@ sudo pacman -S --noconfirm emacs ripgrep fd
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 
+# Install postman
+source ./common/postman.sh
+
 # Install docker and docker-compose
 sudo pacman -S --noconfirm docker
 source ./common/docker-compose.sh

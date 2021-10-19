@@ -147,12 +147,7 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 
 # Install Postman
-cd ~/Downloads
-wget https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
-sudo tar -xvzf postman-linux-x64.tar.gz -C /opt
-sudo ln -s /opt/Postman/Postman /usr/bin/postman
-rm postman-linux-x64.tar.gz
-cd ~
+source ./common/postman.sh
 
 # Install Virtualbox
 curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor -o /usr/share/keyrings/virtualbox-keyring.gpg
