@@ -5,10 +5,7 @@ echo 'The executed script will install applications on an openSUSE based system.
 source ./common/check.sh
 
 # Create the basic file system
-cd ~
-mkdir Downloads Pictures Documents .config
-sudo mkdir /media/2TBDrive /media/4TBDrive /media/MemCard
-cd ~
+source ./common/folders.sh
 
 # Update the system
 
