@@ -39,17 +39,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 cd ~
 sleep 5
 
-# Set up Git
-git config --global user.email "tiringerdaniel@gmail.com"
-git config --global user.name "danielTiringer"
-sudo zypper install -y tig
-# sleep 5
-
-# Generate SSH key for Github
-mkdir ~/.ssh
-ssh-keygen -t rsa -b 4096 -C "tiringerdaniel@gmail.com" -f ~/.ssh/id_rsa_$(hostname) -q -N ""
-sleep 5
-
 # Install Vim
 sudo zypper install -y vim vim-gtk vifm
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
