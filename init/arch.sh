@@ -19,7 +19,7 @@ sudo pacman -S --noconfirm openssh
 sudo pacman -S --noconfirm curl wget
 
 # Install command-line tools
-sudo pacman -S --noconfirm neofetch stow arandr xtrlock jq
+sudo pacman -S --noconfirm neofetch stow arandr xtrlock jq htop
 
 # Install build tools
 sudo pacman -S --noconfirm base-devel
