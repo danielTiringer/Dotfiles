@@ -18,7 +18,7 @@ sudo zypper install -y curl wget unzip stow
 sudo zypper install -y zsh neofetch rxvt-unicode figlet
 
 # Install window manager
-sudo zypper install -y herbstluftwm nitrogen compton fonts-font-awesome
+sudo zypper install -y herbstluftwm nitrogen picom fonts-font-awesome
 
 # Install utilities
 sudo zypper install -y network-manager alsa-utils xbacklight xorg xtrlock
@@ -28,8 +28,7 @@ cd ~/Downloads
 git clone https://github.com/powerline/fonts.git --depth=1
 ./fonts/install.sh
 
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+source ./common/oh-my-zsh.sh
 cd ~
 
 # Install Vim
