@@ -23,6 +23,7 @@ export BASHDOTDIR="$HOME/.config/bash"
 export DOSBOXDIR="$HOME/.config/dosbox"
 export GNUPGHOME="$HOME/.config/gnupg"
 export XAUTHORITY="$HOME/.cache/xauthority"
+export XDG_CONFIG_HOME="$HOME/.config"
 export ZDOTDIR="$HOME/.config/zsh"
 
 # PATH

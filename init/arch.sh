@@ -70,8 +70,8 @@ sudo pacman -S --noconfirm qtile python-psutil
 
 # Install emacs
 sudo pacman -S --noconfirm emacs ripgrep fd
-git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
+git clone https://github.com/hlissner/doom-emacs ~/.config/emacs
+~/.config/emacs/bin/doom install
 
 # Install postman
 source ./common/postman.sh

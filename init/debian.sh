@@ -116,10 +116,10 @@ cd ~
 rm -rf ~/Downloads/${EMACS_VERSION}
 
 # Install doom
-git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
-PATH="$HOME/.emacs.d/bin:$PATH"
-mkdir -p ~/.emacs.d/.local/straight/repos
-git clone -b develop https://github.com/raxod502/straight.el ~/.emacs.d/.local/straight/repos/straight.el
+mkdir -p ~/.config/emacs/.local/straight/repos
+git clone https://github.com/hlissner/doom-emacs ~/.config/emacs
+PATH="$HOME/.config/emacs/bin:$PATH"
+git clone -b develop https://github.com/raxod502/straight.el ~/./config/emacs/.local/straight/repos/straight.el
 doom env
 # If the command below doesn't work, run Alt-X all-the-icons-install-fonts
 emacs --batch -f all-the-icons-install-fonts

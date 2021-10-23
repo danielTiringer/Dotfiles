@@ -8,7 +8,7 @@ source $ZDOTDIR/aliasfunctions.sh
 
 # Generic aliases
 alias afk='xtrlock -b'
-alias doom='~/.emacs.d/bin/doom'
+alias doom='~/.config/emacs/bin/doom'
 alias hc='herbstclient'
 alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
