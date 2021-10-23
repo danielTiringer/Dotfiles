@@ -104,7 +104,7 @@ sudo apt install -yy ripgrep fd-find
 # Install emacs itself - from source, as the Debian library is too old for doom
 EMACS_VERSION=emacs-27.2
 sudo apt install -y build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev libxpm-dev automake autoconf libgnutls28-dev libjansson4
-wget -P ~/Downloads/ https://quantum-mirror.hu/mirrors/pub/gnu/emacs/${EMACS_VERSION}.tar.gz
+curl --location https://quantum-mirror.hu/mirrors/pub/gnu/emacs/${EMACS_VERSION}.tar.gz --output ~/Downloads/
 cd ~/Downloads
 tar -xvzf ~/Downloads/${EMACS_VERSION}.tar.gz
 rm ~/Downloads/${EMACS_VERSION}.tar.gz
