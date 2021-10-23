@@ -34,8 +34,12 @@ update () {
   docker_compose_update
 }
 
+distro_name () {
+  awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }'
+}
+
 distro_update () {
-  DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
+  DISTRO=$(distro_name)
   if [ $DISTRO = 'debian' ] ; then
     sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
   fi
