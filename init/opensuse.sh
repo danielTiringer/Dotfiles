@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Install prompt
 echo 'The executed script will install applications on an openSUSE based system.'

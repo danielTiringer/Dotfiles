@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Start from a base Arch install with your user already created, sudo and git installed
 
