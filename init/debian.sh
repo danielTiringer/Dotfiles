@@ -134,11 +134,11 @@ sudo apt install -yy firefox-esr
 source ./common/firefox.sh
 
 # Install Brave
-sudo apt install -yy apt-transport-https
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-trusty.list
-sudo apt update -qq
-sudo apt install -yy brave-browser
+# sudo apt install -yy apt-transport-https
+# curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+# echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-trusty.list
+# sudo apt update -qq
+# sudo apt install -yy brave-browser
 
 # Install Docker and Docker-Compose
 sudo sh -c "$(curl -fsSL https://get.docker.com)"
