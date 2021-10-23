@@ -50,7 +50,7 @@ distro_update () {
 
 editor_update () {
   if [ -d "$HOME/.config/doom" ] ; then
-    "$HOME/.emacs.d/bin/doom" sync
+    "$HOME/.config/emacs/bin/doom" sync
   fi
   if [ -d "$HOME/.vim" ]; then
     vim +PluginUpdate +qall
