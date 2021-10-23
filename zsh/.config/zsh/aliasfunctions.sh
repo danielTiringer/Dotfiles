@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 extract () {
-  if [ -f $1 ] ; then
+  if [ -f "$1" ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
       *.tar.gz)    tar xzf $1   ;;
@@ -40,17 +40,17 @@ distro_name () {
 
 distro_update () {
   DISTRO=$(distro_name)
-  if [ $DISTRO = 'debian' ] ; then
+  if [ "$DISTRO" = 'debian' ] ; then
     sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
   fi
-  if [ $DISTRO = 'arch' ] ; then
+  if [ "$DISTRO" = 'arch' ] ; then
     sudo pacman -Syuu
   fi
 }
 
 editor_update () {
   if [ -d "$HOME/.config/doom" ] ; then
-    $HOME/.emacs.d/bin/doom sync
+    "$HOME/.emacs.d/bin/doom" sync
   fi
   if [ -d "$HOME/.vim" ]; then
     vim +PluginUpdate +qall
