@@ -40,12 +40,22 @@ distro_name () {
 
 distro_update () {
   DISTRO=$(distro_name)
-  if [ "$DISTRO" = 'debian' ] ; then
-    sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
-  fi
-  if [ "$DISTRO" = 'arch' ] ; then
-    sudo pacman -Syuu --noconfirm
-  fi
+
+  case $DISTRO in
+
+    debian)
+      sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+      ;;
+
+    arch)
+      sudo pacman -Syuu --noconfirm
+      ;;
+
+    *)
+      echo -n "This distro is not set up in the script."
+      ;;
+
+  esac
 }
 
 editor_update () {
