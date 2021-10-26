@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./helper.sh
+source ./init/helper.sh
 
 DISTRO=$(check_distro)
 
