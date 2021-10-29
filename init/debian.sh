@@ -13,12 +13,16 @@ sudo apt upgrade -yy --fix-missing
 
 # Install basic tools for file management
 sudo apt install -yy curl wget gdebi openssh-server jq unzip unrar p7zip-full p7zip-rar ntfs-3g stow xclip libclipboard-perl
+
 # Install exfat utilities for managing exfat architecture (SD cards)
 sudo apt install -yy exfat-fuse exfat-utils
+
 # Install nfs-common
 sudo apt install -yy nfs-common
+
 # Install cifs-utils for mounting smb shares
 sudo apt install -yy cifs-utils
+
 # Install cryptsetup for encrypted drive operations
 sudo apt install -yy cryptsetup
 
