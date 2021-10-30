@@ -45,6 +45,9 @@ sudo usermod --shell $(which zsh) $USER
 # Install oh-my-zsh
 source ./common/oh-my-zsh.sh
 
+# Install dependencies of neovim config
+sudo pacman -S --noconfirm python-pip nodejs yarn
+
 # Install neovim
 sudo pacman -S --noconfirm neovim
 source ./common/neovim.sh
