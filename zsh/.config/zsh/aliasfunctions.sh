@@ -84,6 +84,10 @@ update_neovim() {
     nvim +PlugUpgrade +qall
     # Upgrades plugins installed via vim-plug
     nvim -es -u "$HOME/.config/nvim/init.vim" -i NONE -c "PlugInstall" -c "qa"
+
+    if [ -x "$(command -v pip)" ] ; then
+      pip install --upgrade pynvim
+    fi
   fi
 }
 
