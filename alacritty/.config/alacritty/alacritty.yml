@@ -81,7 +81,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 5000
+  history: 50000
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
@@ -245,7 +245,7 @@ schemes:
       red:     '#da8548'
       green:   '#4db5bd'
       yellow:  '#ecbe7b'
-      blue:    '#3071db'   # This is 2257a0 in Doom Emacs but I lightened it.
+      blue:    '#3071db'
       magenta: '#a9a1e1'
       cyan:    '#46d9ff'
       white:   '#dfdfdf'
@@ -403,8 +403,10 @@ schemes:
   solarized-dark: &solarized-dark
     # Default colors
     primary:
-      background: '#002b36' # base03
+      # Replace the original, blue-ish background with straight black
+      # background: '#002b36' # base03
       foreground: '#839496' # base0
+      background: '#000000'
 
     # Cursor colors
     cursor:
@@ -511,7 +513,7 @@ colors: *solarized-dark
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
 # background_opacity: 1.0
-background_opacity: 0.90
+background_opacity: 0.80
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
