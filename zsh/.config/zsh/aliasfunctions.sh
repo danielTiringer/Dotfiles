@@ -65,6 +65,9 @@ editor_update () {
   if [ -d "$HOME/.vim" ]; then
     vim +PluginUpdate +qall
   fi
+  if [ -d "$HOME/.config/nvim" ] ; then
+    nvim +PlugUpdate +qall
+  fi
 }
 
 shell_update () {
