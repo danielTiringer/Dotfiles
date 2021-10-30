@@ -357,7 +357,7 @@ def init_widgets_list():
                        fontsize = 37
                        ),
               widget.CPU(
-                       format = 'CPU {freq_current}GHz {load_percent}%',
+                       format = 'CPU: {freq_current}GHz {load_percent}%',
                        foreground = colors[2],
                        background = colors[4]
                        ),
@@ -368,17 +368,10 @@ def init_widgets_list():
                        padding = 0,
                        fontsize = 37
                        ),
-              widget.TextBox(
-                       text = " 🖬",
-                       foreground = colors[2],
-                       background = colors[5],
-                       padding = 0,
-                       fontsize = 14
-                       ),
               widget.Memory(
                        foreground = colors[2],
                        background = colors[5],
-                       format = '{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
+                       format = 'RAM: {MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
                        update_interval = 3.0
               ),
               widget.TextBox(
