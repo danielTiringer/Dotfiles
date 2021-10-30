@@ -69,7 +69,7 @@ editor_update () {
     # Upgrades vim-plug itself
     nvim +PlugUpgrade +qall
     # Upgrades plugins installed via vim-plug
-    nvim +PlugUpdate +qall
+    nvim -es -u "$HOME/.config/nvim/init.vim" -i NONE -c "PlugInstall" -c "qa"
   fi
 }
 
