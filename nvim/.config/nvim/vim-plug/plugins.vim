@@ -8,14 +8,20 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-    " Better Syntax Support
-    Plug 'sheerun/vim-polyglot'
+    " Look-and-feel plugins
     " File Explorer
     Plug 'scrooloose/NERDTree'
-    " Auto pairs for '(' '[' '{'
-    Plug 'jiangmiao/auto-pairs'
+    " Airline status bar
+    Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline-themes'
     " Colorscheme
     Plug 'joshdick/onedark.vim'
+
+    " Coding related plugins
+    " Better Syntax Support
+    Plug 'sheerun/vim-polyglot'
+    " Auto pairs for '(' '[' '{'
+    Plug 'jiangmiao/auto-pairs'
     " Stable version of coc and its extensions
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
