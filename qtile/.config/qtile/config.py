@@ -22,7 +22,7 @@ with open("/etc/os-release") as f:
 
 myTerm = "urxvt"
 
-if distribution == "Arch":
+if distribution == "arch":
     myTerm = "alacritty"
 
 keys = [
