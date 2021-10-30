@@ -16,5 +16,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jiangmiao/auto-pairs'
     " Colorscheme
     Plug 'joshdick/onedark.vim'
+    " Stable version of coc and its extensions
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-snippets',  {'do': 'yarn install --frozen-lockfile'}
+
 
 call plug#end()
