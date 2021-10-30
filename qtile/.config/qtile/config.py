@@ -144,53 +144,14 @@ keys = [
              desc='Toggle between split and unsplit sides of stack'
              ),
          # Dmenu scripts launched with ALT + CTRL + KEY
-         Key(["mod1", "control"], "e",
-             lazy.spawn("./.dmenu/dmenu-edit-configs.sh"),
-             desc='Dmenu script for editing config files'
-             ),
-         Key(["mod1", "control"], "m",
-             lazy.spawn("./.dmenu/dmenu-sysmon.sh"),
-             desc='Dmenu system monitor script'
-             ),
          Key(["mod1", "control"], "p",
              lazy.spawn("passmenu"),
              desc='Passmenu'
              ),
-         Key(["mod1", "control"], "r",
-             desc='Dmenu reddio script'
-             ),
-         Key(["mod1", "control"], "s",
-             lazy.spawn("./.dmenu/dmenu-surfraw.sh"),
-             desc='Dmenu surfraw script'
-             ),
-         Key(["mod1", "control"], "t",
-             lazy.spawn("./.dmenu/dmenu-trading.sh"),
-             desc='Dmenu trading programs script'
-             ),
-         Key(["mod1", "control"], "i",
-             lazy.spawn("./.dmenu/dmenu-scrot.sh"),
-             desc='Dmenu scrot script'
-             ),
          # My applications launched with SUPER + ALT + KEY
-         Key([mod, "mod1"], "n",
-             lazy.spawn(myTerm+" -e newsboat"),
-             desc='newsboat'
-             ),
-         Key([mod, "mod1"], "e",
-             lazy.spawn(myTerm+" -e neomutt"),
-             desc='neomutt'
-             ),
-         Key([mod, "mod1"], "m",
-             lazy.spawn(myTerm+" -e vifm"),
-             desc='vifm'
-             ),
          Key([mod, "mod1"], "f",
              lazy.spawn(myTerm+" -e firefox"),
              desc='firefox'
-             ),
-         Key([mod, "mod1"], "p",
-             lazy.spawn(myTerm+" -e pulsemixer"),
-             desc='pulsemixer'
              ),
 ]
 
