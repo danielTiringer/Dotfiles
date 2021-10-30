@@ -66,6 +66,9 @@ editor_update () {
     vim +PluginUpdate +qall
   fi
   if [ -d "$HOME/.config/nvim" ] ; then
+    # Upgrades vim-plug itself
+    nvim +PlugUpgrade +qall
+    # Upgrades plugins installed via vim-plug
     nvim +PlugUpdate +qall
   fi
 }
