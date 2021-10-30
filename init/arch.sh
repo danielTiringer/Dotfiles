@@ -45,6 +45,10 @@ sudo usermod --shell $(which zsh) $USER
 # Install oh-my-zsh
 source ./common/oh-my-zsh.sh
 
+# Install neovim
+sudo pacman -S --noconfirm neovim
+source ./common/neovim.sh
+
 # Install the xorg graphical environment
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
 
@@ -101,6 +105,7 @@ source ./common/postman.sh
 # Run dotfile-related installs
 doom sync
 vim +PluginInstall +qall
+nvim +PlugInstall +qall
 
 # Install complete
 echo "Software installation complete. Please type in your password, then reboot the computer."

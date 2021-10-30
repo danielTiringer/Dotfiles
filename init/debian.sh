@@ -32,6 +32,10 @@ sudo apt install -yy zsh neofetch rxvt-unicode figlet bc apt-show-versions
 # Install window manager basics
 sudo apt install -yy nitrogen picom fonts-font-awesome
 
+# Install neovim
+sudo apt install -yy neovim
+source ./common/neovim.sh
+
 # Install qtile
 sudo apt install -yy python3-pip
 sudo apt install -yy libxcb-render0-dev
@@ -195,6 +199,7 @@ cd ~/Dotfiles
 source ./common/vim.sh
 doom sync
 vim +PluginInstall +qall
+nvim +PlugInstall +qall
 cd ~
 
 # https://www.youtube.com/watch?v=EzqgJhu-qN8
