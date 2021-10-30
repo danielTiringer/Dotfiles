@@ -59,12 +59,26 @@ distro_update () {
 }
 
 editor_update () {
+  update_doom
+
+  update_vim
+
+  update_neovim
+}
+
+update_doom() {
   if [ -d "$HOME/.config/doom" ] ; then
     "$HOME/.config/emacs/bin/doom" sync
   fi
+}
+
+update_vim() {
   if [ -d "$HOME/.vim" ]; then
     vim +PluginUpdate +qall
   fi
+}
+
+update_neovim() {
   if [ -d "$HOME/.config/nvim" ] ; then
     # Upgrades vim-plug itself
     nvim +PlugUpgrade +qall
