@@ -38,5 +38,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
+    " Comment helper
+    Plug 'tpope/vim-commentary'
 
 call plug#end()
