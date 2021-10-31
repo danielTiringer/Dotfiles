@@ -11,6 +11,8 @@
   ],
 
   "codeLens.enable": true,
+  "java.completion.enabled": true,
+  "java.implementationsCodeLens.enabled": true,
   "java.referencesCodeLens.enabled": true,
 
   "explorer.width": 30,
