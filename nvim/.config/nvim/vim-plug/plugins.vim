@@ -29,5 +29,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-snippets',  {'do': 'yarn install --frozen-lockfile'}
     Plug 'weirongxu/coc-explorer',  {'do': 'yarn install --frozen-lockfile'}
+    " FZF
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'airblade/vim-rooter' " Scopes FZF to the closest upstream git repository
 
 call plug#end()

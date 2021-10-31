@@ -48,6 +48,10 @@ source ./common/oh-my-zsh.sh
 # Install dependencies of neovim config
 sudo pacman -S --noconfirm python-pip nodejs yarn
 
+# Install dependencies of neovim plugins
+sudo pacman -S --noconfirm the_silver_searcher fzf ripgrep fd
+yay -S --noconfirm ctags-git
+
 # Install neovim
 sudo pacman -S --noconfirm neovim
 source ./common/neovim.sh
