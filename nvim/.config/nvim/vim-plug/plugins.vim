@@ -28,6 +28,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
     Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-snippets',  {'do': 'yarn install --frozen-lockfile'}
-
+    Plug 'weirongxu/coc-explorer',  {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()
