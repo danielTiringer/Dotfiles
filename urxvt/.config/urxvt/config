@@ -1,5 +1,5 @@
 URxvt.scrollBar:      false
-URxvt.font:           xft:Source Code Pro Powerline:size=10,xft:DejaVu Sans Mono for Powerline:size=10,xft:FontAwesome:size=6
+URxvt.font:           xft:DejaVu Sans Mono for Powerline:size=10,xft:DejaVu Sans Mono Nerd Font Complete:size=10,xft:FontAwesome:size=6
 
 URxvt.letterSpace:    -5
 URxvt.url-launcher:   /usr/bin/firefox
