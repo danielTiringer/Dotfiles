@@ -42,19 +42,9 @@ distro_update () {
   DISTRO=$(distro_name)
 
   case $DISTRO in
-
-    debian)
-      sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
-      ;;
-
-    arch)
-      sudo pacman -Syuu --noconfirm
-      ;;
-
-    *)
-      echo -n "This distro is not set up in the script."
-      ;;
-
+    debian) sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y  ;;
+    arch)   sudo pacman -Syuu --noconfirm                                     ;;
+    *)      echo -n "This distro is not set up in the script."                ;;
   esac
 }
 
@@ -67,19 +57,19 @@ editor_update () {
 }
 
 update_doom() {
-  if [ -d "$HOME/.config/doom" ] ; then
+  if [ -d "$HOME/.config/doom" ] && [ "$(alias doom)" = "doom='~/.config/emacs/bin/doom'" ] ; then
     "$HOME/.config/emacs/bin/doom" sync
   fi
 }
 
 update_vim() {
-  if [ -d "$HOME/.vim" ]; then
+  if [ -d "$HOME/.vim" ] && [ -x "$(command -v vim)" ]; then
     vim +PluginUpdate +qall
   fi
 }
 
 update_neovim() {
-  if [ -d "$HOME/.config/nvim" ] ; then
+  if [ -d "$HOME/.config/nvim" ] && [ -x "$(command -v nvim)" ] ; then
     # Upgrades vim-plug itself
     nvim +PlugUpgrade +qall
     # Upgrades plugins installed via vim-plug
