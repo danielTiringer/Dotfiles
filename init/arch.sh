@@ -66,6 +66,9 @@ sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
 sudo pacman -S --noconfirm ttf-ubuntu-font-family ttf-dejavu ttf-font-awesome
 sudo yay -S --noconfirm powerline-fonts-git nerd-fonts-dejavu-complete
 
+# Install Asian fonts
+sudo pacman -S --noconfirm noto-fonts-cjk
+
 # Set up firewall
 sudo pacman -S --noconfirm ufw
 sudo systemctl enable ufw.service --now
