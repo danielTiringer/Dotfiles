@@ -18,6 +18,9 @@ sudo pacman -S --noconfirm openssh
 # Install network-based tools
 sudo pacman -S --noconfirm curl wget
 
+# Install file system helpers
+sudo pacman -S --noconfirm cifs-utils
+
 # Install command-line tools
 sudo pacman -S --noconfirm neofetch stow arandr xtrlock jq htop tig xsel
 
@@ -26,7 +29,7 @@ sudo pacman -S --noconfirm base-devel
 
 # Install the yay aur-manager
 git clone https://aur.archlinux.org/yay-git.git ~/Downloads
-cd yay-git
+cd ~/Downloads/yay-git
 makepkg --syncdeps --install --noconfirm
 cd ~
 rm -rf ~/Downloads/yay-git
