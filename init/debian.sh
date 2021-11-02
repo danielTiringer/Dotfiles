@@ -126,7 +126,7 @@ sudo apt install -y \
     automake \
     autoconf \
     libgnutls28-dev \
-    libjansson4-dev \
+    libjansson-dev \
     libxml2-dev
 curl --location https://quantum-mirror.hu/mirrors/pub/gnu/emacs/${EMACS_VERSION}.tar.gz --output ~/Downloads/${EMACS_VERSION}.tar.gz
 cd ~/Downloads
