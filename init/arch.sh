@@ -4,10 +4,10 @@
 
 # Install prompt
 echo 'The executed script will install applications on an Arch based system.'
-source $INITDIR/common/check.sh
+source "${INITDIR}/common/check.sh"
 
 # Create the basic file system
-source $INITDIR/common/folders.sh
+source "${INITDIR}/common/folders.sh"
 
 # Update the system
 sudo pacman --sync --refresh --sysupgrade
@@ -46,7 +46,7 @@ mkdir -p ~/.cache/zsh
 sudo usermod --shell $(which zsh) $USER
 
 # Install oh-my-zsh
-source $INITDIR/common/oh-my-zsh.sh
+source "${INITDIR}/common/oh-my-zsh.sh"
 
 # Install dependencies of neovim config
 sudo pacman -S --noconfirm python-pip nodejs yarn
@@ -57,7 +57,7 @@ yay -S --noconfirm ctags-git
 
 # Install neovim
 sudo pacman -S --noconfirm neovim
-source $INITDIR/common/neovim.sh
+source "${INITDIR}/common/neovim.sh"
 
 # Install the xorg graphical environment
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
@@ -77,7 +77,7 @@ sudo ufw allow Transmission
 sudo ufw limit SSH
 
 # Install vim plugin manager and plugins
-source $INITDIR/common/vim.sh
+source "${INITDIR}/common/vim.sh"
 
 # Install window manager basics
 sudo pacman -S --noconfirm nitrogen picom
@@ -91,26 +91,26 @@ git clone https://github.com/hlissner/doom-emacs ~/.config/emacs
 ~/.config/emacs/bin/doom install
 
 # Install postman
-source $INITDIR/common/postman.sh
+source "${INITDIR}/common/postman.sh"
 
 # Install docker and docker-compose
 sudo pacman -S --noconfirm docker
-source $INITDIR/common/docker-compose.sh
+source "${INITDIR}/common/docker-compose.sh"
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
 # Install browser
 sudo pacman -S --noconfirm firefox
-source $INITDIR/common/firefox.sh
+source "${INITDIR}/common/firefox.sh"
 
 # Install multimedia
 sudo pacman -S --noconfirm mpv alsa-utils
 
 # Get wallpapers
-source $INITDIR/common/wallpaper.sh
+source "${INITDIR}/common/wallpaper.sh"
 
 # Install Postman
-source $INITDIR/common/postman.sh
+source "${INITDIR}/common/postman.sh"
 
 # Copy dotfiles
 cd $DOTFILEDIR
