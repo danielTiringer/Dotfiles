@@ -122,4 +122,4 @@ vim +PluginInstall +qall
 nvim +PlugInstall +qall
 
 # Install complete
-echo "Software installation complete. Please type in your password, then reboot the computer."
+source "${INITDIR}/common/restart.sh"

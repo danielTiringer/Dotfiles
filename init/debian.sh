@@ -213,4 +213,4 @@ sudo dpkg-reconfigure keyboard-configuration
 sudo chmod u+s /usr/bin/xinit
 
 # Install complete
-echo "Software installation complete. Please reboot the computer."
+source "${INITDIR}/common/restart.sh"
