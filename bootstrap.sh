@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-source ./init/helper.sh
+DOTFILEDIR="$(dirname $(realpath "$0"))"
 
+source $DOTFILEDIR/init/helper.sh
 DISTRO=$(check_distro)
 
-cd init
-./$DISTRO.sh
+INITDIR="${DOTFILEDIR}/init"
+
+source $INITDIR/$DISTRO.sh

@@ -2,10 +2,10 @@
 
 # Install prompt
 echo 'The executed script will install applications on a Debian based system.'
-source common/check.sh
+source $INITDIR/common/check.sh
 
 # Create the basic file system
-source common/folders.sh
+source $INITDIR/common/folders.sh
 
 # Update the system
 sudo apt update -yy
@@ -34,7 +34,7 @@ sudo apt install -yy nitrogen picom fonts-font-awesome
 
 # Install neovim
 # sudo apt install -yy neovim
-# source common/neovim.sh
+# source $INITDIR/common/neovim.sh
 
 # Install qtile
 sudo apt install -yy python3-pip
@@ -78,7 +78,7 @@ git clone https://github.com/powerline/fonts.git --depth=1
 ./fonts/install.sh
 rm -rf fonts
 
-source common/oh-my-zsh.sh
+source $INITDIR/common/oh-my-zsh.sh
 cd ~
 
 mkdir -p ~/.cache/zsh
@@ -151,11 +151,11 @@ emacs --batch -f all-the-icons-install-fonts
 emacs --eval '(all-the-icons-install-fonts t)'
 
 # Get wallpapers
-source common/wallpaper.sh
+source $INITDIR/common/wallpaper.sh
 
 # Install Firefox
 sudo apt install -yy firefox-esr
-source common/firefox.sh
+source $INITDIR/common/firefox.sh
 
 # Install Brave
 # sudo apt install -yy apt-transport-https
@@ -166,12 +166,12 @@ source common/firefox.sh
 
 # Install Docker and Docker-Compose
 sudo sh -c "$(curl -fsSL https://get.docker.com)"
-source common/docker-compose.sh
+source $INITDIR/common/docker-compose.sh
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
 # Install Postman
-source common/postman.sh
+source $INITDIR/common/postman.sh
 
 # Install Virtualbox
 curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor -o /usr/share/keyrings/virtualbox-keyring.gpg
@@ -196,7 +196,7 @@ rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
 rm -r ~/.config/compton ~/.config/nitrogen
 cd ~/Dotfiles
 ./stowrestore
-source common/vim.sh
+source $INITDIR/common/vim.sh
 doom sync
 vim +PluginInstall +qall
 nvim +PlugInstall +qall
