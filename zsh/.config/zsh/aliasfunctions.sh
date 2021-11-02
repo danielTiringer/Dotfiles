@@ -63,7 +63,7 @@ update_doom() {
 }
 
 update_vim() {
-  if [ -d "$HOME/.vim" ] && [ -x "$(command -v vim)" ]; then
+  if [ -d "$HOME/.vim" ] && [ -x "$(command -v vim)" ] ; then
     vim +PluginUpdate +qall
   fi
 }

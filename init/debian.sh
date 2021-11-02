@@ -12,7 +12,7 @@ sudo apt update -yy
 sudo apt upgrade -yy --fix-missing
 
 # Install basic tools for file management
-sudo apt install -yy curl wget gdebi openssh-server jq unzip unrar p7zip-full p7zip-rar ntfs-3g stow xclip libclipboard-perl
+sudo apt install -yy curl wget gdebi openssh-server jq unzip unrar-free p7zip-full ntfs-3g stow xclip libclipboard-perl
 
 # Install exfat utilities for managing exfat architecture (SD cards)
 sudo apt install -yy exfat-fuse exfat-utils
@@ -33,8 +33,8 @@ sudo apt install -yy zsh neofetch rxvt-unicode figlet bc apt-show-versions
 sudo apt install -yy nitrogen picom fonts-font-awesome
 
 # Install neovim
-sudo apt install -yy neovim
-source ./common/neovim.sh
+# sudo apt install -yy neovim
+# source ./common/neovim.sh
 
 # Install qtile
 sudo apt install -yy python3-pip
@@ -105,7 +105,7 @@ pip3 install isort pipenv pytest nose python-lsp-server # for the python lang
 sudo apt install -yy php-cli php-zip php-curl php-mbstring php-xml # for the php lang
 curl --fail --silent --show-error --location https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer # also for php
 sudo apt install -yy nodejs npm # for the web lang and vue
-sudo apt install -yy node-js-beautify tidy && sudo npm install --global styleline # for the web lang
+sudo apt install -yy node-js-beautify tidy && sudo npm install --global stylelint # for the web lang
 sudo npm install --global vue-language-server # for vue
 sudo apt install -yy ripgrep fd-find
 
