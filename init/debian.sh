@@ -174,9 +174,9 @@ sudo usermod -aG docker $USER
 source $INITDIR/common/postman.sh
 
 # Install Virtualbox
-curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor -o /usr/share/keyrings/virtualbox-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/virtualbox-keyring.gpg] https://download.virtualbox.org/virtualbox/debian bullseye contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
-sudo apt update && sudo apt install -y virtualbox-6.1
+# curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor -o /usr/share/keyrings/virtualbox-keyring.gpg
+# echo "deb [arch=amd64 signed-by=/usr/share/keyrings/virtualbox-keyring.gpg] https://download.virtualbox.org/virtualbox/debian bullseye contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+# sudo apt update && sudo apt install -y virtualbox-6.1
 
 # Install Virt-Manager
 # sudo apt-get install -y qemu qemu-kvm qemu-system qemu-utils
@@ -194,12 +194,12 @@ sudo apt install -y dosbox
 # Setup the dotfiles and configs
 rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
 rm -r ~/.config/compton ~/.config/nitrogen
-cd ~/Dotfiles
+cd $DOTFILEDIR
 ./stowrestore
 source $INITDIR/common/vim.sh
 doom sync
 vim +PluginInstall +qall
-nvim +PlugInstall +qall
+# nvim +PlugInstall +qall
 cd ~
 
 # https://www.youtube.com/watch?v=EzqgJhu-qN8
