@@ -4,6 +4,11 @@ check_distro() {
   awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }'
 }
 
+change_shell_for_user () {
+    LINE_NUMBER=$(grep -n $USER /etc/passwd | cut -d ":" -f 1)
+    sudo sed -i "${LINE_NUMBER}s#ash#zsh#" /etc/passwd
+}
+
 install_chrome_extension () {
   preferences_dir_path="/opt/google/chrome/extensions"
   pref_file_path="$preferences_dir_path/$1.json"
