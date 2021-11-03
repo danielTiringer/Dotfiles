@@ -45,6 +45,9 @@ sudo apk add zsh
 # Install vim
 sudo apk add vim
 
+# Install vim plugin manager and plugins
+. "${INITDIR}/common/vim.sh"
+
 # Install neovim
 # sudo apk add neovim
 # . "${INITDIR}/common/neovim.sh"
@@ -58,29 +61,40 @@ sudo apk add ttf-dejavu
 # Install Asian fonts
 sudo apk add font-noto-cjk
 
+# Install window manager basics
+sudo apk add picom
 
-apk add herbstluftwm compton nitrogen rxvt-unicode
+# Install window manager
+sudo apk add herbstluftwm
 
-# Install utilities
-apk add stow neofetch curl wget
-
-# Get wallpapers
-. "${INITDIR}/common/wallpaper.sh"
+# Install emacs
+sudo apk add emacs
 
 # Install Postman
 # . "${INITDIR}/common/postman.sh"
 
-# Setup the dotfiles and configs
-cd ~/Dotfiles
+# Install docker and docker-compose
+sudo apk add docker
+. "${INITDIR}/common/docker-compose.sh"
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+# Install browser
+sudo apk add firefox
+
+# Install multimedia
+sudo apk add mpv alsa-utils
+
+# Get wallpapers
+. "${INITDIR}/common/wallpaper.sh"
+
+# Copy dotfiles
+cd $DOTFILEDIR
 ./stowrestore
-sudo cp -r ~/.config/polybar/fonts/* /usr/share/fonts
-sudo fc-cache -vf /usr/share/fonts
+
+# Run dotfile-related installs
 doom sync
 vim +PluginInstall +qall
-cd ~
 
 # Install complete
-echo "Software installation complete. Please type in your password, then reboot the computer."
-
-# Change shell
-chsh -s $(which zsh)
+. "${INITDIR}/common/restart.sh"
