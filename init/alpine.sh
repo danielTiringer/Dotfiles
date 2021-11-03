@@ -15,18 +15,21 @@ echo 'The executed script will install applications on an Alpine based system.'
 . "${INITDIR}/common/folders.sh"
 
 # Enable extra repositories
-sed -i '2,6s/#//g' /etc/apk/repositories
+sudo sed -i '2,6s/#//g' /etc/apk/repositories
 
 # Update the system
-apk update
-apk upgrade
+sudo apk update
+sudo apk upgrade
 
-# Install ZSH and Oh-My-Zsh
-apk add zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+# Install network-based tools
+sudo apk add curl
 
-# Change default shell to latest added user
-sed -i '$s/ash/zsh/' /etc/passwd
+# Install file system helpers
+sudo apk add cifs-utils
+
+# Install command line tools
+sudo apk add neofetch stow arandr jq htop tig xsel
+
 # Install ZSH and set is as default for user
 sudo apk add zsh
 . "${INITDIR}/common/zsh.sh"
