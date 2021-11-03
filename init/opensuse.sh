@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Install prompt
 echo 'The executed script will install applications on an openSUSE based system.'
-source ./common/check.sh
+. "${INITDIR}/common/check.sh"
 
 # Create the basic file system
-source ./common/folders.sh
+. "${INITDIR}/common/folders.sh"
 
 # Update the system
 
@@ -28,12 +28,12 @@ cd ~/Downloads
 git clone https://github.com/powerline/fonts.git --depth=1
 ./fonts/install.sh
 
-source ./common/oh-my-zsh.sh
+. "${INITDIR}/common/oh-my-zsh.sh"
 cd ~
 
 # Install Vim
 sudo zypper install -y vim vim-gtk vifm
-source ./common/vim.sh
+. "${INITDIR}/common/vim.sh"
 
 # Enabling bitmap fonts
 sudo echo '<?xml version="1.0"?>
@@ -58,7 +58,7 @@ sudo ln -sf /etc/fonts/conf.avail/70-yes-bitmaps.conf /etc/fonts/conf.d
 sudo mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.avail
 
 # Get wallpapers
-source ./common/wallpaper.sh
+. "${INITDIR}/common/wallpaper.sh"
 
 # Install Firefox
 sudo zypper install -y firefox
@@ -81,7 +81,7 @@ sudo systemctl restart docker
 sleep 5
 
 # Install Postman
-source ./common/postman.sh
+. "${INITDIR}/common/postman.sh"
 
 # Install Polybar
 sudo zypper addrepo https://download.opensuse.org/repositories/X11:Utilities/openSUSE_Tumbleweed/X11:Utilities.repo
@@ -97,7 +97,6 @@ cd ~/Dotfiles
 sudo cp -r ~/.config/polybar/fonts/* /usr/share/fonts
 sudo fc-cache -vf /usr/share/fonts
 vim +PluginInstall +qall
-# vim +GoInstallBinaries +qall
 cd ~
 sleep 5
 

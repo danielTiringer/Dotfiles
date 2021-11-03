@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 check_distro() {
   awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }'

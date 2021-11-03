@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Install script for Alpine based distributions.
 
@@ -9,31 +9,10 @@
 # https://wiki.alpinelinux.org/wiki/Connecting_to_a_wireless_access_point
 
 echo 'The executed script will install applications on an Alpine based system.'
-source ./common/check.sh
-
-# Generate a user
-if [ $(id -u) -eq 0 ]; then
-	echo 'Generate a new user for the system:'
-	read -p "Enter username : " username
-	read -s -p "Enter password : " password
-	egrep "^$username" /etc/passwd >/dev/null
-	if [ $? -eq 0 ]; then
-		echo "$username exists!"
-		exit 1
-	else
-		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
-		useradd -m -p "$pass" "$username"
-		[ $? -eq 0 ] && echo "User has been added to system!" || echo "Failed to add a user!"
-	fi
-else
-	echo "Only root may add a user to the system."
-	exit 2
-fi
-
-user=$(tail -1 /etc/passwd | cut -f1 -d':')
+. "${INITDIR}/common/check.sh"
 
 # Create the basic file system
-source ./common/folders.sh
+. "${INITDIR}/common/folders.sh"
 
 # Enable extra repositories
 sed -i '2,6s/#//g' /etc/apk/repositories
@@ -57,10 +36,10 @@ apk add herbstluftwm compton nitrogen rxvt-unicode
 apk add stow neofetch curl wget
 
 # Get wallpapers
-source ./common/wallpaper.sh
+. "${INITDIR}/common/wallpaper.sh"
 
 # Install Postman
-# source ./common/postman.sh
+# . "${INITDIR}/common/postman.sh"
 
 # Setup the dotfiles and configs
 cd ~/Dotfiles

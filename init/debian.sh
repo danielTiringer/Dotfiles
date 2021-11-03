@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Install prompt
 echo 'The executed script will install applications on a Debian based system.'
-source "${INITDIR}/common/check.sh"
+. "${INITDIR}/common/check.sh"
 
 # Create the basic file system
-source "${INITDIR}/common/folders.sh"
+. "${INITDIR}/common/folders.sh"
 
 # Update the system
 sudo apt update -yy
@@ -34,7 +34,7 @@ sudo apt install -yy nitrogen picom fonts-font-awesome
 
 # Install neovim
 # sudo apt install -yy neovim
-# source "${INITDIR}/common/neovim.sh
+# . "${INITDIR}/common/neovim.sh
 
 # Install qtile
 sudo apt install -yy python3-pip
@@ -78,7 +78,7 @@ git clone https://github.com/powerline/fonts.git --depth=1
 ./fonts/install.sh
 rm -rf fonts
 
-source "${INITDIR}/common/oh-my-zsh.sh"
+. "${INITDIR}/common/oh-my-zsh.sh"
 cd ~
 
 mkdir -p ~/.cache/zsh
@@ -151,11 +151,11 @@ emacs --batch -f all-the-icons-install-fonts
 emacs --eval '(all-the-icons-install-fonts t)'
 
 # Get wallpapers
-source "${INITDIR}/common/wallpaper.sh"
+. "${INITDIR}/common/wallpaper.sh"
 
 # Install Firefox
 sudo apt install -yy firefox-esr
-source "${INITDIR}/common/firefox.sh"
+. "${INITDIR}/common/firefox.sh"
 
 # Install Brave
 # sudo apt install -yy apt-transport-https
@@ -166,12 +166,12 @@ source "${INITDIR}/common/firefox.sh"
 
 # Install Docker and Docker-Compose
 sudo sh -c "$(curl -fsSL https://get.docker.com)"
-source "${INITDIR}/common/docker-compose.sh"
+. "${INITDIR}/common/docker-compose.sh"
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
 # Install Postman
-source "${INITDIR}/common/postman.sh"
+. "${INITDIR}/common/postman.sh"
 
 # Install Virtualbox
 # curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor -o /usr/share/keyrings/virtualbox-keyring.gpg
@@ -196,7 +196,7 @@ rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
 rm -r ~/.config/compton ~/.config/nitrogen
 cd $DOTFILEDIR
 ./stowrestore
-source "${INITDIR}/common/vim.sh"
+. "${INITDIR}/common/vim.sh"
 doom sync
 vim +PluginInstall +qall
 # nvim +PlugInstall +qall
@@ -213,4 +213,4 @@ sudo dpkg-reconfigure keyboard-configuration
 sudo chmod u+s /usr/bin/xinit
 
 # Install complete
-source "${INITDIR}/common/restart.sh"
+. "${INITDIR}/common/restart.sh"
