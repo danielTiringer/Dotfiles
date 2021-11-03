@@ -104,9 +104,6 @@ sudo pacman -S --noconfirm mpv alsa-utils
 # Get wallpapers
 . "${INITDIR}/common/wallpaper.sh"
 
-# Install Postman
-. "${INITDIR}/common/postman.sh"
-
 # Copy dotfiles
 cd $DOTFILEDIR
 ./stowrestore
