@@ -5,6 +5,8 @@
 # Get the base (extended) image from here after updating the version number:
 # wget http://dl-cdn.alpinelinux.org/alpine/v3.12/releases/x86_64/alpine-extended-3.12.0-x86_64.iso
 
+# The script does not cover user creation, sudo install and assignment of rights.
+
 # Set up the wireless network using wpa_supplicant and wireless-tools:
 # https://wiki.alpinelinux.org/wiki/Connecting_to_a_wireless_access_point
 
@@ -30,12 +32,33 @@ sudo apk add cifs-utils
 # Install command line tools
 sudo apk add neofetch stow arandr jq htop tig xsel
 
+# Install terminals
+sudo apk add rxvt-unicode
+
+# Install file manager
+sudo apk add vifm
+
 # Install ZSH and set is as default for user
 sudo apk add zsh
 . "${INITDIR}/common/zsh.sh"
 
-# Install Window Manager
+# Install vim
+sudo apk add vim
+
+# Install neovim
+# sudo apk add neovim
+# . "${INITDIR}/common/neovim.sh"
+
+# Install the xorg graphical environment
 setup-xorg-base
+
+# Install fonts
+sudo apk add ttf-dejavu
+
+# Install Asian fonts
+sudo apk add font-noto-cjk
+
+
 apk add herbstluftwm compton nitrogen rxvt-unicode
 
 # Install utilities
