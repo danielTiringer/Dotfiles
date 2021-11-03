@@ -44,6 +44,9 @@ sudo pacman -S --noconfirm vifm
 sudo pacman -S --noconfirm zsh
 . "${INITDIR}/common/zsh.sh"
 
+# Install vim plugin manager and plugins
+. "${INITDIR}/common/vim.sh"
+
 # Install dependencies of neovim config
 sudo pacman -S --noconfirm python-pip nodejs yarn
 
@@ -71,9 +74,6 @@ sudo systemctl enable ufw.service --now
 sudo ufw enable
 sudo ufw allow Transmission
 sudo ufw limit SSH
-
-# Install vim plugin manager and plugins
-. "${INITDIR}/common/vim.sh"
 
 # Install window manager basics
 sudo pacman -S --noconfirm nitrogen picom
