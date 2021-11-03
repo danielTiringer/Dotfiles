@@ -53,7 +53,7 @@ sudo apk add vim
 # . "${INITDIR}/common/neovim.sh"
 
 # Install the xorg graphical environment
-setup-xorg-base
+sudo setup-xorg-base
 
 # Install fonts
 sudo apk add ttf-dejavu
