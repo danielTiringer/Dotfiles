@@ -40,13 +40,9 @@ sudo pacman -S --noconfirm rxvt-unicode alacritty
 # Install file manager
 sudo pacman -S --noconfirm vifm
 
-# Install shell and set it as default for user
+# Install zsh, set it as default for user, install oh-my-zsh
 sudo pacman -S --noconfirm zsh
-mkdir -p ~/.cache/zsh
-sudo usermod --shell $(which zsh) $USER
-
-# Install oh-my-zsh
-. "${INITDIR}/common/oh-my-zsh.sh"
+. "${INITDIR}/common/zsh.sh"
 
 # Install dependencies of neovim config
 sudo pacman -S --noconfirm python-pip nodejs yarn

@@ -27,6 +27,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Change default shell to latest added user
 sed -i '$s/ash/zsh/' /etc/passwd
+# Install ZSH and set is as default for user
+sudo apk add zsh
+. "${INITDIR}/common/zsh.sh"
 
 # Install Window Manager
 setup-xorg-base

@@ -27,7 +27,7 @@ sudo apt install -yy cifs-utils
 sudo apt install -yy cryptsetup
 
 # Install command line tools
-sudo apt install -yy zsh neofetch rxvt-unicode figlet bc apt-show-versions
+sudo apt install -yy neofetch rxvt-unicode figlet bc apt-show-versions
 
 # Install window manager basics
 sudo apt install -yy nitrogen picom fonts-font-awesome
@@ -77,12 +77,12 @@ cd ~/Downloads
 git clone https://github.com/powerline/fonts.git --depth=1
 ./fonts/install.sh
 rm -rf fonts
-
-. "${INITDIR}/common/oh-my-zsh.sh"
 cd ~
 
-mkdir -p ~/.cache/zsh
-sudo usermod --shell $(which zsh) $USER
+# Install zsh, make it the default shell, and install oh-my-zsh
+sudo apt install -yy zsh
+. "${INITDIR}/common/zsh.sh"
+
 
 # Set up firewall
 sudo apt install -yy ufw
