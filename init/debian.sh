@@ -155,7 +155,6 @@ doom env
 
 # Install Firefox
 sudo apt install -yy firefox-esr
-. "${INITDIR}/common/firefox.sh"
 
 # Install Brave
 # sudo apt install -yy apt-transport-https

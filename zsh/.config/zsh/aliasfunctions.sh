@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 extract () {
   if [ -f "$1" ] ; then
@@ -109,4 +109,12 @@ docker_compose_update () {
         echo "Docker-compose is upgraded, the new version is: $LATEST_COMPOSE_VERSION"
     fi
   fi
+}
+
+firefox_privacy_download() {
+    FOLDERS=(`find ~/.mozilla/firefox/* -maxdepth 1 -type d -name "*.default*"`)
+
+    for FOLDER in "${FOLDERS[@]}" ; do
+        curl --location https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js --output "${FOLDER}/user.js"
+    done
 }

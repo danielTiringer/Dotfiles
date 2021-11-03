@@ -101,7 +101,6 @@ sudo usermod -aG docker $USER
 
 # Install browser
 sudo pacman -S --noconfirm firefox
-. "${INITDIR}/common/firefox.sh"
 
 # Install multimedia
 sudo pacman -S --noconfirm mpv alsa-utils

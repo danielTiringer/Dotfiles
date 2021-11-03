@@ -8,7 +8,6 @@ echo 'The executed script will install applications on an openSUSE based system.
 . "${INITDIR}/common/folders.sh"
 
 # Update the system
-
 sudo zypper update -y
 
 # Install basic tools for file management
@@ -62,7 +61,6 @@ sudo mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.avail
 
 # Install Firefox
 sudo zypper install -y firefox
-sleep 5
 
 # Install Brave
 sudo zypper install -y zypper-transport-https
@@ -70,7 +68,6 @@ curl -s https://brave-browser-zypper-release.s3.brave.com/brave-core.asc | sudo 
 echo "deb [arch=amd64] https://brave-browser-zypper-release.s3.brave.com/ trusty main" | sudo tee /etc/zypper/sources.list.d/brave-browser-release-trusty.list
 sudo zypper update -qq
 sudo zypper install -y brave-browser
-sleep 5
 
 # Install Docker and Docker-Compose
 sudo zypper install docker docker-compose
@@ -78,7 +75,6 @@ sudo systemctl enable docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo systemctl restart docker
-sleep 5
 
 # Install Postman
 . "${INITDIR}/common/postman.sh"
@@ -87,7 +83,6 @@ sleep 5
 sudo zypper addrepo https://download.opensuse.org/repositories/X11:Utilities/openSUSE_Tumbleweed/X11:Utilities.repo
 sudo zypper refresh
 sudo zypper install polybar
-sleep 5
 
 # Setup the dotfiles and configs
 rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources
@@ -98,7 +93,6 @@ sudo cp -r ~/.config/polybar/fonts/* /usr/share/fonts
 sudo fc-cache -vf /usr/share/fonts
 vim +PluginInstall +qall
 cd ~
-sleep 5
 
 # Install complete
 echo "Software installation complete. Please type in your password, then reboot the computer."
