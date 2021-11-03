@@ -52,6 +52,12 @@ sudo apk add vim
 # sudo apk add neovim
 # . "${INITDIR}/common/neovim.sh"
 
+# Install emacs
+sudo apk add emacs
+
+# Install doom
+. "${INITDIR}/common/doom.sh"
+
 # Install the xorg graphical environment
 sudo setup-xorg-base
 
@@ -66,9 +72,6 @@ sudo apk add picom
 
 # Install window manager
 sudo apk add herbstluftwm
-
-# Install emacs
-sudo apk add emacs
 
 # Install Postman
 # . "${INITDIR}/common/postman.sh"
