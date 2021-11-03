@@ -81,7 +81,7 @@ plugins=(
 	docker-compose
 	dotenv
 	git
-	torrent
+	ssh-agent
 	zsh-syntax-highlighting
 )
 
