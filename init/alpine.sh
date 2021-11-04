@@ -36,8 +36,8 @@ sudo apk add neofetch stow arandr jq htop tig xsel
 sudo apk add rxvt-unicode
 
 # Install alacritty
-sudo apk add cmake pkgconf freetype-dev fontconfig-dev python3 libxcb-dev build-base gcc abuild binutils binutils-doc gcc-doc
-
+# sudo apk add cmake pkgconf freetype-dev fontconfig-dev python3 libxcb-dev build-base gcc abuild binutils binutils-doc gcc-doc
+# . "${INITDIR}/common/alacritty.sh"
 
 # Install file manager
 sudo apk add vifm
