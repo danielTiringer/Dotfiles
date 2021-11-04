@@ -35,11 +35,15 @@ sudo apk add neofetch stow arandr jq htop tig xsel
 # Install terminals
 sudo apk add rxvt-unicode
 
+# Install alacritty
+sudo apk add cmake pkgconf freetype-dev fontconfig-dev python3 libxcb-dev build-base gcc abuild binutils binutils-doc gcc-doc
+
+
 # Install file manager
 sudo apk add vifm
 
 # Install ZSH and set is as default for user
-sudo apk add zsh
+sudo apk add zsh zsh-vcs
 . "${INITDIR}/common/zsh.sh"
 
 # Install vim
@@ -96,8 +100,11 @@ cd $DOTFILEDIR
 ./stowrestore
 
 # Run dotfile-related installs
-doom sync
+"$HOME/.config/emacs/bin/doom" sync
 vim +PluginInstall +qall
+
+# Simplify the login message
+sudo sed -i -e '2,10d' /etc/motd
 
 # Install complete
 . "${INITDIR}/common/restart.sh"
