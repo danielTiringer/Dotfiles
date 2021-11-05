@@ -100,8 +100,7 @@ sudo apk add mpv alsa-utils
 . "${INITDIR}/common/dotfiles.sh"
 
 # Run dotfile-related installs
-"$HOME/.config/emacs/bin/doom" sync
-vim +PluginInstall +qall
+. "${INITDIR}/common/editor-installs.sh"
 
 # Simplify the login message
 sudo sed -i -e '2,10d' /etc/motd

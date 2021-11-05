@@ -94,6 +94,7 @@ sudo ufw limit OpenSSH
 
 # Install Vim
 sudo apt install -yy vim vim-gtk vifm
+. "${INITDIR}/common/vim.sh"
 
 # Install emacs module dependencies
 sudo apt install -yy shellcheck # for the sh lang
@@ -186,14 +187,11 @@ sudo usermod -aG docker $USER
 # Install Dosbox
 sudo apt install -y dosbox
 
-# Setup the dotfiles and configs
+# Copy dotfiles
 . "${INITIDIR}/common/dotfiles.sh"
 
-. "${INITDIR}/common/vim.sh"
-doom sync
-vim +PluginInstall +qall
-# nvim +PlugInstall +qall
-cd ~
+# Run dotfile-related installs
+. "${INITDIR}/common/editor-installs.sh"
 
 # https://www.youtube.com/watch?v=EzqgJhu-qN8
 echo '
