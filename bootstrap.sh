@@ -2,11 +2,10 @@
 
 DOTFILEDIR="$(dirname $(realpath "$0"))"
 
-. "${DOTFILEDIR}/init/helper.sh"
-DISTRO=$(check_distro)
-
 INITDIR="${DOTFILEDIR}/init"
+. "${INITDIR}/helper.sh"
 
+DISTRO=$(check_distro)
 DISTROSCRIPT="${INITDIR}/${DISTRO}.sh"
 
 if [ ! -f "${DISTROSCRIPT}" ] ; then
