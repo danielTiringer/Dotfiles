@@ -96,8 +96,7 @@ sudo apk add mpv alsa-utils
 . "${INITDIR}/common/wallpaper.sh"
 
 # Copy dotfiles
-cd $DOTFILEDIR
-./stowrestore
+. "${INITDIR}/common/dotfiles.sh"
 
 # Run dotfile-related installs
 "$HOME/.config/emacs/bin/doom" sync

@@ -61,8 +61,7 @@ sudo pacman -S --noconfirm neovim
 # Install the xorg graphical environment
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
 
-# Install fonts
-sudo pacman -S --noconfirm ttf-ubuntu-font-family ttf-dejavu ttf-font-awesome
+# Install fonts sudo pacman -S --noconfirm ttf-ubuntu-font-family ttf-dejavu ttf-font-awesome
 sudo yay -S --noconfirm powerline-fonts-git nerd-fonts-dejavu-complete
 
 # Install Asian fonts
@@ -105,11 +104,10 @@ sudo pacman -S --noconfirm mpv alsa-utils
 . "${INITDIR}/common/wallpaper.sh"
 
 # Copy dotfiles
-cd $DOTFILEDIR
-./stowrestore
+. "${INITDIR}/common/dotfiles.sh"
 
 # Run dotfile-related installs
-doom sync
+"$HOME/.config/emacs/bin/doom" sync
 vim +PluginInstall +qall
 nvim +PlugInstall +qall
 

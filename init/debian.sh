@@ -187,10 +187,8 @@ sudo usermod -aG docker $USER
 sudo apt install -y dosbox
 
 # Setup the dotfiles and configs
-rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources ~/.ssh/config
-rm -r ~/.config/compton ~/.config/nitrogen
-cd $DOTFILEDIR
-./stowrestore
+. "${INITIDIR}/common/dotfiles.sh"
+
 . "${INITDIR}/common/vim.sh"
 doom sync
 vim +PluginInstall +qall
@@ -202,10 +200,6 @@ echo '
 # Samba fileshare of synology nas
 # //192.168.10.49/Media  /media/smb/  cifs  guest,iocharset=utf8,file_mode=0777,dir_mode=0777,credentials=/home/daniel/.config/samba/credentials
 ' | sudo tee -a /etc/fstab
-
-# Configure X server
-sudo dpkg-reconfigure keyboard-configuration
-sudo chmod u+s /usr/bin/xinit
 
 # Install complete
 . "${INITDIR}/common/restart.sh"
