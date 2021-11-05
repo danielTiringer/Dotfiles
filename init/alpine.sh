@@ -83,8 +83,9 @@ sudo apk add herbstluftwm
 # Install docker and docker-compose
 sudo apk add docker
 . "${INITDIR}/common/docker-compose.sh"
-sudo groupadd docker
-sudo usermod -aG docker $USER
+sudo addgroup $USER docker
+sudo rc-update add docker boot
+sudo service docker start
 
 # Install browser
 sudo apk add firefox
