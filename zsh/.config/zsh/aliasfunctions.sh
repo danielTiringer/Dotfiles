@@ -42,8 +42,9 @@ distro_update () {
   DISTRO=$(distro_name)
 
   case $DISTRO in
-    debian) sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y  ;;
+    alpine) sudo apk -U upgrade                                               ;;
     arch)   sudo pacman -Syuu --noconfirm                                     ;;
+    debian) sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y  ;;
     *)      echo -n "This distro is not set up in the script."                ;;
   esac
 }
