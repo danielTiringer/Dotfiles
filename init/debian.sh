@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Start from a base Debian system without any graphical environments, but with git and sudo installed
+
 # Install prompt
 echo 'The executed script will install applications on a Debian based system.'
 . "${INITDIR}/common/check.sh"
@@ -8,33 +10,59 @@ echo 'The executed script will install applications on a Debian based system.'
 . "${INITDIR}/common/folders.sh"
 
 # Update the system
-sudo apt update -yy
-sudo apt upgrade -yy --fix-missing
+sudo apt update -yy && sudo apt upgrade -yy --fix-missing
+
+# Install ssh
+sudo apt install -yy openssh-server
+
+# Install network-based tools
+sudo apt install -yy curl wget network-manager
+
+# Install file system helpers
+sudo apt install -yy nfs-common
+sudo apt install -yy cifs-utils # For smb
+sudo apt install -yy exfat-fuse exfat-utils # For FAT32 SD cards
+sudo apt install -yy cryptsetup # For encrypted drives
+sudo apt install -yy ntfs-3g # For NTFS based external drives
 
 # Install basic tools for file management
-sudo apt install -yy curl wget gdebi openssh-server jq unzip unrar-free p7zip-full ntfs-3g stow xclip libclipboard-perl
-
-# Install exfat utilities for managing exfat architecture (SD cards)
-sudo apt install -yy exfat-fuse exfat-utils
-
-# Install nfs-common
-sudo apt install -yy nfs-common
-
-# Install cifs-utils for mounting smb shares
-sudo apt install -yy cifs-utils
-
-# Install cryptsetup for encrypted drive operations
-sudo apt install -yy cryptsetup
+sudo apt install -yy unzip unrar-free p7zip-full xclip libclipboard-perl
 
 # Install command line tools
-sudo apt install -yy neofetch rxvt-unicode figlet bc apt-show-versions
+sudo apt install -yy neofetch stow arandr xtrlock jq htop
+
+# Install Debian-related tools
+sudo apt install -yy apt-show-versions gdebi
+sudo apt install -yy cron-apt
+echo 'OPTIONS="-o quiet=2"
+MAILON="NEVER"
+DEBUG="verbose"' | sudo tee -a /etc/cron-apt/config
+
+# Install build tools
+sudo apt install -yy bc
+
+# Install terminals
+sudo apt install -yy rxvt-unicode
+
+# Install file manager
+sudo apt install -yy vifm
+
+# Install zsh, make it the default shell, and install oh-my-zsh
+sudo apt install -yy zsh
+. "${INITDIR}/common/zsh.sh"
+
+# Install Oh-My-Zsh
+cd ~/Downloads
+git clone https://github.com/powerline/fonts.git --depth=1
+./fonts/install.sh
+rm -rf fonts
+cd ~
+
+# Install the xorg graphical environment
+sudo apt install -yy xorg
 
 # Install window manager basics
 sudo apt install -yy nitrogen picom fonts-font-awesome
-
-# Install neovim
-# sudo apt install -yy neovim
-# . "${INITDIR}/common/neovim.sh
 
 # Install qtile
 sudo apt install -yy python3-pip
@@ -54,47 +82,13 @@ Exec=qtile start
 Type=Application
 Keywords=wm;tiling' | sudo tee /usr/share/xsessions/qtile.desktop
 
-# Install utilities
-sudo apt install -yy network-manager alsa-utils xbacklight xorg xtrlock lm-sensors pulsemixer
-
-# Install cron-apt
-sudo apt install -yy cron-apt
-echo 'OPTIONS="-o quiet=2"
-MAILON="NEVER"
-DEBUG="verbose"' | sudo tee -a /etc/cron-apt/config
-
-# Install image manipulation program
-sudo apt install -yy imagemagick #gimp
-
-# Install multimedia
-sudo apt install -yy mpv
-
-# Create folder structure for Transmission
-mkdir -p ~/Downloads/transmission
-
-# Install Oh-My-Zsh
-cd ~/Downloads
-git clone https://github.com/powerline/fonts.git --depth=1
-./fonts/install.sh
-rm -rf fonts
-cd ~
-
-# Install zsh, make it the default shell, and install oh-my-zsh
-sudo apt install -yy zsh
-. "${INITDIR}/common/zsh.sh"
-
-
-# Set up firewall
-sudo apt install -yy ufw
-sudo systemctl enable ufw.service --now
-sudo ufw enable
-sudo ufw allow Transmission
-sudo ufw limit SSH
-sudo ufw limit OpenSSH
-
 # Install Vim
-sudo apt install -yy vim vim-gtk vifm
+sudo apt install -yy vim vim-gtk
 . "${INITDIR}/common/vim.sh"
+
+# Install neovim
+# sudo apt install -yy neovim
+# . "${INITDIR}/common/neovim.sh
 
 # Install emacs module dependencies
 sudo apt install -yy shellcheck # for the sh lang
@@ -147,18 +141,22 @@ rm -rf ~/Downloads/${EMACS_VERSION}
 # According to henrik, the above runs emacs without doom, so it doesn't know what all-the-icons are. Hopefully this will work:
 # emacs --eval '(all-the-icons-install-fonts t)'
 
-# Get wallpapers
-. "${INITDIR}/common/wallpaper.sh"
+# Install image manipulation program
+sudo apt install -yy imagemagick #gimp
 
-# Install Firefox
+# Set up firewall
+sudo apt install -yy ufw
+sudo systemctl enable ufw.service --now
+sudo ufw enable
+sudo ufw allow Transmission
+sudo ufw limit SSH
+sudo ufw limit OpenSSH
+
+# Install browser
 sudo apt install -yy firefox-esr
 
-# Install Brave
-# sudo apt install -yy apt-transport-https
-# curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-# echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-trusty.list
-# sudo apt update -qq
-# sudo apt install -yy brave-browser
+# Install multimedia
+sudo apt install -yy  alsa-utils pulsemixer mpv
 
 # Install Docker and Docker-Compose
 sudo sh -c "$(curl -fsSL https://get.docker.com)"
@@ -186,6 +184,9 @@ sudo usermod -aG docker $USER
 
 # Install Dosbox
 sudo apt install -y dosbox
+
+# Get wallpapers
+. "${INITDIR}/common/wallpaper.sh"
 
 # Copy dotfiles
 . "${INITIDIR}/common/dotfiles.sh"
