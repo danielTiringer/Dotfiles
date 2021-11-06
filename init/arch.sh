@@ -35,7 +35,7 @@ cd ~
 rm -rf ~/Downloads/yay-git
 
 # Install terminals
-sudo pacman -S --noconfirm rxvt-unicode alacritty
+sudo pacman -S --noconfirm rxvt-unicode alacritty kitty
 
 # Install file manager
 sudo pacman -S --noconfirm vifm

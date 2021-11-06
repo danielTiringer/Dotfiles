@@ -24,6 +24,8 @@ myTerm = "urxvt"
 
 if distribution == "arch":
     myTerm = "alacritty"
+if distribution == "alpine"
+    myTerm = "kitty"
 
 keys = [
          # The essentials
