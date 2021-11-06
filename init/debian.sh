@@ -44,7 +44,7 @@ sudo apt install -yy bc
 # Install terminals
 sudo apt install -yy rxvt-unicode
 sudo apt install -yy cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-. "#{INITDIR}/common/alacritty.sh"
+. "${INITDIR}/common/alacritty.sh"
 
 # Install file manager
 sudo apt install -yy vifm

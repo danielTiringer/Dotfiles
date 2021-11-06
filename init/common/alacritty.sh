@@ -10,5 +10,7 @@ cd ~/Downloads/alacritty
 
 cargo build --release
 
+sudo mv ~/Downloads/alacritty/target/release/alacritty /usr/local/bin/
+
 cd ~
 rm -rf ~/Downloads/alacritty
