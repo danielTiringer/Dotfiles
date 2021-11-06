@@ -89,8 +89,8 @@ sudo apt install -yy vim vim-gtk
 . "${INITDIR}/common/vim.sh"
 
 # Install neovim
-# sudo apt install -yy neovim
-# . "${INITDIR}/common/neovim.sh
+sudo apt install -yy neovim
+. "${INITDIR}/common/neovim.sh"
 
 # Install emacs module dependencies
 sudo apt install -yy shellcheck # for the sh lang
