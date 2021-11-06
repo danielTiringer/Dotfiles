@@ -24,7 +24,7 @@ myTerm = "urxvt"
 
 if distribution in ["arch", "debian"]:
     myTerm = "alacritty"
-if distribution == "alpine"
+if distribution == "alpine":
     myTerm = "kitty"
 
 keys = [
