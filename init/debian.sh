@@ -141,16 +141,16 @@ rm -rf ~/Downloads/${EMACS_VERSION}
 # According to henrik, the above runs emacs without doom, so it doesn't know what all-the-icons are. Hopefully this will work:
 # emacs --eval '(all-the-icons-install-fonts t)'
 
+# Install Postman
+. "${INITDIR}/common/postman.sh"
+
 # Install image manipulation program
 sudo apt install -yy imagemagick #gimp
 
 # Set up firewall
 sudo apt install -yy ufw
 sudo systemctl enable ufw.service --now
-sudo ufw enable
-sudo ufw allow Transmission
-sudo ufw limit SSH
-sudo ufw limit OpenSSH
+. "${INITDIR}/common/ufw.sh"
 
 # Install browser
 sudo apt install -yy firefox-esr
@@ -163,9 +163,6 @@ sudo sh -c "$(curl -fsSL https://get.docker.com)"
 . "${INITDIR}/common/docker-compose.sh"
 sudo groupadd docker
 sudo usermod -aG docker $USER
-
-# Install Postman
-. "${INITDIR}/common/postman.sh"
 
 # Install Virtualbox
 # curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor -o /usr/share/keyrings/virtualbox-keyring.gpg
@@ -189,7 +186,7 @@ sudo apt install -y dosbox
 . "${INITDIR}/common/wallpaper.sh"
 
 # Copy dotfiles
-. "${INITIDIR}/common/dotfiles.sh"
+. "${INITDIR}/common/dotfiles.sh"
 
 # Run dotfile-related installs
 . "${INITDIR}/common/editor-installs.sh"

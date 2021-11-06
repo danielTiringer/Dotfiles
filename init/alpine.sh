@@ -33,7 +33,7 @@ sudo apk add cifs-utils
 sudo apk add neofetch stow arandr jq htop tig xsel
 
 # Install terminals
-sudo apk add rxvt-unicode
+sudo apk add rxvt-unicode kitty
 
 # Install alacritty
 # sudo apk add cmake pkgconf freetype-dev fontconfig-dev python3 libxcb-dev build-base gcc abuild binutils binutils-doc gcc-doc
@@ -45,6 +45,21 @@ sudo apk add vifm
 # Install ZSH and set is as default for user
 sudo apk add zsh zsh-vcs
 . "${INITDIR}/common/zsh.sh"
+
+# Install the xorg graphical environment
+sudo setup-xorg-base
+
+# Install fonts
+sudo apk add ttf-dejavu
+
+# Install Asian fonts
+sudo apk add font-noto-cjk
+
+# Install window manager basics
+sudo apk add picom
+
+# Install window manager
+sudo apk add herbstluftwm
 
 # Install vim
 sudo apk add vim
@@ -62,23 +77,13 @@ sudo apk add emacs
 # Install doom
 . "${INITDIR}/common/doom.sh"
 
-# Install the xorg graphical environment
-sudo setup-xorg-base
-
-# Install fonts
-sudo apk add ttf-dejavu
-
-# Install Asian fonts
-sudo apk add font-noto-cjk
-
-# Install window manager basics
-sudo apk add picom
-
-# Install window manager
-sudo apk add herbstluftwm
-
 # Install Postman
 # . "${INITDIR}/common/postman.sh"
+
+# Set up firewall
+sudo apk add ip6tables ufw
+sudo rc-update add ufw
+. "${INITDIR}/common/ufw"
 
 # Install docker and docker-compose
 sudo apk add docker

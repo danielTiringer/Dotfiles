@@ -44,6 +44,20 @@ sudo pacman -S --noconfirm vifm
 sudo pacman -S --noconfirm zsh
 . "${INITDIR}/common/zsh.sh"
 
+# Install the xorg graphical environment
+sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
+
+# Install fonts
+sudo yay -S --noconfirm powerline-fonts-git nerd-fonts-dejavu-complete
+
+# Install Asian fonts
+sudo pacman -S --noconfirm noto-fonts-cjk
+
+# Install window manager basics
+sudo pacman -S --noconfirm nitrogen picom
+
+# Install window manager
+sudo pacman -S --noconfirm qtile python-psutil
 # Install vim plugin manager and plugins
 . "${INITDIR}/common/vim.sh"
 
@@ -58,28 +72,6 @@ yay -S --noconfirm ctags-git
 sudo pacman -S --noconfirm neovim
 . "${INITDIR}/common/neovim.sh"
 
-# Install the xorg graphical environment
-sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
-
-# Install fonts sudo pacman -S --noconfirm ttf-ubuntu-font-family ttf-dejavu ttf-font-awesome
-sudo yay -S --noconfirm powerline-fonts-git nerd-fonts-dejavu-complete
-
-# Install Asian fonts
-sudo pacman -S --noconfirm noto-fonts-cjk
-
-# Set up firewall
-sudo pacman -S --noconfirm ufw
-sudo systemctl enable ufw.service --now
-sudo ufw enable
-sudo ufw allow Transmission
-sudo ufw limit SSH
-
-# Install window manager basics
-sudo pacman -S --noconfirm nitrogen picom
-
-# Install window manager
-sudo pacman -S --noconfirm qtile python-psutil
-
 # Install emacs
 sudo pacman -S --noconfirm emacs ripgrep fd
 git clone https://github.com/hlissner/doom-emacs ~/.config/emacs
@@ -87,6 +79,11 @@ git clone https://github.com/hlissner/doom-emacs ~/.config/emacs
 
 # Install postman
 . "${INITDIR}/common/postman.sh"
+
+# Set up firewall
+sudo pacman -S --noconfirm ufw
+sudo systemctl enable ufw.service --now
+. "${INITDIR}/common/ufw.sh"
 
 # Install docker and docker-compose
 sudo pacman -S --noconfirm docker
@@ -107,9 +104,7 @@ sudo pacman -S --noconfirm mpv alsa-utils
 . "${INITDIR}/common/dotfiles.sh"
 
 # Run dotfile-related installs
-"$HOME/.config/emacs/bin/doom" sync
-vim +PluginInstall +qall
-nvim +PlugInstall +qall
+. "${INITDIR}/common/editor-installs.sh"
 
 # Install complete
 . "${INITDIR}/common/restart.sh"
