@@ -54,7 +54,7 @@ sudo yay -S --noconfirm powerline-fonts-git nerd-fonts-dejavu-complete
 sudo pacman -S --noconfirm noto-fonts-cjk
 
 # Install window manager basics
-sudo pacman -S --noconfirm nitrogen picom
+sudo pacman -S --noconfirm nitrogen picom dmenu
 
 # Install window manager
 sudo pacman -S --noconfirm qtile python-psutil

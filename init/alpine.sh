@@ -56,7 +56,7 @@ sudo apk add ttf-dejavu
 sudo apk add font-noto-cjk
 
 # Install window manager basics
-sudo apk add picom
+sudo apk add picom dmenu
 
 # Install window manager
 sudo apk add herbstluftwm
