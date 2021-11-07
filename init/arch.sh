@@ -75,7 +75,7 @@ sudo pacman -S --noconfirm neovim
 # Install emacs
 sudo pacman -S --noconfirm emacs ripgrep fd
 git clone https://github.com/hlissner/doom-emacs ~/.config/emacs
-~/.config/emacs/bin/doom install
+. "${INITDIR}/common/doom.sh"
 
 # Install postman
 . "${INITDIR}/common/postman.sh"
