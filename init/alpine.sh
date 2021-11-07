@@ -83,7 +83,7 @@ sudo apk add emacs
 # Set up firewall
 sudo apk add ip6tables ufw
 sudo rc-update add ufw
-. "${INITDIR}/common/ufw"
+. "${INITDIR}/common/ufw.sh"
 
 # Install docker and docker-compose
 sudo apk add docker
