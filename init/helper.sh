@@ -6,7 +6,7 @@ check_distro() {
 
 change_shell_for_user () {
     LINE_NUMBER=$(grep -n $USER /etc/passwd | cut -d ":" -f 1)
-    sudo sed -i "${LINE_NUMBER}s#ash#zsh#" /etc/passwd
+    sudo sed -i -E "${LINE_NUMBER}s#/bin/b?ash#/bin/zsh#" /etc/passwd
 }
 
 install_chrome_extension () {
