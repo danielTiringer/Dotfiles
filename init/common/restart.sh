@@ -1,5 +1,13 @@
 # Prompt the user to restart the computer
 
+restart () {
+    if [ "$DISTRO" == "alpine" ] ; then
+        sudo reboot
+    else
+        systemctl reboot
+    fi
+}
+
 while true
 do
     echo "Installation completed."
@@ -10,11 +18,3 @@ do
         * ) echo 'Please answer yes or no.';;
     esac
 done
-
-restart () {
-    if [ $DISTRO == 'alpine' ] ; then
-        sudo reboot
-    else
-        systemctl reboot
-    fi
-}
