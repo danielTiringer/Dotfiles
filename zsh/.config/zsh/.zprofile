@@ -12,7 +12,6 @@ alias doom='~/.config/emacs/bin/doom'
 alias hc='herbstclient'
 alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
-alias transmission='docker-compose -f ~/Downloads/transmission/transmission-compose.yml'
 alias weather='curl wttr.in'
 
 # Aliases modifying existing commands

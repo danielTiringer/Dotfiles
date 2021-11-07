@@ -20,7 +20,6 @@ stow -v -R polybar
 stow -v -R samba
 cp ssh/.ssh/config ~/.ssh
 stow -v -R tig
-stow -v -R transmission
 stow -v -R urxvt
 stow -v -R vifm
 stow -v -R vim
