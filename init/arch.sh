@@ -28,11 +28,11 @@ sudo pacman -S --noconfirm neofetch stow arandr xtrlock jq htop tig xsel
 sudo pacman -S --noconfirm base-devel
 
 # Install the yay aur-manager
-git clone https://aur.archlinux.org/yay-git.git ~/Downloads
-cd ~/Downloads/yay-git
+git clone https://aur.archlinux.org/yay-git.git ~/Downloads/yay
+cd ~/Downloads/yay
 makepkg --syncdeps --install --noconfirm
 cd ~
-rm -rf ~/Downloads/yay-git
+rm -rf ~/Downloads/yay
 
 # Install terminals
 sudo pacman -S --noconfirm rxvt-unicode alacritty kitty
