@@ -93,6 +93,7 @@ sudo apt install -yy python3-pip nodejs
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update && sudo apt install yarn
+. "${INITDIR}/common/neovim-providers.sh"
 
 # Install dependencies of neovim plugins
 sudo apt install -yy silversearcher-ag fzf gripgrep fd-find

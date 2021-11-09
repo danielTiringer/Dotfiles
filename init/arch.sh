@@ -65,6 +65,7 @@ sudo pacman -S --noconfirm qtile herbstluftwm python-psutil
 
 # Install dependencies of neovim config
 sudo pacman -S --noconfirm python-pip nodejs yarn
+. "${INITDIR}/common/neovim-providers.sh"
 
 # Install dependencies of neovim plugins
 sudo pacman -S --noconfirm the_silver_searcher fzf ripgrep fd
