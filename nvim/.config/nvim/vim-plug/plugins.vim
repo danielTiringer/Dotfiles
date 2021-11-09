@@ -41,6 +41,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/gv.vim'
     " Comment helper
     Plug 'tpope/vim-commentary'
+    " Surround helper
+    Plug 'tpope/vim-surround'
     " Java
     Plug 'nvim-treesitter/nvim-treesitter'
 
