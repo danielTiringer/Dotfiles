@@ -1,6 +1,6 @@
-#!/usr/bin/bash
+#!/bin/sh
 
-# this is a simple config for herbstluftwm
+# HerbstLuftWM config
 
 hc() {
     herbstclient "$@"
@@ -25,6 +25,7 @@ Editor="vim"
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
+hc keybind $Mod-Shift-Return spawn dmenu_run -p 'Run: '
 hc keybind $Mod-Return spawn $Terminal
 hc keybind $Mod-Mod1-b spawn $Terminal -e brave
 hc keybind $Mod-Mod1-f spawn $Terminal -e firefox
@@ -46,8 +47,8 @@ hc keybind XF86MonBrightnessDown spawn xbacklight -dec 1000
 # Keyboard Brightness
 # XF86KbdBrightnessUp is 238
 # XF86KbdBrightnessDown is 237
-hc keybind XF86KbdBrightnessUp './kbd_backlight.sh up'
-hc keybind XF86KbdBrightnessDown './kbd_backlight.sh down'
+# hc keybind XF86KbdBrightnessUp './kbd_backlight.sh up'
+# hc keybind XF86KbdBrightnessDown './kbd_backlight.sh down'
 
 # lock screen
 hc keybind Mod1-Ctrl-l spawn xtrlock -b
