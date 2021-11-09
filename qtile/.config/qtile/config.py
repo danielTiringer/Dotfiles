@@ -53,10 +53,6 @@ keys = [
              lazy.shutdown(),
              desc='Shutdown Qtile'
              ),
-         Key(["control", "shift"], "e",
-             lazy.spawn("emacsclient -c -a emacs"),
-             desc='Doom Emacs'
-             ),
          # Switch focus to specific monitor (out of three)
          Key([mod], "w",
              lazy.to_screen(0),
@@ -105,16 +101,6 @@ keys = [
              lazy.layout.shuffle_up(),
              desc='Move windows up in current stack'
              ),
-         Key([mod], "h",
-             lazy.layout.grow(),
-             lazy.layout.increase_nmaster(),
-             desc='Expand window (MonadTall), increase number in master pane (Tile)'
-             ),
-         Key([mod], "l",
-             lazy.layout.shrink(),
-             lazy.layout.decrease_nmaster(),
-             desc='Shrink window (MonadTall), decrease number in master pane (Tile)'
-             ),
          Key([mod], "n",
              lazy.layout.normalize(),
              desc='normalize window size ratios'
@@ -144,11 +130,6 @@ keys = [
          Key([mod, "control"], "Return",
              lazy.layout.toggle_split(),
              desc='Toggle between split and unsplit sides of stack'
-             ),
-         # Dmenu scripts launched with ALT + CTRL + KEY
-         Key(["mod1", "control"], "p",
-             lazy.spawn("passmenu"),
-             desc='Passmenu'
              ),
          # My applications launched with SUPER + ALT + KEY
          Key([mod, "mod1"], "f",
@@ -183,32 +164,9 @@ layout_theme = {
 }
 
 layouts = [
-    #       layout.MonadWide(**layout_theme),
-    #       layout.Bsp(**layout_theme),
-    #       layout.Columns(**layout_theme),
-    #       layout.RatioTile(**layout_theme),
-    #       layout.VerticalTile(**layout_theme),
-    #       layout.Matrix(**layout_theme),
-    #       layout.Zoomy(**layout_theme),
-    #       layout.MonadTall(**layout_theme),
-    #       layout.Max(**layout_theme),
     layout.Matrix(**layout_theme),
     layout.Tile(shift_windows=True, **layout_theme),
     layout.Stack(num_stacks=1, **layout_theme),
-    # layout.TreeTab(
-    #      font = "Ubuntu",
-    #      fontsize = 10,
-    #      sections = ["FIRST", "SECOND"],
-    #      section_fontsize = 11,
-    #      bg_color = "141414",
-    #      active_bg = "90C435",
-    #      active_fg = "000000",
-    #      inactive_bg = "384323",
-    #      inactive_fg = "a0a0a0",
-    #      padding_y = 5,
-    #      section_top = 10,
-    #      panel_width = 320
-    #      ),
     # layout.Floating(**layout_theme)
 ]
 
@@ -224,7 +182,7 @@ prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 # DEFAULT WIDGET SETTINGS #
 widget_defaults = dict(
-    font="Ubuntu Mono",
+    font="DejaVu Mono",
     fontsize = 12,
     padding = 2,
     background=colors[2]
@@ -244,7 +202,7 @@ def init_widgets_list():
                        mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn('dmenu_run')}
                        ),
               widget.GroupBox(
-                       font = "Ubuntu Bold",
+                       font = "DejaVu Bold",
                        fontsize = 9,
                        margin_y = 3,
                        margin_x = 0,
@@ -265,7 +223,7 @@ def init_widgets_list():
                        ),
               widget.Prompt(
                        prompt = prompt,
-                       font = "Ubuntu Mono",
+                       font = "DejaVu Mono",
                        padding = 10,
                        foreground = colors[3],
                        background = colors[1]
