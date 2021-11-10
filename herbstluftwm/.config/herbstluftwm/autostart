@@ -29,9 +29,6 @@ hc keybind $Mod-Shift-Return spawn dmenu_run -p 'Run: '
 hc keybind $Mod-Return spawn $Terminal
 hc keybind $Mod-Mod1-b spawn $Terminal -e brave
 hc keybind $Mod-Mod1-f spawn $Terminal -e firefox
-hc keybind $Mod-Mod1-n spawn $Terminal -e newsboat
-hc keybind $Mod-Mod1-m spawn $Terminal -e mutt
-hc keybind $Mod-Mod1-s spawn $Terminal -e slack
 
 # Volume
 hc keybind XF86AudioRaiseVolume spawn amixer -M set Master '5%+'
