@@ -55,10 +55,13 @@ sudo pacman -S --noconfirm noto-fonts-cjk
 
 # Install window manager basics
 sudo pacman -S --noconfirm nitrogen picom dmenu
-yay -S --noconfirm polybar
 
-# Install window manager
-sudo pacman -S --noconfirm qtile herbstluftwm python-psutil
+# Install qtile
+sudo pacman -S --noconfirm qtile python-psutil
+
+# Install herbstluftwm
+sudo pacman -S --noconfirm herbstluftwm
+yay -S --noconfirm polybar
 
 # Install vim plugin manager and plugins
 . "${INITDIR}/common/vim.sh"
