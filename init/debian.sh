@@ -70,19 +70,10 @@ sudo apt install -yy nitrogen picom dmenu fonts-font-awesome
 sudo apt install -yy python3-pip
 sudo apt install -yy libxcb-render0-dev
 sudo apt install -yy libpangocairo-1.0-0
-pip3 install xcffib psutil dbus-next
-pip3 install --no-cache-dir cairocffi
+. "${INITIDIR}/common/qtile.sh"
 
-git clone git://github.com/qtile/qtile.git ~/Downloads/qtile
-pip3 install ~/Downloads/qtile/
-rm -rf ~/Downloads/qtile
-
-sudo echo '[Desktop Entry]
-Name=Qtile
-Comment=Qtile Session
-Exec=qtile start
-Type=Application
-Keywords=wm;tiling' | sudo tee /usr/share/xsessions/qtile.desktop
+# Install herbstluftwm
+sudo apt install -yy herbstluftwm polybar
 
 # Install Vim
 sudo apt install -yy vim vim-gtk
