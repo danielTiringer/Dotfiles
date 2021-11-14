@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Start from a base OpenSUSE Server type install with your user already created and git installed
+
 # Install prompt
 echo 'The executed script will install applications on an openSUSE based system.'
 . "${INITDIR}/common/check.sh"
