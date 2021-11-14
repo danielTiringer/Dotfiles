@@ -106,7 +106,6 @@ docker_compose_update () {
         sudo rm $COMPOSE_LOCATION
         sudo curl --fail --location "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-${SYSTEM_TYPE}-${SYSTEM_ARCH}" --output $COMPOSE_LOCATION
         sudo chmod +x $COMPOSE_LOCATION
-        sudo docker pull docker/compose:"$LATEST_COMPOSE_VERSION"
         echo "Docker-compose is upgraded, the new version is: $LATEST_COMPOSE_VERSION"
     fi
   fi
