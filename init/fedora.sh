@@ -28,6 +28,9 @@ sudo dnf install -y tar
 # Install command-line tools
 sudo dnf install -y neofetch stow arandr jq htop tig xsel
 
+# Install build tools
+sudo dnf install -y gcc
+
 curl https://raw.githubusercontent.com/rpmsphere/noarch/master/r/rpmsphere-release-34-2.noarch.rpm --output ~/Downloads/rpmsphere.rpm
 sudo rpm -Uvh ~/Downloads/rpmsphere.rpm
 rm ~/Downloads/rpmsphere.rpm
@@ -53,6 +56,9 @@ sudo dnf install -y powerline-fonts dejavu-fonts-all fontawesome5-fonts-all
 sudo dnf install -y nitrogen picom dmenu
 
 # Install qtile
+sudo dnf install -y python3-pip pango
+pip3 install cffi xcffib
+pip3 install --no-cache-dir cairocffi
 
 # Install herbstluftwm
 sudo dnf install -y herbstluftwm polybar
