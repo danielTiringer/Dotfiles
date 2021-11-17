@@ -28,13 +28,13 @@ sudo dnf install -y tar
 # Install command-line tools
 sudo dnf install -y neofetch stow arandr jq htop tig xsel
 
-# Install build tools
-sudo dnf install -y gcc
-
 curl https://raw.githubusercontent.com/rpmsphere/noarch/master/r/rpmsphere-release-34-2.noarch.rpm --output ~/Downloads/rpmsphere.rpm
 sudo rpm -Uvh ~/Downloads/rpmsphere.rpm
 rm ~/Downloads/rpmsphere.rpm
 sudo dnf install -y xtrlock
+
+# Install build tools
+sudo dnf install -y gcc
 
 # Install terminals
 sudo dnf install -y rxvt-unicode alacritty kitty
