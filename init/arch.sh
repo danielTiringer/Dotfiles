@@ -21,6 +21,9 @@ sudo pacman -S --noconfirm curl wget
 # Install file system helpers
 sudo pacman -S --noconfirm cifs-utils
 
+# Install compressors
+sudo pacman -S --noconfirm tar unzip
+
 # Install command-line tools
 sudo pacman -S --noconfirm neofetch stow arandr xtrlock jq htop tig xsel
 
