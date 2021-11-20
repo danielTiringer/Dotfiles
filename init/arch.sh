@@ -22,7 +22,7 @@ sudo pacman -S --noconfirm curl wget
 sudo pacman -S --noconfirm cifs-utils
 
 # Install compressors
-sudo pacman -S --noconfirm tar unzip
+sudo pacman -S --noconfirm tar unzip unrar p7zip
 
 # Install command-line tools
 sudo pacman -S --noconfirm neofetch stow arandr xtrlock jq htop tig xsel
