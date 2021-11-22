@@ -970,7 +970,7 @@ format = <label>
 ;   %percentage% (default) - total cpu load
 ;   %percentage-cores% - load percentage for each core
 ;   %percentage-core[1-9]% - load percentage for specific core
-label = Cpu %percentage:3%%
+label = %percentage:3%%
 
 ################################################################################
 
@@ -1182,9 +1182,9 @@ interval = 1
 ;   %mb_used%
 ;   %mb_free%
 ;   %mb_total%
-label = %percentage_used%%
+label = %gb_used%/%gb_total%
 
-format = Mem <label>
+format = <label>
 format-prefix = " "
 format-prefix-foreground = #fefefe
 format-foreground = #fefefe
