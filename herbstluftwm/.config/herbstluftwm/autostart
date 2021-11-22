@@ -166,19 +166,19 @@ hc set mouse_recenter_gap 0
 
 # GIMP
 # ensure there is a GIMP tag
-hc add gimp
-hc load gimp '
-(split horizontal:0.850000:0
-(split horizontal:0.200000:1
-(clients vertical:0)
-(clients grid:0))
-(clients vertical:0))'
-# load predefined layout
-# center all other gimp windows on gimp tag
-hc rule class=Gimp tag=gimp index=01 pseudotile=on
-hc rule class=Gimp windowrole~'gimp-(image-window|toolbox|dock)' pseudotile=off
-hc rule class=Gimp windowrole=gimp-toolbox focus=off index=00
-hc rule class=Gimp windowrole=gimp-dock focus=off index=1
+# hc add gimp
+# hc load gimp '
+# (split horizontal:0.850000:0
+# (split horizontal:0.200000:1
+# (clients vertical:0)
+# (clients grid:0))
+# (clients vertical:0))'
+# # load predefined layout
+# # center all other gimp windows on gimp tag
+# hc rule class=Gimp tag=gimp index=01 pseudotile=on
+# hc rule class=Gimp windowrole~'gimp-(image-window|toolbox|dock)' pseudotile=off
+# hc rule class=Gimp windowrole=gimp-toolbox focus=off index=00
+# hc rule class=Gimp windowrole=gimp-dock focus=off index=1
 
 # rules
 hc unrule -F
@@ -205,7 +205,7 @@ hc detect_monitors
 # room for polybar on both monitors
 # hlwm padding is in the order of top, right, bottom, left, with the first number being the screen number
 hc pad 0 25
-# hc pad 1 20
+hc pad 1 35
 
 # find the panel
 ~/.config/polybar/launch.sh
