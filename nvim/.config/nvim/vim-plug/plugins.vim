@@ -35,10 +35,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter' " Scopes FZF to the closest upstream git repository
     " Git
-    Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-rhubarb'
-    Plug 'junegunn/gv.vim'
     " Comment helper
     Plug 'tpope/vim-commentary'
     " Surround helper
