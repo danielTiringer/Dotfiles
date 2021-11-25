@@ -65,6 +65,7 @@ sudo apt install -yy xorg
 
 # Install window manager basics
 sudo apt install -yy nitrogen picom dmenu fonts-font-awesome
+. "${INITDIR}/common/fonts.sh"
 
 # Install qtile
 sudo apt install -yy python3-pip
