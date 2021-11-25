@@ -205,7 +205,7 @@ hc detect_monitors
 # room for polybar on both monitors
 # hlwm padding is in the order of top, right, bottom, left, with the first number being the screen number
 hc pad 0 25
-hc pad 1 35
+hc pad 1 20
 
 # find the panel
 ~/.config/polybar/launch.sh
