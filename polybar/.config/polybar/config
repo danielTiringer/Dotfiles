@@ -1,7 +1,7 @@
 [global/wm]
 ;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
-margin-top = 0
-margin-bottom = 0
+margin-top = 10
+; margin-bottom = 0
 
 [settings]
 ;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
@@ -354,6 +354,7 @@ height = 20
 ;offset-y = 1%
 radius = 0.0
 fixed-center = true
+top = true
 bottom = false
 separator = 
 
@@ -1437,7 +1438,7 @@ type = internal/volume
 format-volume = "<label-volume>  <bar-volume>"
 
 label-volume = " "
-label-volume-foreground = #40ad4b
+label-volume-foreground = ${colors.foreground}
 label-muted = muted
 
 bar-volume-width = 10
