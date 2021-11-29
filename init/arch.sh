@@ -76,6 +76,7 @@ sudo pacman -S --noconfirm python-pip nodejs yarn
 # Install dependencies of neovim plugins
 sudo pacman -S --noconfirm the_silver_searcher fzf ripgrep fd
 yay -S --noconfirm ctags-git
+. "${INITDIR}/common/jdtls.sh"
 
 # Install neovim
 sudo pacman -S --noconfirm neovim
