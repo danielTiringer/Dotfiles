@@ -12,6 +12,9 @@ echo 'The executed script will install applications on a Debian based system.'
 # Update the system
 sudo apt update -yy && sudo apt upgrade -yy --fix-missing
 
+# Add the bullseye-backports repository
+echo "deb http://deb.debian.org/debian bullseye-backports main contrib non-free" | sudo tee /etc/apt/sources.list.d/bullseye-backports.list
+
 # Install ssh
 sudo apt install -yy openssh-server
 
@@ -164,8 +167,14 @@ sudo apt install -yy firefox-esr
 sudo apt install -yy  alsa-utils pulsemixer mpv
 
 # Install Docker and Docker-Compose
-sudo sh -c "$(curl -fsSL https://get.docker.com)"
+sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl --fail --silent --show-error --location https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+echo "deb http://download.docker.com/linux/debian $(lsb_release --codename --short) stable" | sudo tee /etc/apt/sources.list.d/docker.list
+sudo apt update -yy
+sudo apt install -yy docker-ce docker-ce-cli containerd.io
+
 . "${INITDIR}/common/docker-compose.sh"
+
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
