@@ -1,3 +1,10 @@
+################################################################################
+################################################################################
+############                  GLOBAL SETTINGS                       ############
+################################################################################
+################################################################################
+
+
 [global/wm]
 ;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
 margin-top = 10
@@ -25,9 +32,12 @@ format-margin =
 format-offset =
 
 [colors]
-; Nord theme ============
+; Theme ============
 background = #282c34
 foreground = #abb2bf
+blue = #668db7
+purple= #8d62a9
+white = #fefefe
 alert = #bd2c40
 volume-min = #a3be8c
 volume-med = #ebcb8b
@@ -40,6 +50,7 @@ volume-max = #bf616a
 ############                  MAINBAR-HERBST                        ############
 ################################################################################
 ################################################################################
+
 
 [bar/mainbar-herbst]
 monitor = ${env:MONITOR}
@@ -73,8 +84,8 @@ border-size = 0
 ;border-bottom-size = 25
 border-color = #00000000
 
-padding-left = 1
-padding-right = 1
+; padding-left = 1
+; padding-right = 1
 
 module-margin-left = 0
 module-margin-right = 0
@@ -86,9 +97,9 @@ font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
-modules-left = xmenu ewmh xwindow
+modules-left = ewmh xwindow
 modules-center = 
-modules-right = arrow1 networkspeedup networkspeeddown arrow2 memory4 arrow3 cpu3 arrow2 date
+modules-right = arrow1 arrow2 battery arrow3 networkspeedup networkspeeddown arrow2 memory4 arrow3 cpu3 arrow2 date
 
 tray-detached = false
 tray-offset-x = 0
@@ -115,24 +126,25 @@ scroll-down = bspwm-deskprev
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #8d62a9
-content-background = #292d3e
+content-foreground = ${colors.purple}
+content-background = ${colors.background}
 
 [module/arrow2]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #668bd7
-content-background = #8d62a9
+content-foreground = ${colors.blue}
+content-background = ${colors.purple}
 
 [module/arrow3]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #8b62a9
-content-background = #668bd7
+content-foreground = ${colors.purple}
+content-background = ${colors.blue}
+
 
 ################################################################################
 ################################################################################
@@ -140,15 +152,16 @@ content-background = #668bd7
 ################################################################################
 ################################################################################
 
+
 [module/arch-aur-updates]
 type = custom/script
 exec = ~/.config/polybar/scripts/check-all-updates.sh
 interval = 1000
 label = Updates: %output%
-format-foreground = #fefefe
+format-foreground = ${colors.white}
 format-background = #8d62ad
 format-prefix = "  "
-format-prefix-foreground = #fefefe
+format-prefix-foreground = ${colors.white}
 
 
 [module/aur-updates]
@@ -219,49 +232,34 @@ adapter = AC0
 full-at = 100
 
 format-charging = <animation-charging> <label-charging>
-label-charging =  %percentage%%
-format-charging-foreground = ${colors.foreground}
-format-charging-background = ${colors.background}
-format-charging-underline = #a3c725
+label-charging = " %percentage%%"
+format-charging-foreground = ${colors.white}
+format-charging-background = ${colors.blue}
 
 format-discharging = <ramp-capacity> <label-discharging>
-label-discharging =  %percentage%%
-format-discharging-underline = #c7ae25
-format-discharging-foreground = ${colors.foreground}
-format-discharging-background = ${colors.background}
+label-discharging = " %percentage%%"
+format-discharging-foreground = ${colors.white}
+format-discharging-background = ${colors.blue}
 
-format-full-prefix = " "
-format-full-prefix-foreground = #a3c725
-format-full-underline = #a3c725
-format-full-foreground = ${colors.foreground}
-format-full-background = ${colors.background}
+format-full-prefix = "  "
+format-full-prefix-foreground = ${colors.white}
+format-full-foreground = ${colors.white}
+format-full-background = ${colors.blue}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = #c7ae25
+ramp-capacity-0 = "  "
+ramp-capacity-1 = "  "
+ramp-capacity-2 = "  "
+ramp-capacity-3 = "  "
+ramp-capacity-4 = "  "
+ramp-capacity-foreground = ${colors.white}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = #a3c725
+animation-charging-0 = "  "
+animation-charging-1 = "  "
+animation-charging-2 = "  "
+animation-charging-3 = "  "
+animation-charging-4 = "  "
+animation-charging-foreground = ${colors.white}
 animation-charging-framerate = 750
-
-################################################################################
-
-[module/compton]
-;https://github.com/jaagr/polybar/wiki/User-contributed-modules#compton
-type = custom/script
-exec = ~/.config/polybar/scripts/compton.sh
-click-left = ~/.config/polybar/scripts/compton-toggle.sh
-interval = 5
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-;format-underline = #00AF02
 
 ################################################################################
 
@@ -326,10 +324,10 @@ type = internal/cpu
 ; Seconds to sleep between updates
 ; Default: 1
 interval = 1
-format-foreground = #fefefe
+format-foreground = ${colors.white}
 format-background = #8d62ad
 format-prefix = " "
-format-prefix-foreground = #fefefe
+format-prefix-foreground = ${colors.white}
 
 label-font = 1
 
@@ -347,13 +345,15 @@ format = <label>
 ;   %percentage-core[1-9]% - load percentage for specific core
 label = %percentage:3%%
 
+################################################################################
+
 [module/cpu3]
 type = custom/script
 exec = ~/.config/polybar/scripts/cpu.sh
 
 format-underline = ${colors.primary}
-format-foreground = #fefefe
-format-background = #8d62a9
+format-foreground = ${colors.white}
+format-background = ${colors.purple}
 
 ################################################################################
 
@@ -369,9 +369,9 @@ date-alt = "%a %b %d, %Y"
 time = "%l:%M%p"
 time-alt = "%l:%M%p"
 format-prefix = "  "
-format-prefix-foreground = #fefefe
-format-foreground = #fefefe
-format-background = #668bd7
+format-prefix-foreground = ${colors.white}
+format-foreground = ${colors.white}
+format-background = ${colors.blue}
 label = "%date%%time% "
 
 #################################################################
@@ -495,16 +495,6 @@ format-underline = #4B5665
 
 ################################################################################
 
-[module/jgmenu]
-type = custom/script
-interval = 120
-exec = echo "ArcoLinux"
-click-left = "jgmenu_run >/dev/null 2>&1 &"
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-
-################################################################################
-
 [module/load-average]
 type = custom/script
 exec = uptime | grep -ohe 'load average[s:][: ].*' | awk '{ print $3" "$4" "$5"," }' | sed 's/,//g'
@@ -569,9 +559,9 @@ label = %gb_used%/%gb_total%
 
 format = <label>
 format-prefix = " "
-format-prefix-foreground = #fefefe
-format-foreground = #fefefe
-format-background = #668bd7
+format-prefix-foreground = ${colors.white}
+format-foreground = ${colors.white}
+format-background = ${colors.blue}
 
 ################################################################################
 
@@ -601,9 +591,8 @@ format-background = ${colors.background}
 type = custom/script
 exec = ~/.config/polybar/scripts/memory.sh
 
-format-underline = #3384d0
-format-foreground = #fefefe
-format-background = #668db7
+format-foreground = ${colors.white}
+format-background = ${colors.blue}
 
 ###############################################################################
 
@@ -641,9 +630,9 @@ interface = enp0s25
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
-format-connected-prefix-foreground = #fefefe
-format-connected-foreground = #fefefe
-format-connected-background = #8d62a9
+format-connected-prefix-foreground = ${colors.white}
+format-connected-foreground = ${colors.white}
+format-connected-background = ${colors.purple}
 
 ################################################################################
 
@@ -657,8 +646,8 @@ interface = enp0s25
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = "  "
-format-connected-prefix-foreground = #fefefe
-format-connected-foreground = #fefefe
+format-connected-prefix-foreground = ${colors.white}
+format-connected-foreground = ${colors.white}
 format-connected-background = #8d62ad
 
 ################################################################################
@@ -686,10 +675,8 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
-format-foreground = #fefefe
-format-background = #668bd7
-
-
+format-foreground = ${colors.white}
+format-background = ${colors.blue}
 
 ################################################################################
 
@@ -717,34 +704,6 @@ format-background = ${colors.background}
 format-prefix = "  "
 format-prefix-foreground = #62FF00
 format-underline = #62FF00
-
-################################################################################
-
-[module/sep]
-; alternative separator
-type = custom/text
-content = 
-content-foreground = ${colors.foreground}
-content-background =  ${colors.background}
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-
-################################################################################
-
-[module/spotify1]
-;https://github.com/NicholasFeldman/dotfiles/blob/master/polybar/.config/polybar/spotify.sh
-type = custom/script
-exec = ~/.config/polybar/scripts/spotify1.sh
-interval = 1
-
-;format = <label>
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-padding = 2
-format-underline = #0f0
-format-prefix = "  "
-format-prefix-foreground = #0f0
-label = %output:0:150%
 
 ################################################################################
 
@@ -781,28 +740,6 @@ ramp-2 = 
 ramp-3 = 
 ramp-4 = 
 ramp-foreground =${colors.foreground}
-
-################################################################################
-
-[module/temperature2]
-type = custom/script
-exec = ~/.config/polybar/scripts/tempcores.sh
-interval = 2
-format-padding = 1
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-underline = #C1B93E
-format-prefix-foreground = #C1B93E
-label =  %output:0:150:%
-
-################################################################################
-
-[module/xmonad]
-type = custom/script
-exec = xmonad-log
-tail = true
-format-background = ${colors.background}
-format-foreground = ${colors.foreground}
 
 ################################################################################
 
@@ -852,20 +789,6 @@ format-muted-prefix = "  "
 format-muted-prefix-foreground = "#ff0000"
 format-muted-foreground = ${colors.foreground}
 format-muted-background = ${colors.background}
-
-################################################################################
-
-[module/weather]
-type = custom/script
-interval = 10
-format = <label>
-format-prefix = " "
-format-prefix-foreground = #3EC13F
-format-underline = #3EC13F
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-exec = python -u ~/.config/polybar/scripts/weather.py
-tail = true
 
 #################################################################################
 
@@ -941,14 +864,6 @@ ramp-signal-foreground = #7e52c6
 
 ################################################################################
 
-[module/workspaces-xmonad]
-type = custom/script
-exec = tail -F /tmp/.xmonad-workspace-log
-exec-if = [ -p /tmp/.xmonad-workspace-log ]
-tail = true
-
-################################################################################
-
 [module/xbacklight]
 ;https://github.com/jaagr/polybar/wiki/Module:-xbacklight
 type = internal/xbacklight
@@ -993,16 +908,6 @@ label-indicator-margin = 1
 label-indicator-background = ${colors.background}
 label-indicator-underline = ${colors.foreground}
 
-
-################################################################################
-
-[module/xmenu]
-type = custom/script
-interval = 1200
-exec = echo "  "
-click-left = "sh ~/xmenu/xmenu.sh"
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
 ################################################################################
 
 [module/xwindow]
