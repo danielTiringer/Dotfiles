@@ -37,7 +37,6 @@ background = #282c34
 foreground = #abb2bf
 blue = #668db7
 purple = #8d62a9
-green = #3bde1f
 red = #de221f
 white = #fefefe
 alert = #bd2c40
@@ -122,6 +121,8 @@ tray-background = ${colors.background}
 ################################################################################
 ################################################################################
 
+[module/type]
+type = custom/text
 
 [module/arrow1]
 ; grey to Blue
@@ -374,8 +375,8 @@ interval = 5
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
 date = "%a %b %d, %Y"
 date-alt = "%a %b %d, %Y"
-time = "%l:%M%p"
-time-alt = "%l:%M%p"
+time = " %l:%M%p"
+time-alt = " %l:%M%p"
 format-prefix = "  "
 format-prefix-foreground = ${colors.white}
 format-foreground = ${colors.white}
@@ -641,10 +642,7 @@ format-online-background = ${colors.background}
 [module/networkspeedup]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-;interface = wlp3s0
-;interface = enp14s0
-;interface = enp0s31f6
-interface = enp0s25
+interface = ${env:INTERFACE_NAME}
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
@@ -657,10 +655,7 @@ format-connected-background = ${colors.purple}
 [module/networkspeeddown]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-;interface = wlp3s0
-;interface = enp14s0
-;interface = enp0s31f6
-interface = enp0s25
+interface = ${env:INTERFACE_NAME}
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = "  "
@@ -786,13 +781,13 @@ label-volume-foreground = ${colors.white}
 label-muted = muted
 
 bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.green}
-bar-volume-foreground-1 = ${colors.green}
-bar-volume-foreground-2 = ${colors.green}
-bar-volume-foreground-3 = ${colors.green}
-bar-volume-foreground-4 = ${colors.green}
-bar-volume-foreground-5 = ${colors.green}
-bar-volume-foreground-6 = ${colors.green}
+bar-volume-foreground-0 = ${colors.purple}
+bar-volume-foreground-1 = ${colors.purple}
+bar-volume-foreground-2 = ${colors.purple}
+bar-volume-foreground-3 = ${colors.purple}
+bar-volume-foreground-4 = ${colors.purple}
+bar-volume-foreground-5 = ${colors.purple}
+bar-volume-foreground-6 = ${colors.purple}
 bar-volume-gradient = false
 bar-volume-indicator = 
 bar-volume-indicator-font = 2
@@ -813,8 +808,7 @@ format-muted-background = ${colors.blue}
 [module/wired-network]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-interface = enp4s0
-;interface = enp14s0
+interface = ${env:WIRED_INTERFACE}
 interval = 3.0
 
 ; Available tokens:
@@ -845,7 +839,7 @@ label-disconnected-foreground = ${colors.foreground}
 [module/wireless-network]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-interface = ${env:WIRELESS}
+interface = ${env:WIRELESS_INTERFACE}
 interval = 3.0
 label-connected = %essid%
 
@@ -929,13 +923,13 @@ type = internal/xwindow
 ; Available tokens:
 ;   %title%
 ; Default: %title%
-label = %title%
+label = "%title%"
 label-maxlen = 50
 
-format-prefix = "  "
-format-prefix-underline = #292d3e
-format-underline = #e1acff
-format-foreground = #e1acff
+format-prefix = " "
+format-prefix-underline = ${colors.background}
+format-underline = ${colors.purple}
+format-foreground = ${colors.purple}
 format-background = ${colors.background}
 
 ###############################################################################
