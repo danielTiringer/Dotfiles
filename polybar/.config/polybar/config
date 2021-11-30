@@ -232,12 +232,10 @@ adapter = AC0
 full-at = 100
 
 format-charging = <animation-charging> <label-charging>
-label-charging = " %percentage%%"
 format-charging-foreground = ${colors.white}
 format-charging-background = ${colors.blue}
 
 format-discharging = <ramp-capacity> <label-discharging>
-label-discharging = " %percentage%%"
 format-discharging-foreground = ${colors.white}
 format-discharging-background = ${colors.blue}
 
@@ -245,6 +243,12 @@ format-full-prefix = "  "
 format-full-prefix-foreground = ${colors.white}
 format-full-foreground = ${colors.white}
 format-full-background = ${colors.blue}
+
+label-charging = " %percentage%%"
+label-charging-foreground = ${colors.white}
+
+label-discharging = " %percentage%%"
+label-discharging-foreground = ${colors.white}
 
 ramp-capacity-0 = "  "
 ramp-capacity-1 = "  "
