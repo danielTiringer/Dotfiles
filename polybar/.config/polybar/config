@@ -4,7 +4,6 @@
 ################################################################################
 ################################################################################
 
-
 [global/wm]
 ;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
 margin-top = 10
@@ -32,7 +31,6 @@ format-margin =
 format-offset =
 
 [colors]
-; Theme ============
 background = #282c34
 foreground = #abb2bf
 blue = #668db7
@@ -40,10 +38,6 @@ purple = #8d62a9
 red = #de221f
 white = #fefefe
 alert = #bd2c40
-volume-min = #a3be8c
-volume-med = #ebcb8b
-volume-max = #bf616a
-; =======================
 
 
 ################################################################################
@@ -51,7 +45,6 @@ volume-max = #bf616a
 ############                  MAINBAR-HERBST                        ############
 ################################################################################
 ################################################################################
-
 
 [bar/mainbar-herbst]
 monitor = ${env:MONITOR}
@@ -125,7 +118,6 @@ tray-background = ${colors.background}
 type = custom/text
 
 [module/arrow1]
-; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
@@ -133,7 +125,6 @@ content-foreground = ${colors.purple}
 content-background = ${colors.background}
 
 [module/arrow2]
-; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
@@ -141,7 +132,6 @@ content-foreground = ${colors.blue}
 content-background = ${colors.purple}
 
 [module/arrow3]
-; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
@@ -189,6 +179,7 @@ format-background = ${colors.background}
 format-prefix-foreground = #7D49B6
 format-prefix-underline = #7D49B6
 format-underline = #7D49B6
+
 ################################################################################
 
 [module/backlight]
