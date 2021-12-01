@@ -7,7 +7,8 @@ if [ $(cat /sys/class/net/en*/operstate) = 'up' ] ; then
 fi
 
 if [ $(cat /sys/class/net/wl*/operstate) = 'up' ] ; then
-    CONNECTION='  Wireless'
+    WIRELESS_NAME=$(nmcli device status | grep 'connected' | tr -s ' ' | cut -d ' ' -f4)
+    CONNECTION=" ${WIRELESS_NAME}"
 fi
 
 echo $CONNECTION
