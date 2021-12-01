@@ -56,19 +56,15 @@ sudo apt install -yy vifm
 sudo apt install -yy zsh
 . "${INITDIR}/common/zsh.sh"
 
-# Install Oh-My-Zsh
-cd ~/Downloads
-git clone https://github.com/powerline/fonts.git --depth=1
-./fonts/install.sh
-rm -rf fonts
-cd ~
+# Install fonts
+sudo apt install -yy fonts-font-awesome
+. "${INITDIR}/common/fonts.sh"
 
 # Install the xorg graphical environment
 sudo apt install -yy xorg
 
 # Install window manager basics
-sudo apt install -yy nitrogen picom dmenu fonts-font-awesome
-. "${INITDIR}/common/fonts.sh"
+sudo apt install -yy nitrogen picom dmenu
 
 # Install qtile
 sudo apt install -yy python3-pip

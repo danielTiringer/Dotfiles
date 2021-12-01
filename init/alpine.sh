@@ -50,7 +50,8 @@ sudo apk add zsh zsh-vcs
 sudo setup-xorg-base
 
 # Install fonts
-sudo apk add ttf-dejavu
+sudo apk add ttf-font-awesome
+. "${INITDIR}/common/fonts.sh"
 
 # Install Asian fonts
 sudo apk add font-noto-cjk

@@ -50,7 +50,8 @@ sudo dnf install -y zsh
 sudo dnf groupinstall -y "Basic Desktop"
 
 # Install fonts
-sudo dnf install -y powerline-fonts dejavu-fonts-all fontawesome5-fonts-all
+sudo dnf install -y fontawesome5-fonts-all
+. "${INITDIR}/common/fonts.sh"
 
 # Install window manager basics
 sudo dnf install -y nitrogen picom dmenu

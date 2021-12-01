@@ -51,7 +51,8 @@ sudo pacman -S --noconfirm zsh
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
 
 # Install fonts
-yay -S --noconfirm powerline-fonts-git nerd-fonts-dejavu-complete ttf-font-awesome nerd-fonts-ubuntu-mono
+sudo pacman -S --noconfirm ttf-font-awesome
+. "${INITDIR}/common/fonts.sh"
 
 # Install Asian fonts
 sudo pacman -S --noconfirm noto-fonts-cjk

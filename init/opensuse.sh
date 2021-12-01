@@ -19,18 +19,17 @@ sudo zypper install -y curl wget unzip stow
 sudo zypper install -y zsh neofetch rxvt-unicode figlet
 
 # Install window manager
-sudo zypper install -y herbstluftwm nitrogen picom fonts-font-awesome
+sudo zypper install -y herbstluftwm nitrogen picom
 
 # Install utilities
 sudo zypper install -y network-manager alsa-utils xbacklight xorg xtrlock
 
-# Install Oh-My-Zsh
-cd ~/Downloads
-git clone https://github.com/powerline/fonts.git --depth=1
-./fonts/install.sh
+# Install fonts
+sudo zypper install -y fonts-font-awesome
+. "${INITDIR}/common/fonts.sh"
 
+# Install Oh-My-Zsh
 . "${INITDIR}/common/oh-my-zsh.sh"
-cd ~
 
 # Install Vim
 sudo zypper install -y vim vim-gtk vifm
