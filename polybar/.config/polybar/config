@@ -100,7 +100,7 @@ font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = distro ewmh xwindow
 modules-center = 
-modules-right = arrow1 xkeyboard arrow2 battery arrow3 networkspeedup networkspeeddown arrow2 memory4 arrow3 cpu3 arrow2 volume arrow3 date
+modules-right = arrow1 xkeyboard arrow2 battery arrow3 network arrow2 memory4 arrow3 cpu3 arrow2 volume arrow3 date
 
 tray-detached = false
 tray-offset-x = 0
@@ -637,6 +637,15 @@ bar-progress-fill-background = ${colors.background}
 bar-progress-indicator-foreground = ${colors.foreground}
 format-online-foreground = ${colors.foreground}
 format-online-background = ${colors.background}
+
+################################################################################
+
+[module/network]
+type = custom/script
+exec = ~/.config/polybar/scripts/wlan.sh
+format-foreground = ${colors.white}
+format-background = ${colors.purple}
+
 ################################################################################
 
 [module/networkspeedup]
