@@ -435,7 +435,6 @@ label = %percentage:3%%
 type = custom/script
 exec = ~/.config/polybar/scripts/cpu.sh
 
-format-underline = ${colors.primary}
 format-foreground = ${colors.white}
 format-background = ${colors.purple}
 
