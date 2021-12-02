@@ -22,6 +22,9 @@ alias ls='ls --color=auto'
 alias mv='mv -v --interactive'
 alias rm='rm -v --interactive=once'
 
+# Aliases to keep the $HOME directory cleaner:
+alias dosbox='dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox-0.74-3.conf'
+
 # Software aliases
 alias brave='brave-browser'
 
