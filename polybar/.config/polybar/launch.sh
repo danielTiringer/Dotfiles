@@ -17,5 +17,5 @@ tail -n+3 /proc/net/wireless | grep -q . && INTERFACE=$WIRELESS
 
 # Launch bar1 and bar2
 for m in $(polybar --list-monitors | cut -d":" -f1); do
-	HEADPHONE_ID=$HEADPHONE INTERFACE_NAME=$INTERFACE WIRELESS_INTERFACE=$WIRELESS WIRED_INTERFACE=$WIRED MONITOR=$m polybar --reload mainbar-herbst &
+	HEADPHONE_ID=$HEADPHONE INTERFACE_NAME=$INTERFACE WIRELESS_INTERFACE=$WIRELESS WIRED_INTERFACE=$WIRED MONITOR=$m polybar --reload $1 &
 done
