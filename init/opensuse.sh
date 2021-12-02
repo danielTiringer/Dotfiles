@@ -56,9 +56,6 @@ sudo zypper install -y herbstluftwm
 # Install bspwm
 sudo zypper install -y bspwm sxhkd
 
-# Install utilities
-sudo zypper install -y network-manager alsa-utils xbacklight xorg 
-
 # Install vim plugin manager and plugins
 sudo zypper install -y vim
 . "${INITDIR}/common/vim.sh"
