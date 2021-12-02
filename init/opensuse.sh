@@ -38,7 +38,7 @@ sudo zypper install -y zsh
 . "${INITDIR}/common/zsh.sh"
 
 # Install the xorg graphical environment
-# sudo zypper install -y xorg
+sudo zypper install -y xorg-x11
 
 # Install fonts
 sudo zypper install -y fontawesome-fonts
