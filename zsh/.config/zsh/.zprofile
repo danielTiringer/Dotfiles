@@ -7,7 +7,7 @@
 source $ZDOTDIR/aliasfunctions.sh
 
 # Generic aliases
-alias afk='xtrlock -b'
+alias afk='i3lock --color 000000 --pointer default --nofork --ignore-empty-password --show-failed-attempts'
 alias doom='~/.config/emacs/bin/doom'
 alias hc='herbstclient'
 alias poweroff='systemctl poweroff'
@@ -26,8 +26,6 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 # Aliases to keep the $HOME directory cleaner:
 alias dosbox='dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox-0.74-3.conf'
 
-# Software aliases
-alias brave='brave-browser'
 
 # GPG
 # export GPG_TTY=$(tty)

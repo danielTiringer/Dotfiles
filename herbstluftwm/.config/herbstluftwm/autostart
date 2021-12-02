@@ -10,7 +10,7 @@ hc emit_hook reload
 
 xsetroot -solid '#5A8E3A'
 picom &
-nitrogen --restore &
+feh --no-fehbg --bg-center "$HOME/Pictures/blueMountains.jpg" &
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -43,9 +43,6 @@ hc keybind XF86MonBrightnessDown spawn xbacklight -dec 1000
 # XF86KbdBrightnessDown is 237
 # hc keybind XF86KbdBrightnessUp './kbd_backlight.sh up'
 # hc keybind XF86KbdBrightnessDown './kbd_backlight.sh down'
-
-# lock screen
-hc keybind Mod1-Ctrl-l spawn xtrlock -b
 
 # basic movement
 # focusing clients
@@ -206,7 +203,7 @@ hc pad 0 25
 hc pad 1 20
 
 # find the panel
-~/.config/polybar/launch.sh mainbar-herbst
+"$XDG_CONFIG_HOME/polybar/launch.sh mainbar-herbst" &
 
 # panel=~/.config/herbstluftwm/main.sh
 # [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
