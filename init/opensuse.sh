@@ -12,91 +12,105 @@ echo 'The executed script will install applications on an openSUSE based system.
 # Update the system
 sudo zypper update -y
 
-# Install basic tools for file management
-sudo zypper install -y curl wget unzip stow
+# Install ssh
+sudo zypper install -y openssud
 
-# Install command line tools
-sudo zypper install -y zsh neofetch rxvt-unicode figlet
+# Install network-based tools
+sudo zypper install -y curl wget NetworkManager
 
-# Install window manager
-sudo zypper install -y herbstluftwm nitrogen picom
+# Install file system helpers
+sudo zypper install -y cifs-utils
 
-# Install utilities
-sudo zypper install -y network-manager alsa-utils xbacklight xorg xtrlock
+# Install compressors
+sudo zypper install -y tar unzip unrar p7zip
+
+# Install command-line tools
+sudo zypper install -y neofetch stow arandr jq htop tig xsel
+
+# Install terminals
+sudo zypper install -y rxvt-unicode alacritty kitty
+
+# Install file manager
+sudo zypper install -y vifm
+
+# Install zsh, set it as default for user, install oh-my-zsh
+sudo zypper install -y zsh
+. "${INITDIR}/common/zsh.sh"
+
+# Install the xorg graphical environment
+# sudo zypper install -y xorg
 
 # Install fonts
-sudo zypper install -y fonts-font-awesome
+sudo zypper install -y fontawesome-fonts
 . "${INITDIR}/common/fonts.sh"
 
-# Install Oh-My-Zsh
-. "${INITDIR}/common/oh-my-zsh.sh"
+# Install window manager basics
+sudo zypper install -y nitrogen picom dmenu polybar i3lock feh
 
-# Install Vim
-sudo zypper install -y vim vim-gtk vifm
+# Install qtile
+sudo zypper install -y qtile
+
+# Install herbstluftwm
+sudo zypper install -y herbstluftwm 
+
+# Install bspwm
+sudo zypper install -y bspwm sxhkd
+
+# Install utilities
+sudo zypper install -y network-manager alsa-utils xbacklight xorg 
+
+# Install vim plugin manager and plugins
+sudo zypper install -y vim
 . "${INITDIR}/common/vim.sh"
 
-# Enabling bitmap fonts
-sudo echo '<?xml version="1.0"?>
-<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-<fontconfig>
-  <its:rules xmlns:its="http://www.w3.org/2005/11/its" version="1.0">
-    <its:translateRule translate="yes" selector="/fontconfig/*[yes(self::description)]"/>
-  </its:rules>
+# Install dependencies of neovim config
+sudo zypper -y install python3-pip nodejs-common yarn
+. "${INITDIR}/common/neovim-providers.sh"
 
-  <description>Accept bitmap fonts</description>
-<!-- Accept bitmap fonts -->
- <selectfont>
-  <acceptfont>
-   <pattern>
-     <patelt name="scalable"><bool>true</bool></patelt>
-   </pattern>
-  </acceptfont>
- </selectfont>
-</fontconfig>' >> 70-yes-bitmaps.conf
-sudo mv 70-yes-bitmaps.conf /etc/fonts/conf.avail
-sudo ln -sf /etc/fonts/conf.avail/70-yes-bitmaps.conf /etc/fonts/conf.d
-sudo mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.avail
+# Install dependencies of neovim plugins
+sudo zypper -y install the_silver_searcher fzf ripgrep fd ctags
+. "${INITDIR}/common/jdtls.sh"
 
-# Get wallpapers
-. "${INITDIR}/common/wallpaper.sh"
+# Install neovim
+sudo zypper -y install neovim
+. "${INITDIR}/common/neovim.sh"
 
-# Install Firefox
-sudo zypper install -y firefox
+# Install emacs
+sudo zypper -y install emacs ripgrep fd
+. "${INITDIR}/common/doom.sh"
 
-# Install Brave
-sudo zypper install -y zypper-transport-https
-curl -s https://brave-browser-zypper-release.s3.brave.com/brave-core.asc | sudo zypper-key --keyring /etc/zypper/trusted.gpg.d/brave-browser-release.gpg add -
-echo "deb [arch=amd64] https://brave-browser-zypper-release.s3.brave.com/ trusty main" | sudo tee /etc/zypper/sources.list.d/brave-browser-release-trusty.list
-sudo zypper update -qq
-sudo zypper install -y brave-browser
+# Install Postman
+. "${INITDIR}/common/postman.sh"
+
+# Set up firewall
+sudo zypper addrepo https://download.opensuse.org/repositories/security/openSUSE_Tumbleweed/security.repo
+sudo zypper --gpg-auto-import-keys refresh
+sudo zypper install ufw
+sudo systemctl enable ufw.service --now
+. "${INITDIR}/common/ufw.sh"
 
 # Install Docker and Docker-Compose
-sudo zypper install docker docker-compose
+sudo zypper install -y docker
+. "${INITDIR}/common/docker-compose.sh"
 sudo systemctl enable docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo systemctl restart docker
 
-# Install Postman
-. "${INITDIR}/common/postman.sh"
+# Install browser
+sudo zypper install -y firefox
 
-# Install Polybar
-sudo zypper addrepo https://download.opensuse.org/repositories/X11:Utilities/openSUSE_Tumbleweed/X11:Utilities.repo
-sudo zypper refresh
-sudo zypper install polybar
+# Install multimedia
+sudo zypper install -y mpv alsa-utils
 
-# Setup the dotfiles and configs
-rm ~/.bashrc ~/.gitconfig ~/.vimrc ~/.zshrc ~/.Xresources
-rm -r ~/.config/compton ~/.config/polybar ~/.config/herbstluftwm ~/.config/mutt ~/.config/nitrogen ~/.config/ranger
-cd ~/Dotfiles
-./stowrestore
-sudo cp -r ~/.config/polybar/fonts/* /usr/share/fonts
-sudo fc-cache -vf /usr/share/fonts
-vim +PluginInstall +qall
-cd ~
+# Get wallpapers
+. "${INITDIR}/common/wallpaper.sh"
+
+# Copy dotfiles
+. "${INITDIR}/common/dotfiles.sh"
+
+# Run dotfile-related installs
+. "${INITDIR}/common/editor-installs.sh"
 
 # Install complete
-echo "Software installation complete. Please type in your password, then reboot the computer."
-
-# Change shell
-chsh -s $(which zsh)
+. "${INITDIR}/common/restart.sh"
