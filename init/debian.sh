@@ -32,7 +32,7 @@ sudo apt install -yy ntfs-3g # For NTFS based external drives
 sudo apt install -yy unzip unrar-free p7zip-full xclip libclipboard-perl
 
 # Install command line tools
-sudo apt install -yy neofetch stow arandr xtrlock jq htop tig
+sudo apt install -yy neofetch stow arandr jq htop tig
 
 # Install Debian-related tools
 sudo apt install -yy apt-show-versions gdebi
@@ -64,7 +64,7 @@ sudo apt install -yy fonts-font-awesome
 sudo apt install -yy xorg
 
 # Install window manager basics
-sudo apt install -yy nitrogen picom dmenu
+sudo apt install -yy nitrogen picom dmenu polybar xtrlock i3lock feh
 
 # Install qtile
 sudo apt install -yy python3-pip
@@ -73,9 +73,12 @@ sudo apt install -yy libpangocairo-1.0-0
 . "${INITIDIR}/common/qtile.sh"
 
 # Install herbstluftwm
-sudo apt install -yy herbstluftwm polybar
+sudo apt install -yy herbstluftwm
 
-# Install Vim
+# Install bspwm
+sudo apt install -yy bspwm sxhkd
+
+# Install vim
 sudo apt install -yy vim vim-gtk
 . "${INITDIR}/common/vim.sh"
 

@@ -16,7 +16,7 @@ sudo pacman --sync --refresh --sysupgrade
 sudo pacman -S --noconfirm openssh
 
 # Install network-based tools
-sudo pacman -S --noconfirm curl wget
+sudo pacman -S --noconfirm curl wget networkmanager
 
 # Install file system helpers
 sudo pacman -S --noconfirm cifs-utils
@@ -25,7 +25,7 @@ sudo pacman -S --noconfirm cifs-utils
 sudo pacman -S --noconfirm tar unzip unrar p7zip
 
 # Install command-line tools
-sudo pacman -S --noconfirm neofetch stow arandr xtrlock jq htop tig xsel
+sudo pacman -S --noconfirm neofetch stow arandr jq htop tig xsel
 
 # Install build tools
 sudo pacman -S --noconfirm base-devel
@@ -58,14 +58,17 @@ sudo pacman -S --noconfirm ttf-font-awesome
 sudo pacman -S --noconfirm noto-fonts-cjk
 
 # Install window manager basics
-sudo pacman -S --noconfirm nitrogen picom dmenu
+sudo pacman -S --noconfirm nitrogen picom dmenu xtrlock i3lock feh
+yay -S --noconfirm polybar
 
 # Install qtile
 sudo pacman -S --noconfirm qtile python-psutil
 
 # Install herbstluftwm
 sudo pacman -S --noconfirm herbstluftwm
-yay -S --noconfirm polybar
+
+# Install bspwm
+sudo pacman -S --noconfirm bspwm sxhkd
 
 # Install vim plugin manager and plugins
 . "${INITDIR}/common/vim.sh"
@@ -85,7 +88,6 @@ sudo pacman -S --noconfirm neovim
 
 # Install emacs
 sudo pacman -S --noconfirm emacs ripgrep fd
-git clone https://github.com/hlissner/doom-emacs ~/.config/emacs
 . "${INITDIR}/common/doom.sh"
 
 # Install postman

@@ -5,6 +5,7 @@ sleep 1
 
 stow -v -R alacritty
 stow -v -R bash
+stow -v -R bspwm
 stow -v -R composer
 stow -v -R compton
 stow -v -R dosbox
@@ -19,6 +20,7 @@ stow -v -R picom
 stow -v -R polybar
 stow -v -R samba
 cp ssh/.ssh/config ~/.ssh
+stow -v -R sxhkd
 stow -v -R tig
 stow -v -R urxvt
 stow -v -R vifm

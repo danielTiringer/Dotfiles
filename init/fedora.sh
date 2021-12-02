@@ -28,11 +28,6 @@ sudo dnf install -y tar
 # Install command-line tools
 sudo dnf install -y neofetch stow arandr jq htop tig xsel
 
-curl https://raw.githubusercontent.com/rpmsphere/noarch/master/r/rpmsphere-release-34-2.noarch.rpm --output ~/Downloads/rpmsphere.rpm
-sudo rpm -Uvh ~/Downloads/rpmsphere.rpm
-rm ~/Downloads/rpmsphere.rpm
-sudo dnf install -y xtrlock
-
 # Install build tools
 sudo dnf install -y gcc
 
@@ -54,15 +49,22 @@ sudo dnf install -y fontawesome5-fonts-all
 . "${INITDIR}/common/fonts.sh"
 
 # Install window manager basics
-sudo dnf install -y nitrogen picom dmenu
+sudo dnf install -y nitrogen picom dmenu polybar i3lock feh
+
+curl https://raw.githubusercontent.com/rpmsphere/noarch/master/r/rpmsphere-release-34-2.noarch.rpm --output ~/Downloads/rpmsphere.rpm
+sudo rpm -Uvh ~/Downloads/rpmsphere.rpm
+rm ~/Downloads/rpmsphere.rpm
+sudo dnf install -y xtrlock
 
 # Install qtile
 sudo dnf install -y python3-pip pango
-pip3 install cffi xcffib
-pip3 install --no-cache-dir cairocffi
+. "${INITDIR}/common/qtile.sh"
 
 # Install herbstluftwm
-sudo dnf install -y herbstluftwm polybar
+sudo dnf install -y herbstluftwm
+
+# Install bspwm
+sudo dnf install -y bspwm sxhkd
 
 # Install vim plugin manager and plugins
 sudo dnf install -y vim
