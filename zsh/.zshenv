@@ -20,8 +20,10 @@ export TERMINAL="urxvt"
 
 # Keeping dotfiles in config
 export BASHDOTDIR="$HOME/.config/bash"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export DOSBOXDIR="$HOME/.config/dosbox"
 export GNUPGHOME="$HOME/.config/gnupg"
+export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export LESSHISTFILE="-"
 export WGETRC="$HOME/.config/wget/wgetrc"
 export XAUTHORITY="$HOME/.cache/xauthority"
