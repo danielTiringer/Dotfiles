@@ -8,6 +8,7 @@ source $HOME/.config/nvim/keys/mappings.vim
 
 " LSP
 source $HOME/.config/nvim/plug-config/lsp-config.vim
+luafile $HOME/.config/nvim/keys/lsp.lua
 luafile $HOME/.config/nvim/plug-config/php.lua
 
 " Themes
