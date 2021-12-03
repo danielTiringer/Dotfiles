@@ -22,14 +22,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'sheerun/vim-polyglot'
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
-    " Stable version of coc and its extensions
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-snippets',  {'do': 'yarn install --frozen-lockfile'}
-    Plug 'weirongxu/coc-explorer',  {'do': 'yarn install --frozen-lockfile'}
+    " Language server
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'mfussenegger/nvim-jdtls'
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
