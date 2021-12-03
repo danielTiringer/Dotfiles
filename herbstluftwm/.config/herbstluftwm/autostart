@@ -203,7 +203,7 @@ hc pad 0 25
 hc pad 1 20
 
 # find the panel
-"$XDG_CONFIG_HOME/polybar/launch.sh mainbar-herbst" &
+$XDG_CONFIG_HOME/polybar/launch.sh mainbar-herbst &
 
 # panel=~/.config/herbstluftwm/main.sh
 # [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh

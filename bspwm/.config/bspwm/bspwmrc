@@ -6,7 +6,7 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom &
 feh --no-fehbg --bg-center "$HOME/Pictures/blueMountains.jpg" &
-"$XDG_CONFIG_HOME/polybar/launch.sh mainbar-herbst" &
+$XDG_CONFIG_HOME/polybar/launch.sh mainbar-herbst &
 
 # Workspaces
 bspc monitor -d       ﭧ    
