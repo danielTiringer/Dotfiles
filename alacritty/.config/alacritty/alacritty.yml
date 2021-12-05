@@ -110,15 +110,9 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    # family: Source Code Pro
     family: Dejavu Sans Mono
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
-    # family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
@@ -130,15 +124,9 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Source Code Pro
     family: Dejavu Sans Mono
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
-    # family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
@@ -150,15 +138,9 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Source Code Pro
     family: Dejavu Sans Mono
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
-    # family: Monofuritalic Nerd Font Mono
-    # family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
@@ -170,15 +152,9 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Source Code Pro
     family: Dejavu Sans Mono
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
-    # family: Monofuritalic Nerd Font Mono
-    # family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
