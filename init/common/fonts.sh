@@ -2,8 +2,10 @@
 
 # Nerd fonts
 NERD_FONTS=(
-    "UbuntuMono"
-    "DejaVuSansMono"
+    # "DejaVuSansMono"
+    "JetBrainsMono"
+    "Mononoki"
+    # "UbuntuMono"
 )
 
 for FONT in "${NERD_FONTS[@]}"; do
