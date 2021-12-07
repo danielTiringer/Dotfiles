@@ -1,3 +1,4 @@
 #!/bin/sh
 
 $XDG_CONFIG_HOME/herbstluftwm/bash/autostart.sh
+# $XDG_CONFIG_HOME/herbstluftwm/node/autostart.js
