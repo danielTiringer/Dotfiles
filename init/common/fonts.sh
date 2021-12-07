@@ -2,14 +2,15 @@
 
 # Nerd fonts
 NERD_FONTS=(
-    # "DejaVuSansMono"
+    "DejaVuSansMono"
     "JetBrainsMono"
     "Mononoki"
-    # "UbuntuMono"
+    "UbuntuMono"
 )
+NERD_FONT_RELEASE="v2.1.0"
 
 for FONT in "${NERD_FONTS[@]}"; do
-    curl --fail --silent --show-error --location "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/${FONT}.zip" --output "$HOME/Downloads/${FONT}.zip"
+    curl --fail --silent --show-error --location "https://github.com/ryanoasis/nerd-fonts/releases/download/${NERD_FONT_RELEASE}/${FONT}.zip" --output "$HOME/Downloads/${FONT}.zip"
     unzip "$HOME/Downloads/${FONT}".zip -d $HOME/.local/share/fonts/
     rm -rf "$HOME/Downloads/${FONT}.zip"
 done
