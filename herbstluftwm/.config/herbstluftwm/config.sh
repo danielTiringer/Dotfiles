@@ -6,10 +6,11 @@ tag_names=( DEV DOCKER SYS DOC WWW TEST MEDIA VMAN HOMELAB )
 tag_keys=( {1..9} 0 )
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----
-# terminal and editor declarations
+# declarations
 
 Terminal=alacritty
 Editor=vim
+dmenu_prompt='Run: '
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----
 # keybindings
@@ -39,7 +40,7 @@ declare -A keybinds=(
     ["$m-Return"]="spawn ${TERMINAL}"
 
   # dmenu
-    ["$m-d"]='spawn dmenu_run -p "Run: "'
+    ["$m-$s-Return"]="spawn dmenu_run -p ${dmenu_prompt}"
 
   # volume
     ["XF86AudioRaiseVolume"]="spawn amixer -M set Master ${volumestep}+"
