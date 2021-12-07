@@ -37,7 +37,7 @@ declare -A keybinds=(
     ["$m-$s-c"]='close'
 
   # use your $TERMINAL
-    ["$m-Return"]="spawn ${TERMINAL}"
+    ["$m-Return"]="spawn ${Terminal}"
 
   # dmenu
     ["$m-$s-Return"]="spawn dmenu_run -p ${dmenu_prompt}"
