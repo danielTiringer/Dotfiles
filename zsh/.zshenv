@@ -32,6 +32,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export ZDOTDIR="$HOME/.config/zsh"
 
+# Coding
+export JDTLS_HOME="$HOME/.local/lib/jdtls"
+
 # A bit of a hack to eliminate libxkbcommon errors, see
 # https://bbs.archlinux.org/viewtopic.php?id=228658
 export LC_ALL=en_US.UTF-8
