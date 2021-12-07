@@ -58,7 +58,7 @@ editor_update () {
 }
 
 update_doom() {
-  if [ -d "$HOME/.config/doom" ] && [ "$(alias doom)" = "doom='~/.config/emacs/bin/doom'" ] ; then
+  if [ -d "$HOME/.config/doom" ] && [ "$(alias doom)" = "doom='~/.config/emacs/bin/doom'" ] && [ -x "$(command -v emacs)" ] ; then
     "$HOME/.config/emacs/bin/doom" sync
   fi
 }
