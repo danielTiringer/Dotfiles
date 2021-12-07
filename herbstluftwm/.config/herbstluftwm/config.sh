@@ -26,6 +26,9 @@ resizestep=0.05
 # change volume
 volumestep="5%"
 
+# room for bar
+bar_height="25"
+
 declare -A keybinds=(
   # session
     ["$m-$s-q"]='quit'
@@ -187,6 +190,6 @@ declare -A rules=(
 # room for polybar on both monitors
 # hlwm padding is in the order of top, right, bottom, left, with the first number being the screen number
 declare -A pads=(
-    [0]=25
-    [1]=20
+    [0]="${bar_height}"
+    [1]="${bar_height}"
 )

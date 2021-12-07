@@ -37,7 +37,7 @@ configure 'mousebind' "$(declare -p mousebinds)"
 configure 'attr'      "$(declare -p attributes)"
 configure 'set'       "$(declare -p sets)"
 configure 'rule'      "$(declare -p rules)"
-configure 'pads'      "$(declare -p pads)"
+configure 'pad'       "$(declare -p pads)"
 
 # avoid tilde problem, not using helper
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
@@ -50,7 +50,7 @@ hc set tree_style '╾│ ├└╼─┐'
 hc unlock
 
 # detect multiple monitors
-# hc detect_monitors
+hc detect_monitors
 
 start_panel
 
