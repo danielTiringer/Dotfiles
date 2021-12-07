@@ -7,9 +7,11 @@ source $HOME/.config/nvim/general/nerdtree.vim
 source $HOME/.config/nvim/keys/mappings.vim
 
 " LSP
+source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/lsp-config.vim
 luafile $HOME/.config/nvim/keys/lsp.lua
 luafile $HOME/.config/nvim/plug-config/php.lua
+luafile $HOME/.config/nvim/plug-config/java.lua
 
 " Themes
 source $HOME/.config/nvim/themes/onedark.vim

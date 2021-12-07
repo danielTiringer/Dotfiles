@@ -17,6 +17,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Colorscheme
     Plug 'joshdick/onedark.vim'
 
+    " Stable version of coc and its extensions
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
     " Coding related plugins
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
