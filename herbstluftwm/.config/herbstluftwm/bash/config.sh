@@ -145,9 +145,9 @@ declare -A attributes=(
     ["theme.floating.outer_width"]='1'
     ["theme.floating.outer_color"]="${color['black']}"
 
-    ["theme.active.inner_color"]="$colors['blue']"
-    ["theme.active.outer_color"]="$colors['blue']"
-    ["theme.background_color"]="$colors['black']"
+    ["theme.active.inner_color"]="$color['blue']"
+    ["theme.active.outer_color"]="$color['blue']"
+    ["theme.background_color"]="$color['black']"
 )
 
 declare -A sets=(
