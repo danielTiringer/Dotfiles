@@ -110,7 +110,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Dejavu Sans Mono Nerd Font
+    family: Dejavu Sans Mono
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Mononoki Nerd Font
@@ -124,7 +124,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Dejavu Sans Mono Nerd Font
+    family: Dejavu Sans Mono
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Mononoki Nerd Font
@@ -138,7 +138,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Dejavu Sans Mono Nerd Font
+    family: Dejavu Sans Mono
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Mononoki Nerd Font
@@ -152,7 +152,7 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Dejavu Sans Mono Nerd Font
+    family: Dejavu Sans Mono
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Mononoki Nerd Font
