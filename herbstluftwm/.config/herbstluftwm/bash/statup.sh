@@ -12,5 +12,5 @@ function start_panel() {
 
 function start_applications() {
     picom &
-    feh --no-fehbg --bg-center "$HOME/Pictures/blueMountains.jpg" &
+    feh --no-fehbg --bg-scale "$HOME/Pictures/dark-leaves.jpg" &
 }
