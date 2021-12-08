@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Functions used to aim with the bootstrap script
+# Functions used to aid the bootstrap script
 
 check_distro() {
   awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }'
