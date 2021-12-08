@@ -133,7 +133,7 @@ declare -A attributes=(
     # ["theme.tiling.reset"]=1
     # ["theme.floating.reset"]=1
 
-    ["theme.active.color"]="${color['purple']}"
+    ["theme.active.color"]="${color['cyan']}"
     ["theme.normal.color"]="${color['medium_grey']}"
     ["theme.urgent.color"]="${color['orange']}"
 
@@ -145,14 +145,14 @@ declare -A attributes=(
     ["theme.floating.outer_width"]='1'
     ["theme.floating.outer_color"]="${color['black']}"
 
-    ["theme.active.inner_color"]="$color['blue']"
-    ["theme.active.outer_color"]="$color['blue']"
+    ["theme.active.inner_color"]="$color['cyan']"
+    ["theme.active.outer_color"]="$color['cyan']"
     ["theme.background_color"]="$color['black']"
 )
 
 declare -A sets=(
     ["frame_border_active_color"]="$color['dark_grey']"
-    ["frame_bg_active_color"]="${color['purple']}"
+    ["frame_bg_active_color"]="${color['cyan']}"
 
     ["frame_border_normal_color"]="${color['dark_grey']}"
     ["frame_bg_normal_color"]="${color['medium_grey']}"
