@@ -39,6 +39,10 @@ export JDTLS_HOME="$HOME/.local/lib/jdtls"
 # https://bbs.archlinux.org/viewtopic.php?id=228658
 export LC_ALL=en_US.UTF-8
 
+# Set for alacritty, see:
+# https://wiki.archlinux.org/title/Alacritty#Different_font_size_on_multiple_monitors
+WINIT_X11_SCALE_FACTOR=1.25
+
 # PATH
 export PATH=~/.local/bin:$PATH
 
