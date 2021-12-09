@@ -10,7 +10,7 @@ echo 'The executed script will install applications on an Arch based system.'
 . "${INITDIR}/common/folders.sh"
 
 # Update the system
-sudo pacman --sync --refresh --sysupgrade
+sudo pacman --sync --refresh --sysupgrade --noconfirm
 
 # Install ssh
 sudo pacman -S --noconfirm openssh
