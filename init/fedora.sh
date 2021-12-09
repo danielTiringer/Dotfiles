@@ -102,6 +102,9 @@ sudo dnf install -y firefox
 # Install multimedia
 sudo dnf install -y mpv alsa-utils
 
+# Install password manager
+. "${INITDIR}/common/bitwarden.sh"
+
 # Get wallpapers
 . "${INITDIR}/common/wallpaper.sh"
 
