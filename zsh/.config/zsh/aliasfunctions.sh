@@ -116,7 +116,7 @@ bitwarden_cli_update () {
     BW_CLI_LOCATION="$HOME/.local/bin/bw"
 
     if [ -f "$BW_CLI_LOCATION" ] ; then
-        LATEST_BITWARDEN_CLI_VERSION=$(curl --silent https://api.github.com/repos/bitwarden/cli/releases/latest | jq .name --raw-output)
+        LATEST_BITWARDEN_CLI_VERSION=$(curl --silent https://api.github.com/repos/bitwarden/cli/releases/latest | jq .name --raw-output | cut -d ' ' -f2)
         OWN_BITWARDEN_CLI_VERSION=$(bw --version)
 
         if [ "$OWN_BITWARDEN_CLI_VERSION" = "$LATEST_BITWARDEN_CLI_VERSION" ] ; then
