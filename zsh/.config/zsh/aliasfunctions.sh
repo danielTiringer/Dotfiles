@@ -107,9 +107,31 @@ docker_compose_update () {
         sudo rm $COMPOSE_LOCATION
         sudo curl --fail --location "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-${SYSTEM_TYPE}-${SYSTEM_ARCH}" --output $COMPOSE_LOCATION
         sudo chmod +x $COMPOSE_LOCATION
-        echo "Docker-compose is upgraded, the new version is: $LATEST_COMPOSE_VERSION"
+        echo "Docker-compose is upgraded, the new version is: $LATEST_COMPOSE_VERSION."
     fi
   fi
+}
+
+bitwarden_cli_update () {
+    BW_CLI_LOCATION="$HOME/.local/bin/bw"
+
+    if [ -f "$BW_CLI_LOCATION" ] ; then
+        LATEST_BITWARDEN_CLI_VERSION=$(curl --silent https://api.github.com/repos/bitwarden/cli/releases/latest | jq .name --raw-output)
+        OWN_BITWARDEN_CLI_VERSION=$(bw --version)
+
+        if [ "$OWN_BITWARDEN_CLI_VERSION" = "$LATEST_BITWARDEN_CLI_VERSION" ] ; then
+            echo "Bitwarden cli is up to date."
+        else
+            BITWARDEN_URI="https://github.com/bitwarden/cli/releases/download/v$LATEST_BITWARDEN_CLI_VERSION/bw-linux-$LATEST_BITWARDEN_CLI_VERSION.zip"
+            rm $BW_CLI_LOCATION
+
+            curl --fail --location "$BITWARDEN_URI" --output $HOME/Downloads/bitwarden.zip
+            unzip $HOME/Downloads/bitwarden.zip -d $HOME/.local/bin/
+            sudo chmod +x $BW_CLI_LOCATION
+
+            echo "Bitwarden cli is upgraded, the new version is: $LATEST_BITWARDEN_CLI_VERSION."
+        fi
+    fi
 }
 
 firefox_privacy_download() {
