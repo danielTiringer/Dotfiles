@@ -26,7 +26,7 @@ sudo dnf install -y cifs-utils
 sudo dnf install -y tar
 
 # Install command-line tools
-sudo dnf install -y neofetch stow arandr jq htop tig xsel
+sudo dnf install -y neofetch stow arandr jq htop tig xsel lm_sensors
 
 # Install build tools
 sudo dnf install -y gcc
