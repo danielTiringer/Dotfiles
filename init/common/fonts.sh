@@ -9,6 +9,8 @@ NERD_FONTS=(
 )
 NERD_FONT_RELEASE="v2.1.0"
 
+mkdir $HOME/.local/share/fonts
+
 for FONT in "${NERD_FONTS[@]}"; do
     curl --fail --silent --show-error --location "https://github.com/ryanoasis/nerd-fonts/releases/download/${NERD_FONT_RELEASE}/${FONT}.zip" --output "$HOME/Downloads/${FONT}.zip"
     unzip "$HOME/Downloads/${FONT}".zip -d $HOME/.local/share/fonts/
