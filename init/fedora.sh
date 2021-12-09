@@ -75,7 +75,8 @@ sudo dnf install -y nodejs yarnpkg python-pip
 . "${INITDIR}/common/neovim-providers.sh"
 
 # Install dependencies of neovim plugins
-sudo dnf install -y the_silver_searcher fzf ripgrep fd-find ctags
+sudo dnf install -y the_silver_searcher fzf ripgrep fd-find
+sudo dnf install -y ctags gcc-c++ libstdc++ libstdc++-static libstdc++-devel
 . "${INITDIR}/common/jdtls.sh"
 
 # Install neovim
