@@ -111,7 +111,7 @@ sudo pacman -S --noconfirm firefox
 sudo pacman -S --noconfirm mpv alsa-utils
 
 # Install password manager
-sudo pacman -S --noconfirm bitwarden-cli
+. "${INITDIR}/common/bitwarden.sh"
 
 # Get wallpapers
 . "${INITDIR}/common/wallpaper.sh"
