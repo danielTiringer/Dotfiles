@@ -195,6 +195,9 @@ sudo usermod -aG docker $USER
 # Install Dosbox
 sudo apt install -y dosbox
 
+# Install password manager
+. "${INITDIR}/common/bitwarden.sh"
+
 # Get wallpapers
 . "${INITDIR}/common/wallpaper.sh"
 
