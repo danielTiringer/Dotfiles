@@ -26,7 +26,7 @@ sudo dnf install -y cifs-utils
 sudo dnf install -y tar
 
 # Install command-line tools
-sudo dnf install -y neofetch stow arandr jq htop tig xsel lm_sensors
+sudo dnf install -y neofetch stow arandr jq htop tig xsel
 
 # Install build tools
 sudo dnf install -y gcc
@@ -49,7 +49,7 @@ sudo dnf install -y fontawesome5-fonts-all
 . "${INITDIR}/common/fonts.sh"
 
 # Install window manager basics
-sudo dnf install -y nitrogen picom dmenu polybar i3lock feh
+sudo dnf install -y nitrogen picom dmenu polybar i3lock feh lm_sensors
 
 curl https://raw.githubusercontent.com/rpmsphere/noarch/master/r/rpmsphere-release-34-2.noarch.rpm --output ~/Downloads/rpmsphere.rpm
 sudo rpm -Uvh ~/Downloads/rpmsphere.rpm
