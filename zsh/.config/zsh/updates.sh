@@ -21,7 +21,7 @@ distro_update () {
     alpine) sudo apk -U upgrade                                               ;;
     arch)   sudo pacman -Syuu --noconfirm                                     ;;
     debian) sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y  ;;
-    fedora) sudo dnf check-update && sudo dnf upgrade                         ;;
+    fedora) sudo dnf upgrade -y --refresh                                     ;;
     *)      echo -n "This distro is not set up in the script."                ;;
   esac
 }
