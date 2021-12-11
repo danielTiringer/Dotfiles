@@ -70,7 +70,7 @@ sudo apt install -yy nitrogen picom dmenu polybar xtrlock i3lock feh
 sudo apt install -yy python3-pip
 sudo apt install -yy libxcb-render0-dev
 sudo apt install -yy libpangocairo-1.0-0
-. "${INITIDIR}/common/qtile.sh"
+. "${INITDIR}/common/qtile.sh"
 
 # Install herbstluftwm
 sudo apt install -yy herbstluftwm
