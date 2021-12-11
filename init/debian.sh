@@ -32,7 +32,7 @@ sudo apt install -yy ntfs-3g # For NTFS based external drives
 sudo apt install -yy unzip unrar-free p7zip-full xclip libclipboard-perl
 
 # Install command line tools
-sudo apt install -yy neofetch stow arandr jq htop tig lm_sensors
+sudo apt install -yy neofetch stow arandr jq htop tig
 
 # Install Debian-related tools
 sudo apt install -yy apt-show-versions gdebi
@@ -64,7 +64,7 @@ sudo apt install -yy fonts-font-awesome
 sudo apt install -yy xorg
 
 # Install window manager basics
-sudo apt install -yy nitrogen picom dmenu polybar xtrlock i3lock feh
+sudo apt install -yy nitrogen picom dmenu polybar xtrlock i3lock feh lm_sensors
 
 # Install qtile
 sudo apt install -yy python3-pip
