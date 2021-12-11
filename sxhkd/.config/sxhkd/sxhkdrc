@@ -119,4 +119,4 @@ super + shift + Return
 # DMENU SCRIPTS (Alt+Ctrl+Key)
 
 ctrl + alt + l
-	xtrlock -b
+	i3lock --color 000000 --pointer default --nofork --ignore-empty-password --show-failed-attempts
