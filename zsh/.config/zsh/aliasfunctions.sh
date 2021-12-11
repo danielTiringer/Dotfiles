@@ -32,6 +32,8 @@ update () {
   shell_update
 
   docker_compose_update
+
+  bitwarden_cli_update
 }
 
 distro_name () {
@@ -117,7 +119,10 @@ bitwarden_cli_update () {
 
     if [ -f "$BW_CLI_LOCATION" ] ; then
         LATEST_BITWARDEN_CLI_VERSION=$(curl --silent https://api.github.com/repos/bitwarden/cli/releases/latest | jq .name --raw-output | cut -d ' ' -f2)
+        echo "The latest bitwarden-cli version is: $LATEST_BITWARDEN_CLI_VERSION"
+
         OWN_BITWARDEN_CLI_VERSION=$(bw --version)
+        echo "The current bitwarden-cli version is: $OWN_BITWARDEN_CLI_VERSION"
 
         if [ "$OWN_BITWARDEN_CLI_VERSION" = "$LATEST_BITWARDEN_CLI_VERSION" ] ; then
             echo "Bitwarden cli is up to date."
