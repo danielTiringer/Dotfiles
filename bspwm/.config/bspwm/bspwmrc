@@ -9,7 +9,8 @@ feh --no-fehbg --bg-center "$HOME/Pictures/blueMountains.jpg" &
 $XDG_CONFIG_HOME/polybar/launch.sh mainbar-herbst &
 
 # Workspaces
-bspc monitor -d       ﭧ    
+# bspc monitor -d       ﭧ    
+bspc monitor -d 1 2 3 4 5 6 7 8 9
 
 # Configuration
 bspc config border_width  2
