@@ -98,58 +98,58 @@ sudo apt install -yy neovim
 . "${INITDIR}/common/neovim.sh"
 
 # Install emacs module dependencies
-sudo apt install -yy shellcheck # for the sh lang
-sudo apt install -yy markdown # for the markdown lang
-sudo apt install -yy sbcl # for the common-lisp lang
-sudo apt install -yy maim # for the org-mode module
-sudo apt install -yy editorconfig # for editorconfig
-pip3 install isort pipenv pytest nose python-lsp-server # for the python lang
-sudo apt install -yy php-cli php-zip php-curl php-mbstring php-xml # for the php lang
-curl --fail --silent --show-error --location https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer # also for php
-sudo apt install -yy nodejs npm # for the web lang and vue
-sudo apt install -yy node-js-beautify tidy && sudo npm install --global stylelint # for the web lang
-sudo npm install --global vue-language-server # for vue
-sudo apt install -yy ripgrep fd-find
+# sudo apt install -yy shellcheck # for the sh lang
+# sudo apt install -yy markdown # for the markdown lang
+# sudo apt install -yy sbcl # for the common-lisp lang
+# sudo apt install -yy maim # for the org-mode module
+# sudo apt install -yy editorconfig # for editorconfig
+# pip3 install isort pipenv pytest nose python-lsp-server # for the python lang
+# sudo apt install -yy php-cli php-zip php-curl php-mbstring php-xml # for the php lang
+# curl --fail --silent --show-error --location https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer # also for php
+# sudo apt install -yy nodejs npm # for the web lang and vue
+# sudo apt install -yy node-js-beautify tidy && sudo npm install --global stylelint # for the web lang
+# sudo npm install --global vue-language-server # for vue
+# sudo apt install -yy ripgrep fd-find
 
 # Install emacs itself - from source, as the Debian library is too old for doom
-EMACS_VERSION=emacs-27.2
-sudo apt install -y \
-    build-essential \
-    texinfo \
-    libx11-dev \
-    libxpm-dev \
-    libjpeg-dev \
-    libpng-dev \
-    libgif-dev \
-    libtiff-dev \
-    libgtk2.0-dev \
-    libncurses-dev \
-    libxpm-dev \
-    automake \
-    autoconf \
-    libgnutls28-dev \
-    libjansson-dev \
-    libxml2-dev
-curl --location https://quantum-mirror.hu/mirrors/pub/gnu/emacs/${EMACS_VERSION}.tar.gz --output ~/Downloads/${EMACS_VERSION}.tar.gz
-cd ~/Downloads
-tar -xvzf ~/Downloads/${EMACS_VERSION}.tar.gz
-rm ~/Downloads/${EMACS_VERSION}.tar.gz
-cd ~/Downloads/${EMACS_VERSION}
-./configure --with-json
-make
-sudo make install
-cd ~
-rm -rf ~/Downloads/${EMACS_VERSION}
+# EMACS_VERSION=emacs-27.2
+# sudo apt install -y \
+#     build-essential \
+#     texinfo \
+#     libx11-dev \
+#     libxpm-dev \
+#     libjpeg-dev \
+#     libpng-dev \
+#     libgif-dev \
+#     libtiff-dev \
+#     libgtk2.0-dev \
+#     libncurses-dev \
+#     libxpm-dev \
+#     automake \
+#     autoconf \
+#     libgnutls28-dev \
+#     libjansson-dev \
+#     libxml2-dev
+# curl --location https://quantum-mirror.hu/mirrors/pub/gnu/emacs/${EMACS_VERSION}.tar.gz --output ~/Downloads/${EMACS_VERSION}.tar.gz
+# cd ~/Downloads
+# tar -xvzf ~/Downloads/${EMACS_VERSION}.tar.gz
+# rm ~/Downloads/${EMACS_VERSION}.tar.gz
+# cd ~/Downloads/${EMACS_VERSION}
+# ./configure --with-json
+# make
+# sudo make install
+# cd ~
+# rm -rf ~/Downloads/${EMACS_VERSION}
 
 # Install doom
-. "${INITDIR}/common/doom.sh"
+# . "${INITDIR}/common/doom.sh"
 # If the command below doesn't work, run Alt-X all-the-icons-install-fonts
 # emacs --batch -f all-the-icons-install-fonts
 # According to henrik, the above runs emacs without doom, so it doesn't know what all-the-icons are. Hopefully this will work:
 # emacs --eval '(all-the-icons-install-fonts t)'
 
 # Install Postman
-. "${INITDIR}/common/postman.sh"
+# . "${INITDIR}/common/postman.sh"
 
 # Install image manipulation program
 sudo apt install -yy imagemagick #gimp
