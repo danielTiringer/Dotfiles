@@ -18,7 +18,6 @@ stow -v -R nvim
 stow -v -R qtile
 stow -v -R picom
 stow -v -R polybar
-stow -v -R samba
 cp ssh/.ssh/config ~/.ssh
 stow -v -R sxhkd
 stow -v -R tig

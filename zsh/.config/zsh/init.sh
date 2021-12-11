@@ -1,13 +1,28 @@
 #!/usr/bin/env bash
 
 first_start() {
-    firefox_privacy_download
+    download_firefox_privacy_file
+
+    load_samba_credentials
 }
 
-firefox_privacy_download() {
+download_firefox_privacy_file() {
     FOLDERS=(`find ~/.mozilla/firefox/* -maxdepth 1 -type d -name "*.default*"`)
 
     for FOLDER in "${FOLDERS[@]}" ; do
         curl --location https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js --output "${FOLDER}/user.js"
     done
+}
+
+load_samba_credentials() {
+    SAMBA_DIR="$XDG_CONFIG_HOME/samba/"
+
+    if [ ! -d "$SAMBA_DIR" ] ; then
+        mkdir -p "$SAMBA_DIR"
+    fi
+
+    USERNAME=$(bw get username samba)
+    PASSWORD=$(bw get password samba)
+
+    echo "username=$USERNAME\npassword=$PASSWORD" > "$XDG_CONFIG_HOME/samba/credentials"
 }
