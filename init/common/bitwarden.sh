@@ -7,3 +7,5 @@ BITWARDEN_URI="https://github.com/bitwarden/cli/releases/download/v$LATEST_BITWA
 curl --fail --location "$BITWARDEN_URI" --output $HOME/Downloads/bitwarden.zip
 unzip $HOME/Downloads/bitwarden.zip -d $HOME/.local/bin/
 sudo chmod +x $BW_CLI_LOCATION
+
+rm $HOME/Downloads/bitwarden.zip
