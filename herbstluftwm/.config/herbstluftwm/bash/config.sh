@@ -43,9 +43,9 @@ declare -A keybinds=(
     # ["$m-$s-Return"]="spawn dmenu_run -p ${dmenu_prompt}"
 
   # volume
-    ["XF86AudioRaiseVolume"]="spawn amixer -M set Master ${volumestep}+"
-    ["XF86AudioLowerVolume"]="spawn amixer -M set Master ${volumestep}-"
-    ["XF86AudioMute"]='spawn amixer -c 0 set Master toggle'
+    # ["XF86AudioRaiseVolume"]="spawn amixer -M set Master ${volumestep}+"
+    # ["XF86AudioLowerVolume"]="spawn amixer -M set Master ${volumestep}-"
+    # ["XF86AudioMute"]='spawn amixer -c 0 set Master toggle'
 
   # screen brightness
     # XF86MonBrightnessUp on MPB is keybind 233
@@ -74,7 +74,7 @@ declare -A keybinds=(
     ["$m-$s-j"]='shift down'
     ["$m-$s-k"]='shift up'
     ["$m-$s-l"]='shift right'
-    
+
   # splitting frames
   # create an empty frame at the specified direction
     ["$m-u"]='split   bottom  0.5'
@@ -120,7 +120,7 @@ declare -A tagskeybinds=(
 )
 
 declare -A mousebinds=(
-  # mouse    
+  # mouse
     ["$m-Button1"]='move'
     ["$m-Button2"]='zoom'
     ["$m-Button3"]='resize'
@@ -176,7 +176,7 @@ declare -A sets=(
 declare -A rules=(
   # normally focus new clients
     ["focus=on"]=''
-    
+
     # ["class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)'"]='focus=on'
 
     # ["windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)'"]='pseudotile=on'
