@@ -45,16 +45,16 @@ sudo zypper install -y fontawesome-fonts
 . "${INITDIR}/common/fonts.sh"
 
 # Install window manager basics
-sudo zypper install -y nitrogen picom dmenu polybar i3lock feh
+sudo zypper install -y nitrogen picom dmenu polybar i3lock feh sxhkd
 
 # Install qtile
 sudo zypper install -y qtile
 
 # Install herbstluftwm
-sudo zypper install -y herbstluftwm 
+sudo zypper install -y herbstluftwm
 
 # Install bspwm
-sudo zypper install -y bspwm sxhkd
+sudo zypper install -y bspwm
 
 # Install vim plugin manager and plugins
 sudo zypper install -y vim

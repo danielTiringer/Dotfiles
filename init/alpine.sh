@@ -57,13 +57,13 @@ sudo apk add ttf-font-awesome
 sudo apk add font-noto-cjk
 
 # Install window manager basics
-sudo apk add picom dmenu polybar i3lock feh
+sudo apk add picom dmenu polybar i3lock feh sxhkd
 
 # Install herbstluftwm
 sudo apk add herbstluftwm
 
 # Install bspwm
-sudo apk add bspwm sxhkd
+sudo apk add bspwm
 
 # Install vim
 sudo apk add vim

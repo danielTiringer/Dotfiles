@@ -64,7 +64,7 @@ sudo apt install -yy fonts-font-awesome
 sudo apt install -yy xorg
 
 # Install window manager basics
-sudo apt install -yy nitrogen picom dmenu polybar xtrlock i3lock feh lm-sensors
+sudo apt install -yy nitrogen picom dmenu polybar xtrlock i3lock feh sxhkd lm-sensors
 
 # Install qtile
 sudo apt install -yy python3-pip
@@ -76,7 +76,7 @@ sudo apt install -yy libpangocairo-1.0-0
 sudo apt install -yy herbstluftwm
 
 # Install bspwm
-sudo apt install -yy bspwm sxhkd
+sudo apt install -yy bspwm
 
 # Install vim
 sudo apt install -yy vim vim-gtk

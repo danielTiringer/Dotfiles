@@ -49,7 +49,7 @@ sudo dnf install -y fontawesome5-fonts-all
 . "${INITDIR}/common/fonts.sh"
 
 # Install window manager basics
-sudo dnf install -y nitrogen picom dmenu polybar i3lock feh lm_sensors
+sudo dnf install -y nitrogen picom dmenu polybar i3lock feh sxhkd lm_sensors
 
 curl https://raw.githubusercontent.com/rpmsphere/noarch/master/r/rpmsphere-release-34-2.noarch.rpm --output ~/Downloads/rpmsphere.rpm
 sudo rpm -Uvh ~/Downloads/rpmsphere.rpm
@@ -64,7 +64,7 @@ sudo dnf install -y python3-pip pango
 sudo dnf install -y herbstluftwm
 
 # Install bspwm
-sudo dnf install -y bspwm sxhkd
+sudo dnf install -y bspwm
 
 # Install vim plugin manager and plugins
 sudo dnf install -y vim

@@ -58,7 +58,7 @@ sudo pacman -S --noconfirm ttf-font-awesome
 sudo pacman -S --noconfirm noto-fonts-cjk
 
 # Install window manager basics
-sudo pacman -S --noconfirm nitrogen picom dmenu xtrlock i3lock feh
+sudo pacman -S --noconfirm nitrogen picom dmenu xtrlock i3lock feh sxhkd
 yay -S --noconfirm polybar
 
 # Install qtile
@@ -68,7 +68,7 @@ sudo pacman -S --noconfirm qtile python-psutil
 sudo pacman -S --noconfirm herbstluftwm
 
 # Install bspwm
-sudo pacman -S --noconfirm bspwm sxhkd
+sudo pacman -S --noconfirm bspwm
 
 # Install vim plugin manager and plugins
 . "${INITDIR}/common/vim.sh"
