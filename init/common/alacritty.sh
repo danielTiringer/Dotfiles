@@ -5,7 +5,7 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y
 rustup override set stable
 rustup update stable
 
-ALACRITTY_VERSION=0.9.0
+ALACRITTY_VERSION=v0.9.0
 
 git clone https://github.com/alacritty/alacritty.git $HOME/Downloads/alacritty
 cd $HOME/Downloads/alacritty
