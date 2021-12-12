@@ -1,0 +1,13 @@
+# WM INDEPENDENT KEYBINDINGS
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# run terminal emulator
+super + Return
+	alacritty
+    
+# run program launcher
+super + shift + Return
+	dmenu_run -p 'Run: '

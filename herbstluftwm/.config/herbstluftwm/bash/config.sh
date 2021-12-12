@@ -37,10 +37,10 @@ declare -A keybinds=(
     ["$m-$s-c"]='close'
 
   # use your $TERMINAL
-    ["$m-Return"]="spawn ${Terminal}"
+    # ["$m-Return"]="spawn ${Terminal}"
 
   # dmenu
-    ["$m-$s-Return"]="spawn dmenu_run -p ${dmenu_prompt}"
+    # ["$m-$s-Return"]="spawn dmenu_run -p ${dmenu_prompt}"
 
   # volume
     ["XF86AudioRaiseVolume"]="spawn amixer -M set Master ${volumestep}+"

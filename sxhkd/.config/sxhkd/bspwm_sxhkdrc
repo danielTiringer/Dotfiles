@@ -1,10 +1,3 @@
-# WM INDEPENDENT KEYBINDINGS
-
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
-
-
 # BSPWM HOTKEYS
 
 # quit/restart bspwm
@@ -104,19 +97,3 @@ ctrl + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-
-# APPLICATION KEYBINDINGS (Super + Alt + Key)
-
-# terminal emulator
-super + Return
-	alacritty
-    
-# run program launcher
-super + shift + Return
-	dmenu_run -p 'Run: '
-    
-# DMENU SCRIPTS (Alt+Ctrl+Key)
-
-ctrl + alt + l
-	i3lock --color 000000 --pointer default --nofork --ignore-empty-password --show-failed-attempts
