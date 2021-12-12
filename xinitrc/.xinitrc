@@ -6,7 +6,7 @@ DISTRO="$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')"
 case $DISTRO in
   alpine) exec herbstluftwm --locked  ;;
   arch) exec herbstluftwm --locked    ;;
-  debian) exec qtile start            ;;
+  debian) exec bspwm                  ;;
   fedora) exec bspwm                  ;;
   *) exec qtile start                 ;;
 esac
