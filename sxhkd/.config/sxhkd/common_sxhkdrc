@@ -7,7 +7,11 @@ super + Escape
 # run terminal emulator
 super + Return
 	alacritty
-    
+
 # run program launcher
 super + shift + Return
 	dmenu_run -p 'Run: '
+
+# activate volume buttons
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	amixer -c 0 set Master {5%+,5%-,toggle}
