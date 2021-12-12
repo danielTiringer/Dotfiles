@@ -160,7 +160,16 @@ sudo systemctl enable ufw.service --now
 . "${INITDIR}/common/ufw.sh"
 
 # Install browser
-sudo apt install -yy firefox-esr
+echo 'deb http://deb.debian.org/debian/ unstable main contrib non-free' | sudo tee /etc/apt/sources.list.d/unstable.list
+echo 'Package: *
+Pin: release a=stable
+Pin-Priority: 900
+
+Package: *
+Pin: release a=unstable
+Pin-Priority: 10' | sudo tee /etc/apt/preferences.d/99pin-unstable
+
+sudo apt update -yy && sudo apt install -yy firefox
 
 # Install multimedia
 sudo apt install -yy  alsa-utils pulsemixer mpv
