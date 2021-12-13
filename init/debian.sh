@@ -74,7 +74,7 @@ sudo apt install -yy fonts-font-awesome
 sudo apt install -yy xorg
 
 # Install window manager basics
-sudo apt install -yy nitrogen picom dmenu polybar xtrlock i3lock feh sxhkd lm-sensors
+sudo apt install -yy nitrogen picom dmenu polybar xtrlock i3lock feh sxhkd lm-sensors rofi
 
 # Install qtile
 sudo apt install -yy python3-pip
