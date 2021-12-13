@@ -58,7 +58,7 @@ sudo pacman -S --noconfirm ttf-font-awesome
 sudo pacman -S --noconfirm noto-fonts-cjk
 
 # Install window manager basics
-sudo pacman -S --noconfirm nitrogen picom dmenu xtrlock i3lock feh sxhkd
+sudo pacman -S --noconfirm nitrogen picom dmenu xtrlock i3lock feh sxhkd rofi
 yay -S --noconfirm polybar
 
 # Install qtile
