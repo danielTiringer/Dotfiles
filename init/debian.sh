@@ -217,8 +217,12 @@ sudo apt install -y dosbox
 # Run dotfile-related installs
 . "${INITDIR}/common/editor-installs.sh"
 
-# Run platform-specific configuration
-. "${INITDIR}/common/platform-specific.sh"
+# Check if the hardware is a macbook, then install specific stuff
+if [ "$(hardware_type)" = 'MacBook' ] ; then
+	sudo apt install -yy mbpfan
+	. "${INITDIR}/specific/macbook-fan.sh"
+	. "${INITDIR}/specific/macbook-keyboard-brightness.sh"
+fi
 
 # https://www.youtube.com/watch?v=EzqgJhu-qN8
 echo '

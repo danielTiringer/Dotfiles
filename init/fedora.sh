@@ -115,8 +115,13 @@ sudo dnf install -y mpv alsa-utils
 # Run dotfile-related installs
 . "${INITDIR}/common/editor-installs.sh"
 
-# Run platform-specific configuration
-. "${INITDIR}/common/platform-specific.sh"
+# Check if the hardware is a macbook, then install specific stuff
+if [ "$(hardware_type)" = 'MacBook' ] ; then
+	sudo dnf install -y mbpfan
+	. "${INITDIR}/specific/macbook-fan.sh"
+	. "${INITDIR}/specific/macbook-keyboard-brightness.sh"
+fi
+
 
 # Install complete
 . "${INITDIR}/common/restart.sh"

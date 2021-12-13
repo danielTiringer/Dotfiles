@@ -6,6 +6,12 @@ check_distro() {
   awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }'
 }
 
+hardware_type() {
+	if [ "$(sudo dmidecode --type 1 | grep 'Family:' | awk '{$1=$1;print}')" = 'Family: MacBook Pro' ] ; then
+		echo 'MacBook'
+	fi
+}
+
 change_shell_for_user () {
     LINE_NUMBER=$(grep -n $USER /etc/passwd | cut -d ":" -f 1)
     sudo sed -i -E "${LINE_NUMBER}s#/bin/b?ash#/bin/zsh#" /etc/passwd
