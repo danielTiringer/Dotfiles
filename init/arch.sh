@@ -122,5 +122,8 @@ sudo pacman -S --noconfirm mpv alsa-utils
 # Run dotfile-related installs
 . "${INITDIR}/common/editor-installs.sh"
 
+# Run platform-specific configuration
+. "${INITDIR}/common/platform-specific.sh"
+
 # Install complete
 . "${INITDIR}/common/restart.sh"

@@ -217,6 +217,9 @@ sudo apt install -y dosbox
 # Run dotfile-related installs
 . "${INITDIR}/common/editor-installs.sh"
 
+# Run platform-specific configuration
+. "${INITDIR}/common/platform-specific.sh"
+
 # https://www.youtube.com/watch?v=EzqgJhu-qN8
 echo '
 # Samba fileshare of synology nas

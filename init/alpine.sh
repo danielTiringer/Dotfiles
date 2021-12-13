@@ -111,6 +111,9 @@ sudo apk add mpv alsa-utils
 # Run dotfile-related installs
 . "${INITDIR}/common/editor-installs.sh"
 
+# Run platform-specific configuration
+. "${INITDIR}/common/platform-specific.sh"
+
 # Simplify the login message
 sudo sed -i -e '2,10d' /etc/motd
 
