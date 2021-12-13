@@ -10,7 +10,7 @@ feh --no-fehbg --bg-scale "$HOME/Pictures/dark-leaves.jpg" &
 $XDG_CONFIG_HOME/polybar/launch.sh mainbar-herbst &
 
 # Workspaces
-bspc monitor -d       ﭧ   歷
+bspc monitor -d DEV DOCKER SYS DOC WWW TEST MEDIA VMAN HOMELAB
 
 # Configuration
 bspc config border_width  2
