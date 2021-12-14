@@ -1,0 +1,3 @@
+#Shellcheck is unable to follow dynamic paths
+#https://github.com/koalaman/shellcheck/wiki/SC1091
+disable=SC1091
