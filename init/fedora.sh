@@ -49,7 +49,7 @@ sudo dnf install -y fontawesome5-fonts-all
 . "${INITDIR}/common/fonts.sh"
 
 # Install window manager basics
-sudo dnf install -y nitrogen picom dmenu polybar i3lock feh sxhkd lm_sensors
+sudo dnf install -y nitrogen picom dmenu polybar i3lock feh sxhkd lm_sensors xsetroot
 
 curl https://raw.githubusercontent.com/rpmsphere/noarch/master/r/rpmsphere-release-34-2.noarch.rpm --output ~/Downloads/rpmsphere.rpm
 sudo rpm -Uvh ~/Downloads/rpmsphere.rpm

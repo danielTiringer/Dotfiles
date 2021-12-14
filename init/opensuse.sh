@@ -45,7 +45,7 @@ sudo zypper install -y fontawesome-fonts
 . "${INITDIR}/common/fonts.sh"
 
 # Install window manager basics
-sudo zypper install -y nitrogen picom dmenu polybar i3lock feh sxhkd
+sudo zypper install -y nitrogen picom dmenu polybar i3lock feh sxhkd xsetroot
 
 # Install qtile
 sudo zypper install -y qtile

@@ -3,8 +3,8 @@
 # BSWPM config
 
 # Autostart
+xsetroot -cursor_name left_ptr &
 pgrep -x sxhkd > /dev/null || sxhkd -c $XDG_CONFIG_HOME/sxhkd/common_sxhkdrc $XDG_CONFIG_HOME/sxhkd/bspwm_sxhkdrc &
-# pgrep -x sxhkd > /dev/null || sxhkd -c $XDG_CONFIG_HOME/sxhkd/bspwm_sxhkdrc &
 picom &
 feh --no-fehbg --bg-scale "$HOME/Pictures/dark-leaves.jpg" &
 $XDG_CONFIG_HOME/polybar/launch.sh mainbar-herbst &
