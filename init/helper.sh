@@ -13,7 +13,7 @@ hardware_type() {
 }
 
 change_shell_for_user () {
-    LINE_NUMBER=$(grep -n $USER /etc/passwd | cut -d ":" -f 1)
+    LINE_NUMBER=$(grep -n "$USER" /etc/passwd | cut -d ":" -f 1)
     sudo sed -i -E "${LINE_NUMBER}s#/bin/b?ash#/bin/zsh#" /etc/passwd
 }
 
@@ -22,7 +22,7 @@ install_chrome_extension () {
   pref_file_path="$preferences_dir_path/$1.json"
   upd_url="https://clients2.google.com/service/update2/crx"
   sudo mkdir -p "$preferences_dir_path"
-  sudo printf '{\n "external_update_url": "%s"\n}\n' "$upd_url" > "$pref_file_path"
+  printf '{\n "external_update_url": "%s"\n}\n' "$upd_url" | sudo tee "$pref_file_path"
   echo Added \""$pref_file_path"\" ["$2"]
 }
 

@@ -14,7 +14,7 @@ echo 'The executed script will install applications on an Fedora based system.'
 sudo dnf check-update && sudo dnf -y upgrade
 
 # Enable the RPM-Fusion repository
-sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm
 
 # Install network-based tools
 sudo dnf install -y curl wget
@@ -95,7 +95,7 @@ sudo systemctl enable ufw.service --now
 sudo dnf install -y docker
 . "${INITDIR}/common/docker-compose.sh"
 sudo groupadd docker
-sudo usermod -aG docker $USER
+sudo usermod -aG docker "$USER"
 
 # Install browser
 sudo dnf install -y firefox

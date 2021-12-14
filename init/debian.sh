@@ -185,7 +185,7 @@ sudo apt install -yy docker-ce docker-ce-cli containerd.io
 . "${INITDIR}/common/docker-compose.sh"
 
 sudo groupadd docker
-sudo usermod -aG docker $USER
+sudo usermod -aG docker "$USER"
 
 # Install Virtualbox
 # curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor -o /usr/share/keyrings/virtualbox-keyring.gpg

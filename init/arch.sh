@@ -102,7 +102,7 @@ sudo systemctl enable ufw.service --now
 sudo pacman -S --noconfirm docker
 . "${INITDIR}/common/docker-compose.sh"
 sudo groupadd docker
-sudo usermod -aG docker $USER
+sudo usermod -aG docker "$USER"
 
 # Install browser
 sudo pacman -S --noconfirm firefox

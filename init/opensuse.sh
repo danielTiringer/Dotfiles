@@ -91,7 +91,7 @@ sudo zypper install -y docker
 . "${INITDIR}/common/docker-compose.sh"
 sudo systemctl enable docker
 sudo groupadd docker
-sudo usermod -aG docker $USER
+sudo usermod -aG docker "$USER"
 sudo systemctl restart docker
 
 # Install browser

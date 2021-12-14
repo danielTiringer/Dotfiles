@@ -92,7 +92,7 @@ sudo rc-update add ufw
 # Install docker and docker-compose
 sudo apk add docker
 . "${INITDIR}/common/docker-compose.sh"
-sudo addgroup $USER docker
+sudo addgroup "$USER" docker
 sudo rc-update add docker boot
 sudo service docker start
 

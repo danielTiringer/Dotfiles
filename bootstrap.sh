@@ -2,7 +2,7 @@
 
 # Entrypoint for the automated system installer
 
-DOTFILEDIR="$(dirname $(realpath "$0"))"
+DOTFILEDIR="$(dirname "$(realpath "$0")")"
 
 INITDIR="${DOTFILEDIR}/init"
 . "${INITDIR}/helper.sh"
