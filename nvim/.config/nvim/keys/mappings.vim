@@ -39,5 +39,5 @@ nnoremap <C-l> <C-w>l
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
 
-" Ctrl-t opens NerdTree
-nmap <C-t> :NERDTreeToggle<CR>
+nmap <C-t> :NvimTreeToggle<CR>
+nmap <C-r> :NvimTreeRefresh<CR>
