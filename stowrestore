@@ -7,7 +7,6 @@ stow -v -R alacritty
 stow -v -R bash
 stow -v -R bspwm
 stow -v -R composer
-stow -v -R compton
 stow -v -R dosbox
 stow -v -R emacs
 stow -v -R gitdir

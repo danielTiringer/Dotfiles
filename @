@@ -1,9 +1,0 @@
-Searching for invalid plugins in /home/daniel/.config/nvim/autoload/plugged
-[================]
-
-Removed 4 directories.
-
-~ /home/daniel/.config/nvim/autoload/plugged/NERDTree/
-~ /home/daniel/.config/nvim/autoload/plugged/coc-explorer/
-~ /home/daniel/.config/nvim/autoload/plugged/coc-snippets/
-~ /home/daniel/.config/nvim/autoload/plugged/coc.nvim/
