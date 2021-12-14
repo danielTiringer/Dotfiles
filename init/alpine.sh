@@ -65,6 +65,9 @@ sudo apk add herbstluftwm
 # Install bspwm
 sudo apk add bspwm
 
+# Install i3
+sudo apk add i3wm
+
 # Install vim
 sudo apk add vim
 

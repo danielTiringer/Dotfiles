@@ -53,6 +53,9 @@ sudo zypper install -y qtile
 # Install herbstluftwm
 sudo zypper install -y herbstluftwm
 
+# Install i3
+sudo zypper install -y i3
+
 # Install bspwm
 sudo zypper install -y bspwm
 

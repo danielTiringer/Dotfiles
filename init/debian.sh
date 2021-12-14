@@ -88,6 +88,9 @@ sudo apt install -yy herbstluftwm
 # Install bspwm
 sudo apt install -yy bspwm
 
+# Install i3
+sudo apt install -yy i3-wm
+
 # Install vim
 sudo apt install -yy vim vim-gtk
 . "${INITDIR}/common/vim.sh"

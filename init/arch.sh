@@ -70,6 +70,9 @@ sudo pacman -S --noconfirm herbstluftwm
 # Install bspwm
 sudo pacman -S --noconfirm bspwm
 
+# Install i3
+sudo pacman -S --noconfirm i3-wm
+
 # Install vim plugin manager and plugins
 . "${INITDIR}/common/vim.sh"
 

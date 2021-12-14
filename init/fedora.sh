@@ -66,6 +66,9 @@ sudo dnf install -y herbstluftwm
 # Install bspwm
 sudo dnf install -y bspwm
 
+# Install i3
+sudo dnf install -y i3
+
 # Install vim plugin manager and plugins
 sudo dnf install -y vim
 . "${INITDIR}/common/vim.sh"

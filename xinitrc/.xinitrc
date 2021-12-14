@@ -7,6 +7,6 @@ case $DISTRO in
   alpine) exec herbstluftwm --locked  ;;
   arch) exec herbstluftwm --locked    ;;
   debian) exec bspwm                  ;;
-  fedora) exec bspwm                  ;;
+  fedora) exec i3                     ;;
   *) exec qtile start                 ;;
 esac
