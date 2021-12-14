@@ -104,7 +104,7 @@ sudo apt install -yy silversearcher-ag fzf gripgrep fd-find
 . "${INITDIR}/common/jdtls.sh"
 
 # Install neovim
-sudo apt install -yy neovim
+sudo apt install -yy -t unstable neovim
 . "${INITDIR}/common/neovim.sh"
 
 # Install emacs module dependencies

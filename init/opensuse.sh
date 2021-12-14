@@ -13,7 +13,7 @@ echo 'The executed script will install applications on an openSUSE based system.
 sudo zypper update -y
 
 # Install ssh
-sudo zypper install -y openssud
+sudo zypper install -y openssh
 
 # Install network-based tools
 sudo zypper install -y curl wget NetworkManager
