@@ -38,7 +38,7 @@ sudo xbps-install -S --yes zsh
 . "${INITDIR}/common/zsh.sh"
 
 # Install the xorg graphical environment
-sudo xbps-install -S --yes xorg-minimal xorg-fonts
+sudo xbps-install -S --yes xorg
 
 # Install fonts
 sudo xbps-install -S --yes font-awesome
@@ -48,7 +48,7 @@ sudo xbps-install -S --yes font-awesome
 sudo xbps-install -S --yes noto-fonts-cjk
 
 # Install window manager basics
-sudo xbps-install -S --yes nitrogen picom dmenu xtrlock i3lock feh sxhkd rofi xsetroot
+sudo xbps-install -S --yes nitrogen picom dmenu xtrlock i3lock feh sxhkd rofi xsetroot polybar lm_sensors
 yay -S --yes polybar
 
 # Install qtile
