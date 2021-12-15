@@ -1,10 +1,10 @@
 # Prompt the user to restart the computer
 
 restart () {
-    if [ "$DISTRO" == "alpine" ] ; then
-        sudo reboot
-    else
+    if [ -d "/etc/systemd/" ] ; then
         systemctl reboot
+    else
+        sudo reboot
     fi
 }
 
