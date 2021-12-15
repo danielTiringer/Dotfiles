@@ -1,4 +1,4 @@
-#!/bin/sh
+##!/bin/sh
 
 . "${ZDOTDIR}/helpers.sh"
 
@@ -22,6 +22,7 @@ distro_update () {
     arch)   sudo pacman -Syuu --noconfirm                                     ;;
     debian) sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y  ;;
     fedora) sudo dnf upgrade -y --refresh                                     ;;
+	void)   sudo xbps-install --sync --yes --update                           ;;
     *)      echo -n "This distro is not set up in the script."                ;;
   esac
 }
