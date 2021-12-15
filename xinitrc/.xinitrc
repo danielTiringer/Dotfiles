@@ -8,5 +8,6 @@ case $DISTRO in
   arch) exec herbstluftwm --locked    ;;
   debian) exec bspwm                  ;;
   fedora) exec i3                     ;;
+  void) exec herbstluftwm --locked    ;;
   *) exec qtile start                 ;;
 esac
