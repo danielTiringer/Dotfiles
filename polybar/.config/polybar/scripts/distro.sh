@@ -8,5 +8,5 @@ case $DISTRO in
     debian) echo ""        ;;
     fedora) echo ""        ;;
     opensuse) echo ""      ;;
-    *) ""                   ;;
+    *) echo ""             ;;
 esac
