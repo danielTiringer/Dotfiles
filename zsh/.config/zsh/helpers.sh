@@ -1,5 +1,5 @@
 #!/bin/sh
 
 distro_name () {
-  awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }'
+  cat /etc/os-release | grep "^ID=" | cut -d "=" -f2 | tr -d '"'
 }

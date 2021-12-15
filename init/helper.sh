@@ -3,7 +3,7 @@
 # Functions used to aid the bootstrap script
 
 check_distro() {
-  awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }'
+  cat /etc/os-release | grep "^ID=" | cut -d "=" -f2 | tr -d '"'
 }
 
 hardware_type() {

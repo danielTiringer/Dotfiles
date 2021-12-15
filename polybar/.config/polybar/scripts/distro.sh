@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DISTRO=$(cat /etc/os-release | grep "^ID=" | cut -d "=" -f2)
+DISTRO=$(cat /etc/os-release | grep "^ID=" | cut -d "=" -f2 | tr -d '"')
 
 case $DISTRO in
     alpine) echo ""        ;;
