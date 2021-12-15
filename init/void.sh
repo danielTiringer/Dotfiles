@@ -90,6 +90,7 @@ sudo xbps-install -S --yes emacs ripgrep fd
 # Set up firewall
 sudo xbps-install -S --yes ufw
 sudo xbps-reconfigure ufw
+sudo ln -s /etc/sv/ufw /var/service
 . "${INITDIR}/common/ufw.sh"
 
 # Install docker and docker-compose
@@ -97,12 +98,19 @@ sudo xbps-install -S --yes docker
 . "${INITDIR}/common/docker-compose.sh"
 sudo groupadd docker
 sudo usermod -aG docker "$USER"
+sudo ln -s /etc/sv/docker /var/service
 
 # Install browser
 sudo xbps-install -S --yes firefox
 
 # Install multimedia
 sudo xbps-install -S --yes mpv alsa-utils
+
+# Enable services for network management, and allow user to make changes to it
+sudo ln -s /etc/sv/dbus /var/service
+sudo ln -s /etc/sv/NetworkManager /var/service
+sudo sv up NetworkManager
+sudo usermod -aG network "$USER"
 
 # Install password manager
 . "${INITDIR}/common/bitwarden.sh"
