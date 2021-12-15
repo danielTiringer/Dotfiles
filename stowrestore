@@ -25,6 +25,7 @@ stow -v -R tig
 stow -v -R urxvt
 stow -v -R vifm
 stow -v -R vim
+stow -v -R wget
 stow -v -R xinitrc
 stow -v -R xresources
 stow -v -R zsh
