@@ -1,7 +1,7 @@
 #!/bin/sh
 xrdb -load ~/.Xresources
 
-DISTRO="$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')"
+DISTRO="$(cat /etc/os-release | grep '^ID=' | cut -d '=' -f2 | tr -d '"')"
 
 case $DISTRO in
   alpine) exec herbstluftwm --locked  ;;
