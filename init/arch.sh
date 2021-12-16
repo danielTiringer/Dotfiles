@@ -77,7 +77,7 @@ sudo pacman -S --noconfirm i3-wm
 . "${INITDIR}/common/vim.sh"
 
 # Install dependencies of neovim config
-sudo pacman -S --noconfirm python-pip nodejs yarn
+sudo pacman -S --noconfirm python-pip nodejs yarn npm
 . "${INITDIR}/common/neovim-providers.sh"
 
 # Install dependencies of neovim plugins
