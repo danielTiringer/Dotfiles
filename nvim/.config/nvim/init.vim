@@ -1,4 +1,5 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
+source $HOME/.config/nvim/vim-plug/plugins.lua
 source $HOME/.config/nvim/plug-config/fzf.vim
 luafile $HOME/.config/nvim/plug-config/compe-config.lua
 luafile $HOME/.config/nvim/plug-config/treesitter.lua
