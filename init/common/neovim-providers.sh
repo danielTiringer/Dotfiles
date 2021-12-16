@@ -1,5 +1,5 @@
 #!/bin/sh
 # Installing neovim providers
 
-sudo yarn add global neovim
+sudo yarn global add neovim
 python3 -m pip install --user --upgrade pynvim
