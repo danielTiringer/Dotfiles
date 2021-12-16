@@ -1,12 +1,7 @@
 #!/bin/sh
 
-shellcheck() {
-    CURRENT_DIR="$(pwd)"
+. "$ZDOTDIR"/scripts/docker_run.sh
 
-    docker run \
-        --rm \
-        --workdir /app \
-        --volume "$CURRENT_DIR":/app \
-        --user $(id --user ${USER}):$(id --group ${USER}) \
-        koalaman/shellcheck /app/"$1"
+shellcheck() {
+    docker_run koalaman/shellcheck /app/"$1"
 }
