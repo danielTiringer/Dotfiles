@@ -3,5 +3,10 @@
 shellcheck() {
     CURRENT_DIR="$(pwd)"
 
-    docker run --rm -w /app -v "$CURRENT_DIR":/app koalaman/shellcheck /app/"$1"
+    docker run \
+        --rm \
+        --workdir /app \
+        --volume "$CURRENT_DIR":/app \
+        --user $(id --user ${USER}):$(id --group ${USER}) \
+        koalaman/shellcheck /app/"$1"
 }
