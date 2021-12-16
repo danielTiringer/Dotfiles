@@ -1,4 +1,5 @@
+#!/bin/sh
 # Distributes dotfiles
 
-cd $DOTFILEDIR
+cd "$DOTFILEDIR"
 ./stowrestore

@@ -1,3 +1,4 @@
+#!/bin/sh
 # Prompt the user to restart the computer
 
 restart () {
@@ -8,10 +9,10 @@ restart () {
     fi
 }
 
-while true
+echo "Installation completed."
+echo 'Would you like to restart your computer now? [Y/n] '
+while read -r -p  input
 do
-    echo "Installation completed."
-    read -r -p 'Would you like to restart your computer now? [Y/n] ' input
     case $input in
         [Yy][Ee][Ss]|[Yy]) echo 'Restarting in a few seconds...'; sleep 3; restart;;
         [Nn][Oo]|[Nn]) echo 'No restart at this time.'; exit 1;;

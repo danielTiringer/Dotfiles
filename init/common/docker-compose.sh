@@ -1,8 +1,9 @@
+#!/bin/sh
 # Install the latest docker-compose
 
 SYSTEM_TYPE=$(uname -s)
 SYSTEM_ARCH=$(uname -m)
 COMPOSE_VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
 COMPOSE_LOCATION=/usr/local/bin/docker-compose
-sudo curl --location --fail https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-${SYSTEM_TYPE}-${SYSTEM_ARCH} -o $COMPOSE_LOCATION
-sudo chmod +x $COMPOSE_LOCATION
+sudo curl --location --fail "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-${SYSTEM_TYPE}-${SYSTEM_ARCH}" -o "$COMPOSE_LOCATION"
+sudo chmod +x "$COMPOSE_LOCATION"

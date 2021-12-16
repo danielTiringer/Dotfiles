@@ -1,3 +1,4 @@
+#!/bin/sh
 # Start ufw and set rules
 
 sudo ufw enable

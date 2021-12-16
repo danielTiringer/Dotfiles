@@ -1,3 +1,4 @@
+#!/bin/sh
 # Creates basic folder structure
 
 mkdir ~/Downloads ~/Pictures ~/Documents ~/Projects ~/.config

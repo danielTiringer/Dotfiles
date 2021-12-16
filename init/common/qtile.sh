@@ -1,3 +1,4 @@
+#!/bin/sh
 # Installs qtile with pip3
 
 pip3 install xcffib psutil dbus-next

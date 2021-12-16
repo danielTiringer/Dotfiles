@@ -1,3 +1,4 @@
+#!/bin/sh
 # Installing neovim providers
 
 sudo yarn add global neovim

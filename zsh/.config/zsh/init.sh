@@ -23,6 +23,7 @@ install_phpactor() {
 
     cd "$XDG_CONFIG_HOME"/composer
     composer install --ignore-platform-reqs
+    sudo ln -s "$XDG_CONFIG_HOME/composer/vendor/bin/phpactor" /usr/local/bin/phpactor
     
     cd $CURRENT_DIR
 }
