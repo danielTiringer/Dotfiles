@@ -7,7 +7,7 @@ source $HOME/.config/nvim/general/settings.vim
 " Not all options can be expressed in lua - keeping this here
 " source $HOME/.config/nvim/plug-config/nvim-tree.vim
 luafile $HOME/.config/nvim/plug-config/nvim-tree.lua
-source $HOME/.config/nvim/keys/mappings.vim
+luafile $HOME/.config/nvim/keys/mappings.lua
 
 " LSP
 source $HOME/.config/nvim/plug-config/lsp-config.vim
