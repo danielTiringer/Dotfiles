@@ -12,8 +12,9 @@ source $HOME/.config/nvim/keys/mappings.vim
 " LSP
 source $HOME/.config/nvim/plug-config/lsp-config.vim
 luafile $HOME/.config/nvim/keys/lsp.lua
-luafile $HOME/.config/nvim/plug-config/php.lua
-" luafile $HOME/.config/nvim/plug-config/java.lua
+" luafile $HOME/.config/nvim/lsp/java.lua
+luafile $HOME/.config/nvim/lsp/php.lua
+luafile $HOME/.config/nvim/lsp/typescript.lua
 
 " Themes
 source $HOME/.config/nvim/themes/onedark.vim
