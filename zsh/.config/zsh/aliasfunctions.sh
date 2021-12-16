@@ -1,6 +1,7 @@
 #!/bin/sh
 
 . "${ZDOTDIR}/init.sh"
+. "${ZDOTDIR}/scripts/shellcheck.sh"
 . "${ZDOTDIR}/updates.sh"
 
 extract () {
