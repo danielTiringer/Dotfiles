@@ -19,7 +19,7 @@ download_firefox_privacy_file() {
 install_phpactor() {
     . "$ZDOTDIR"/scripts/composer.sh
 
-    CURRENT_DIR=`pwd`
+    CURRENT_DIR=$PWD
 
     cd "$XDG_CONFIG_HOME"/composer
     composer install --ignore-platform-reqs
