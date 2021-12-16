@@ -3,6 +3,8 @@
 first_start() {
     download_firefox_privacy_file
 
+    install_phpactor
+
     load_samba_credentials
 }
 
@@ -12,6 +14,13 @@ download_firefox_privacy_file() {
     for FOLDER in "${FOLDERS[@]}" ; do
         curl --location https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js --output "${FOLDER}/user.js"
     done
+}
+
+install_phpactor() {
+    . "$ZDOTDIR"/scripts/composer.sh
+
+    cd "$XDG_CONFIG_HOME"/composer
+    composer install --ignore-platform-reqs
 }
 
 load_samba_credentials() {
