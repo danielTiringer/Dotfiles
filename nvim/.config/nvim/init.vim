@@ -3,7 +3,7 @@ source $HOME/.config/nvim/vim-plug/plugins.lua
 source $HOME/.config/nvim/plug-config/fzf.vim
 luafile $HOME/.config/nvim/plug-config/compe-config.lua
 luafile $HOME/.config/nvim/plug-config/treesitter.lua
-source $HOME/.config/nvim/general/providers.vim
+luafile $HOME/.config/nvim/general/providers.lua
 source $HOME/.config/nvim/general/settings.vim
 " Not all options can be expressed in lua - keeping this here
 " source $HOME/.config/nvim/plug-config/nvim-tree.vim
