@@ -1,6 +1,7 @@
 #!/bin/sh
 
 . "${ZDOTDIR}/init.sh"
+. "${ZDOTDIR}/scripts/bitwarden.sh"
 . "${ZDOTDIR}/scripts/composer.sh"
 . "${ZDOTDIR}/scripts/docker_run.sh"
 . "${ZDOTDIR}/scripts/extract.sh"
