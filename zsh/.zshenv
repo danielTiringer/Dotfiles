@@ -18,21 +18,25 @@ export DOCKER_BUILDKIT=1
 export EDITOR="vim"
 export TERMINAL="urxvt"
 
-# Keeping dotfiles in config
-export BASHDOTDIR="$HOME/.config/bash"
-export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-export DOSBOXDIR="$HOME/.config/dosbox"
-export GNUPGHOME="$HOME/.config/gnupg"
-export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
-export LESSHISTFILE="-"
-export WGETRC="$HOME/.config/wget/wgetrc"
-export XAUTHORITY="$HOME/.cache/xauthority"
+# Define the XDG folder locations
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
-export ZDOTDIR="$HOME/.config/zsh"
+
+# Keeping dotfiles in config
+export BASHDOTDIR="$XDG_CONFIG_HOME/bash"
+export DOSBOXDIR="$XDG_CONFIG_HOME/dosbox"
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export HISTFILE="$XDG_CACHE_HOME/zsh/history"
+export LESSHISTFILE="-"
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+export XAUTHORITY="$XDG_CACHE_HOME/xauthority"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Coding
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export JDTLS_HOME="$HOME/.local/lib/jdtls"
 
 # A bit of a hack to eliminate libxkbcommon errors, see

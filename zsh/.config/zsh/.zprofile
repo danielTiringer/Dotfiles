@@ -4,11 +4,11 @@
 #
 # Global Order: zshenv, zprofile, zshrc, zlogin
 
-source $ZDOTDIR/aliasfunctions.sh
+. "$ZDOTDIR/aliasfunctions.sh"
 
 # Generic aliases
 alias afk='i3lock --color 000000 --pointer default --nofork --ignore-empty-password --show-failed-attempts'
-alias doom='~/.config/emacs/bin/doom'
+alias doom="$XDG_CONFIG_HOME/emacs/bin/doom"
 alias hc='herbstclient'
 alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
@@ -21,10 +21,10 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias mv='mv -v --interactive'
 alias rm='rm -v --interactive=once'
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 
 # Aliases to keep the $HOME directory cleaner:
-alias dosbox='dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox-0.74-3.conf'
+alias dosbox="dosbox -conf $XDG_CONFIG_HOME/dosbox/dosbox-0.74-3.conf"
 
 # GPG
 # export GPG_TTY=$(tty)
