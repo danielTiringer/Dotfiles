@@ -8,7 +8,8 @@ import subprocess
 class Bitwarden:
     main_menu_options = {
         1: 'Create new item',
-        2: 'Cancel',
+        2: 'Create new folder',
+        3: 'Cancel',
     }
     item_types = {
         1: 'Login',
@@ -27,18 +28,15 @@ class Bitwarden:
 
     def process_request(self):
         while(True):
-            print('What would you like to do?')
-            self.print_menu(self.main_menu_options)
-            option = ''
-            try:
-                option = int(input('Enter your choice: '))
-            except:
-                print('Wrong input. Please enter a number...')
+            option = self.prompt_option_selection(self.main_menu_options)
 
             if option == 1:
                 self.process_new_item_request()
 
             if option == 2:
+                self.process_new_folder_request()
+
+            if option == 3:
                 print('User aborted.')
                 exit(0)
 
@@ -66,17 +64,35 @@ class Bitwarden:
 
     def process_new_item_request(self):
         while(True):
-            print('Please select which kind of item you want to create:')
-            self.print_menu(self.item_types)
-            option = ''
-            try:
-                option = int(input('Enter your choice: '))
-            except:
-                print('Wrong input. Please enter a number...')
-
+            option = self.prompt_option_selection(self.item_types)
             if option == 5:
                 print('User aborted.')
                 exit(0)
+
+    def process_new_folder_request(self):
+        option = input('Enter the name of the new folder: ')
+        template_json = subprocess.getoutput(f"bw get template folder --session {self.session_key}")
+        template = json.loads(template_json)
+        template['name'] = option
+        updated_template_json = json.dumps(template, separators=(',', ':'))
+        output = subprocess.getstatusoutput(f"echo '{updated_template_json}' | bw encode | bw create folder --session {self.session_key}")
+        if output[0] == 0:
+            print("The folder was created.")
+        else:
+            print("There was a problem creating the folder.")
+
+        exit(output[0])
+
+    def prompt_option_selection(self, options):
+        print('Please select what you want to do:')
+        self.print_menu(options)
+        option = ''
+        try:
+            option = int(input('Enter your choice: '))
+        except:
+            print('Wrong input. Please enter a number...')
+
+        return option
 
     def print_menu(self, list):
         for key in list.keys():
@@ -88,9 +104,11 @@ class Bitwarden:
         folders = [a_dict['name'] for a_dict in folders_json]
         self.folders = folders
 
+
 def main():
     bw = Bitwarden()
     bw.process_request()
+
 
 if __name__ == '__main__':
     main()
