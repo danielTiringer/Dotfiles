@@ -10,8 +10,6 @@ Currently the following distributions are implemented:
 - Alpine (from an extended image)
 - Arch  (mainline, basic install)
 - Debian (server install with only basic system utilities)
-- Fedora (Custom Operation System from an everything alternative image)
-- Opensuse (Tumbleweed, server install)
 - Void (base install with glibc (would probably work with musl too))
 
 The following are expected to exist:
