@@ -161,4 +161,4 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id $XDG_CONFIG_HOME/polybar/launch.sh mainbar-i3 &
 exec_always --no-startup-id sxhkd -c $XDG_CONFIG_HOME/sxhkd/common_sxhkdrc
 exec_always --no-startup-id picom &
-exec_always --no-startup-id feh --no-fehbg --bg-scale "$HOME/Pictures/dark-leaves.jpg" &
+exec_always --no-startup-id feh --no-fehbg --bg-scale "$HOME"/Pictures/dark-leaves.jpg &
