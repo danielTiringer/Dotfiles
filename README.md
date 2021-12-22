@@ -8,9 +8,9 @@ A collection of my actively used dotfiles and a set of install scripts that help
 
 Currently the following distributions are implemented:
 - Alpine (from an extended image)
-- Arch  (mainline, basic install)
+- Arch   (mainline, basic install)
 - Debian (server install with only basic system utilities)
-- Void (base install with glibc (would probably work with musl too))
+- Void   (base install with glibc (would probably work with musl too))
 
 The following are expected to exist:
 - `git` installed
