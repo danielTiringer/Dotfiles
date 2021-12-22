@@ -9,6 +9,6 @@
 
 if [ -d "$ZDOTDIR"/scripts/bitwarden-wrapper ] ; then
     bitwarden() {
-        python3 "$ZDOTDIR"/scrips/bitwarden-wrapper/bitwarden.py
+        python3 "$ZDOTDIR"/scrips/bitwarden-wrapper/main.py
     }
 fi
