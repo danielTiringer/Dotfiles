@@ -154,6 +154,21 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+#############################################
+#              i3-gaps settings             #
+#############################################
+
+# Disable the window titlebars
+for_window[class="^.*"] border pixel 2
+
+gaps inner 5
+gaps top 20 # Room for status bar
+
+# Do not show the active border highlight if there's only one container
+smart_borders on
+
+
 #############################################
 #             Autostart programs            #
 #############################################
@@ -162,3 +177,4 @@ exec_always --no-startup-id $XDG_CONFIG_HOME/polybar/launch.sh mainbar-i3 &
 exec_always --no-startup-id sxhkd -c $XDG_CONFIG_HOME/sxhkd/common_sxhkdrc
 exec_always --no-startup-id picom &
 exec_always --no-startup-id feh --no-fehbg --bg-scale "$HOME"/Pictures/dark-leaves.jpg &
+
