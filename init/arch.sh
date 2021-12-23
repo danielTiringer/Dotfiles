@@ -71,7 +71,7 @@ sudo pacman -S --noconfirm herbstluftwm
 sudo pacman -S --noconfirm bspwm
 
 # Install i3
-sudo pacman -S --noconfirm i3-wm
+sudo pacman -S --noconfirm i3-gaps
 
 # Install vim plugin manager and plugins
 . "${INITDIR}/common/vim.sh"
