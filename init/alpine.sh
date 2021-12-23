@@ -78,9 +78,6 @@ sudo apk add vim
 # sudo apk add neovim
 # . "${INITDIR}/common/neovim.sh"
 
-# Install emacs
-sudo apk add emacs
-
 # Install doom
 . "${INITDIR}/common/doom.sh"
 

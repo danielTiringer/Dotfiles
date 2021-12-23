@@ -80,10 +80,6 @@ sudo xbps-install -S --yes the_silver_searcher fzf ripgrep fd
 sudo xbps-install -S --yes neovim
 . "${INITDIR}/common/neovim.sh"
 
-# Install emacs
-sudo xbps-install -S --yes emacs ripgrep fd
-. "${INITDIR}/common/doom.sh"
-
 # Install API tester
 sudo xbps-install -S --yes httpie
 . "${INITDIR}/common/postman.sh"

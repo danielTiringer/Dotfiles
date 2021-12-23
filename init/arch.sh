@@ -89,10 +89,6 @@ yay -S --noconfirm ctags-git
 sudo pacman -S --noconfirm neovim
 . "${INITDIR}/common/neovim.sh"
 
-# Install emacs
-sudo pacman -S --noconfirm emacs ripgrep fd
-. "${INITDIR}/common/doom.sh"
-
 # Install API tester
 sudo pacman -S --noconfirm httpie
 # . "${INITDIR}/common/postman.sh"
