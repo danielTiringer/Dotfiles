@@ -84,7 +84,8 @@ sudo apk add emacs
 # Install doom
 . "${INITDIR}/common/doom.sh"
 
-# Install Postman
+# Install API tester
+sudo apk add httpie
 # . "${INITDIR}/common/postman.sh"
 
 # Set up firewall

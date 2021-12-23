@@ -84,7 +84,8 @@ sudo xbps-install -S --yes neovim
 sudo xbps-install -S --yes emacs ripgrep fd
 . "${INITDIR}/common/doom.sh"
 
-# Install postman
+# Install API tester
+sudo xbps-install -S --yes httpie
 . "${INITDIR}/common/postman.sh"
 
 # Set up firewall

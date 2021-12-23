@@ -161,7 +161,8 @@ sudo apt install -yy -t unstable neovim
 # According to henrik, the above runs emacs without doom, so it doesn't know what all-the-icons are. Hopefully this will work:
 # emacs --eval '(all-the-icons-install-fonts t)'
 
-# Install Postman
+# Install API tester
+sudo apt install -yy httpie
 # . "${INITDIR}/common/postman.sh"
 
 # Install image manipulation program

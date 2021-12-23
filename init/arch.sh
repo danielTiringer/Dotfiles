@@ -93,8 +93,9 @@ sudo pacman -S --noconfirm neovim
 sudo pacman -S --noconfirm emacs ripgrep fd
 . "${INITDIR}/common/doom.sh"
 
-# Install postman
-. "${INITDIR}/common/postman.sh"
+# Install API tester
+sudo pacman -S --noconfirm httpie
+# . "${INITDIR}/common/postman.sh"
 
 # Set up firewall
 sudo pacman -S --noconfirm ufw
