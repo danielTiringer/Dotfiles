@@ -35,7 +35,7 @@ const config = {
         [m + '-' + s + '-q']: 'quit',
         [m + '-' + s + '-r']: 'reload',
         [m + '-' + s + '-c']: 'close',
-        // terminal 
+        // terminal
         [m + '-Return']: 'spawn ' + terminal,
         // dmenu
         [m + '-' + s + '-' + 'Return']: `spawn dmenu_run -p ${dmenuPrompt}`,
@@ -103,21 +103,21 @@ const config = {
     attr: {
         // 'theme.tiling.reset': '1',
         // 'theme.floating.reset': '1',
-        'theme.active.color': colors.purple,
-        'theme.normal.color': colors.mediumGrey,
-        'theme.urgent.color': colors.orange,
+        'theme.active.color': `"${colors.cyan}"`,
+        'theme.normal.color': `"${colors.mediumGrey}"`,
+        'theme.urgent.color': `"${colors.orange}"`,
         'theme.inner_width': '1',
-        'theme.inner_color': colors.black,
+        'theme.inner_color': `"${colors.black}"`,
         'theme.border_width': '3',
         'theme.floating.border_width': '4',
         'theme.floating.outer_width': '1',
-        'theme.active.inner_color': colors.blue,
-        'theme.active.outer_color': colors.blue,
-        'theme.background_color': colors.black,
+        'theme.active.inner_color': `"${colors.cyan}"`,
+        'theme.active.outer_color': `"${colors.cyan}"`,
+        'theme.background_color': `"${colors.black}"`,
     },
     set: {
         'frame_border_active_color': `"${colors.darkGrey}"`,
-        'frame_bg_active_color': `"${colors.purple}"`,
+        'frame_bg_active_color': `"${colors.cyan}"`,
         'frame_border_normal_color': `"${colors.darkGrey}"`,
         'frame_bg_normal_color': `"${colors.mediumGrey}"`,
         'frame_border_width': '1',

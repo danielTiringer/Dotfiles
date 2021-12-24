@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
+const { tags } = require('./config');
+
 const exec = require('child_process').exec;
 
 function hc(command) {
@@ -9,9 +11,26 @@ function hc(command) {
             console.error(`exec error: ${error}`);
             return;
         }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
+		if (stdout) {
+			console.log(`stdout: ${stdout}`);
+		}
+		if (stderr) {
+			console.error(`stderr: ${stderr}`);
+		}
     });
+}
+
+function setTagsWithName() {
+	hc(`rename default '${tags[1]}' 2>/dev/null || true`);
+
+	for (const key in tags) {
+		hc(`add '${tags[key]}'`)
+
+		if (tags[key]) {
+			hc(`keybind Mod4-${key} use_index '${key - 1}'`);
+			hc(`keybind Mod4-Shift-${key} move_index '${key - 1}'`);
+		}
+	}
 }
 
 function configure(settings) {
@@ -21,4 +40,5 @@ function configure(settings) {
         }
     }
 }
-module.exports = { hc, configure };
+
+module.exports = { hc, setTagsWithName, configure };

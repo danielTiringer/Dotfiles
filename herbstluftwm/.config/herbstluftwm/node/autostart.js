@@ -3,7 +3,7 @@
 
 const colors = require('./color');
 const { tags, config } = require('./config');
-const { hc, configure } = require('./helper');
+const { hc, setTagsWithName, configure } = require('./helper');
 const { setBackground, startPanel, startApplications } = require('./startup');
 
 // ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----
@@ -12,7 +12,9 @@ const { setBackground, startPanel, startApplications } = require('./startup');
 // background before wallpaper
 setBackground();
 
-hc('emit_hook reload')
+hc('lock');
+
+hc('emit_hook reload');
 
 // remove all existing keybindings
 hc('keyunbind --all');
@@ -24,6 +26,7 @@ hc('attr theme.tiling.reset 1');
 hc('attr theme.floating.reset 1');
 
 // got to set tags here
+setTagsWithName();
 
 // ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----
 // config from object

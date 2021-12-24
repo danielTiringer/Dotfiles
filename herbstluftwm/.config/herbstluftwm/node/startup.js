@@ -15,7 +15,7 @@ function startPanel() {
 function startApplications() {
     exec('picom &');
     exec(`feh --no-fehbg --bg-center "${process.env.HOME}/Pictures/blueMountains.jpg" &`);
+	exec(`sxhkd -c ${process.env.XDG_CONFIG_HOME}/sxhkd/common_sxhkdrc &`);
 }
 
-startPanel();
 module.exports = { setBackground, startPanel, startApplications };
