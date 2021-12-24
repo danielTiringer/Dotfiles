@@ -12,6 +12,8 @@ update () {
   docker_compose_update
 
   bitwarden_cli_update
+
+  alacritty_update
 }
 
 distro_update () {
@@ -103,13 +105,43 @@ bitwarden_cli_update () {
             echo "Bitwarden cli is up to date."
         else
             BITWARDEN_URI="https://github.com/bitwarden/cli/releases/download/v$LATEST_BITWARDEN_CLI_VERSION/bw-linux-$LATEST_BITWARDEN_CLI_VERSION.zip"
-            rm $BW_CLI_LOCATION
+            rm "$BW_CLI_LOCATION"
 
             curl --fail --location "$BITWARDEN_URI" --output $HOME/Downloads/bitwarden.zip
             unzip $HOME/Downloads/bitwarden.zip -d $HOME/.local/bin/
             sudo chmod +x $BW_CLI_LOCATION
 
             echo "Bitwarden cli is upgraded, the new version is: $LATEST_BITWARDEN_CLI_VERSION."
+        fi
+    fi
+}
+
+alacritty_update() {
+    ALACRITTY_LOCATION="/usr/local/bin/alacritty"
+
+    if [ -f "$ALACRITTY_LOCATION" ] ; then
+        LATEST_ALACRITTY_VERSION=v$(curl --silent https://api.github.com/repos/alacritty/alacritty/releases/latest | jq .name --raw-output | cut -d ' ' -f3)
+        echo "The latest alacritty version is: $LATEST_ALACRITTY_VERSION"
+
+        OWN_ALACRITTY_VERSION=$(alacritty --version | cut -d ' ' -f2)
+        echo "The current alacritty version is: $OWN_ALACRITTY_VERSION"
+
+        if [ "$OWN_ALACRITTY_VERSION" = "$LATEST_ALACRITTY_VERSION" ] ; then
+            echo "Alacritty is up to date."
+        else
+            . "$HOME"/.cargo/env
+
+            git clone https://github.com/alacritty/alacritty.git "$HOME"/Downloads/alacritty
+            cd "$HOME"/Downloads/alacritty
+            git checkout v"$LATEST_ALACRITTY_VERSION"
+
+            cargo build --release
+
+            sudo rm "$ALACRITTY_LOCATION"
+            sudo mv "$HOME"/Downloads/alacritty/target/release/alacritty /usr/local/bin/
+
+            cd
+            rm -rf "$HOME"/Downloads/alacritty
         fi
     fi
 }
