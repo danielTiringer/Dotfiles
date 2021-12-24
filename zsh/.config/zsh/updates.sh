@@ -1,4 +1,4 @@
-##!/bin/sh
+#!/bin/sh
 
 . "${ZDOTDIR}/helpers.sh"
 
@@ -24,7 +24,7 @@ distro_update () {
     arch)   sudo pacman -Syuu --noconfirm                                     ;;
     debian) sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y  ;;
 	void)   sudo xbps-install --sync --yes --update                           ;;
-    *)      echo -n "This distro is not set up in the script."                ;;
+    *)      echo "This distro is not set up in the script."                ;;
   esac
 }
 
@@ -106,9 +106,9 @@ bitwarden_cli_update () {
             BITWARDEN_URI="https://github.com/bitwarden/cli/releases/download/v$LATEST_BITWARDEN_CLI_VERSION/bw-linux-$LATEST_BITWARDEN_CLI_VERSION.zip"
             rm "$BW_CLI_LOCATION"
 
-            curl --fail --location "$BITWARDEN_URI" --output $HOME/Downloads/bitwarden.zip
-            unzip $HOME/Downloads/bitwarden.zip -d $HOME/.local/bin/
-            sudo chmod +x $BW_CLI_LOCATION
+            curl --fail --location "$BITWARDEN_URI" --output "$HOME"/Downloads/bitwarden.zip
+            unzip "$HOME/Downloads/bitwarden.zip" -d "$HOME"/.local/bin/
+            sudo chmod +x "$BW_CLI_LOCATION"
 
             echo "Bitwarden cli is upgraded, the new version is: $LATEST_BITWARDEN_CLI_VERSION."
         fi
