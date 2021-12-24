@@ -16,6 +16,8 @@ xsetroot -solid "${color['purple']}"
 
 hc emit_hook reload
 
+hc lock
+
 # remove all existing keybindings
 hc keyunbind --all
 hc mouseunbind --all
