@@ -119,7 +119,7 @@ alacritty_update() {
     ALACRITTY_LOCATION="/usr/local/bin/alacritty"
 
     if [ -f "$ALACRITTY_LOCATION" ] ; then
-        LATEST_ALACRITTY_VERSION=v$(curl --silent https://api.github.com/repos/alacritty/alacritty/releases/latest | jq .name --raw-output | cut -d ' ' -f3)
+        LATEST_ALACRITTY_VERSION=$(curl --silent https://api.github.com/repos/alacritty/alacritty/releases/latest | jq .name --raw-output | cut -d ' ' -f3)
         echo "The latest alacritty version is: $LATEST_ALACRITTY_VERSION"
 
         OWN_ALACRITTY_VERSION=$(alacritty --version | cut -d ' ' -f2)
