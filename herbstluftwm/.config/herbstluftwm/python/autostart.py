@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 
-import os
-
-from color import color
 from helper import hc, configure, set_tags_with_name
 import config
 import startup
 
 
 # background before wallpaper
-os.system("xsetroot -solid '" + color['blue'] + "'")
+startup.set_background()
 
 hc('emit_hook reload')
 

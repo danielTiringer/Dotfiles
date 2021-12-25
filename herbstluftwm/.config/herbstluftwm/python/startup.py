@@ -1,4 +1,9 @@
 import os
+from color import color
+
+
+def set_background():
+    os.system("xsetroot -solid '" + color['blue'] + "'")
 
 
 def start_panel():
