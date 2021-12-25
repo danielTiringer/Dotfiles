@@ -1,5 +1,8 @@
 #!/bin/sh
 
-"$XDG_CONFIG_HOME"/herbstluftwm/bash/autostart.sh
+if [ -x "$(command -x node)" ] ; then
+    "$XDG_CONFIG_HOME"/herbstluftwm/node/autostart.js
+else
+    "$XDG_CONFIG_HOME"/herbstluftwm/bash/autostart.sh
+fi
 # "$XDG_CONFIG_HOME"/herbstluftwm/python/autostart.py
-# "$XDG_CONFIG_HOME"/herbstluftwm/node/autostart.js
