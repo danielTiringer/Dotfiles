@@ -25,7 +25,7 @@ sudo pacman -S --noconfirm cifs-utils
 sudo pacman -S --noconfirm tar unzip unrar p7zip
 
 # Install command-line tools
-sudo pacman -S --noconfirm neofetch stow arandr jq htop tig xsel
+sudo pacman -S --noconfirm neofetch stow arandr autorandr jq htop tig xsel
 
 # Install build tools
 sudo pacman -S --noconfirm base-devel

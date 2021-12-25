@@ -42,7 +42,7 @@ sudo apt install -yy ntfs-3g # For NTFS based external drives
 sudo apt install -yy unzip unrar-free p7zip-full xclip libclipboard-perl
 
 # Install command line tools
-sudo apt install -yy neofetch stow arandr jq htop tig
+sudo apt install -yy neofetch stow arandr autorandr jq htop tig
 
 # Install Debian-related tools
 sudo apt install -yy apt-show-versions gdebi

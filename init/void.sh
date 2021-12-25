@@ -25,7 +25,7 @@ sudo xbps-install -S --yes cifs-utils
 sudo xbps-install -S --yes tar unzip p7zip
 
 # Install command-line tools
-sudo xbps-install -S --yes neofetch stow arandr jq htop tig xsel
+sudo xbps-install -S --yes neofetch stow arandr autorandr jq htop tig xsel
 
 # Install terminals
 sudo xbps-install -S --yes rxvt-unicode alacritty kitty
