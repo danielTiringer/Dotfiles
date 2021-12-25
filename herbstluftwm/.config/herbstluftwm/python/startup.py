@@ -2,6 +2,7 @@ import os
 
 
 def start_panel():
+    print('starting panel...')
     os.system('$XDG_CONFIG_HOME/polybar/launch.sh mainbar-herbst &')
 
 

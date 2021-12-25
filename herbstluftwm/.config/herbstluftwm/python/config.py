@@ -34,15 +34,15 @@ bar_height = '25'
 
 keybinds = {
   # session
-    m + s + 'q': 'quit',
-    m + s + 'r': 'reload',
-    m + s + 'c': 'close',
+    m + '-' + s + '-' + 'q': 'quit',
+    m + '-' + s + '-' + 'r': 'reload',
+    m + '-' + s + '-' + 'c': 'close',
 
   # use your $TERMINAL
-    # m + 'Return': 'spawn' + terminal
+    # m + '-' + 'Return': 'spawn' + terminal
 
   # dmenu
-    # m + s + 'Return': 'spawn dmenu_run -p ${dmenu_prompt}'
+    # m + '-' + s + '-' + 'Return': 'spawn dmenu_run -p ${dmenu_prompt}'
 
   # volume
     # 'XF86AudioRaiseVolume': 'spawn amixer -M set Master ${volumestep}+'
@@ -58,41 +58,41 @@ keybinds = {
   # basic movement
 
   # focusing clients
-    m + 'Left': 'focus left',
-    m + 'Down': 'focus down',
-    m + 'Up': 'focus up',
-    m + 'Right': 'focus right',
-    m + 'h': 'focus left',
-    m + 'j': 'focus down',
-    m + 'k': 'focus up',
-    m + 'l': 'focus right',
+    m + '-' + 'Left': 'focus left',
+    m + '-' + 'Down': 'focus down',
+    m + '-' +  'Up': 'focus up',
+    m + '-' +  'Right': 'focus right',
+    m + '-' +  'h': 'focus left',
+    m + '-' +  'j': 'focus down',
+    m + '-' +  'k': 'focus up',
+    m + '-' +  'l': 'focus right',
 
   # moving clients
-    m + s + 'Left': 'shift left',
-    m + s + 'Down': 'shift down',
-    m + s + 'Up': 'shift up',
-    m + s + 'Right': 'shift right',
-    m + s + 'h': 'shift left',
-    m + s + 'j': 'shift down',
-    m + s + 'k': 'shift up',
-    m + s + 'l': 'shift right',
+    m + '-' +  s + '-' +  'Left': 'shift left',
+    m + '-' +  s + '-' +  'Down': 'shift down',
+    m + '-' +  s + '-' +  'Up': 'shift up',
+    m + '-' +  s + '-' +  'Right': 'shift right',
+    m + '-' +  s + '-' +  'h': 'shift left',
+    m + '-' +  s + '-' +  'j': 'shift down',
+    m + '-' +  s + '-' +  'k': 'shift up',
+    m + '-' +  s + '-' +  'l': 'shift right',
 
   # splitting frames
   # create an empty frame at the specified direction
-    m + 'u': 'split bottom 0.5',
-    m + 'o': 'split right 0.5',
+    m + '-' +  'u': 'split bottom 0.5',
+    m + '-' +  'o': 'split right 0.5',
   # let the current frame explode into subframes
-    m + c + 'space': 'split explode',
+    m + '-' +  c + '-' +  'space': 'split explode',
 
   # resizing frames
-    m + c + 'h': 'resize left' + resizestep,
-    m + c + 'j': 'resize down' + resizestep,
-    m + c + 'k': 'resize up  ' + resizestep,
-    m + c + 'l': 'resize right' + resizestep,
-    m + c + 'Left': 'resize left' + resizestep,
-    m + c + 'Down': 'resize down' + resizestep,
-    m + c + 'Up': 'resize up  ' + resizestep,
-    m + c + 'Right': 'resize right' + resizestep,
+    m + '-' +  c + '-' +  'h': 'resize left + ' + resizestep,
+    m + '-' +  c + '-' +  'j': 'resize down + ' + resizestep,
+    m + '-' +  c + '-' +  'k': 'resize up + ' + resizestep,
+    m + '-' +  c + '-' +  'l': 'resize right + ' + resizestep,
+    m + '-' +  c + '-' +  'Left': 'resize left + ' + resizestep,
+    m + '-' +  c + '-' +  'Down': 'resize down + ' + resizestep,
+    m + '-' +  c + '-' +  'Up': 'resize up + ' + resizestep,
+    m + '-' +  c + '-' +  'Right': 'resize right + ' + resizestep,
 }
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----
@@ -100,31 +100,31 @@ keybinds = {
 
 tagskeybinds = {
   # cycle through tags
-    m + 'period': 'use_index +1 --skip-visible',
-    m + 'comma': 'use_index -1 --skip-visible',
+    m + '-' +  'period': 'use_index +1 --skip-visible',
+    m + '-' +  'comma': 'use_index -1 --skip-visible',
 
   # layouting
-    m + 'r': 'remove',
-    m + 's': 'floating toggle',
-    m + 'f': 'fullscreen toggle',
-    m + 'p': 'pseudotile toggle',
-    m + 'space': 'or , and . compare tags.focus.curframe_wcount = 2 \
+    m + '-' +  'r': 'remove',
+    m + '-' +  's': 'floating toggle',
+    m + '-' +  'f': 'fullscreen toggle',
+    m + '-' +  'p': 'pseudotile toggle',
+    m + '-' +  'space': 'or , and . compare tags.focus.curframe_wcount = 2 \
                . cycle_layout +1 vertical horizontal max vertical grid \
                , cycle_layout +1',
 
   # focus
-    m + 'BackSpace': 'cycle_monitor',
-    m + 'Tab': 'cycle_all +1',
-    m + s + 'Tab': 'cycle_all -1',
-    m + 'c': 'cycle',
-    m + 'i': 'jumpto urgent',
+    m + '-' +  'BackSpace': 'cycle_monitor',
+    m + '-' +  'Tab': 'cycle_all +1',
+    m + '-' +  s + '-' +  'Tab': 'cycle_all -1',
+    m + '-' +  'c': 'cycle',
+    m + '-' +  'i': 'jumpto urgent',
 }
 
 mousebinds = {
   # mouse
-    m + 'Button1': 'move',
-    m + 'Button2': 'zoom',
-    m + 'Button3': 'resize',
+    m + '-' +  'Button1': 'move',
+    m + '-' +  'Button2': 'zoom',
+    m + '-' +  'Button3': 'resize',
 }
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----
@@ -192,6 +192,6 @@ rules = {
 # room for polybar on both monitors
 # hlwm padding is in the order of top, right, bottom, left, with the first number being the screen number
 pads = {
-    0: bar_height,
-    1: bar_height,
+    '0': bar_height,
+    '1': bar_height,
 }
