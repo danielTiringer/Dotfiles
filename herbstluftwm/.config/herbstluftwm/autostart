@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ -x "$(command -x node)" ] ; then
+if [ -x "$(command -v node)" ] ; then
     "$XDG_CONFIG_HOME"/herbstluftwm/node/autostart.js
 else
     "$XDG_CONFIG_HOME"/herbstluftwm/bash/autostart.sh
