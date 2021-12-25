@@ -9,7 +9,7 @@ import startup
 
 
 # background before wallpaper
-os.system(f"xsetroot -solid '{color['purple']}'")
+os.system("xsetroot -solid '" + color['blue'] + "'")
 
 hc('emit_hook reload')
 
@@ -34,7 +34,7 @@ configure('mousebind', config.mousebinds)
 configure('attr',      config.attributes)
 configure('set',       config.sets)
 configure('rule',      config.rules)
-configure('rule',      config.pads)
+configure('pad',       config.pads)
 
 # avoid tilde problem, not using helper
 hc("rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off")
