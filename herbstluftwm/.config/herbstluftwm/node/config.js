@@ -36,13 +36,13 @@ const config = {
         [m + '-' + s + '-r']: 'reload',
         [m + '-' + s + '-c']: 'close',
         // terminal
-        [m + '-Return']: 'spawn ' + terminal,
+        // [m + '-Return']: 'spawn ' + terminal,
         // dmenu
-        [m + '-' + s + '-' + 'Return']: `spawn dmenu_run -p ${dmenuPrompt}`,
+        // [m + '-' + s + '-' + 'Return']: `spawn dmenu_run -p ${dmenuPrompt}`,
         // volume
-        'XF86AudioRaiseVolume': `spawn amixer -M set Master ${volumestep}+`,
-        'XF86AudioLowerVolume': `spawn amixer -M set Master ${volumestep}-`,
-        'XF86AudioMute': 'spawn amixer -c 0 set Master toggle',
+        // 'XF86AudioRaiseVolume': `spawn amixer -M set Master ${volumestep}+`,
+        // 'XF86AudioLowerVolume': `spawn amixer -M set Master ${volumestep}-`,
+        // 'XF86AudioMute': 'spawn amixer -c 0 set Master toggle',
         // basic movement
         // focusing clients
         [m + '-Left']: 'focus left',

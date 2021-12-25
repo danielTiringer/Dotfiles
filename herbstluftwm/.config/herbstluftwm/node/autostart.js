@@ -2,7 +2,7 @@
 'use strict';
 
 const colors = require('./color');
-const { tags, config } = require('./config');
+const { config } = require('./config');
 const { hc, setTagsWithName, configure } = require('./helper');
 const { setBackground, startPanel, startApplications } = require('./startup');
 
