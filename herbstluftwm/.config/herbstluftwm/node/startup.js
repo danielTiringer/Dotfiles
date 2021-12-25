@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-const exec = require('child_process').exec;
+const { exec } = require('child_process');
 const colors = require('./color');
 
 function setBackground() {
@@ -14,8 +14,8 @@ function startPanel() {
 
 function startApplications() {
     exec('picom &');
-    exec(`feh --no-fehbg --bg-center "${process.env.HOME}/Pictures/blueMountains.jpg" &`);
-	exec(`sxhkd -c ${process.env.XDG_CONFIG_HOME}/sxhkd/common_sxhkdrc &`);
+    exec(`feh --no-fehbg --bg-center "${process.env.HOME}/Pictures/dark-leaves.jpg" &`);
+    exec(`sxhkd -c ${process.env.XDG_CONFIG_HOME}/sxhkd/common_sxhkdrc &`);
 }
 
 module.exports = { setBackground, startPanel, startApplications };
