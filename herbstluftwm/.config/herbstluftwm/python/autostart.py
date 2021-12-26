@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from helper import hc, configure, set_tags_with_name
-import config
+from config import config
 import startup
 
 
@@ -25,13 +25,7 @@ set_tags_with_name()
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----
 
-configure('keybind',   config.keybinds)
-configure('keybind',   config.tagskeybinds)
-configure('mousebind', config.mousebinds)
-configure('attr',      config.attributes)
-configure('set',       config.sets)
-configure('rule',      config.rules)
-configure('pad',       config.pads)
+configure(config)
 
 # avoid tilde problem, not using helper
 hc("rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off")
