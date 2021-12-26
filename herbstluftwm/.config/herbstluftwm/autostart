@@ -3,7 +3,7 @@
 if [ -x "$(command -v node)" ] ; then
     "$XDG_CONFIG_HOME"/herbstluftwm/node/autostart.js
 elif [ -x "$(command -v python3)" ] ; then
-	"$XDG_CONFIG_HOME"/herbstluftwm/python/autostart.py
+    "$XDG_CONFIG_HOME"/herbstluftwm/python/autostart.py
 else
     "$XDG_CONFIG_HOME"/herbstluftwm/bash/autostart.sh
 fi

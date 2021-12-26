@@ -12,7 +12,7 @@ PWD=$(dirname "$0")
 # main
 
 # background before wallpaper
-xsetroot -solid "${color['purple']}"
+set_background
 
 hc emit_hook reload
 

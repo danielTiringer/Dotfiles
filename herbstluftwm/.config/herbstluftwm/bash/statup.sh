@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+function set_background() {
+    xsetroot -solid "${color['blue']}"
+}
+
 function start_panel() {
     $XDG_CONFIG_HOME/polybar/launch.sh mainbar-herbst &
 
