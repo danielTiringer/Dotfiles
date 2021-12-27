@@ -137,7 +137,7 @@ const config = {
         // "class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)'": 'focus=on',
         "windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)'": 'pseudotile=on',
         "windowtype='_NET_WM_WINDOW_TYPE_DIALOG'": 'focus=on',
-        "windowtype='_NET_WM_WINDOW_TYPE_DIALOG'": 'fullscreen=on',
+        "windowtype='_NET_WM_WINDOW_TYPE_DIALOG'": 'floating=on',
         // "windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)'": 'manage=off',
     },
     pad: {
