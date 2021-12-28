@@ -4,10 +4,10 @@
 
 # Install prompt
 echo 'The executed script will install applications on a Void based system.'
-. "${INITDIR}/common/check.sh"
+. "$INITDIR/common/check.sh"
 
 # Create the basic file system
-. "${INITDIR}/common/folders.sh"
+. "$INITDIR/common/folders.sh"
 
 # Update the system
 sudo xbps-install --sync --yes --update
@@ -35,14 +35,14 @@ sudo xbps-install -S --yes vifm
 
 # Install zsh, set it as default for user, install oh-my-zsh
 sudo xbps-install -S --yes zsh
-. "${INITDIR}/common/zsh.sh"
+. "$INITDIR/common/zsh.sh"
 
 # Install the xorg graphical environment
 sudo xbps-install -S --yes xorg
 
 # Install fonts
 sudo xbps-install -S --yes font-awesome
-. "${INITDIR}/common/fonts.sh"
+. "$INITDIR/common/fonts.sh"
 
 # Install Asian fonts
 sudo xbps-install -S --yes noto-fonts-cjk
@@ -65,34 +65,34 @@ sudo xbps-install -S --yes i3-gaps
 
 # Install vim plugin manager and plugins
 sudo xbps-install -S --yes vim
-. "${INITDIR}/common/vim.sh"
+. "$INITDIR/common/vim.sh"
 
 # Install dependencies of neovim config
 sudo xbps-install -S --yes python3-pip nodejs yarn
 sudo xbps-install -S --yes gcc
-. "${INITDIR}/common/neovim-providers.sh"
+. "$INITDIR/common/neovim-providers.sh"
 
 # Install dependencies of neovim plugins
 sudo xbps-install -S --yes the_silver_searcher fzf ripgrep fd
-. "${INITDIR}/common/jdtls.sh"
+. "$INITDIR/common/jdtls.sh"
 
 # Install neovim
 sudo xbps-install -S --yes neovim
-. "${INITDIR}/common/neovim.sh"
+. "$INITDIR/common/neovim.sh"
 
 # Install API tester
 sudo xbps-install -S --yes httpie
-. "${INITDIR}/common/postman.sh"
+. "$INITDIR/common/postman.sh"
 
 # Set up firewall
 sudo xbps-install -S --yes ufw
 sudo xbps-reconfigure ufw
 sudo ln -s /etc/sv/ufw /var/service
-. "${INITDIR}/common/ufw.sh"
+. "$INITDIR/common/ufw.sh"
 
 # Install docker and docker-compose
 sudo xbps-install -S --yes docker
-. "${INITDIR}/common/docker-compose.sh"
+. "$INITDIR/common/docker-compose.sh"
 sudo groupadd docker
 sudo usermod -aG docker "$USER"
 sudo ln -s /etc/sv/docker /var/service
@@ -110,16 +110,16 @@ sudo sv up NetworkManager
 sudo usermod -aG network "$USER"
 
 # Install password manager
-. "${INITDIR}/common/bitwarden.sh"
+. "$INITDIR/common/bitwarden.sh"
 
 # Get wallpapers
-. "${INITDIR}/common/wallpaper.sh"
+. "$INITDIR/common/wallpaper.sh"
 
 # Copy dotfiles
-. "${INITDIR}/common/dotfiles.sh"
+. "$INITDIR/common/dotfiles.sh"
 
 # Run dotfile-related installs
-. "${INITDIR}/common/editor-installs.sh"
+. "$INITDIR/common/editor-installs.sh"
 
 # Install complete
-. "${INITDIR}/common/restart.sh"
+. "$INITDIR/common/restart.sh"

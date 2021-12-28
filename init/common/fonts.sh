@@ -11,9 +11,9 @@ set -f; IFS=' '
 
 for FONT in $NERD_FONTS; do
     set +f; unset IFS
-    curl --fail --silent --show-error --location "https://github.com/ryanoasis/nerd-fonts/releases/download/${NERD_FONT_RELEASE}/${FONT}.zip" --output "$HOME/Downloads/${FONT}.zip"
-    unzip "$HOME/Downloads/${FONT}".zip -d "$HOME"/.local/share/fonts/
-    rm -rf "$HOME/Downloads/${FONT}.zip"
+    curl --fail --silent --show-error --location "https://github.com/ryanoasis/nerd-fonts/releases/download/$NERD_FONT_RELEASE/$FONT.zip" --output "$HOME/Downloads/$FONT.zip"
+    unzip "$HOME/Downloads/$FONT".zip -d "$HOME"/.local/share/fonts/
+    rm -rf "$HOME/Downloads/$FONT.zip"
 done
 
 set +f; unset IFS

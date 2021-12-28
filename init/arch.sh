@@ -4,10 +4,10 @@
 
 # Install prompt
 echo 'The executed script will install applications on an Arch based system.'
-. "${INITDIR}/common/check.sh"
+. "$INITDIR/common/check.sh"
 
 # Create the basic file system
-. "${INITDIR}/common/folders.sh"
+. "$INITDIR/common/folders.sh"
 
 # Update the system
 sudo pacman --sync --refresh --sysupgrade --noconfirm
@@ -45,14 +45,14 @@ sudo pacman -S --noconfirm vifm
 
 # Install zsh, set it as default for user, install oh-my-zsh
 sudo pacman -S --noconfirm zsh
-. "${INITDIR}/common/zsh.sh"
+. "$INITDIR/common/zsh.sh"
 
 # Install the xorg graphical environment
 sudo pacman -S --noconfirm xf86-video-fbdev xorg xorg-xinit
 
 # Install fonts
 sudo pacman -S --noconfirm ttf-font-awesome
-. "${INITDIR}/common/fonts.sh"
+. "$INITDIR/common/fonts.sh"
 
 # Install Asian fonts
 sudo pacman -S --noconfirm noto-fonts-cjk
@@ -74,33 +74,33 @@ sudo pacman -S --noconfirm bspwm
 sudo pacman -S --noconfirm i3-gaps
 
 # Install vim plugin manager and plugins
-. "${INITDIR}/common/vim.sh"
+. "$INITDIR/common/vim.sh"
 
 # Install dependencies of neovim config
 sudo pacman -S --noconfirm python-pip nodejs yarn npm
-. "${INITDIR}/common/neovim-providers.sh"
+. "$INITDIR/common/neovim-providers.sh"
 
 # Install dependencies of neovim plugins
 sudo pacman -S --noconfirm the_silver_searcher fzf ripgrep fd
 yay -S --noconfirm ctags-git
-. "${INITDIR}/common/jdtls.sh"
+. "$INITDIR/common/jdtls.sh"
 
 # Install neovim
 sudo pacman -S --noconfirm neovim
-. "${INITDIR}/common/neovim.sh"
+. "$INITDIR/common/neovim.sh"
 
 # Install API tester
 sudo pacman -S --noconfirm httpie
-# . "${INITDIR}/common/postman.sh"
+# . "$INITDIR/common/postman.sh"
 
 # Set up firewall
 sudo pacman -S --noconfirm ufw
 sudo systemctl enable ufw.service --now
-. "${INITDIR}/common/ufw.sh"
+. "$INITDIR/common/ufw.sh"
 
 # Install docker and docker-compose
 sudo pacman -S --noconfirm docker
-. "${INITDIR}/common/docker-compose.sh"
+. "$INITDIR/common/docker-compose.sh"
 sudo groupadd docker
 sudo usermod -aG docker "$USER"
 
@@ -111,16 +111,16 @@ sudo pacman -S --noconfirm firefox
 sudo pacman -S --noconfirm mpv alsa-utils
 
 # Install password manager
-. "${INITDIR}/common/bitwarden.sh"
+. "$INITDIR/common/bitwarden.sh"
 
 # Get wallpapers
-. "${INITDIR}/common/wallpaper.sh"
+. "$INITDIR/common/wallpaper.sh"
 
 # Copy dotfiles
-. "${INITDIR}/common/dotfiles.sh"
+. "$INITDIR/common/dotfiles.sh"
 
 # Run dotfile-related installs
-. "${INITDIR}/common/editor-installs.sh"
+. "$INITDIR/common/editor-installs.sh"
 
 # Install complete
-. "${INITDIR}/common/restart.sh"
+. "$INITDIR/common/restart.sh"

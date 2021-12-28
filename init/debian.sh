@@ -4,10 +4,10 @@
 
 # Install prompt
 echo 'The executed script will install applications on a Debian based system.'
-. "${INITDIR}/common/check.sh"
+. "$INITDIR/common/check.sh"
 
 # Create the basic file system
-. "${INITDIR}/common/folders.sh"
+. "$INITDIR/common/folders.sh"
 
 # Update the system
 sudo apt update -yy && sudo apt upgrade -yy --fix-missing
@@ -57,21 +57,21 @@ sudo apt install -yy bc
 # Install terminals
 sudo apt install -yy rxvt-unicode
 sudo apt install -yy cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-. "${INITDIR}/common/alacritty.sh"
+. "$INITDIR/common/alacritty.sh"
 
 # Install file manager
 sudo apt install -yy vifm
 
 # Install zsh, make it the default shell, and install oh-my-zsh
 sudo apt install -yy zsh
-. "${INITDIR}/common/zsh.sh"
+. "$INITDIR/common/zsh.sh"
 
 # Install the xorg graphical environment
 sudo apt install -yy xorg
 
 # Install fonts
 sudo apt install -yy fonts-font-awesome
-. "${INITDIR}/common/fonts.sh"
+. "$INITDIR/common/fonts.sh"
 
 # Install window manager basics
 sudo apt install -yy nitrogen picom dmenu polybar xtrlock i3lock feh sxhkd lm-sensors rofi
@@ -80,7 +80,7 @@ sudo apt install -yy nitrogen picom dmenu polybar xtrlock i3lock feh sxhkd lm-se
 sudo apt install -yy python3-pip
 sudo apt install -yy libxcb-render0-dev
 sudo apt install -yy libpangocairo-1.0-0
-. "${INITDIR}/common/qtile.sh"
+. "$INITDIR/common/qtile.sh"
 
 # Install herbstluftwm
 sudo apt install -yy herbstluftwm
@@ -93,31 +93,31 @@ sudo apt install -yy i3-wm
 
 # Install vim
 sudo apt install -yy vim vim-gtk
-. "${INITDIR}/common/vim.sh"
+. "$INITDIR/common/vim.sh"
 
 # Install dependencies of neovim config
 sudo apt install -yy python3-pip nodejs
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update && sudo apt install yarn
-. "${INITDIR}/common/neovim-providers.sh"
+. "$INITDIR/common/neovim-providers.sh"
 
 # Install dependencies of neovim plugins
 sudo apt install -yy silversearcher-ag fzf gripgrep fd-find
-. "${INITDIR}/common/jdtls.sh"
+. "$INITDIR/common/jdtls.sh"
 
 # Install neovim
 sudo apt install -yy -t unstable neovim
-. "${INITDIR}/common/neovim.sh"
+. "$INITDIR/common/neovim.sh"
 
 # Install API tester
 sudo apt install -yy httpie
-# . "${INITDIR}/common/postman.sh"
+# . "$INITDIR/common/postman.sh"
 
 # Set up firewall
 sudo apt install -yy ufw
 sudo systemctl enable ufw.service --now
-. "${INITDIR}/common/ufw.sh"
+. "$INITDIR/common/ufw.sh"
 
 # Install docker and docker-compose
 sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
@@ -126,7 +126,7 @@ echo "deb http://download.docker.com/linux/debian $(lsb_release --codename --sho
 sudo apt update -yy
 sudo apt install -yy docker-ce docker-ce-cli containerd.io
 
-. "${INITDIR}/common/docker-compose.sh"
+. "$INITDIR/common/docker-compose.sh"
 sudo groupadd docker
 sudo usermod -aG docker "$USER"
 
@@ -137,23 +137,23 @@ sudo apt update -yy && sudo apt install -yy -t unstable firefox
 sudo apt install -yy  alsa-utils pulsemixer mpv
 
 # Install password manager
-. "${INITDIR}/common/bitwarden.sh"
+. "$INITDIR/common/bitwarden.sh"
 
 # Get wallpapers
-. "${INITDIR}/common/wallpaper.sh"
+. "$INITDIR/common/wallpaper.sh"
 
 # Copy dotfiles
-. "${INITDIR}/common/dotfiles.sh"
+. "$INITDIR/common/dotfiles.sh"
 
 # Run dotfile-related installs
-. "${INITDIR}/common/editor-installs.sh"
+. "$INITDIR/common/editor-installs.sh"
 
 # Check if the hardware is a macbook, then install specific stuff
 if [ "$(hardware_type)" = 'MacBook' ] ; then
 	sudo apt install -yy mbpfan
-	. "${INITDIR}/specific/macbook-fan.sh"
-	. "${INITDIR}/specific/macbook-keyboard-brightness.sh"
+	. "$INITDIR/specific/macbook-fan.sh"
+	. "$INITDIR/specific/macbook-keyboard-brightness.sh"
 fi
 
 # Install complete
-. "${INITDIR}/common/restart.sh"
+. "$INITDIR/common/restart.sh"

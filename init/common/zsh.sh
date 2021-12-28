@@ -1,7 +1,7 @@
 #!/bin/sh
 # Creates a cache folder, sets zsh as a default shell and clones oh-my-zsh files
 
-. "${INITDIR}/helper.sh"
+. "$INITDIR/helper.sh"
 
 mkdir -p ~/.cache/zsh
 if [ -x "$(command -v usermod)" ] ; then

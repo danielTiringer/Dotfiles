@@ -11,10 +11,10 @@
 # https://wiki.alpinelinux.org/wiki/Connecting_to_a_wireless_access_point
 
 echo 'The executed script will install applications on an Alpine based system.'
-. "${INITDIR}/common/check.sh"
+. "$INITDIR/common/check.sh"
 
 # Create the basic file system
-. "${INITDIR}/common/folders.sh"
+. "$INITDIR/common/folders.sh"
 
 # Enable extra repositories
 sudo sed -i '2,6s/#//g' /etc/apk/repositories
@@ -37,21 +37,21 @@ sudo apk add rxvt-unicode kitty
 
 # Install alacritty
 # sudo apk add cmake pkgconf freetype-dev fontconfig-dev python3 libxcb-dev build-base gcc abuild binutils binutils-doc gcc-doc
-# . "${INITDIR}/common/alacritty.sh"
+# . "$INITDIR/common/alacritty.sh"
 
 # Install file manager
 sudo apk add vifm
 
 # Install ZSH and set is as default for user
 sudo apk add zsh zsh-vcs
-. "${INITDIR}/common/zsh.sh"
+. "$INITDIR/common/zsh.sh"
 
 # Install the xorg graphical environment
 sudo setup-xorg-base
 
 # Install fonts
 sudo apk add ttf-font-awesome
-. "${INITDIR}/common/fonts.sh"
+. "$INITDIR/common/fonts.sh"
 
 # Install Asian fonts
 sudo apk add font-noto-cjk
@@ -72,27 +72,27 @@ sudo apk add i3wm
 sudo apk add vim
 
 # Install vim plugin manager and plugins
-. "${INITDIR}/common/vim.sh"
+. "$INITDIR/common/vim.sh"
 
 # Install neovim
 # sudo apk add neovim
-# . "${INITDIR}/common/neovim.sh"
+# . "$INITDIR/common/neovim.sh"
 
 # Install doom
-. "${INITDIR}/common/doom.sh"
+. "$INITDIR/common/doom.sh"
 
 # Install API tester
 sudo apk add httpie
-# . "${INITDIR}/common/postman.sh"
+# . "$INITDIR/common/postman.sh"
 
 # Set up firewall
 sudo apk add ip6tables ufw
 sudo rc-update add ufw
-. "${INITDIR}/common/ufw.sh"
+. "$INITDIR/common/ufw.sh"
 
 # Install docker and docker-compose
 sudo apk add docker
-. "${INITDIR}/common/docker-compose.sh"
+. "$INITDIR/common/docker-compose.sh"
 sudo addgroup "$USER" docker
 sudo rc-update add docker boot
 sudo service docker start
@@ -104,16 +104,16 @@ sudo apk add firefox
 sudo apk add mpv alsa-utils
 
 # Get wallpapers
-. "${INITDIR}/common/wallpaper.sh"
+. "$INITDIR/common/wallpaper.sh"
 
 # Copy dotfiles
-. "${INITDIR}/common/dotfiles.sh"
+. "$INITDIR/common/dotfiles.sh"
 
 # Run dotfile-related installs
-. "${INITDIR}/common/editor-installs.sh"
+. "$INITDIR/common/editor-installs.sh"
 
 # Simplify the login message
 sudo sed -i -e '2,10d' /etc/motd
 
 # Install complete
-. "${INITDIR}/common/restart.sh"
+. "$INITDIR/common/restart.sh"
