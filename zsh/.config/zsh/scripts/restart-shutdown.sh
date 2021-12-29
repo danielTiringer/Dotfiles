@@ -1,7 +1,7 @@
 #!/bin/sh
 # Restart or shutdown the system
 
-restart () {
+restart() {
     if [ -d "/etc/systemd/" ] ; then
         systemctl reboot
     else
@@ -9,7 +9,7 @@ restart () {
     fi
 }
 
-shutdown () {
+shutdown() {
     if [ -d "/etc/systemd/" ] ; then
         systemctl poweroff
     else
