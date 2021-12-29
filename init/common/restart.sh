@@ -1,7 +1,7 @@
 #!/bin/sh
 # Prompt the user to restart the computer
 
-restart () {
+restart() {
     if [ -d "/etc/systemd/" ] ; then
         systemctl reboot
     else
