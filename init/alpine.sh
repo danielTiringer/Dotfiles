@@ -17,7 +17,8 @@ echo 'The executed script will install applications on an Alpine based system.'
 . "$INITDIR/common/folders.sh"
 
 # Enable extra repositories
-sudo sed -i '2,6s/#//g' /etc/apk/repositories
+sudo sed --in-place '2,6s/^# //g' /etc/apk/repositories
+sudo sed --in-place '2,6s/^#//g' /etc/apk/repositories
 
 # Update the system
 sudo apk update
@@ -79,7 +80,7 @@ sudo apk add vim
 # . "$INITDIR/common/neovim.sh"
 
 # Install doom
-. "$INITDIR/common/doom.sh"
+# . "$INITDIR/common/doom.sh"
 
 # Install API tester
 sudo apk add httpie
