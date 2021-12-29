@@ -4,14 +4,12 @@
 #
 # Global Order: zshenv, zprofile, zshrc, zlogin
 
-. "$ZDOTDIR/aliasfunctions.sh"
+. "$ZDOTDIR"/aliasfunctions.sh
 
 # Generic aliases
 alias afk='i3lock --color 000000 --pointer default --nofork --ignore-empty-password --show-failed-attempts'
 alias doom="$XDG_CONFIG_HOME/emacs/bin/doom"
 alias hc='herbstclient'
-alias poweroff='systemctl poweroff'
-alias reboot='systemctl reboot'
 alias weather='curl wttr.in'
 
 # Aliases modifying existing commands
