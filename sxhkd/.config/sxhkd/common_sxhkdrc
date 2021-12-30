@@ -6,7 +6,7 @@ super + Escape
 
 # run terminal emulator
 super + Return
-	alacritty
+	$TERMINAL
 
 # run program launcher
 super + shift + Return

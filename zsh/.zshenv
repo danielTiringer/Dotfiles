@@ -16,7 +16,7 @@ export DOCKER_BUILDKIT=1
 
 # Default programs
 export EDITOR="vim"
-export TERMINAL="urxvt"
+export TERMINAL="alacritty"
 
 # Define the XDG folder locations
 export XDG_CACHE_HOME="$HOME/.cache"
