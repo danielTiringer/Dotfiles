@@ -87,7 +87,7 @@ sudo xbps-install -S --yes httpie
 # Set up firewall
 sudo xbps-install -S --yes ufw
 sudo xbps-reconfigure ufw
-sudo ln -s /etc/sv/ufw /var/service
+enable_service ufw
 . "$INITDIR/common/ufw.sh"
 
 # Install docker and docker-compose
@@ -95,7 +95,7 @@ sudo xbps-install -S --yes docker
 . "$INITDIR/common/docker-compose.sh"
 sudo groupadd docker
 sudo usermod -aG docker "$USER"
-sudo ln -s /etc/sv/docker /var/service
+enable_service docker
 
 # Install browser
 sudo xbps-install -S --yes firefox
@@ -104,8 +104,8 @@ sudo xbps-install -S --yes firefox
 sudo xbps-install -S --yes mpv alsa-utils
 
 # Enable services for network management, and allow user to make changes to it
-sudo ln -s /etc/sv/dbus /var/service
-sudo ln -s /etc/sv/NetworkManager /var/service
+enable_service dbus
+enable_service NetworkManager
 sudo sv up NetworkManager
 sudo usermod -aG network "$USER"
 

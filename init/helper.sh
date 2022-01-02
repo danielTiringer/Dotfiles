@@ -17,6 +17,21 @@ change_shell_for_user () {
     sudo sed -i -E "${LINE_NUMBER}s#/bin/b?ash#/bin/zsh#" /etc/passwd
 }
 
+enable_service() {
+    echo "Enabling and starting the {$1} service."
+
+    if [ "$(command -v systemctl)" ] ; then
+        sudo systemctl enable "$1" --now
+    elif [ "$(command -v rc-update)" ] ; then
+        sudo rc-update add "$1" boot
+        sudo service "$1" start
+    elif [ -d "/etc/sv" ] ; then
+        sudo ln -s /etc/sv/"$1" /var/service
+    else
+        echo "Unble to enable and start the {$1} service."
+    fi
+}
+
 install_chrome_extension () {
   preferences_dir_path="/opt/google/chrome/extensions"
   pref_file_path="$preferences_dir_path/$1.json"

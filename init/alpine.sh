@@ -95,8 +95,7 @@ sudo rc-update add ufw
 sudo apk add docker
 . "$INITDIR/common/docker-compose.sh"
 sudo addgroup "$USER" docker
-sudo rc-update add docker boot
-sudo service docker start
+enable_service docker
 
 # Install browser
 sudo apk add firefox

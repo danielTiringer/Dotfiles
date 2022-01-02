@@ -95,7 +95,7 @@ sudo pacman -S --noconfirm httpie
 
 # Set up firewall
 sudo pacman -S --noconfirm ufw
-sudo systemctl enable ufw.service --now
+enable_service ufw
 . "$INITDIR/common/ufw.sh"
 
 # Install docker and docker-compose

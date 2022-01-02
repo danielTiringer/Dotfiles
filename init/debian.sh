@@ -116,7 +116,7 @@ sudo apt install -yy httpie
 
 # Set up firewall
 sudo apt install -yy ufw
-sudo systemctl enable ufw.service --now
+enable_service ufw
 . "$INITDIR/common/ufw.sh"
 
 # Install docker and docker-compose
