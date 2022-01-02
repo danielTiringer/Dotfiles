@@ -25,83 +25,83 @@ sudo apk update
 sudo apk upgrade
 
 # Install network-based tools
-sudo apk add curl
+install curl
 
 # Install file system helpers
-sudo apk add cifs-utils
+install cifs-utils
 
 # Install command line tools
-sudo apk add neofetch stow arandr jq htop tig xsel
+install neofetch stow arandr jq htop tig xsel
 
 # Install terminals
-sudo apk add rxvt-unicode kitty
+install rxvt-unicode kitty
 
 # Install alacritty
-# sudo apk add cmake pkgconf freetype-dev fontconfig-dev python3 libxcb-dev build-base gcc abuild binutils binutils-doc gcc-doc
+# install cmake pkgconf freetype-dev fontconfig-dev python3 libxcb-dev build-base gcc abuild binutils binutils-doc gcc-doc
 # . "$INITDIR/common/alacritty.sh"
 
 # Install file manager
-sudo apk add vifm
+install vifm
 
 # Install ZSH and set is as default for user
-sudo apk add zsh zsh-vcs
+install zsh zsh-vcs
 . "$INITDIR/common/zsh.sh"
 
 # Install the xorg graphical environment
 sudo setup-xorg-base
 
 # Install fonts
-sudo apk add ttf-font-awesome
+install ttf-font-awesome
 . "$INITDIR/common/fonts.sh"
 
 # Install Asian fonts
-sudo apk add font-noto-cjk
+install font-noto-cjk
 
 # Install window manager basics
-sudo apk add picom dmenu polybar i3lock feh sxhkd xsetroot
+install picom dmenu polybar i3lock feh sxhkd xsetroot
 
 # Install herbstluftwm
-sudo apk add herbstluftwm
+install herbstluftwm
 
 # Install bspwm
-sudo apk add bspwm
+install bspwm
 
 # Install i3
-sudo apk add i3wm
+install i3wm
 
 # Install vim
-sudo apk add vim
+install vim
 
 # Install vim plugin manager and plugins
 . "$INITDIR/common/vim.sh"
 
 # Install neovim
-# sudo apk add neovim
+# install neovim
 # . "$INITDIR/common/neovim.sh"
 
 # Install doom
 # . "$INITDIR/common/doom.sh"
 
 # Install API tester
-sudo apk add httpie
+install httpie
 # . "$INITDIR/common/postman.sh"
 
 # Set up firewall
-sudo apk add ip6tables ufw
+install ip6tables ufw
 sudo rc-update add ufw
 . "$INITDIR/common/ufw.sh"
 
 # Install docker and docker-compose
-sudo apk add docker
+install docker
 . "$INITDIR/common/docker-compose.sh"
 sudo addgroup "$USER" docker
 enable_service docker
 
 # Install browser
-sudo apk add firefox
+install firefox
 
 # Install multimedia
-sudo apk add mpv alsa-utils
+install mpv alsa-utils
 
 # Get wallpapers
 . "$INITDIR/common/wallpaper.sh"

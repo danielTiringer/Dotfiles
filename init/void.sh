@@ -13,95 +13,94 @@ echo 'The executed script will install applications on a Void based system.'
 sudo xbps-install --sync --yes --update
 
 # Install ssh
-# sudo xbps-install -S --yes openssh
+# install openssh
 
 # Install network-based tools
-sudo xbps-install -S --yes curl wget NetworkManager
+install curl wget NetworkManager
 
 # Install file system helpers
-sudo xbps-install -S --yes cifs-utils
+install cifs-utils
 
 # Install compressors
-sudo xbps-install -S --yes tar unzip p7zip
+install tar unzip p7zip
 
 # Install command-line tools
-sudo xbps-install -S --yes neofetch stow arandr autorandr jq htop tig xsel
+install neofetch stow arandr autorandr jq htop tig xsel
 
 # Install terminals
-sudo xbps-install -S --yes rxvt-unicode alacritty kitty
+install rxvt-unicode alacritty kitty
 
 # Install file manager
-sudo xbps-install -S --yes vifm
+install vifm
 
 # Install zsh, set it as default for user, install oh-my-zsh
-sudo xbps-install -S --yes zsh
+install zsh
 . "$INITDIR/common/zsh.sh"
 
 # Install the xorg graphical environment
-sudo xbps-install -S --yes xorg
+install xorg
 
 # Install fonts
-sudo xbps-install -S --yes font-awesome
+install font-awesome
 . "$INITDIR/common/fonts.sh"
 
 # Install Asian fonts
-sudo xbps-install -S --yes noto-fonts-cjk
+install noto-fonts-cjk
 
 # Install window manager basics
-sudo xbps-install -S --yes nitrogen picom dmenu xtrlock i3lock feh sxhkd rofi xsetroot polybar lm_sensors
-yay -S --yes polybar
+install nitrogen picom dmenu xtrlock i3lock feh sxhkd rofi xsetroot polybar lm_sensors
 
 # Install qtile
-# sudo xbps-install -S --yes qtile python-psutil
+# install qtile python-psutil
 
 # Install herbstluftwm
-sudo xbps-install -S --yes herbstluftwm
+install herbstluftwm
 
 # Install bspwm
-sudo xbps-install -S --yes bspwm
+install bspwm
 
 # Install i3
-sudo xbps-install -S --yes i3-gaps
+install i3-gaps
 
 # Install vim plugin manager and plugins
-sudo xbps-install -S --yes vim
+install vim
 . "$INITDIR/common/vim.sh"
 
 # Install dependencies of neovim config
-sudo xbps-install -S --yes python3-pip nodejs yarn
-sudo xbps-install -S --yes gcc
+install python3-pip nodejs yarn
+install gcc
 . "$INITDIR/common/neovim-providers.sh"
 
 # Install dependencies of neovim plugins
-sudo xbps-install -S --yes the_silver_searcher fzf ripgrep fd
+install the_silver_searcher fzf ripgrep fd
 . "$INITDIR/common/jdtls.sh"
 
 # Install neovim
-sudo xbps-install -S --yes neovim
+install neovim
 . "$INITDIR/common/neovim.sh"
 
 # Install API tester
-sudo xbps-install -S --yes httpie
+install httpie
 . "$INITDIR/common/postman.sh"
 
 # Set up firewall
-sudo xbps-install -S --yes ufw
+install ufw
 sudo xbps-reconfigure ufw
 enable_service ufw
 . "$INITDIR/common/ufw.sh"
 
 # Install docker and docker-compose
-sudo xbps-install -S --yes docker
+install docker
 . "$INITDIR/common/docker-compose.sh"
 sudo groupadd docker
 sudo usermod -aG docker "$USER"
 enable_service docker
 
 # Install browser
-sudo xbps-install -S --yes firefox
+install firefox
 
 # Install multimedia
-sudo xbps-install -S --yes mpv alsa-utils
+install mpv alsa-utils
 
 # Enable services for network management, and allow user to make changes to it
 enable_service dbus

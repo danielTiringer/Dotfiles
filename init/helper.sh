@@ -6,7 +6,7 @@ check_distro() {
   cat /etc/os-release | grep "^ID=" | cut -d "=" -f2 | tr -d '"'
 }
 
-hardware_type() {
+check_hardware_type() {
 	if [ "$(sudo dmidecode --type 1 | grep 'Family:' | awk '{$1=$1;print}')" = 'Family: MacBook Pro' ] ; then
 		echo 'MacBook'
 	fi
@@ -18,17 +18,33 @@ change_shell_for_user () {
 }
 
 enable_service() {
-    echo "Enabling and starting the {$1} service."
+    echo "Enabling and starting the ${1} service."
 
-    if [ "$(command -v systemctl)" ] ; then
+    if [ -x "$(command -v systemctl)" ] ; then
         sudo systemctl enable "$1" --now
-    elif [ "$(command -v rc-update)" ] ; then
+    elif [ -x "$(command -v rc-update)" ] ; then
         sudo rc-update add "$1" boot
         sudo service "$1" start
     elif [ -d "/etc/sv" ] ; then
         sudo ln -s /etc/sv/"$1" /var/service
     else
-        echo "Unble to enable and start the {$1} service."
+        echo "Unble to enable and start the ${1} service."
+    fi
+}
+
+install() {
+    echo "Installing the following packages: ${*}."
+
+    if [ -x "$(command -v apk)" ] ; then
+        sudo apk add "$@"
+    elif [ -x "$(command -v pacman)" ] ; then
+        sudo pacman -S --noconfirm "$@"
+    elif [ -x "$(command -v apt)" ] ; then
+        sudo apt install -yy "$@"
+    elif [ -x "$(command -v xbps-install)" ] ; then
+        sudo xbps-install -S --yes "$@"
+    else
+        echo "The following packages couldn't be installed: ${*}."
     fi
 }
 
