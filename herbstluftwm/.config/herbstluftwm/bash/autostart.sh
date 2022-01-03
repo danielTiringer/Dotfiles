@@ -3,10 +3,10 @@
 PWD=$(dirname "$0")
 
 # import configuration
-. "${PWD}/color.sh"
-. "${PWD}/config.sh"
-. "${PWD}/helper.sh"
-. "${PWD}/statup.sh"
+. "$PWD"/color.sh
+. "$PWD"/config.sh
+. "$PWD"/helper.sh
+. "$PWD"/statup.sh
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----
 # main
