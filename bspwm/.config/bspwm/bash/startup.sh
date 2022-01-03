@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 function set_mouse() {
     xsetroot -cursor_name left_ptr &

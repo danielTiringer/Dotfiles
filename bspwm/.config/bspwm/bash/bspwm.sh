@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 PWD=$(dirname "$0")
 . "$PWD"/startup.sh
