@@ -19,7 +19,7 @@ Restart=always
 [Install]
 WantedBy=sysinit.target" | sudo tee /etc/systemd/system/mbpfan.service
 
-	sudo systemctl enable mbpfan.service
+	enable_service mbpfan.service
 	sudo systemctl daemon-reload
 	sudo systemctl start mbpfan.service
 fi

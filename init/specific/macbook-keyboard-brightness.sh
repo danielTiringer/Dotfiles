@@ -4,5 +4,5 @@
 
 MACBOOK_BRIGHTNESS_LOCATION=/sys/class/leds/smc::kbd_backlight/brightness
 if [ -f "$MACBOOK_BRIGHTNESS_LOCATION" ] ; then
-	sudo chmod 777 $MACBOOK_BRIGHTNESS_LOCATION
+	sudo chmod 777 "$MACBOOK_BRIGHTNESS_LOCATION"
 fi
