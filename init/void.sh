@@ -10,7 +10,7 @@ echo 'The executed script will install applications on a Void based system.'
 . "$INITDIR/common/folders.sh"
 
 # Update the system
-sudo xbps-install --sync --yes --update
+update_system
 
 # Install ssh
 # install openssh

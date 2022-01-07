@@ -10,7 +10,7 @@ echo 'The executed script will install applications on a Debian based system.'
 . "$INITDIR/common/folders.sh"
 
 # Update the system
-sudo apt update -yy && sudo apt upgrade -yy --fix-missing
+update_system
 
 # Add the bullseye-backports repository
 echo "deb http://deb.debian.org/debian bullseye-backports main contrib non-free" | sudo tee /etc/apt/sources.list.d/bullseye-backports.list

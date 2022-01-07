@@ -21,8 +21,7 @@ sudo sed --in-place '2,6s/^# //g' /etc/apk/repositories
 sudo sed --in-place '2,6s/^#//g' /etc/apk/repositories
 
 # Update the system
-sudo apk update
-sudo apk upgrade
+update_system
 
 # Install network-based tools
 install curl

@@ -48,6 +48,23 @@ install() {
     fi
 }
 
+update_system() {
+    echo 'Updating the system...'
+
+    if [ -x "$(command -v apk)" ] ; then
+        sudo apk update
+        sudo apk upgrade
+    elif [ -x "$(command -v pacman)" ] ; then
+        sudo pacman --sync --refresh --sysupgrade --noconfirm
+    elif [ -x "$(command -v apt)" ] ; then
+        sudo apt install -yy "$@"
+    elif [ -x "$(command -v xbps-install)" ] ; then
+        sudo xbps-install -S --yes "$@"
+    else
+        echo "The following packages couldn't be installed: ${*}."
+    fi
+}
+
 install_chrome_extension () {
   preferences_dir_path="/opt/google/chrome/extensions"
   pref_file_path="$preferences_dir_path/$1.json"
