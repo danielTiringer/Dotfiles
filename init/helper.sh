@@ -57,11 +57,11 @@ update_system() {
     elif [ -x "$(command -v pacman)" ] ; then
         sudo pacman --sync --refresh --sysupgrade --noconfirm
     elif [ -x "$(command -v apt)" ] ; then
-        sudo apt install -yy "$@"
+        sudo apt update -yy && sudo apt upgrade -yy --fix-missing
     elif [ -x "$(command -v xbps-install)" ] ; then
-        sudo xbps-install -S --yes "$@"
+        sudo xbps-install --sync --yes --update
     else
-        echo "The following packages couldn't be installed: ${*}."
+        echo 'The system could not be upgraded.'
     fi
 }
 
