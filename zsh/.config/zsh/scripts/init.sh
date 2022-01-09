@@ -35,8 +35,10 @@ load_samba_credentials() {
         mkdir -p "$SAMBA_DIR"
     fi
 
-    USERNAME=$(bw get username samba)
-    PASSWORD=$(bw get password samba)
+    echo 'Enter the password for Bitwarden':
+    SESSION_KEY="$(bw unlock)"
+    USERNAME="$(bw get username samba --session $SESSION_KEY)"
+    PASSWORD="$(bw get password samba --session $SESSION_KEY)"
 
     echo "username=$USERNAME\npassword=$PASSWORD" > "$XDG_CONFIG_HOME/samba/credentials"
 }
