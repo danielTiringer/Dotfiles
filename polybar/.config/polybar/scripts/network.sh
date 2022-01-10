@@ -2,7 +2,7 @@
 
 CONNECTION='No Connection'
 
-if [ $(cat /sys/class/net/en*/operstate) = 'up' ] ; then
+if [ $(grep -r 'up' /sys/class/net/en*/operstate | wc -l) -gt 0 ] ; then
     CONNECTION=' Wired'
 fi
 
