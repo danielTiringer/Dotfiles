@@ -1,5 +1,3 @@
-require'lspconfig'.phpactor.setup{}
-
 local util = require 'lspconfig.util'
 
 return {

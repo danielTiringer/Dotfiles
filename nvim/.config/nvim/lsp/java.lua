@@ -1,80 +1,3 @@
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
--- local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
--- -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
--- local config = {
---   -- The command that starts the language server
---   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
---   cmd = {
-
---     -- 💀
---     'java', -- or '/path/to/java11_or_newer/bin/java'
---             -- depends on if `java` is in your $PATH env variable and if it points to the right version.
-
---     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
---     '-Dosgi.bundles.defaultStartLevel=4',
---     '-Declipse.product=org.eclipse.jdt.ls.core.product',
---     '-Dlog.protocol=true',
---     '-Dlog.level=ALL',
---     '-Xms1g',
---     '--add-modules=ALL-SYSTEM',
---     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
---     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-
---     -- 💀
---     -- '-jar', '/path/to/jdtls_install_location/plugins/org.eclipse.equinox.launcher_VERSION_NUMBER.jar',
---     -- '-jar', '/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
---     '-jar', '/home/daniel/.local/lib/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
---          -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
---          -- Must point to the                                                     Change this to
---          -- eclipse.jdt.ls installation                                           the actual version
-
-
---     -- 💀
---     -- '-configuration', '/usr/share/java/jdtls/config_linux',
---     '-configuration', '/home/daniel/.local/lib/jdtls/config_linux/',
---     -- '-configuration', '/path/to/jdtls_install_location/config_SYSTEM',
---                     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
---                     -- Must point to the                      Change to one of `linux`, `win` or `mac`
---                     -- eclipse.jdt.ls installation            Depending on your system.
-
-
---     -- 💀
---     -- See `data directory configuration` section in the README
---     -- '-data', '/path/to/unique/per/project/workspace/folder'
---     '-data', vim.fn.expand('~/.cache/jdtls-workspace') .. workspace_dir
---   },
-
---   -- 💀
---   -- This is the default if not provided, you can remove it. Or adjust as needed.
---   -- One dedicated LSP server & client will be started per unique root_dir
---   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
-
---   -- Here you can configure eclipse.jdt.ls specific settings
---   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
---   -- for a list of options
---   settings = {
---     java = {
---     }
---   },
-
---   capabilities = capabilities
--- }
--- -- This starts a new client & server,
--- -- or attaches to an existing client & server depending on the `root_dir`.
--- require('jdtls').start_or_attach(config)
-
--- local opts = {
---   noremap = true,
---   silent = true
--- }
-
--- vim.api.nvim_set_keymap('n', '<leader>lg', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>', opts)
--- vim.api.nvim_set_keymap('n', '<leader>lA', '<cmd>lua require(\'jdtls\').code_action9)<CR>', { silent = true })
-
-require'lspconfig'.jdtls.setup{}
-
 local util = require 'lspconfig.util'
 local handlers = require 'vim.lsp.handlers'
 
@@ -127,15 +50,6 @@ local function fix_zero_version(workspace_edit)
   return workspace_edit
 end
 
--- Compatibility shim added for breaking changes to the lsp handler signature in nvim-0.5.1
-local function remap_arguments(err, result, ctx)
-  if vim.fn.has 'nvim-0.5.1' == 1 then
-    handlers[ctx.method](err, result, ctx)
-  else
-    handlers[ctx.method](err, ctx.method, result)
-  end
-end
-
 local function on_textdocument_codeaction(err, actions, ctx)
   for _, action in ipairs(actions) do
     -- TODO: (steelsojka) Handle more than one edit?
@@ -146,15 +60,15 @@ local function on_textdocument_codeaction(err, actions, ctx)
     end
   end
 
-  remap_arguments(err, actions, ctx)
+  handlers[ctx.method](err, actions, ctx)
 end
 
 local function on_textdocument_rename(err, workspace_edit, ctx)
-  remap_arguments(err, fix_zero_version(workspace_edit), ctx)
+  handlers[ctx.method](err, fix_zero_version(workspace_edit), ctx)
 end
 
 local function on_workspace_applyedit(err, workspace_edit, ctx)
-  remap_arguments(err, fix_zero_version(workspace_edit), ctx)
+  handlers[ctx.method](err, fix_zero_version(workspace_edit), ctx)
 end
 
 -- Non-standard notification that can be used to display progress
@@ -209,7 +123,7 @@ return {
         end
       end
     end,
-    single_file_mode = true,
+    single_file_support = true,
     init_options = {
       workspace = get_workspace_dir(),
       jvm_args = {},
@@ -218,10 +132,10 @@ return {
     handlers = {
       -- Due to an invalid protocol implementation in the jdtls we have to conform these to be spec compliant.
       -- https://github.com/eclipse/eclipse.jdt.ls/issues/376
-      ['textDocument/codeAction'] = util.compat_handler(on_textdocument_codeaction),
-      ['textDocument/rename'] = util.compat_handler(on_textdocument_rename),
-      ['workspace/applyEdit'] = util.compat_handler(on_workspace_applyedit),
-      ['language/status'] = util.compat_handler(vim.schedule_wrap(on_language_status)),
+      ['textDocument/codeAction'] = on_textdocument_codeaction,
+      ['textDocument/rename'] = on_textdocument_rename,
+      ['workspace/applyEdit'] = on_workspace_applyedit,
+      ['language/status'] = vim.schedule_wrap(on_language_status),
     },
   },
   docs = {
@@ -271,4 +185,3 @@ For automatic installation you can use the following unofficial installers/launc
     },
   },
 }
-

@@ -12,13 +12,14 @@ luafile $HOME/.config/nvim/plug-config/nvim-tree.lua
 luafile $HOME/.config/nvim/keys/mappings.lua
 
 " LSP
-source $HOME/.config/nvim/plug-config/lsp-config.vim
+" source $HOME/.config/nvim/plug-config/lsp-config.vim
+luafile $HOME/.config/nvim/plug-config/lsp-config.lua
 luafile $HOME/.config/nvim/keys/lsp.lua
-" luafile $HOME/.config/nvim/lsp/java.lua
 luafile $HOME/.config/nvim/lsp/bash.lua
+luafile $HOME/.config/nvim/lsp/docker.lua
+luafile $HOME/.config/nvim/lsp/java.lua
 luafile $HOME/.config/nvim/lsp/php.lua
 luafile $HOME/.config/nvim/lsp/python.lua
-luafile $HOME/.config/nvim/lsp/typescript.lua
 
 " Themes
 source $HOME/.config/nvim/themes/onedark.vim
