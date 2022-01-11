@@ -69,15 +69,17 @@ install_chrome_extension() {
   PREFERENCES_DIR_PATH="/opt/google/chrome/extensions"
   PREF_FILE_PATH="$PREFERENCES_DIR_PATH/$1.json"
   UPLOAD_URL="https://clients2.google.com/service/update2/crx"
+
   sudo mkdir -p "$PREFERENCES_DIR_PATH"
   printf '{\n "external_update_url": "%s"\n}\n' "$UPLOAD_URL" | sudo tee "$PREF_FILE_PATH"
   echo Added \""$PREF_FILE_PATH"\" ["$2"]
 }
 
-install_firefox_addon (){
-  EXTENSION_DIR="${HOME}/.mozilla/extensions"
+install_firefox_addon() {
+  EXTENSION_DIR="$HOME/.mozilla/extensions"
   EXTENSION_FILENAME="${2}.xpi"
   UPSTREAM_URL="https://addons.mozilla.org/firefox/downloads/file"
+
   wget -O "${EXTENSION_DIR}/$EXTENSION_FILENAME" \
     "${UPSTREAM_URL}/${1}/addon-${1}-latest.xpi" ||
     exit $?
