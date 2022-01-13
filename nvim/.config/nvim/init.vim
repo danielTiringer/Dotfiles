@@ -20,6 +20,7 @@ luafile $HOME/.config/nvim/lsp/docker.lua
 luafile $HOME/.config/nvim/lsp/java.lua
 luafile $HOME/.config/nvim/lsp/php.lua
 luafile $HOME/.config/nvim/lsp/python.lua
+luafile $HOME/.config/nvim/lsp/typescript.lua
 
 " Themes
 source $HOME/.config/nvim/themes/onedark.vim
