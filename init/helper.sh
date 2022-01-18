@@ -12,7 +12,9 @@ check_hardware_type() {
 	fi
 }
 
-change_shell_for_user () {
+change_shell_for_user() {
+    echo "Changing the shell to zsh for ${USER}"
+
     LINE_NUMBER=$(grep -n "$USER" /etc/passwd | cut -d ":" -f 1)
     sudo sed -i -E "${LINE_NUMBER}s#/bin/b?ash#/bin/zsh#" /etc/passwd
 }
