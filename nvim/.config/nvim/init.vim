@@ -12,7 +12,6 @@ luafile $HOME/.config/nvim/plug-config/nvim-tree.lua
 luafile $HOME/.config/nvim/keys/mappings.lua
 
 " LSP
-" source $HOME/.config/nvim/plug-config/lsp-config.vim
 luafile $HOME/.config/nvim/plug-config/lsp-config.lua
 luafile $HOME/.config/nvim/keys/lsp.lua
 luafile $HOME/.config/nvim/lsp/bash.lua
