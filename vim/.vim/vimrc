@@ -50,17 +50,6 @@
 	" Solarized plugin to change the default colors
 	Plugin 'altercation/vim-colors-solarized'
 
-	" Emmet for easier HTML and CSS
-	  Plugin 'mattn/emmet-vim'
-
-	"	Plugin for React
-	Plugin 'maxmellon/vim-jsx-pretty'
-
-	" PHP plugins
-	Plugin 'StanAngeloff/php.vim'
-	Plugin 'jwalton512/vim-blade'
-	Plugin '2072/PHP-Indenting-for-VIm'
-
 	" All of your Plugins must be added before the following line
 	call vundle#end()            " required
 	"
@@ -157,42 +146,8 @@
 	command! W w
 	command! Q q
 
-" Emmet
-	let g:user_emmet_leader_key=','
-
 " Specific folder for viminfo
   set viminfo+=n~/.cache/viminfo
-
-" Programming language specific settings
-" =================================================================
-
-"	Go
-	au BufRead,BufNewFile *.go set filetype=go
-
-"	Typescript
-	au BufRead,BufNewFile *.ts setfiletype typescript
-
-" Javascript
-	set autoindent
-	filetype plugin indent on
-	autocmd FileType javascript setlocal smartindent
-	au BufNewFile,BufRead *.ejs set filetype=html
-	inoremap {<CR> {<CR>}<ESC>O
-	inoremap (<CR> (<CR>)<ESC>O
-	inoremap [<CR> [<CR>]<ESC>O
-
-"	Vue JS
-	au BufNewFile,BufRead *.vue setlocal filetype=vue
-	let g:vue_disable_pre_processors=1
-	autocmd FileType vue syntax sync fromstart
-
-"	Ruby
-	autocmd FileType eruby syntax sync fromstart
-	autocmd FileType eruby setlocal smartindent
-	autocmd FileType eruby inoremap ,def def<Enter><Enter>end<Esc>2k$a<Space>
-	autocmd FileType eruby inoremap ,if if<Enter><Enter>end<Esc>2k$a<Space>
-	autocmd FileType eruby inoremap ,% <%<Space>%><Enter><Enter><%<Space>end<Space>%><Esc>2k$F%hi<Space>
-	autocmd FileType eruby inoremap ,%= <%=<Space>%><Enter><Enter><%<Space>end<Space>%><Esc>2k$F%hi<Space>
 
 " Color scheme
 " ============
