@@ -24,3 +24,6 @@ XF86KbdBrightness{Up,Down}
 # PROGRAM LAUNCHERS
 ctrl + alt + f
 	firefox
+
+ctrl + alt + p
+	phpstorm
