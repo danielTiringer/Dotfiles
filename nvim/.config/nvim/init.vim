@@ -16,8 +16,6 @@ luafile $HOME/.config/nvim/plug-config/lsp-config.lua
 luafile $HOME/.config/nvim/keys/lsp.lua
 luafile $HOME/.config/nvim/lsp/bash.lua
 luafile $HOME/.config/nvim/lsp/docker.lua
-luafile $HOME/.config/nvim/lsp/java.lua
-luafile $HOME/.config/nvim/lsp/php.lua
 luafile $HOME/.config/nvim/lsp/python.lua
 luafile $HOME/.config/nvim/lsp/typescript.lua
 

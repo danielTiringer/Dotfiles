@@ -83,11 +83,13 @@ install python-pip nodejs yarn npm
 # Install dependencies of neovim plugins
 install the_silver_searcher fzf ripgrep fd
 yay -S --noconfirm ctags-git
-. "$INITDIR/common/jdtls.sh"
 
 # Install neovim
 install neovim
 . "$INITDIR/common/neovim.sh"
+
+# Install phpstorm
+yay -S --noconfirm phpstorm phpstorm-jre
 
 # Install API tester
 install httpie

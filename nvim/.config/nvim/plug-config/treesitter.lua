@@ -4,12 +4,10 @@ ts.setup {
     ensure_installed = {
       "bash",
       "html",
-      "java",
       "javascript",
       "json",
       "lua",
       "markdown",
-      "php",
       "python",
       "ruby",
       "tsx",

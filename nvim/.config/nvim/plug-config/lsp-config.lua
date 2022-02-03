@@ -28,7 +28,7 @@ vim.lsp.set_log_level("debug")
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'bashls', 'dockerls', 'jdtls', 'phpactor', 'pyright', 'tsserver' }
+local servers = { 'bashls', 'dockerls', 'pyright', 'tsserver' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
