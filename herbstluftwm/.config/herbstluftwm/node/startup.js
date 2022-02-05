@@ -5,7 +5,7 @@ const { exec } = require('child_process');
 const colors = require('./color');
 
 function setBackground() {
-    exec(`xsetroot -solid "${colors.purple}"`);
+    exec(`xsetroot -solid "${colors.blue}"`);
 }
 
 function startPanel() {
