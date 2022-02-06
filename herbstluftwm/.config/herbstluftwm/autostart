@@ -4,6 +4,8 @@ if [ -x "$(command -v node)" ] ; then
     "$XDG_CONFIG_HOME"/herbstluftwm/node/autostart.js
 elif [ -x "$(command -v python3)" ] ; then
     "$XDG_CONFIG_HOME"/herbstluftwm/python/autostart.py
+#elif [ -x "$(command -v php)" ] ; then
+#    "$XDG_CONFIG_HOME"/herbstluftwm/php/autostart.php
 else
     "$XDG_CONFIG_HOME"/herbstluftwm/bash/autostart.sh
 fi
