@@ -95,6 +95,9 @@ yay -S --noconfirm phpstorm phpstorm-jre
 install httpie
 # . "$INITDIR/common/postman.sh"
 
+# Install VPN client
+install openvpn
+
 # Set up firewall
 install ufw
 enable_service ufw
