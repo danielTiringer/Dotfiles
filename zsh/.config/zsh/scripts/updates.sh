@@ -107,7 +107,8 @@ bitwarden_cli_update() {
             rm "$BW_CLI_LOCATION"
 
             curl --fail --location "$BITWARDEN_URI" --output "$HOME"/Downloads/bitwarden.zip
-            unzip "$HOME/Downloads/bitwarden.zip" -d "$HOME"/.local/bin/
+            unzip "$HOME"/Downloads/bitwarden.zip -d "$HOME"/.local/bin/
+            rm "$HOME"/Downloads/bitwarden.zip
             sudo chmod +x "$BW_CLI_LOCATION"
 
             echo "Bitwarden cli is upgraded, the new version is: $LATEST_BITWARDEN_CLI_VERSION."
