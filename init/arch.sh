@@ -94,6 +94,9 @@ yay -S --noconfirm phpstorm phpstorm-jre
 # Install intellij
 install intellij-idea-community-edition
 
+# Install webstorm
+yay -S --noconfirm webstorm webstorm-jre
+
 # Install API tester
 install httpie
 # . "$INITDIR/common/postman.sh"
