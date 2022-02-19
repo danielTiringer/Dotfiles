@@ -99,7 +99,11 @@ yay -S --noconfirm webstorm webstorm-jre
 
 # Install API tester
 install httpie
+yay -S --noconfirm insomnia
 # . "$INITDIR/common/postman.sh"
+
+# Install database manager
+install dbeaver
 
 # Install VPN client
 install openvpn
