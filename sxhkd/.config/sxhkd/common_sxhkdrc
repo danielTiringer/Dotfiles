@@ -28,8 +28,14 @@ ctrl + alt + f
 ctrl + alt + p
 	phpstorm
 
-ctrl + alt + i
+ctrl + alt + j
 	idea
 
 ctrl + alt + w
     webstorm
+
+ctrl + alt + d
+    dbeaver
+
+ctrl + alt + i
+    insomnia
