@@ -129,6 +129,7 @@ install docker-ce docker-ce-cli containerd.io
 . "$INITDIR/common/docker-compose.sh"
 sudo groupadd docker
 sudo usermod -aG docker "$USER"
+enable_service docker
 
 # Install browser
 sudo apt update -yy && install -t unstable firefox

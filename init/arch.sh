@@ -118,6 +118,7 @@ install docker
 . "$INITDIR/common/docker-compose.sh"
 sudo groupadd docker
 sudo usermod -aG docker "$USER"
+enable_service docker
 
 # Install browser
 install firefox
