@@ -3,7 +3,7 @@
 
 restart() {
     if [ -d "/etc/systemd/" ] ; then
-        systemctl reboot
+        sudo systemctl reboot
     else
         sudo reboot
     fi
