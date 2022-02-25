@@ -104,7 +104,6 @@ sudo apt update && install yarn
 
 # Install dependencies of neovim plugins
 install silversearcher-ag fzf gripgrep fd-find
-. "$INITDIR/common/jdtls.sh"
 
 # Install neovim
 install -t unstable neovim
