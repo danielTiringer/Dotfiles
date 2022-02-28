@@ -97,7 +97,7 @@ install vim vim-gtk
 
 # Install dependencies of neovim config
 install python3-pip nodejs
-curl --silent --show-error https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+curl_default https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update && install yarn
 . "$INITDIR/common/neovim-providers.sh"
@@ -110,7 +110,7 @@ install -t unstable neovim
 . "$INITDIR/common/neovim.sh"
 
 # Enable the jetbrains repository
-curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | gpg --dearmor | sudo tee /usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg > /dev/null
+curl_default https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | gpg --dearmor | sudo tee /usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg > /dev/null
 echo "deb [signed-by=/usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg] http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com focal main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
 sudo apt update -yy
 
@@ -125,11 +125,6 @@ install webstorm
 
 # Install API tester
 install httpie
-
-echo "deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all" | sudo tee -a /etc/apt/sources.list.d/insomnia.list
-sudo apt update -yy
-install insomnia
-
 # . "$INITDIR/common/postman.sh"
 
 # Install database manager
@@ -145,7 +140,7 @@ enable_service ufw
 
 # Install docker and docker-compose
 install apt-transport-https ca-certificates curl gnupg2 software-properties-common
-curl --fail --silent --show-error --location https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+curl_default https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 echo "deb http://download.docker.com/linux/debian $(lsb_release --codename --short) stable" | sudo tee /etc/apt/sources.list.d/docker.list
 sudo apt update -yy
 install docker-ce docker-ce-cli containerd.io
