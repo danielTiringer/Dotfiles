@@ -50,6 +50,10 @@ install() {
     fi
 }
 
+curl_default() {
+    curl --fail --silent --show-error --location $1
+}
+
 update_system() {
     echo 'Updating the system...'
 
