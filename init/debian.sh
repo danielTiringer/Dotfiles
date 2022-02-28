@@ -125,6 +125,12 @@ install webstorm
 
 # Install API tester
 install httpie
+
+curl_default - https://insomnia.rest/keys/debian-public.key.asc | sudo apt-key add -
+echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" | sudo tee -a /etc/apt/sources.list.d/insomnia.list
+sudo apt update -yy
+install insomnia
+
 # . "$INITDIR/common/postman.sh"
 
 # Install database manager
