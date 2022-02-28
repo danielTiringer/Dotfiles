@@ -112,7 +112,7 @@ install -t unstable neovim
 # Enable the jetbrains repository
 curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | gpg --dearmor | sudo tee /usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg > /dev/null
 echo "deb [signed-by=/usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg] http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com focal main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
-sudo apt update
+sudo apt update -yy
 
 # Install phpstorm
 install phpstorm
@@ -126,6 +126,12 @@ install webstorm
 # Install API tester
 install httpie
 # . "$INITDIR/common/postman.sh"
+
+# Install database manager
+curl_default https://dbeaver.io/debs/dbeaver.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/dbeaver.gpg
+echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+sudo apt update -yy
+install dbeaver-ce
 
 # Set up firewall
 install ufw
