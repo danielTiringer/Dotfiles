@@ -125,6 +125,7 @@ install webstorm
 
 # Install API tester
 install httpie
+. "$INITDIR/common/insomnia.sh"
 # . "$INITDIR/common/postman.sh"
 
 # Install database manager

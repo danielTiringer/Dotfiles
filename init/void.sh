@@ -81,7 +81,8 @@ install neovim
 
 # Install API tester
 install httpie
-. "$INITDIR/common/postman.sh"
+. "$INITDIR/common/insomnia.sh"
+# . "$INITDIR/common/postman.sh"
 
 # Set up firewall
 install ufw
