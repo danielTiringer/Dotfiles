@@ -120,10 +120,6 @@
 	let g:airline_symbols.readonly = ''
 	let g:airline_symbols.linenr = ''
 
-"	Copy and paste to and from Vim
-	vnoremap <C-c> "+y
-	map <C-v> "+P
-
 "	Setting tab to 4 spaces worth, indent to 4 spaces, tab to the next indent
 	set tabstop=4 shiftwidth=4 smarttab
 
