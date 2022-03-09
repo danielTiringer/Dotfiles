@@ -23,6 +23,7 @@ alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 
 # Aliases to keep the $HOME directory cleaner:
 alias dosbox="dosbox -conf $XDG_CONFIG_HOME/dosbox/dosbox-0.74-3.conf"
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
 
 # Aliases used for coding
 alias sail='[ -f sail ] && zsh sail || zsh vendor/bin/sail'
