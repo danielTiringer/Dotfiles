@@ -26,6 +26,7 @@ install tar unzip unrar p7zip
 
 # Install command-line tools
 install neofetch stow arandr autorandr jq htop tig xsel
+. "$INITDIR/common/tig.sh"
 
 # Install build tools
 install base-devel

@@ -31,6 +31,7 @@ install cifs-utils
 
 # Install command line tools
 install neofetch stow arandr jq htop tig xsel
+. "$INITDIR/common/tig.sh"
 
 # Install terminals
 install rxvt-unicode kitty

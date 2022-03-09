@@ -43,6 +43,7 @@ install unzip unrar-free p7zip-full xclip libclipboard-perl
 
 # Install command line tools
 install neofetch stow arandr autorandr jq htop tig
+. "$INITDIR/common/tig.sh"
 
 # Install Debian-related tools
 install apt-show-versions gdebi
