@@ -14,6 +14,7 @@ cp gnupg/.config/gnupg/gpg.conf ~/.config/gnupg
 stow -v -R herbstluftwm
 stow -v -R i3
 stow -v -R kitty
+stow -v -R npm
 stow -v -R nvim
 stow -v -R qtile
 stow -v -R picom
