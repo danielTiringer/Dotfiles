@@ -159,6 +159,12 @@ enable_service docker
 # Install browser
 sudo apt update -yy && install -t unstable firefox
 
+sudo apt install apt-transport-https curl
+sudo curl_default https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg --output /usr/share/keyrings/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+sudo apt update -yy
+install brave-browser
+
 # Install multimedia
 install  alsa-utils pulsemixer mpv
 
