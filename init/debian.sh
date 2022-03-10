@@ -13,17 +13,7 @@ echo 'The executed script will install applications on a Debian based system.'
 update_system
 
 # Add the bullseye-backports repository
-echo "deb http://deb.debian.org/debian bullseye-backports main contrib non-free" | sudo tee /etc/apt/sources.list.d/bullseye-backports.list
-
-# Enable the unstable (sid) repository
-echo 'deb http://deb.debian.org/debian/ unstable main contrib non-free' | sudo tee /etc/apt/sources.list.d/unstable.list
-echo 'Package: *
-Pin: release a=stable
-Pin-Priority: 900
-
-Package: *
-Pin: release a=unstable
-Pin-Priority: 10' | sudo tee /etc/apt/preferences.d/99pin-unstable
+#echo "deb http://deb.debian.org/debian bullseye-backports main contrib non-free" | sudo tee /etc/apt/sources.list.d/bullseye-backports.list
 
 # Install ssh
 install openssh-server
@@ -97,18 +87,14 @@ install vim vim-gtk
 . "$INITDIR/common/vim.sh"
 
 # Install dependencies of neovim config
-install python3-pip nodejs
+install python3-pip nodejs npm
 curl_default https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update && install yarn
 . "$INITDIR/common/neovim-providers.sh"
 
 # Install dependencies of neovim plugins
-install silversearcher-ag fzf gripgrep fd-find
-
-# Install neovim
-install -t unstable neovim
-. "$INITDIR/common/neovim.sh"
+install silversearcher-ag fzf ripgrep fd-find
 
 # Enable the jetbrains repository
 curl_default https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | gpg --dearmor | sudo tee /usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg > /dev/null
@@ -157,10 +143,8 @@ sudo usermod -aG docker "$USER"
 enable_service docker
 
 # Install browser
-sudo apt update -yy && install -t unstable firefox
-
 sudo apt install apt-transport-https curl
-sudo curl_default https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg --output /usr/share/keyrings/brave-browser-archive-keyring.gpg
+sudo curl -fsSL https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg --output /usr/share/keyrings/brave-browser-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update -yy
 install brave-browser
@@ -186,6 +170,24 @@ if [ "$(get_hardware_type)" = 'MacBook' ] ; then
 	. "$INITDIR/specific/macbook-fan.sh"
 	. "$INITDIR/specific/macbook-keyboard-brightness.sh"
 fi
+
+# Enable the unstable (sid) repository
+echo 'deb http://deb.debian.org/debian/ unstable main contrib non-free' | sudo tee /etc/apt/sources.list.d/unstable.list
+echo 'Package: *
+Pin: release a=stable
+Pin-Priority: 900
+
+Package: *
+Pin: release a=unstable
+Pin-Priority: 10' | sudo tee /etc/apt/preferences.d/99pin-unstable
+sudo apt update -yy
+
+# Install programs from the unstable repo
+install -t unstable firefox
+
+# Install neovim
+install -t unstable neovim
+. "$INITDIR/common/neovim.sh"
 
 # Install complete
 . "$INITDIR/common/restart.sh"
