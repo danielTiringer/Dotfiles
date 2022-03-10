@@ -25,6 +25,9 @@ XF86KbdBrightness{Up,Down}
 ctrl + alt + f
 	firefox
 
+ctrl + alt + b
+    brave
+
 ctrl + alt + p
 	phpstorm
 
