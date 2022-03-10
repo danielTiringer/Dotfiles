@@ -123,6 +123,7 @@ enable_service docker
 
 # Install browser
 install firefox
+yay -S --noconfirm brave-bin
 
 # Install multimedia
 install mpv alsa-utils
