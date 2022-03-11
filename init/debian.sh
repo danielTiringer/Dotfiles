@@ -116,8 +116,7 @@ install webstorm
 
 # Install API tester
 install httpie
-. "$INITDIR/common/insomnia.sh"
-# . "$INITDIR/common/postman.sh"
+. "$INITDIR/common/postman.sh"
 
 # Install database manager
 curl_default https://dbeaver.io/debs/dbeaver.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/dbeaver.gpg
@@ -143,7 +142,9 @@ sudo usermod -aG docker "$USER"
 enable_service docker
 
 # Install browser
-sudo apt install apt-transport-https curl
+install firefox-esr
+
+install apt-transport-https curl
 sudo curl -fsSL https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg --output /usr/share/keyrings/brave-browser-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update -yy
@@ -172,22 +173,21 @@ if [ "$(get_hardware_type)" = 'MacBook' ] ; then
 fi
 
 # Enable the unstable (sid) repository
-echo 'deb http://deb.debian.org/debian/ unstable main contrib non-free' | sudo tee /etc/apt/sources.list.d/unstable.list
-echo 'Package: *
-Pin: release a=stable
-Pin-Priority: 900
+#echo 'deb http://deb.debian.org/debian/ unstable main contrib non-free' | sudo tee /etc/apt/sources.list.d/unstable.list
+#echo 'Package: *
+#Pin: release a=stable
+#Pin-Priority: 900
 
-Package: *
-Pin: release a=unstable
-Pin-Priority: 10' | sudo tee /etc/apt/preferences.d/99pin-unstable
-sudo apt update -yy
+#Package: *
+#Pin: release a=unstable
+#Pin-Priority: 10' | sudo tee /etc/apt/preferences.d/99pin-unstable
+#sudo apt update -yy
 
 # Install programs from the unstable repo
-install -t unstable firefox
 
 # Install neovim
-install -t unstable neovim
-. "$INITDIR/common/neovim.sh"
+#install -t unstable neovim
+#. "$INITDIR/common/neovim.sh"
 
 # Install complete
 . "$INITDIR/common/restart.sh"
