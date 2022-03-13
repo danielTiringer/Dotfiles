@@ -2,8 +2,8 @@
 # Prompt the user to restart the computer
 
 restart() {
-    if [ -d "/etc/systemd/" ] ; then
-        systemctl reboot
+    if [ -d "/etc/systemd/" ] && [ -d "/etc/apt" ] ; then
+        sudo systemctl reboot
     else
         sudo reboot
     fi
