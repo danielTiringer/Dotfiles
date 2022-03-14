@@ -83,8 +83,7 @@ install vim
 # . "$INITDIR/common/doom.sh"
 
 # Install API tester
-install httpie
-# . "$INITDIR/common/postman.sh"
+. "$INITDIR/common/postman.sh"
 
 # Set up firewall
 install ip6tables ufw

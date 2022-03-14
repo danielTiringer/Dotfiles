@@ -115,7 +115,6 @@ install intellij-idea-community
 install webstorm
 
 # Install API tester
-install httpie
 . "$INITDIR/common/postman.sh"
 
 # Install database manager

@@ -99,7 +99,6 @@ install intellij-idea-community-edition
 yay -S --noconfirm webstorm webstorm-jre
 
 # Install API tester
-install httpie
 yay -S --noconfirm insomnia
 # . "$INITDIR/common/postman.sh"
 

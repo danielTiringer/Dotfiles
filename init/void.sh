@@ -81,7 +81,6 @@ install neovim
 . "$INITDIR/common/neovim.sh"
 
 # Install API tester
-install httpie
 . "$INITDIR/common/insomnia.sh"
 # . "$INITDIR/common/postman.sh"
 
