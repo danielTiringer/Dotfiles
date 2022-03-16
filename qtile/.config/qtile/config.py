@@ -21,7 +21,7 @@ with open("/etc/os-release") as f:
 
 myTerm = "urxvt"
 
-if distribution in ["arch", "debian"]:
+if distribution in ["arch", "debian", "void"]:
     myTerm = "alacritty"
 if distribution == "alpine":
     myTerm = "kitty"
