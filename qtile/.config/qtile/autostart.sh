@@ -1,3 +1,5 @@
-#! /bin/bash
+#!/usr/bin/env bash
+
 picom &
-nitrogen --restore &
+feh --no-fehbg --bg-scale "$HOME/Pictures/dark-leaves.jpg" &
+sxhkd -c $XDG_CONFIG_HOME/sxhkd/common_sxhkdrc &

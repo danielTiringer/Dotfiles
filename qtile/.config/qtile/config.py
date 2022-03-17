@@ -28,14 +28,6 @@ if distribution == "alpine":
 
 keys = [
          # The essentials
-         Key([mod], "Return",
-             lazy.spawn(myTerm),
-             desc='Launches My Terminal'
-             ),
-         Key([mod, "shift"], "Return",
-             lazy.spawn("dmenu_run -p 'Run: '"),
-             desc='Dmenu Run Launcher'
-             ),
          Key([mod], "Tab",
              lazy.next_layout(),
              desc='Toggle through layouts'
