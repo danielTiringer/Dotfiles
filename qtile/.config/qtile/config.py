@@ -122,11 +122,6 @@ keys = [
              lazy.layout.toggle_split(),
              desc='Toggle between split and unsplit sides of stack'
              ),
-         # My applications launched with SUPER + ALT + KEY
-         Key([mod, "mod1"], "f",
-             lazy.spawn(myTerm+" -e firefox"),
-             desc='firefox'
-             ),
 ]
 
 group_names = [("DEV", {'layout': 'tile'}),
@@ -135,7 +130,7 @@ group_names = [("DEV", {'layout': 'tile'}),
                ("DOC", {'layout': 'tile'}),
                ("WWW", {'layout': 'tile'}),
                ("TEST", {'layout': 'tile'}),
-               ("VIDEO", {'layout': 'tile'}),
+               ("MEDIA", {'layout': 'tile'}),
                ("VMAN", {'layout': 'tile'}),
                ("HOMELAB", {'layout': 'tile'})]
 
