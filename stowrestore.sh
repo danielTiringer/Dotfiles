@@ -8,7 +8,6 @@ stow -v -R bash
 stow -v -R bspwm
 stow -v -R composer
 stow -v -R dosbox
-stow -v -R emacs
 stow -v -R gitdir
 cp gnupg/.config/gnupg/gpg.conf ~/.config/gnupg
 stow -v -R herbstluftwm
