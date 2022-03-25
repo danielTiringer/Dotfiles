@@ -140,6 +140,9 @@ sudo groupadd docker
 sudo usermod -aG docker "$USER"
 enable_service docker
 
+# Install configuration management tool
+install ansible
+
 # Install browser
 install firefox-esr
 
