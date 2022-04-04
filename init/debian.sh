@@ -114,6 +114,9 @@ install intellij-idea-community
 # Install webstorm
 install webstorm
 
+# Install pycharm
+install pycharm-community
+
 # Install API tester
 . "$INITDIR/common/postman.sh"
 
