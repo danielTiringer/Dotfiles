@@ -99,8 +99,8 @@ install intellij-idea-community-edition
 yay -S --noconfirm webstorm webstorm-jre
 
 # Install API tester
-yay -S --noconfirm insomnia
-# . "$INITDIR/common/postman.sh"
+# yay -S --noconfirm insomnia
+. "$INITDIR/common/postman.sh"
 
 # Install database manager
 install dbeaver
