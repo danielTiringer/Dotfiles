@@ -79,9 +79,6 @@ install vim
 # install neovim
 # . "$INITDIR/common/neovim.sh"
 
-# Install doom
-# . "$INITDIR/common/doom.sh"
-
 # Install API tester
 . "$INITDIR/common/postman.sh"
 
