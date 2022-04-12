@@ -51,7 +51,7 @@ install() {
 }
 
 curl_default() {
-    curl --fail --silent --show-error --location $1
+    curl --fail --silent --show-error --location $@
 }
 
 update_system() {
