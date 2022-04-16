@@ -97,6 +97,9 @@ sudo groupadd docker
 sudo usermod -aG docker "$USER"
 enable_service docker
 
+# Install configuration management tool
+pip install --user ansible
+
 # Install browser
 install firefox
 
