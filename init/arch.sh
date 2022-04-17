@@ -19,7 +19,7 @@ install openssh
 install curl wget networkmanager
 
 # Install file system helpers
-install cifs-utils
+install cifs-utils dosfstools
 
 # Install compressors
 install tar unzip unrar p7zip
