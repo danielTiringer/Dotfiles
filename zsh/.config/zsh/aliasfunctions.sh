@@ -3,6 +3,7 @@
 . "$ZDOTDIR"/scripts/init.sh
 . "$ZDOTDIR"/scripts/docker_run.sh
 . "$ZDOTDIR"/scripts/extract.sh
+. "$ZDOTDIR"/scripts/rpi-imager.sh
 . "$ZDOTDIR"/scripts/restart-shutdown.sh
 . "$ZDOTDIR"/scripts/shellcheck.sh
 . "$ZDOTDIR"/scripts/updates.sh
