@@ -93,6 +93,10 @@ install docker
 sudo addgroup "$USER" docker
 enable_service docker
 
+# Install configuration management tools
+pip install --user ansible
+. "$INITDIR/common/packer.sh"
+
 # Install browser
 install firefox
 

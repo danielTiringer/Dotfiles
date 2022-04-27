@@ -99,6 +99,7 @@ enable_service docker
 
 # Install configuration management tool
 pip install --user ansible
+. "$INITDIR/common/packer.sh"
 
 # Install browser
 install firefox

@@ -120,6 +120,9 @@ sudo groupadd docker
 sudo usermod -aG docker "$USER"
 enable_service docker
 
+# Install configuration management tools
+. "$INITDIR/common/packer.sh"
+
 # Install browser
 install firefox
 yay -S --noconfirm brave-bin
