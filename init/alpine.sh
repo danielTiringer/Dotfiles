@@ -95,7 +95,8 @@ enable_service docker
 
 # Install configuration management tools
 pip install --user ansible
-. "$INITDIR/common/packer.sh"
+. "$INITDIR/common/hashicorp.sh"
+install_hashicorp_product 'packer'
 
 # Install browser
 install firefox

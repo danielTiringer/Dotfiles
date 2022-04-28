@@ -121,7 +121,8 @@ sudo usermod -aG docker "$USER"
 enable_service docker
 
 # Install configuration management tools
-. "$INITDIR/common/packer.sh"
+. "$INITDIR/common/hashicorp.sh"
+install_hashicorp_product 'packer'
 
 # Install browser
 install firefox
