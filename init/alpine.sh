@@ -76,7 +76,6 @@ install vim
 . "$INITDIR/common/vim.sh"
 
 # Install neovim
-# install neovim
 # . "$INITDIR/common/neovim.sh"
 
 # Install API tester
