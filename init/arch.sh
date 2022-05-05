@@ -121,7 +121,6 @@ sudo usermod -aG docker "$USER"
 enable_service docker
 
 # Install configuration management tools
-. "$INITDIR/common/hashicorp.sh"
 install packer
 install terraform
 
