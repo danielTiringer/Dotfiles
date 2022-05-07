@@ -94,7 +94,6 @@ enable_service docker
 
 # Install configuration management tools
 pip install --user ansible
-. "$INITDIR/common/hashicorp.sh"
 install packer
 install terraform
 
