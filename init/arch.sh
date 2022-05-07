@@ -121,6 +121,7 @@ sudo usermod -aG docker "$USER"
 enable_service docker
 
 # Install configuration management tools
+install ansible
 install packer
 install terraform
 
