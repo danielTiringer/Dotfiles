@@ -16,7 +16,7 @@ update_system
 #echo "deb http://deb.debian.org/debian bullseye-backports main contrib non-free" | sudo tee /etc/apt/sources.list.d/bullseye-backports.list
 
 # Install ssh
-install openssh-server
+install openssh-server sshpass
 
 # Install network-based tools
 install curl wget network-manager

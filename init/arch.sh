@@ -13,7 +13,7 @@ echo 'The executed script will install applications on an Arch based system.'
 update_system
 
 # Install ssh
-install openssh
+install openssh sshpass
 
 # Install network-based tools
 install curl wget networkmanager

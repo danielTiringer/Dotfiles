@@ -23,6 +23,9 @@ sudo sed --in-place '2,6s/^#//g' /etc/apk/repositories
 # Update the system
 update_system
 
+# Install ssh
+install openssh sshpass
+
 # Install network-based tools
 install curl
 
