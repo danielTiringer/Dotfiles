@@ -63,7 +63,7 @@ update_neovim() {
 
 shell_update() {
   if [ -d "$HOME/.config/oh-my-zsh" ] ; then
-    omz update
+    "$ZSH/tools/upgrade.sh"
   fi
 }
 
