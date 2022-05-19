@@ -9,7 +9,7 @@ stow -v -R bspwm
 stow -v -R composer
 stow -v -R dosbox
 stow -v -R gitdir
-cp gnupg/.config/gnupg/gpg.conf ~/.config/gnupg
+cp gnupg/.config/gnupg/gpg.conf ~/.config/gnupg/gpg.conf
 stow -v -R herbstluftwm
 stow -v -R i3
 stow -v -R kitty
