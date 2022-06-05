@@ -126,13 +126,13 @@ echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list
 sudo apt update -yy
 install dbeaver-ce
 
+# Install VPN client
+install openvpn
+
 # Set up firewall
 install ufw
 enable_service ufw
 . "$INITDIR/common/ufw.sh"
-
-# Install vpn
-install openvpn
 
 # Install docker and docker-compose
 install apt-transport-https ca-certificates curl gnupg2 software-properties-common
