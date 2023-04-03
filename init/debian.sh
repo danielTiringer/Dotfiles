@@ -88,9 +88,9 @@ install vim vim-gtk
 
 # Install dependencies of neovim config
 install python3-pip nodejs npm
-curl_default https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update && install yarn
+curl_defaulthttps://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list > /dev/null
+sudo apt update -y && install yarn
 . "$INITDIR/common/neovim-providers.sh"
 
 # Install dependencies of neovim plugins
