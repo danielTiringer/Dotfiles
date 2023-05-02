@@ -12,6 +12,26 @@ if test ! $(which brew); then
   brew update
 fi
 
+# Install intellij
+if [ ! -x "/Applications/IntelliJ IDEA CE.app" ] ; then
+  brew install --cask intellij-idea-ce
+fi
+
+# Install postman
+if [ ! -x "/Applications/Postman.app" ] ; then
+  brew install --cask postman
+fi
+
+# Install dbeaver
+if [ ! -x "/Applications/DBeaver.app" ] ; then
+  brew install --cask dbeaver-community
+fi
+
+# Install docker
+[ if test ! $(which docker); then
+  brew install --cask docker
+fi
+
 # Install chrome
 if [ ! -x "/Applications/Google Chrome.app" ] ; then
   brew install --cask google-chrome
