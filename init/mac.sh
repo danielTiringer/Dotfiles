@@ -12,6 +12,11 @@ if test ! $(which brew); then
   brew update
 fi
 
+# Install iterm2
+if [ ! -x "/Applications/iTerm.app" ] ; then
+  brew install --cask iterm2
+fi
+
 # Install intellij
 if [ ! -x "/Applications/IntelliJ IDEA CE.app" ] ; then
   brew install --cask intellij-idea-ce
@@ -28,7 +33,7 @@ if [ ! -x "/Applications/DBeaver.app" ] ; then
 fi
 
 # Install docker
-[ if test ! $(which docker); then
+if [ ! -x "/Applications/Docker.app" ] ; then
   brew install --cask docker
 fi
 
