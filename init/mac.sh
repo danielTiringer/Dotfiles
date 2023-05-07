@@ -5,51 +5,74 @@
 # Install prompt
 echo 'The executed script will install applications on a MacOS based system.'
 
+# Load helper functions
+apply_brew_tap() {
+  if brew tap | grep "$1" > /dev/null ; then
+    echo "Tap $1 is aready applied"
+  else
+    brew tap "$1"
+  fi
+}
+
+install_brew_formula() {
+  if brew list --formula | grep "$1" > /dev/null ; then
+    echo "Formula $1 is already installed"
+  else
+    brew install $1
+  fi
+}
+
+install_brew_cask() {
+  if brew list --casks | grep "$1" > /dev/null ; then
+    echo "Cask $1 is already installed"
+  else
+    brew install --cask "$1"
+  fi
+}
+
 # Install homebrew
 if test ! $(which brew); then
   sudo git # Need to get into sudo for brew, but not run it with sudo... weird stuff
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew update
+else
+  echo "Homebrew is already installed"
 fi
 
 # Install iterm2
-if [ ! -x "/Applications/iTerm.app" ] ; then
-  brew install --cask iterm2
+install_brew_cask iterm2
+
+# Install nerd fonts
+apply_brew_tap homebrew/cask-fonts
+
+install_brew_cask font-dejavu-sans-mono-nerd-font
+install_brew_cask font-jetbrains-mono-nerd-font
+install_brew_cask font-ubuntu-nerd-font
+
+# Install oh-my-zsh
+if [ ! -x "$HOME/.oh-my-zsh" ] ; then
+  git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME"/.oh-my-zsh
+  git clone https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 fi
 
 # Install intellij
-if [ ! -x "/Applications/IntelliJ IDEA CE.app" ] ; then
-  brew install --cask intellij-idea-ce
-fi
+install_brew_cask intellij-idea-ce
 
 # Install postman
-if [ ! -x "/Applications/Postman.app" ] ; then
-  brew install --cask postman
-fi
+install_brew_cask postman
 
 # Install dbeaver
-if [ ! -x "/Applications/DBeaver.app" ] ; then
-  brew install --cask dbeaver-community
-fi
+install_brew_cask dbeaver
 
 # Install docker
-if [ ! -x "/Applications/Docker.app" ] ; then
-  brew install --cask docker
-fi
+install_brew_cask docker
 
 # Install chrome
-if [ ! -x "/Applications/Google Chrome.app" ] ; then
-  brew install --cask google-chrome
-fi
+install_brew_cask google-chrome
 
 # Install firefox
-if [ ! -x "/Applications/Firefox.app" ] ; then
-  curl \
-    --location \
-    "https://download.mozilla.org/?product=firefox-latest-ssl&os=osx&lang=en-US" \
-     --output "$HOME"/Downloads/Firefox.dmg
-  hdiutil attach Firefox.dmg -nobrowse -readonly
-  cp -R /Volumes/Firefox/Firefox.app /Applications/
-  hdiutil detach /Volumes/Firefox/ -force
-  rm -r "$HOME"/Downloads/Firefox.dmg
-fi
+install_brew_cask firefox
+
+# Install gnu stow
+install_brew_formula stow
