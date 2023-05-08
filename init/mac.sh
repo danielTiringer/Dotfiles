@@ -38,6 +38,9 @@ fi
 # Install intellij
 install_brew_cask intellij-idea-ce
 
+# Install phpstorm
+install_brew_cask phpstorm
+
 # Install postman
 install_brew_cask postman
 
