@@ -5,8 +5,9 @@ sleep 1
 
 remove_local_files() {
   local files=(
-    ".zshrc"
+    ".ideavimrc"
     ".vimrc"
+    ".zshrc"
   )
   local folders=(
     ".vim"
