@@ -22,6 +22,7 @@ remove_local_files() {
 remove_local_files
 
 stow -v -R gitdir
+stow -v -R powerlevel10k
 stow -v -R vim
 stow -v -R zsh_mac
 

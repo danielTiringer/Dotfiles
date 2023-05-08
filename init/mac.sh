@@ -25,6 +25,7 @@ apply_brew_tap homebrew/cask-fonts
 
 install_brew_cask font-dejavu-sans-mono-nerd-font
 install_brew_cask font-jetbrains-mono-nerd-font
+install_brew_cask font-meslo-lg-nerd-font
 install_brew_cask font-ubuntu-nerd-font
 
 # Install oh-my-zsh
