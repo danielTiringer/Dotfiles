@@ -12,4 +12,6 @@ alias ls='ls --color=auto'
 alias mv='mv -v --interactive'
 alias rm='rm -v --interactive=once'
 
-. "$ZDOTDIR"/work_settings
+if [ -e "$ZDOTDIR"/work_settings ] ; then
+  . "$ZDOTDIR"/work_settings
+fi
