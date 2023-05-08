@@ -1,12 +1,11 @@
 #!/bin/sh
 
-echo 'Restoring all the regular config files.'
+echo 'Restoring all the regular config files'
 sleep 1
 
 stow -v -R alacritty
 stow -v -R bash
 stow -v -R bspwm
-stow -v -R composer
 stow -v -R dosbox
 stow -v -R gitdir
 cp gnupg/.config/gnupg/gpg.conf ~/.config/gnupg/gpg.conf
@@ -28,6 +27,6 @@ stow -v -R vim
 stow -v -R wget
 stow -v -R xinitrc
 stow -v -R xresources
-stow -v -R zsh
+stow -v -R zsh_linux
 
-echo 'Restoration completed.'
+echo "Restoration complete"

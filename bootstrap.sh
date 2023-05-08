@@ -20,6 +20,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]] ; then
 elif [[ "$OSTYPE" == "darwin"* ]] ; then
   DOTFILEDIR=$(cd "$(dirname "$0")"; pwd -P)
   INITDIR="$DOTFILEDIR/init"
+  STOW_DIR="$DOTFILEDIR"
   . "$INITDIR/mac.sh"
 else
   echo "No install script was found for the $OSTYPE."

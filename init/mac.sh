@@ -76,3 +76,10 @@ install_brew_cask firefox
 
 # Install gnu stow
 install_brew_formula stow
+
+# Stow dotfiles
+. "$STOW_DIR/stow_mac.sh"
+
+# Install vim dependencies
+. "$INITDIR/common/vim.sh"
+. "$INITDIR/common/editor-installs.sh"
