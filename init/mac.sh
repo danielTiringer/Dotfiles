@@ -50,6 +50,9 @@ install_brew_cask dbeaver
 # Install docker
 install_brew_cask docker
 
+# Install configuration tools
+install_brew_formula ansible
+
 # Install chrome
 install_brew_cask google-chrome
 
