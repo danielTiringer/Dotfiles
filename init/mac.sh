@@ -45,7 +45,7 @@ install_brew_cask phpstorm
 install_brew_cask postman
 
 # Install dbeaver
-install_brew_cask dbeaver
+install_brew_cask dbeaver-community
 
 # Install docker
 install_brew_cask docker
