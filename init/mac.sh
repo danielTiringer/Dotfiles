@@ -17,6 +17,9 @@ else
   echo "Homebrew is already installed"
 fi
 
+# Install macs fan control
+# install_brew_cask macs-fan-controll
+
 # Install iterm2
 install_brew_cask iterm2
 
