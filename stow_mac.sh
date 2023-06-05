@@ -24,6 +24,7 @@ remove_local_files
 
 stow -v -R gitdir
 stow -v -R powerlevel10k
+cp ssh/.ssh/config ~/.ssh
 stow -v -R vim
 stow -v -R zsh_mac
 
