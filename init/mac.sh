@@ -55,6 +55,8 @@ install_brew_cask docker
 
 # Install configuration tools
 install_brew_formula ansible
+install_brew_formula packer
+install_brew_formula terraform
 
 # Install chrome
 install_brew_cask google-chrome
