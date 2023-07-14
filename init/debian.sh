@@ -12,9 +12,6 @@ echo 'The executed script will install applications on a Debian based system.'
 # Update the system
 update_system
 
-# Add the bullseye-backports repository
-#echo "deb http://deb.debian.org/debian bullseye-backports main contrib non-free" | sudo tee /etc/apt/sources.list.d/bullseye-backports.list
-
 # Install ssh
 install openssh-server sshpass
 
@@ -24,9 +21,10 @@ install curl wget network-manager
 # Install file system helpers
 install nfs-common
 install cifs-utils # For smb
-install exfat-fuse exfat-utils # For FAT32 SD cards
+install exfat-fuse # For FAT32 SD cards
 install cryptsetup # For encrypted drives
 install ntfs-3g # For NTFS based external drives
+
 
 # Install basic tools for file management
 install unzip unrar-free p7zip-full xclip libclipboard-perl
@@ -47,8 +45,8 @@ install bc
 
 # Install terminals
 install rxvt-unicode
-install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-. "$INITDIR/common/alacritty.sh"
+#install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+install alacritty
 
 # Install file manager
 install vifm
@@ -56,6 +54,8 @@ install vifm
 # Install zsh, make it the default shell, and install oh-my-zsh
 install zsh
 . "$INITDIR/common/zsh.sh"
+
+exit 0
 
 # Install the xorg graphical environment
 install xorg
@@ -88,7 +88,7 @@ install vim vim-gtk
 
 # Install dependencies of neovim config
 install python3-pip nodejs npm
-sudo curl_default https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+curl_default https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
 echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list > /dev/null
 sudo apt update -y && install yarn
 . "$INITDIR/common/neovim-providers.sh"
@@ -153,7 +153,7 @@ enable_service docker
 
 # Install configuration management tools
 install ansible
-sudo curl_default https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+curl_default https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
 gpg --no-default-keyring --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg --fingerprint
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update -yy
@@ -164,7 +164,7 @@ install terraform
 install firefox-esr
 
 install apt-transport-https curl
-sudo curl_default -o /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+curl_default -o /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update -yy
 install brave-browser
@@ -190,23 +190,6 @@ if [ "$(get_hardware_type)" = 'MacBook' ] ; then
 	. "$INITDIR/specific/macbook-fan.sh"
 	. "$INITDIR/specific/macbook-keyboard-brightness.sh"
 fi
-
-# Enable the unstable (sid) repository
-#echo 'deb http://deb.debian.org/debian/ unstable main contrib non-free' | sudo tee /etc/apt/sources.list.d/unstable.list
-#echo 'Package: *
-#Pin: release a=stable
-#Pin-Priority: 900
-
-#Package: *
-#Pin: release a=unstable
-#Pin-Priority: 10' | sudo tee /etc/apt/preferences.d/99pin-unstable
-#sudo apt update -yy
-
-# Install programs from the unstable repo
-
-# Install neovim
-#install -t unstable neovim
-#. "$INITDIR/common/neovim.sh"
 
 # Install complete
 . "$INITDIR/common/restart.sh"
