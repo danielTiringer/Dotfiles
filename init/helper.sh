@@ -3,13 +3,13 @@
 # Functions used to aid the bootstrap script
 
 check_distro() {
-  cat /etc/os-release | grep "^ID=" | cut -d "=" -f2 | tr -d '"'
+    cat /etc/os-release | grep "^ID=" | cut -d "=" -f2 | tr -d '"'
 }
 
 check_hardware_type() {
-	if [ "$(sudo dmidecode --type 1 | grep 'Family:' | awk '{$1=$1;print}')" = 'Family: MacBook Pro' ] ; then
-		echo 'MacBook'
-	fi
+    if [ "$(sudo dmidecode --type 1 | grep 'Family:' | awk '{$1=$1;print}')" = 'Family: MacBook Pro' ] ; then
+        echo 'MacBook'
+    fi
 }
 
 change_shell_for_user() {
@@ -32,6 +32,8 @@ enable_service() {
     else
         echo "Unble to enable and start the ${1} service."
     fi
+
+    echo "The ${1} service was enabled."
 }
 
 install() {
@@ -48,6 +50,15 @@ install() {
     else
         echo "The following packages couldn't be installed: ${*}."
     fi
+
+    retVal=$?
+    if [ $retVal -ne 0 ]; then
+	echo "Installation was not successful."
+	exit 1
+    fi
+
+    echo "The following packages are installed: ${*}."
+    sleep 5
 }
 
 curl_default() {
@@ -55,7 +66,7 @@ curl_default() {
 }
 
 update_system() {
-    echo 'Updating the system...'
+    echo "Updating the system..."
 
     if [ -x "$(command -v apk)" ] ; then
         sudo apk update
@@ -67,8 +78,10 @@ update_system() {
     elif [ -x "$(command -v xbps-install)" ] ; then
         sudo xbps-install --sync --yes --update
     else
-        echo 'The system could not be upgraded.'
+        echo "The system could not be upgraded."
     fi
+
+    echo "The system is updated."
 }
 
 install_chrome_extension() {
