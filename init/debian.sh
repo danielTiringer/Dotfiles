@@ -50,6 +50,10 @@ install alacritty
 # Install file manager
 install vifm
 
+# Install fonts
+install fonts-font-awesome
+. "$INITDIR/common/fonts.sh"
+
 # Install zsh, make it the default shell, and install oh-my-zsh
 install zsh
 . "$INITDIR/common/zsh.sh"
@@ -58,10 +62,6 @@ if ! is_wayland ; then
 
     # Install the xorg graphical environment
     install xorg
-
-    # Install fonts
-    install fonts-font-awesome
-    . "$INITDIR/common/fonts.sh"
 
     # Install window manager basics
     install nitrogen picom dmenu polybar xtrlock i3lock feh sxhkd lm-sensors rofi
@@ -154,7 +154,7 @@ install terraform
 install firefox-esr
 
 install apt-transport-https curl
-curl_default -o /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+curl_default https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/brave-browser-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update -yy
 install brave-browser
