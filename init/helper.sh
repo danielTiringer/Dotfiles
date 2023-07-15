@@ -12,6 +12,16 @@ check_hardware_type() {
     fi
 }
 
+is_wayland() {
+    if [ $XDG_SESSION_TYPE = "wayland" ] ; then
+        true
+	return
+    else
+        false
+	return
+    fi
+}
+
 change_shell_for_user() {
     echo "Changing the shell to zsh for ${USER}"
 

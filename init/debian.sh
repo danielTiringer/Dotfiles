@@ -25,7 +25,6 @@ install exfat-fuse # For FAT32 SD cards
 install cryptsetup # For encrypted drives
 install ntfs-3g # For NTFS based external drives
 
-
 # Install basic tools for file management
 install unzip unrar-free p7zip-full xclip libclipboard-perl
 
@@ -55,46 +54,37 @@ install vifm
 install zsh
 . "$INITDIR/common/zsh.sh"
 
-exit 0
+if ! is_wayland ; then
 
-# Install the xorg graphical environment
-install xorg
+    # Install the xorg graphical environment
+    install xorg
 
-# Install fonts
-install fonts-font-awesome
-. "$INITDIR/common/fonts.sh"
+    # Install fonts
+    install fonts-font-awesome
+    . "$INITDIR/common/fonts.sh"
 
-# Install window manager basics
-install nitrogen picom dmenu polybar xtrlock i3lock feh sxhkd lm-sensors rofi
+    # Install window manager basics
+    install nitrogen picom dmenu polybar xtrlock i3lock feh sxhkd lm-sensors rofi
 
-# Install qtile
-install python3-pip
-install libxcb-render0-dev
-install libpangocairo-1.0-0
-. "$INITDIR/common/qtile.sh"
+    # Install qtile
+    install python3-pip
+    install libxcb-render0-dev
+    install libpangocairo-1.0-0
+    . "$INITDIR/common/qtile.sh"
 
-# Install herbstluftwm
-install herbstluftwm
+    # Install herbstluftwm
+    install herbstluftwm
 
-# Install bspwm
-install bspwm
+    # Install bspwm
+    install bspwm
 
-# Install i3
-install i3-wm
+    # Install i3
+    install i3-wm
 
-# Install vim
-install vim vim-gtk
-. "$INITDIR/common/vim.sh"
+    # Install multimedia
+    install alsa-utils pulsemixer
 
-# Install dependencies of neovim config
-install python3-pip nodejs npm
-curl_default https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
-echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list > /dev/null
-sudo apt update -y && install yarn
-. "$INITDIR/common/neovim-providers.sh"
-
-# Install dependencies of neovim plugins
-install silversearcher-ag fzf ripgrep fd-find
+fi
 
 # Enable the jetbrains repository
 curl_default https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | gpg --dearmor | sudo tee /usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg > /dev/null
@@ -170,7 +160,7 @@ sudo apt update -yy
 install brave-browser
 
 # Install multimedia
-install  alsa-utils pulsemixer mpv
+install mpv vlc
 
 # Install password manager
 . "$INITDIR/common/bitwarden.sh"
@@ -186,9 +176,9 @@ install  alsa-utils pulsemixer mpv
 
 # Check if the hardware is a macbook, then install specific stuff
 if [ "$(get_hardware_type)" = 'MacBook' ] ; then
-	install mbpfan
-	. "$INITDIR/specific/macbook-fan.sh"
-	. "$INITDIR/specific/macbook-keyboard-brightness.sh"
+    install mbpfan
+    . "$INITDIR/specific/macbook-fan.sh"
+    . "$INITDIR/specific/macbook-keyboard-brightness.sh"
 fi
 
 # Install complete
