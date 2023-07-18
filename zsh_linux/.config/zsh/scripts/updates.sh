@@ -12,8 +12,6 @@ update() {
   docker_compose_update
 
   bitwarden_cli_update
-
-  alacritty_update
 }
 
 distro_update() {
