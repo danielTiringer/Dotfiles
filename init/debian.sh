@@ -13,7 +13,7 @@ echo 'The executed script will install applications on a Debian based system.'
 update_system
 
 # Install ssh
-install openssh-server sshpass
+install openssh-server
 
 # Install network-based tools
 install curl wget network-manager
