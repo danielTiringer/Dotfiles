@@ -38,13 +38,13 @@ install cron-apt
 echo 'OPTIONS="-o quiet=2"
 MAILON="NEVER"
 DEBUG="verbose"' | sudo tee -a /etc/cron-apt/config
+install nala
 
 # Install build tools
 install bc
 
 # Install terminals
 install rxvt-unicode
-#install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 install alacritty
 
 # Install file manager
