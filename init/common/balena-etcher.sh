@@ -4,7 +4,7 @@ LATEST_ETCHER_VERSION=$(curl --silent https://api.github.com/repos/balena-io/etc
 
 DISTRO=$(distro_name)
 if [ "$DISTRO" = "debian" ] ; then
-    CURRENT_ETCHER_VERSION=$(dpkg --search balena-etcher | grep Version | cut -d ' ' -f 2)
+    CURRENT_ETCHER_VERSION=$(dpkg --status balena-etcher | grep Version | cut -d ' ' -f 2)
 
     sudo curl --fail --location "https://github.com/balena-io/etcher/releases/download/v${LATEST_ETCHER_VERSION}/balena-etcher_${LATEST_ETCHER_VERSION}_amd64.deb" --output "$HOME/Downloads/balena-etcher_${LATEST_ETCHER_VERSION}_amd64.deb"
 

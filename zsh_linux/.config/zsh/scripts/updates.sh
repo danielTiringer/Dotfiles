@@ -153,7 +153,7 @@ balena_etcher_update() {
 
         DISTRO=$(distro_name)
         if [ "$DISTRO" = "debian" ] ; then
-            CURRENT_ETCHER_VERSION=$(dpkg --search balena-etcher | grep Version | cut -d ' ' -f 2)
+            CURRENT_ETCHER_VERSION=$(dpkg --status balena-etcher | grep Version | cut -d ' ' -f 2)
 
             if [ "$LATEST_ETCHER_VERSION" = "$CURRENT_ETCHER_VERSION" ] ; then
                 echo "Balena etcher is up to date."
@@ -161,7 +161,7 @@ balena_etcher_update() {
                 sudo curl --fail --location "https://github.com/balena-io/etcher/releases/download/v${LATEST_ETCHER_VERSION}/balena-etcher_${LATEST_ETCHER_VERSION}_amd64.deb" --output "$HOME/Downloads/balena-etcher_${LATEST_ETCHER_VERSION}_amd64.deb"
 
                 sudo dpkg --install "$HOME/Downloads/balena-etcher_${LATEST_ETCHER_VERSION}_amd64.deb"
-                sudp apt update --yes
+                sudo apt update --yes
                 sudo apt --fix-broken install --yes
 
                 rm -f "$HOME/Downloads/balena-etcher_${LATEST_ETCHER_VERSION}_amd64.deb"
