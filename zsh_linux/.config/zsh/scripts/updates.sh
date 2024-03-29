@@ -20,8 +20,8 @@ distro_update() {
   case $DISTRO in
     alpine) sudo apk -U upgrade                             ;;
     arch)   sudo pacman -Syuu --noconfirm                   ;;
-    debian) sudo nala update && sudo nala upgrade -y      ;;
-	void)   sudo xbps-install --sync --yes --update         ;;
+    debian) sudo nala update && sudo nala upgrade -y        ;;
+    void)   sudo xbps-install --sync --yes --update         ;;
     *)      echo "This distro is not set up in the script." ;;
   esac
 }
