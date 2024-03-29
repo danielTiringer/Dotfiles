@@ -9,8 +9,6 @@ update() {
 
   shell_update
 
-  docker_compose_update
-
   bitwarden_cli_update
 
   balena_etcher_update

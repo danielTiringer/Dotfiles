@@ -138,9 +138,8 @@ echo \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt update -yy
-install docker-ce docker-ce-cli containerd.io
+install docker-ce docker-ce-cli containerd.io docker-compose
 
-. "$INITDIR/common/docker-compose.sh"
 sudo groupadd docker
 sudo usermod -aG docker "$USER"
 enable_service docker
