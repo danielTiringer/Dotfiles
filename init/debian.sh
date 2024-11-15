@@ -29,15 +29,10 @@ install ntfs-3g # For NTFS based external drives
 install unzip unrar-free p7zip-full xclip libclipboard-perl
 
 # Install command line tools
-install neofetch stow arandr autorandr jq htop tig
+install stow jq htop tig
 . "$INITDIR/common/tig.sh"
 
 # Install Debian-related tools
-install apt-show-versions gdebi
-install cron-apt
-echo 'OPTIONS="-o quiet=2"
-MAILON="NEVER"
-DEBUG="verbose"' | sudo tee -a /etc/cron-apt/config
 install nala
 
 # Install build tools
@@ -59,6 +54,9 @@ install zsh
 . "$INITDIR/common/zsh.sh"
 
 if ! is_wayland ; then
+
+    # Install graphical tools
+    install arandr autorand
 
     # Install the xorg graphical environment
     install xorg
@@ -103,13 +101,13 @@ sudo sysctl -p --system
 install phpstorm
 
 # Install intellij
-install intellij-idea-community
+install intellij-idea
 
 # Install webstorm
 install webstorm
 
 # Install pycharm
-install pycharm-community
+install pycharm
 
 # Install API tester
 . "$INITDIR/common/postman.sh"
@@ -119,9 +117,6 @@ curl_default https://dbeaver.io/debs/dbeaver.gpg.key | sudo gpg --dearmor -o /et
 echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
 sudo apt update -yy
 install dbeaver-ce
-
-# Install VPN client
-install openvpn
 
 # Set up firewall
 install ufw
