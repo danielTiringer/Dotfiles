@@ -101,13 +101,13 @@ sudo sysctl -p --system
 install phpstorm
 
 # Install intellij
-install intellij-idea
+install intellij-idea-ultimate
 
 # Install webstorm
 install webstorm
 
 # Install pycharm
-install pycharm
+install pycharm-professional
 
 # Install API tester
 . "$INITDIR/common/postman.sh"
@@ -156,12 +156,16 @@ install firefox-esr
 
 install apt-transport-https curl
 curl_default https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/brave-browser-archive-keyring.gpg > /dev/null
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update -yy
 install brave-browser
 
 # Install multimedia
 install mpv vlc
+
+# Download appimage tools
+curl_default https://raw.githubusercontent.com/un1t/appimage-desktop-entry/refs/heads/master/appimage-desktop-entry.sh -o $HOME/.local/bin/appimage-desktop-entry.sh
+sudo chmod +x $HOME/.local/bin/appimage-desktop-entry.sh
 
 # Install password manager
 . "$INITDIR/common/bitwarden.sh"
