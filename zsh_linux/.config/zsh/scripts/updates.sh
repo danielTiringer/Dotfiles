@@ -12,6 +12,8 @@ update() {
   bitwarden_cli_update
 
   balena_etcher_update
+
+  flutter_update
 }
 
 distro_update() {
@@ -167,5 +169,11 @@ balena_etcher_update() {
         else
             echo "There is no balena etcher update script for ${DISTRO}"
         fi
+    fi
+}
+
+flutter_update() {
+    if [ -x "$(command -v flutter)" ] ; then
+        flutter upgrade
     fi
 }
